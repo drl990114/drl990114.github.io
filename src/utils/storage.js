@@ -19,7 +19,12 @@ let storage = {
    */
   getUser () {
     // return JSON.parse(localStorage.getItem(USER_KEY) || '{}')
-    return store.get(USER_KEY , USER_ID) || {}
+    return store.get(USER_KEY) || {}
+  },
+
+  getId () {
+    // return JSON.parse(localStorage.getItem(USER_KEY) || '{}')
+    return store.get(USER_ID ) || {}
   },
 
   /*

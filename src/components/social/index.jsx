@@ -1,8 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect} from 'react'
 import { LikeOutlined, StarOutlined } from '@ant-design/icons'
 import { Button, message } from 'antd'
-import { updateArticle } from '../../api'
-
+import { updateArticle, getUser, updateUser } from '../../api'
 
 export const Social = (props) => {
 
@@ -20,8 +19,6 @@ export const Social = (props) => {
         favorite = []
     }
 
-    console.log(like)
-    console.log(favorite)
 
     useEffect(() => {
         setLike(like)
@@ -57,7 +54,6 @@ export const Social = (props) => {
     //点击‘收藏’的回调
     const handleFav = () => {
         if (!favList.includes(userId)) {
-
             const copy = [...favList]
             copy.push(userId)
             setFav(copy)
@@ -66,15 +62,45 @@ export const Social = (props) => {
         } else {
             for (let i = 0; i < favList.length; i++) {
                 if (favList[i] === userId) {
-                    favList.splice(favList[i])
+                    favList.splice(i, 1)
                 }
-
             }
             const copy = [...favList]
             setFav(copy)
             article.favorite = copy
 
         }
+
+        //获得当前用户的收藏数组
+        getUser(userId).then((req) => {
+            if (req.status === 0) {
+                let user = req.data
+
+                let { favArticle } = user
+                //判断是否有该文章id
+                if (!favArticle.includes(article._id)) {
+                    user.favArticle.push(article._id)
+                } else {
+                    for (let i = 0; i < favArticle.length; i++) {
+                        if (favArticle[i] === article._id) {
+                            user.favArticle.splice(i, 1)
+                        }
+                    }
+                }
+
+
+                //update用户收藏数组
+                updateUser(user).then((req) => {
+                    console.log(req.data)
+                })
+
+
+            } else {
+                message.error('请求失败')
+            }
+        })
+
+        //保存用户id到文章的fav
         updateArticle(article).catch(() => {
             message.error('请求失败')
         })

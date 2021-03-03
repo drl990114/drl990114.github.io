@@ -1,6 +1,8 @@
-import { useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
 import { LikeOutlined, StarOutlined } from '@ant-design/icons'
 import { Button, message } from 'antd'
+import storage from '../../utils/storage'
 import { updateArticle, getUser, updateUser } from '../../api'
 
 export const Social = (props) => {
@@ -8,7 +10,7 @@ export const Social = (props) => {
 
     const [likeList, setLike] = useState([])
     const [favList, setFav] = useState([])
-
+    const history = useHistory()
 
     let { article, userId } = props
     let { like, favorite } = article
@@ -26,6 +28,11 @@ export const Social = (props) => {
     }, [like, favorite])
     //点击‘好诗’的回调
     const handleLike = async () => {
+
+        if (!storage.getUser() || !storage.getId()) {
+            history.replace('/login')
+        }
+
         if (!likeList.includes(userId)) {
 
             const copy = [...likeList]
@@ -53,6 +60,10 @@ export const Social = (props) => {
 
     //点击‘收藏’的回调
     const handleFav = () => {
+        if (!storage.getUser() || !storage.getId()) {
+            history.replace('/login')
+        }
+
         if (!favList.includes(userId)) {
             const copy = [...favList]
             copy.push(userId)

@@ -66,6 +66,11 @@ export function Desc(props) {
     );
 
     const onSubmit = () => {
+        //如果没有登陆，则跳转到登陆页
+        if(!storage.getUser() || !storage.getId()) {
+            history.replace('/login')
+        }
+    
         form.validateFields().then(() => {
             setSubmitting(true)
             //评论格式符合规则

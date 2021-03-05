@@ -13,9 +13,8 @@ import zhe from '../../components/header/者.png'
 import { Editor } from 'react-draft-wysiwyg'
 import { EditorState, convertToRaw } from 'draft-js'
 import draftToHtml from 'draftjs-to-html'
-import memory from '../../utils/memory'
 import storage from '../../utils/storage'
-import { publishArticle } from '../../api'
+import { publishArticle, getUser, updateUser } from '../../api'
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 import { useHistory } from 'react-router-dom'
 
@@ -24,15 +23,18 @@ export function Edit(props) {
     const [editorState, setEditorState] = useState(EditorState.createEmpty())//富文本编辑器内容
     const [files, setFile] = useState([])
     const [title, setTitle] = useState('')
+
+    const history = useHistory()
+
+    if (!storage.getUser() || !storage.getId()) {
+        history.replace('/login')
+        window.location.reload()
+        return
+    }
+
     const editValue = (editorState) => {
         setEditorState(editorState)
     }
-    const history = useHistory()
-
-    if(!storage.getUser() || !storage.getId()) {
-        history.replace('/login')
-    }
-
     const inputValue = (e) => {
         //收集input的值（title）
         setTitle(e.target.value)
@@ -69,6 +71,15 @@ export function Edit(props) {
             publishArticle(title, files, id, username, editValue).then((req) => {
                 message.success('发布成功')
                 history.replace('/scan/home')
+                //获取当前用户信息
+                getUser(req.data.authorId).then((response) => {
+                    const user = response.data
+                    user.writeArticle.push(req.data._id)
+                    updateUser(user).catch(() => {
+                        message.error('发布失败')
+                    })
+
+                })
             }).catch(() => {
                 message.error('发布文章失败')
             })
@@ -79,8 +90,10 @@ export function Edit(props) {
             <Row
                 align='middle'>
                 <Col xs={4} sm={4} md={3} lg={4} xl={6} >
-                    <img style={{ width: '40px' }} src={shi} alt='logo' />
-                    <img style={{ width: '40px' }} src={zhe} alt='logo' />
+                    <a href='/scan/home'>
+                        <img style={{ width: '40px' }} src={shi} alt='logo' />
+                        <img style={{ width: '40px' }} src={zhe} alt='logo' />
+                    </a>
                 </Col>
                 <Col xs={7} sm={7} md={8} lg={7} xl={5}>
                     <span style={{ fontSize: '20px', fontWeight: 'bold' }}>写诗</span>
@@ -93,7 +106,8 @@ export function Edit(props) {
                     >发布</Button>
                 </Col>
                 <Col xs={4} sm={4} md={5} lg={6} xl={6}>
-                    <span>Hello, {memory.user}</span></Col>
+                    <a href={`/personal?id=${storage.getId()}`}>Hello, {storage.getUser()}</a>
+                </Col>
             </Row>
 
             <div id='editor'>
@@ -104,7 +118,7 @@ export function Edit(props) {
                     multiple={true}
                     action="/manage/img/upload"
                     fileList={files}
-                    onChange={(e)=>handleOnchange(e)}
+                    onChange={(e) => handleOnchange(e)}
                 >
                     <p className="ant-upload-drag-icon">
                         <PictureOutlined />

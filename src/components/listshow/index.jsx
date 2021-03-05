@@ -31,9 +31,8 @@ export function ListShow(props) {
                 extra={
                     <img
                         height={130}
-                        // maxWidth={130}
                         alt="封面"
-                    // src={`/upload/${item.imgs[0].name}`}
+                        src={`/upload/${item.imgs[0].name}`}
                     />
                 }
             >

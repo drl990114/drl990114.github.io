@@ -9,7 +9,8 @@ import {
     List,
     Form,
     Input,
-    Divider
+    Divider,
+    Popconfirm
 } from 'antd'
 import storage from '../../utils/storage'
 import shi from '../../components/header/诗.png'
@@ -17,7 +18,7 @@ import zhe from '../../components/header/者.png'
 import { formateDate } from '../../utils/dateUtils'
 import { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
-import { updateArticle } from '../../api'
+import { updateArticle, deleteArticle } from '../../api'
 import { Social } from '../../components/social'
 
 
@@ -34,12 +35,14 @@ export function Desc(props) {
 
     //解构文章信息
     const { authorName, desc, title } = article
-    //解析当前url的参数
-    const articleId = getQueryString('articleId')
+
+
 
     //antd表单
     const [form] = Form.useForm()
     useEffect(() => {
+        //解析当前url的参数
+        const articleId = getQueryString('articleId')
         //通过articleId获取当前文章信息
         getOneArticle(articleId).then((req) => {
             if (req.status === 0) {
@@ -53,7 +56,6 @@ export function Desc(props) {
         }).catch(() => {
             message.error('获取文章失败')
         })
-
     }, [])
 
     const CommentList = ({ comments }) => (
@@ -65,12 +67,14 @@ export function Desc(props) {
         />
     );
 
+    //点击发布的方法
     const onSubmit = () => {
         //如果没有登陆，则跳转到登陆页
-        if(!storage.getUser() || !storage.getId()) {
+        if (!storage.getUser() || !storage.getId()) {
             history.replace('/login')
+            return
         }
-    
+
         form.validateFields().then(() => {
             setSubmitting(true)
             //评论格式符合规则
@@ -102,13 +106,27 @@ export function Desc(props) {
         })
 
     }
+
+    //删除中点击确认的方法
+    const confirm = () => {
+        console.log(article)
+        deleteArticle(article._id).then((req) => {
+            if(req.status === 0) {
+                message.success('删除成功')
+            }
+         })
+    }
+
     return (
         <>
             <Row
                 align='middle'>
                 <Col xs={4} sm={4} md={3} lg={4} xl={6} >
-                    <img style={{ width: '40px' }} src={shi} alt='logo' />
-                    <img style={{ width: '40px' }} src={zhe} alt='logo' />
+                    <a href='/scan/home'>
+                        <img style={{ width: '40px' }} src={shi} alt='logo' />
+                        <img style={{ width: '40px' }} src={zhe} alt='logo' />
+                    </a>
+
                 </Col>
                 <Col xs={7} sm={7} md={8} lg={7} xl={5}>
 
@@ -121,7 +139,9 @@ export function Desc(props) {
                     >写诗</Button>
                 </Col>
                 <Col xs={4} sm={4} md={5} lg={6} xl={6}>
-                    <span>Hello, {userName}</span></Col>
+                    {storage.getUser() === '' ? <Button className='btn' size='large' onClick={() => history.push('/login')}>登陆/注册</Button> : <a href={`/personal?id=${storage.getId()}`}>Hello, {storage.getUser()}</a>}
+
+                </Col>
             </Row>
             <div className='content'>
                 {article.imgs && article.imgs.length >= 1 ? <img style={{ width: 690 }} src={`/upload/${article.imgs[0].name}`} alt='封面'></img> : ''}
@@ -136,6 +156,18 @@ export function Desc(props) {
                 <span>{`本诗作于：${createTime}`}</span>
                 <div className='social'>
                     <Social article={article} userId={userId} ></Social>
+                    {article.authorId === userId ?
+                        <Popconfirm
+                            title="你确定要删除这首诗吗?"
+                            onConfirm={confirm}
+                            okText="确定"
+                            cancelText="取消"
+                        >
+                            <Button
+                                type='danger'
+                                style={{ width: 90, marginTop: '10px' }}
+                            >删除</Button>
+                        </Popconfirm> : ''}
                 </div>
                 <br />
                 <Divider dashed />

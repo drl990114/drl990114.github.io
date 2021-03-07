@@ -88,7 +88,7 @@ export const AddUser = () => {
                     <Form.Item
                         name="email"
                         rules={[{ required: true, message: '邮箱必须输入!' },
-                        { pattern: '^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$', message: '邮箱格式不正确' },
+                        { pattern: '^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+[a-zA-Z0-9_-]+$', message: '邮箱格式不正确' },
                         ]}
                     >
                         <Input

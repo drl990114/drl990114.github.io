@@ -31,6 +31,7 @@ export const Social = (props) => {
 
         if (!storage.getUser() || !storage.getId()) {
             history.replace('/login')
+            return
         }
 
         if (!likeList.includes(userId)) {
@@ -62,6 +63,7 @@ export const Social = (props) => {
     const handleFav = () => {
         if (!storage.getUser() || !storage.getId()) {
             history.replace('/login')
+            return
         }
 
         if (!favList.includes(userId)) {
@@ -69,11 +71,11 @@ export const Social = (props) => {
             copy.push(userId)
             setFav(copy)
             article.favorite = copy
-
         } else {
             for (let i = 0; i < favList.length; i++) {
                 if (favList[i] === userId) {
                     favList.splice(i, 1)
+                    break
                 }
             }
             const copy = [...favList]
@@ -104,11 +106,7 @@ export const Social = (props) => {
                 updateUser(user).then((req) => {
                     console.log(req.data)
                 })
-
-
-            } else {
-                message.error('请求失败')
-            }
+            } 
         })
 
         //保存用户id到文章的fav

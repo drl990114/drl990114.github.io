@@ -113,6 +113,7 @@ export function Desc(props) {
         deleteArticle(article._id).then((req) => {
             if(req.status === 0) {
                 message.success('删除成功')
+                history.replace('/scan/home')
             }
          })
     }
@@ -122,7 +123,7 @@ export function Desc(props) {
             <Row
                 align='middle'>
                 <Col xs={4} sm={4} md={3} lg={4} xl={6} >
-                    <a href='/scan/home'>
+                    <a href='#/scan/home'>
                         <img style={{ width: '40px' }} src={shi} alt='logo' />
                         <img style={{ width: '40px' }} src={zhe} alt='logo' />
                     </a>

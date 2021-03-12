@@ -9,6 +9,7 @@ import { Contact } from '../scan/contact'
 import { Header } from '../../components/header'
 import { Search } from '../scan/search'
 import { EditOutlined } from '@ant-design/icons'
+import { Recommend } from '../../components/recommend'
 
 
 
@@ -50,13 +51,7 @@ export function Scan(props) {
             <Button type='primary' style={{ width: 80, height: 50 }} onClick={() => history.push('/edit')}>
               <EditOutlined style={{ fontSize: 15 }} />写诗
             </Button>
-            <ul>
-              <li>推荐阅读</li>
-              <li>1</li>
-              <li>1</li>
-              <li>1</li>
-              <li>1</li>
-            </ul>
+            <Recommend />
           </div>
         </Col>
         <Col xs={0} sm={0} md={1} lg={1} xl={3}>

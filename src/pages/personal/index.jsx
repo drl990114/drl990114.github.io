@@ -85,7 +85,7 @@ export function Personal() {
             <Row
                 align='middle'>
                 <Col xs={4} sm={4} md={3} lg={4} xl={6} >
-                    <a href='/scan/home'>
+                    <a href='#/scan/home'>
                         <img style={{ width: '40px' }} src={shi} alt='logo' />
                         <img style={{ width: '40px' }} src={zhe} alt='logo' />
                     </a>

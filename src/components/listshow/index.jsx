@@ -37,7 +37,7 @@ export function ListShow(props) {
                 }
             >
                 <List.Item.Meta
-                    title={<a href={`/desc?articleId=${item._id}`}>{item.title}</a>}
+                    title={<a href={`#/desc?articleId=${item._id}`}>{item.title}</a>}
                     description={item.description}
                 />
             </List.Item>

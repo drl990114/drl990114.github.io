@@ -25,7 +25,7 @@ export function Header() {
         <Row
             align='middle'>
             <Col xs={4} sm={4} md={3} lg={4} xl={5} >
-                <a href='/scan/home'>
+                <a href='#/scan/home'>
                     <img style={{ width: '40px' }} src={shi} alt='logo'></img>
                     <img style={{ width: '40px' }} src={zhe} alt='logo'></img>
                 </a>
@@ -52,7 +52,7 @@ export function Header() {
             <Col xs={4} sm={4} md={5} lg={6} xl={6}>
                 {memory.user === '' ? 
                 <Button className='btn' size='large' onClick={() => history.push('/login')}>登陆/注册</Button> : 
-                <a href={`/personal?id=${memory.id}`}>Hello, {memory.user}</a>}</Col>
+                <a href={`#/personal?id=${memory.id}`}>Hello, {memory.user}</a>}</Col>
         </Row>
 
 

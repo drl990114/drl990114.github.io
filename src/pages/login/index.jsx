@@ -50,7 +50,7 @@ export const Login = () => {
     return (
         <div className='login'>
             <header className='login-header'>
-                <a href='/scan/home'>
+                <a href='#/scan/home'>
                     <img style={{ width: '50px' }} src={shi} alt='logo' />
                     <img style={{ width: '50px' }} src={zhe} alt='logo' />
                 </a>

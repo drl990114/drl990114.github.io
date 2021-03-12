@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import App from './App'
 import memory from './utils/memory'
 import storage  from './utils/storage'
-import { BrowserRouter  } from 'react-router-dom'
+import { HashRouter  } from 'react-router-dom'
 
 
 //打开页面前读取local
@@ -15,9 +15,9 @@ memory.id = id
 
 
 ReactDOM.render(
-  <BrowserRouter>
+  <HashRouter>
     <App />
-  </BrowserRouter>,
+  </HashRouter>,
   document.getElementById('root')
 );
 

@@ -5,7 +5,6 @@ import { searchDesc } from '../../../api'
 export const Search = (props) => {
     const [listData, setData] = useState([])
 
-    console.log(window.location.href)
     useEffect(() => {
         const descu = getQueryString('desc')
         searchDesc(descu).then((req) => {

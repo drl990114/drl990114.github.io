@@ -140,7 +140,7 @@ export function Desc(props) {
                     >写诗</Button>
                 </Col>
                 <Col xs={4} sm={4} md={5} lg={6} xl={6}>
-                    {storage.getUser() === '' ? <Button className='btn' size='large' onClick={() => history.push('/login')}>登陆/注册</Button> : <a href={`/personal?id=${storage.getId()}`}>Hello, {storage.getUser()}</a>}
+                    {storage.getUser() === '' ? <Button className='btn' size='large' onClick={() => history.push('/login')}>登陆/注册</Button> : <a href={`#/personal?id=${storage.getId()}`}>Hello, {storage.getUser()}</a>}
 
                 </Col>
             </Row>

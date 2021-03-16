@@ -41,7 +41,7 @@ export const Home = () => {
                 item.href = item.imgs[0] || ''
                 item.description = (
                     <span
-                        style={{ display: 'block', height: 'auto', maxHeight: '80px', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                        style={{ display: 'block', height: 'auto', maxHeight: '90px', overflow: 'hidden', textOverflow: 'ellipsis' }}
                         dangerouslySetInnerHTML={{ __html: item.desc }}>
                     </span>)
                 return item

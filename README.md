@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+# React技术栈 诗者
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 项目简介
+### 技术栈
+基于 `react` + `react-router` +  `axios` + `ant design` + `nodejs` + `Express` +`mongodb` 等开发的一款PC端Web项目，这是一个可以自由写诗，并且相互交流的网站。
 
-## Available Scripts
+## 预览地址
+- 😋 项目在线预览地址：![点击预览](http://47.119.125.145:5000/)
 
-In the project directory, you can run:
+## 最近更新
+### 更新功能
+- 登录功能：
+  - 支持游客浏览
+- 诗列表：
+  - 后端对列表进行分页
+  - 点击加载更多
+- 搜索框：
+  - 增加显示搜索到的条数
+- 点赞、收藏、评论
 
-### `yarn start`
+### TO-DO-LIST（可能会开发）
+- 独立登录功能
+  - 登录的信息保存在独立的服务器当中，便以后续扩展
+- 头像功能
+  - 用户可以自定义头像
+- 社区（私信功能）  
+  - 可以给作者私信
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 界面和功能展示
+### 首页
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![](https://cdn.jsdelivr.net/gh/halodong/CDN@1.4/cloudPic/shizhe/首页.PNG)
+### 登陆
 
-### `yarn test`
+![](https://cdn.jsdelivr.net/gh/halodong/CDN@1.4/cloudPic/shizhe/登陆.PNG)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 详情
 
-### `yarn build`
+![](https://cdn.jsdelivr.net/gh/halodong/CDN@1.4/cloudPic/shizhe/详情.PNG)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 点赞、收藏、评论
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![](https://cdn.jsdelivr.net/gh/halodong/CDN@1.4/cloudPic/shizhe/赞收藏.PNG)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+### 编辑
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![](https://cdn.jsdelivr.net/gh/halodong/CDN@1.4/cloudPic/shizhe/编辑.PNG)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 搜索
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![](https://cdn.jsdelivr.net/gh/halodong/CDN@1.4/cloudPic/shizhe/搜索.PNG)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 个人主页
 
-## Learn More
+![](https://cdn.jsdelivr.net/gh/halodong/CDN@1.4/cloudPic/shizhe/个人.PNG)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 技术栈
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 前端
 
-### Code Splitting
+- `React`：用于构建用户界面的 `MVVM` 框架
+- `axios`: 发送网络请求，请求拦截和响应拦截
+- `react-router`：为单页面应用提供的路由系统
+- `propType`: 校验`props`类型及默认值
+- 项目中的优化: 路由懒加载、函数防抖
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 后端
 
-### Analyzing the Bundle Size
+- `Node.js`：利用 `Express` 搭建的本地测试服务器
+- `axios`：用来请求后端 `API` 音乐数据
+- `mongodb`: 用来搭建数据库
+- `mongoose`: 简化node操作mongodb的步骤
+- 项目中的优化：诗列表分页
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 其他工具
 
-### Making a Progressive Web App
+- create-react-app：React 脚手架工具，快速初始化项目代码
+- eslint：代码风格检查工具，帮助我们规范代码书写
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 最后
+如果觉得项目还不错的话 👏，就给个 star ⭐ 鼓励一下吧~

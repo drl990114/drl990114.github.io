@@ -44,7 +44,8 @@ export const Social = (props) => {
         } else {
             for (let i = 0; i < likeList.length; i++) {
                 if (likeList[i] === userId) {
-                    likeList.splice(likeList[i])
+                    likeList.splice(i,1)
+                    break
                 }
 
             }

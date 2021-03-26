@@ -80,6 +80,11 @@ export function Personal() {
             window.location.reload();
         })
     }   
+
+    const removeUser = () => {
+        storage.removeUser()
+        history.replace('/scan/home')
+    }
     return (
         <>
             <Row
@@ -114,12 +119,20 @@ export function Personal() {
                     <br />
                     <p>{`用户名: ${user.username}`}</p>
                     <p>{`email: ${user.email || ''}`}</p>
+                    <Button
+                        style={{float:'right'}}
+                        onClick={() => removeUser()}
+                    >退出登录</Button>
                 </div> :
                 <div className='personal-header'>
                     <RollbackOutlined style={{ fontSize: '20px', color: '#2b73af' }} onClick={() => setEdit(false)} />
                     <br />
                     <p>用户名: <input value={username} onChange={(e) => setName(e.target.value)} /></p>
                     <p>email: <input value={email} onChange={(e) => setEmail(e.target.value)} /></p>
+                    <Button
+                        style={{float:'right'}}
+                        onClick={() => removeUser()}
+                    >退出登录</Button>
                     <Button onClick={handleSave}>保存</Button>
                 </div>}
             <div className='personal-body'>

@@ -3,7 +3,7 @@ import shi from './诗.png'
 import zhe from './者.png'
 import { Menu, Button, Input, Space, Row, Col } from 'antd'
 import { useHistory } from 'react-router-dom';
-import memory from '../../utils/memory'
+import storage from '../../utils/storage'
 
 const { Search } = Input;
 
@@ -21,6 +21,8 @@ export function Header() {
         history.replace(`/scan/search?desc=${value}`)
         window.location.reload()
     }
+    const user = storage.getUser()
+    const id = storage.getId()
     return (
         <Row
             align='middle'>
@@ -48,11 +50,12 @@ export function Header() {
             <Col xs={9} sm={9} md={8} lg={7} xl={7}>
                 <Space>
                     <Search placeholder="请输入你想搜索的内容" allowClear onSearch={(value)=>handleSearch(value)} />
-                </Space></Col>
+                </Space>
+            </Col>
             <Col xs={4} sm={4} md={5} lg={6} xl={6}>
-                {memory.user === '' ? 
+                {!user ? 
                 <Button className='btn' size='large' onClick={() => history.push('/login')}>登陆/注册</Button> : 
-                <a href={`#/personal?id=${memory.id}`}>Hello, {memory.user}</a>}</Col>
+                <a href={`#/personal?id=${id}`}>Hello, {user}</a>}</Col>
         </Row>
 
 

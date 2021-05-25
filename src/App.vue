@@ -1,19 +1,29 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
-  </div>
+      <router-view/>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from "vue";
+import { useRouter } from "vue-router";
+
 export default {
-  name: 'App'
-}
+  setup() {
+    const router = useRouter();
+    const toHome = () => {
+      router.push({
+        name: "home",
+      });
+    };
+    return {
+      toHome,
+    };
+  },
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

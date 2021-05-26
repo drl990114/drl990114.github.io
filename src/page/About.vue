@@ -1,23 +1,20 @@
 <template>
-  <h1>home</h1>
+  <div>
+    <h1>about</h1>
+    <Header />
+  </div>
 </template>
 
 <script lang="ts">
-import { ref, defineComponent } from 'vue'
+import { defineComponent } from "vue"
+
 export default defineComponent({
-  name: 'Home',
-  setup: () => {
-    const count = ref(0)
-    return { count }
-  }
+  name: "About",
+
 })
 </script>
 
 <style scoped>
-a {
-  color: #42b983;
-}
-
 label {
   margin: 0 0.5em;
   font-weight: bold;

@@ -1,5 +1,8 @@
 <template>
+<div>
   <h1>read</h1>
+</div>
+
 </template>
 
 <script lang="ts">
@@ -14,10 +17,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-a {
-  color: #42b983;
-}
-
 label {
   margin: 0 0.5em;
   font-weight: bold;

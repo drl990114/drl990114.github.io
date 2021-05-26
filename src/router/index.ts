@@ -1,20 +1,34 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '../page/Home.vue'
-import Read from '../page/Read.vue'
+import Home from '../page/Home/Home.vue'
+import Read from '../page/Home/Read.vue'
+import Welcome from '../page/Welcome.vue'
+import About from '../page/About.vue'
 import { createRouter, createWebHashHistory } from "vue-router"
 
 const routes = [
-    { path: "/", redirect: "/home" },
+    { path: "/", redirect: "/welcome" },
     {
       path: "/home",
-      name: "home",
-      component: Home
+      children:[
+        {
+          path: "/home/read",
+          name: "read",
+          component: Read
+        },
+      ],
+      component: Home,
+      
     },
     {
-      path: "/read",
-      name: "read",
-      component: Read
+      path: "/welcome",
+      name: "welcome",
+      component: Welcome
+    },
+    {
+      path: "/about",
+      name: "about",
+      component: About
     }
   ]
   

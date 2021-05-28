@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../page/Home/Home.vue'
-import Read from '../page/Home/Read.vue'
+import Read from '../page/Read.vue'
 import Welcome from '../page/Welcome.vue'
 import About from '../page/About.vue'
 import { createRouter, createWebHashHistory } from "vue-router"

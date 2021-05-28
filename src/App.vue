@@ -7,7 +7,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { useRouter } from "vue-router";
-
+import "../public/index.css";
 export default {
   setup() {
     const router = useRouter();
@@ -28,15 +28,20 @@ export default {
   margin: 0;
   padding: 0;
 }
-#container {
-  margin: 0 auto;
-  width: 70%;
+html {
+  margin: 0px;
   height: 100%;
 }
-#app {
-  /* filter: invert(0.9) hue-rotate(180deg); */
+body {
   min-height: 100vh;
+  /* filter: invert(0.9) hue-rotate(180deg); */
+  font-size: 12px;
+}
+#app {
+  /* display: flex; */
+
   width: 100%;
+  height: 100%;
   margin: 0 auto;
   background: rgb(255, 255, 255);
   font-family: Palatino, Garamond, Times, Georgia, serif;
@@ -46,12 +51,25 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-html {
-  font-size: 12px;
-}
+
 a {
   color: #4a75b5;
   word-break: break-all;
-  text-decoration:none;
+  text-decoration: none;
+}
+a:hover {
+  color: #e58c7c;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Palatino, Garamond, Times, Georgia, serif;
+}
+#container {
+  margin: 0 auto;
+  height: 1000px;
 }
 </style>

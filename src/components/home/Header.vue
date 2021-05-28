@@ -1,7 +1,7 @@
 <template>
   <div class="home-header">
     <div class="home-header-left">
-      <a>Dong</a>
+      <a href="/welcome">Dong</a>
       <font aria-hidden="true">» 博客</font>
       <div class="arrow-expend">▾</div>
     </div>
@@ -15,12 +15,10 @@
 .home-header {
   width: 100%;
   height: 70px;
-  position: absolute;
-  top: 50px;
-  font-size: 2.4rem;
+  margin: 50px 0 10px 0;
+  font-size: 28px;
   font-weight: bold;
 }
-
 .arrow-expend {
   display: inline-block;
   font-size: 2rem;

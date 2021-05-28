@@ -1,6 +1,6 @@
  <template>
-  <div class="home-body">
-    <div class="home-headlines">
+  <div class="home-headlines">
+    <div class="home-headlines-article">
       <h1>
         <a href="/">不恋过往</a>
       </h1>
@@ -23,25 +23,30 @@
           ></b></a
       ></span>
     </div>
+    <BodyNear />
   </div>
 </template>
 
-<style scoped>
-.home-body {
-  display: flex;
-  position: absolute;
-  top: 120px;
-  height: 90%;
-  width: 100%;
-}
+<script lang="ts">
+import { defineComponent } from "vue";
+import BodyNear from "./BodyNear.vue";
+export default defineComponent({
+  components: {
+    BodyNear,
+  },
+  setup() {},
+});
+</script>
+
+ <style scoped>
 .home-headlines {
-  position: absolute;
-  width: 590px;
-  height: 180px;
-  padding: 20px;
-  background: #f3f3f3;
   border-radius: 2px;
+}
+.home-headlines-article {
+  height: 180px;
+  background: #f3f3f3;
   box-shadow: 2px 2px 4px #e2e2e2;
+  padding: 20px;
 }
 .home-headlines h1 {
   font-size: 22px;

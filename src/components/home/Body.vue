@@ -15,18 +15,7 @@
       本站由 <a href="/">Barret李靖</a> 纯手工打造 |
       <a href="/about#contact">联系方式</a> | 总热度：<em
         id="busuanzi_value_site_pv"
-        >1634282</em
-      >
-      <a
-        href="https://union.zhaodao.ai/#random"
-        title="随机跳转到一个有意思的网站"
-        target="_blank"
-        class="zhidao_ai"
-        ><img
-          src="https://union.zhaodao.ai/icon.black.svg"
-          width="20"
-          height="20"
-      /></a>
+        >1634282</em> | <router-link to="/login">站长管理</router-link>
     </div>
   </div>
 </template>
@@ -36,17 +25,13 @@ import { ref, defineComponent } from "vue";
 import BodyHeadline from "./BodyHeadline.vue";
 import BodyClass from "./BodyClass.vue";
 
-export default defineComponent({
+export default {
   name: "Read",
   components: {
     BodyHeadline,
     BodyClass,
   },
-  setup: () => {
-    const count = ref(0);
-    return { count };
-  },
-});
+};
 </script>
 
 <style scoped>
@@ -61,7 +46,6 @@ export default defineComponent({
 .body-foot {
   width: 100%;
   margin-top: 25px;
-  white-space: nowrap;
   padding-bottom: 10px;
   color: #aaa;
   text-align: right;

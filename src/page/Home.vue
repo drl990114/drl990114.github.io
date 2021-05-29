@@ -7,8 +7,8 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import Header from "../../components/home/Header.vue";
-import Body from "../../components/home/index.vue";
+import Header from "../components/home/Header.vue";
+import Body from "../components/home/Body.vue";
 export default defineComponent({
   name: "Home",
   components: {
@@ -19,12 +19,10 @@ export default defineComponent({
 </script>
 
 <style scoped>
-
 .home {
-  display: flex;
-  flex-direction: column;
-  justify-items: center;
   position: relative;
+  left: 50%;
+  transform: translateX(-50%);
   height: 100%;
   width: 100%;
   text-align: left;

@@ -209,7 +209,6 @@
 
  <style scoped>
 .home-near {
-  max-width: 630px;
   height: 548px;
 }
 
@@ -217,8 +216,7 @@
   font-size: 22px;
   font-weight: 400;
   border-bottom: 1px dashed #ccc;
-  width: 590px;
-  max-width: 100%;
+  width: 100%;
   line-height: 2;
   margin-bottom: 15px;
   margin-top: 40px;
@@ -244,13 +242,13 @@
 .home-near li span {
   color: #999;
   display: inline-block;
-  width: 100px;
+  max-width: 100px;
 }
 .aria-readonly {
-    height: 0;
-    width: 0;
-    line-height: 0;
-    position: absolute!important;
-    left: -9999px!important;
+  height: 0;
+  width: 0;
+  line-height: 0;
+  position: absolute !important;
+  left: -9999px !important;
 }
 </style>

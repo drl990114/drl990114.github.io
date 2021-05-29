@@ -2,7 +2,7 @@
   <div class="home-headlines">
     <div class="home-headlines-article">
       <h1>
-        <a href="/">不恋过往</a>
+        <router-link to="/read">不恋过往</router-link>
       </h1>
       <p itemprop="description">
         依稀还记得，5
@@ -43,7 +43,7 @@ export default defineComponent({
   border-radius: 2px;
 }
 .home-headlines-article {
-  height: 180px;
+  min-height: 180px;
   background: #f3f3f3;
   box-shadow: 2px 2px 4px #e2e2e2;
   padding: 20px;

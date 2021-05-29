@@ -19,11 +19,12 @@
 
  <style scoped>
 .home-class {
+  display: flex;
+  flex-wrap: wrap;
   float: right;
   border: 1px solid #ccc;
   padding: 15px;
   margin-bottom: 30px;
-
 }
 .home-class ul {
   margin: 0px;
@@ -49,7 +50,7 @@
   font-size: 22px;
   font-weight: 400;
   border-bottom: 1px dashed #ccc;
-  width: 590px;
+  width: 100%;
   max-width: 100%;
   line-height: 2;
   margin-bottom: 15px;

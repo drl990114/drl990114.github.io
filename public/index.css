@@ -1,6 +1,7 @@
 @media screen and (max-width: 630px) {
     #container {
-        width: 100%;
+        width: 90%;
+        padding:0 auto;
     }
     /* 文章分类 */
     .home-class {
@@ -8,7 +9,7 @@
         margin: 0 auto;
         width: 607px;
         float: left;
-        height: 116px;
+        min-height: 170px;
     }
     .home-class ul{
         padding-left: 0;
@@ -19,22 +20,23 @@
     }
     /* 推荐文章 */
     .home-headlines {
-        width: 600px;
+        width: 100%;
         order: 0;
     }
     .home-headlines-article {
-        width: 600px;
+        width: 100%-40px;
+        min-height: 220px;
     }
 
 }
 @media screen and (min-width: 631px) and (max-width: 998px) {
     #container {
-        width: 80%;
+        width: 90%;
     }
     .home-class {
         order: -1;
         margin: 0 auto;
-        width: 607px;
+        width: 100%-30px;
         height: 116px;
         float: left;
     }
@@ -46,11 +48,11 @@
         margin: 0 10px;
     }
     .home-headlines {
-        width: 600px;
+        width: 100%;
         order: 0;
     }
     .home-headlines-article {
-        width: 600px;
+        width: 100%-40px;
     }
 }
 @media screen and (min-width: 998px) and (max-width: 1280px) {

@@ -8,7 +8,7 @@
 import { defineComponent } from "vue";
 import { useRouter } from "vue-router";
 import "../public/index.css";
-import "../public/font_pvlkp9ndb6/iconfont.css"
+import "../public/font_pvlkp9ndb6/iconfont.css";
 export default {
   setup() {
     const router = useRouter();
@@ -28,7 +28,6 @@ export default {
 * {
   margin: 0;
   padding: 0;
-
 }
 
 html,
@@ -36,8 +35,8 @@ body {
   min-height: 100vh;
   min-width: 90vw;
   font-size: 12px;
-
-  
+  /* background: #222; */
+  /* color: #ccc; */
 }
 #app {
   /* display: flex; */
@@ -53,7 +52,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  /* color: #2c3e50; */
+  /* filter: invert(0.87) hue-rotate(180deg); */
 }
 
 a {

@@ -41,7 +41,6 @@ export default defineComponent({
   color: #4a75b5;
   margin-left: 30px;
   font-family: fantasy, cursive, consolas;
-  text-shadow: 1px 1px 1px rgb(149, 207, 255), 1px 1px 3px rgb(43, 24, 218);
   display: inline-block;
 }
 #write .write-header button {

@@ -4,7 +4,7 @@
       <a href="/blog/categories/前端杂烩/" aria-hidden="true">博客归档 »</a
       >近期文章
     </h2>
-    <ul itemscope="" itemtype="http://schema.org/Article">
+    <ul itemtype="http://schema.org/Article">
       <li>
         <span itemprop="timeCreated" aria-hidden="true">2020-12-19 » </span
         ><a href="/blog/2020/12/19/transform/" itemprop="url">转变 </a

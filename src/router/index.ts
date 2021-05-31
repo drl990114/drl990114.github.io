@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Router from 'vue-router'
+import Router, {createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Read from '../views/Read.vue'
 import Welcome from '../views/Welcome.vue'
@@ -7,7 +7,6 @@ import About from '../views/About.vue'
 import Login from '../views/admin/Login.vue'
 import ShowData from '../views/ShowData.vue'
 import Write from "../views/Write.vue"
-import { createRouter, createWebHashHistory } from "vue-router"
 
 const routes = [
   { path: "/", redirect: "/welcome" },
@@ -50,6 +49,6 @@ const routes = [
 ]
 
 export const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes: routes
 })

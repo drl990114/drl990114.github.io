@@ -1,7 +1,7 @@
 <template>
   <div class="home-header">
     <div class="home-header-left">
-      <router-link to="/welcome">Dong</router-link>
+      <router-link to="/welcome">RuiLinDong</router-link>
       <font aria-hidden="true">» 博客</font>
       <div class="arrow-expend">▾</div>
     </div>

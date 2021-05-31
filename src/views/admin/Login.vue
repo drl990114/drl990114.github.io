@@ -1,7 +1,6 @@
 <template>
   <div id="login">
     <Header style="opacity: 0.3" />
-    <div class="image"></div>
     <from class="login-from">
       <div>
         <span>账号：</span>
@@ -49,7 +48,6 @@ export default defineComponent({
   width: 460px;
   height: 270px;
   padding: 20px;
-  border-radius: 2px;
   box-shadow: 2px 2px 4px #e2e2e2;
   background: #f3f3f3;
   padding: 20px;
@@ -92,7 +90,7 @@ export default defineComponent({
   display: inline-block;
   background-color: #ffffff;
   color: #4a75b5;
-  border: 1px solid #ccc;
+  border: 1px solid #4a75b5;
   padding: 10px 24px;
   border-radius: 4px;
   transition: all 0.3s;

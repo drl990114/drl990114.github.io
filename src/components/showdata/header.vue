@@ -13,7 +13,7 @@
       </li>
       <li>
         <iframe
-          allowtransparency="true"
+          :allowtransparency="true"
           frameborder="0"
           scrolling="0"
           width="90px"

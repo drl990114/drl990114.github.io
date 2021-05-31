@@ -26,21 +26,6 @@
   padding: 15px;
   margin-bottom: 30px;
 }
-.home-class::after{
-  
-			content:'.';
-			display: block;
-			clear: both;
-			overflow: hidden;
-			height: 0;
-}
-.home-class::before{
-  			content:'.';
-			display: block;
-			clear: both;
-			overflow: hidden;
-			height: 0;
-}
 .home-class ul {
   margin: 0px;
   font-size: 20px;

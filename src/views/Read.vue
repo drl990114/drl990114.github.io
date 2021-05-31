@@ -1,7 +1,9 @@
 <template>
 <div class="read">
-  <h1>read</h1>
   <LeftBar/>
+  sd
+ <v-md-preview :text="text"></v-md-preview>
+  <v-md-editor :value="text" mode="preview"></v-md-editor>
 </div>
 
 </template>
@@ -13,6 +15,14 @@ export default defineComponent({
   name: 'Read',
   components:{
     LeftBar
+  },
+  data() {
+    return {
+      text: '## link ',
+    };
+  },
+  setup(){
+    const text = ""
   }
 })
 </script>

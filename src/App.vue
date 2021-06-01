@@ -1,27 +1,16 @@
 <template>
   <div id="container">
-    <router-view />
+    <router-view v-slot="{ Component }">
+      <Suspense>
+        <component :is="Component" />
+      </Suspense>
+    </router-view>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-import { useRouter } from "vue-router";
+<script setup>
 import "../public/index.css";
-import "../public/font_pvlkp9ndb6/iconfont.css";
-export default {
-  setup() {
-    const router = useRouter();
-    const toHome = () => {
-      router.push({
-        name: "home",
-      });
-    };
-    return {
-      toHome,
-    };
-  },
-};
+import "../public/font_pvlkp9ndb6/iconfont.css"
 </script>
 
 <style>

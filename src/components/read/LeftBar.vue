@@ -9,6 +9,14 @@
     </div>
   </div>
 </template>
+<script lang="ts">
+import { ref, defineComponent,defineAsyncComponent } from 'vue'
+export default defineComponent({
+
+})
+
+</script>
+
  <style scoped>
 .read-left {
   border-right: none;

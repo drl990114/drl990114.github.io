@@ -38,6 +38,10 @@
   display: inline-block;
   width: 70px;
   border-radius: 35px;
+  transition: all .3s;
+}
+.home-introduction img:hover{
+  transform: rotate(-180deg);
 }
 .home-introduction h3 {
   display: inline-block;

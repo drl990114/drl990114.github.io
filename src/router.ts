@@ -4,17 +4,18 @@ import {
   createWebHistory
 } from 'vue-router'
 
-
+// Auto generates routes from vue files under ./pages
+// https://vitejs.dev/guide/features.html#glob-import
 const pages = import.meta.glob('./pages/*.vue')
 
 const routes = Object.keys(pages).map((path:any) => {
   const name = path.match(/\.\/pages(.*)\.vue$/)[1].toLowerCase()
   return {
     path: name === '/welcome' ? '/' : name,
-    component: pages[path] // () => import('./pages/*.vue')
+    component: pages[path] 
   }
 })
-// 
+
 export function createRouter() {
   return _createRouter({
     // use appropriate history implementation for server/client
@@ -23,8 +24,6 @@ export function createRouter() {
     routes
   })
 }
-
-
 
 // const routes = [
   //   { path: "/", redirect: "/welcome" },

@@ -9,11 +9,19 @@
 </template>
 
 <script setup>
-import "../public/index.css";
-import "../public/font_pvlkp9ndb6/iconfont.css"
+import Welcome from './pages/Welcome.vue'
+import Home from './pages/Home.vue'
+import Lab from './pages/Lab.vue'
+import Login from './pages/Login.vue'
+import Read from './pages/Read.vue'
+import ShowData from './pages/ShowData.vue'
+import Write from './pages/Write.vue'
+
 </script>
 
 <style>
+@import "../public/index.css";
+@import "../public/font_pvlkp9ndb6/iconfont.css";
 * {
   margin: 0;
   padding: 0;

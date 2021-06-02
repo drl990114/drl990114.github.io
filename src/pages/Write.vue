@@ -62,36 +62,38 @@ export default defineComponent({
 </script>
 
 
-<style>
-#write .write-header {
-  height: 65px;
-  margin-bottom: 10px;
-  text-align: left;
-  box-shadow: 0 0 12px 2px rgb(0 0 0 / 10%);
-  /* background: black; */
-}
-#write .write-header h1 {
-  font-size: 30px;
-  line-height: 64px;
-  color: #4a75b5;
-  margin-left: 30px;
-  font-family: fantasy, cursive, consolas;
-  display: inline-block;
-}
-#write .write-header button {
-  float: right;
-  margin: 23px 20px 0 0;
-  cursor: pointer;
-  width: 80px;
-  height: 27px;
-  background-color: #ffffff;
-  color: #4a75b5;
-  border: 1px solid #4a75b5;
-  padding: auto 12px;
-  border-radius: 4px;
-  transition: all 0.3s;
-}
-#write pre {
-  text-align: left !important;
+<style lang="scss">
+#write {
+  .write-header {
+    height: 65px;
+    margin-bottom: 10px;
+    text-align: left;
+    box-shadow: 0 0 12px 2px rgb(0 0 0 / 10%);
+    /* background: black; */
+  }
+  .write-header h1 {
+    font-size: 30px;
+    line-height: 64px;
+    color: #4a75b5;
+    margin-left: 30px;
+    font-family: fantasy, cursive, consolas;
+    display: inline-block;
+  }
+  .write-header button {
+    float: right;
+    margin: 23px 20px 0 0;
+    cursor: pointer;
+    width: 80px;
+    height: 27px;
+    background-color: #ffffff;
+    color: #4a75b5;
+    border: 1px solid #4a75b5;
+    padding: auto 12px;
+    border-radius: 4px;
+    transition: all 0.3s;
+  }
+  pre {
+    text-align: left !important;
+  }
 }
 </style>

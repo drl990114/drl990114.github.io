@@ -12,7 +12,7 @@ import Header from '../components/showdata/header.vue'
 import Body from '../components/showdata/body.vue'
 </script>
 
-<style scoped>
+<style lang="scss">
 .showdata{
     width:100% ;
     margin: auto;

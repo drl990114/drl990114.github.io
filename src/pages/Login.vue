@@ -1,6 +1,6 @@
 <template>
   <div id="login">
-    <!-- <Header style="opacity: 0.3" /> -->
+    <Header style="opacity: 0.3" />
     <form class="login-from">
       <div>
         <span>账号：</span>
@@ -16,11 +16,10 @@
 </template>
 
 <script setup>
-import { defineComponent } from "vue";
-import { useRouter } from "vue-router";
-// import Header from "../components/showdata/header.vue";
-
-const router = useRouter();
+import { defineComponent } from "vue"
+import { useRouter } from "vue-router"
+import Header from "../components/showdata/header.vue"
+const router = useRouter()
 const handleBtn = () => {
   router.push({
     path: "/write",
@@ -28,7 +27,7 @@ const handleBtn = () => {
 };
 </script>
 
-<style scoped>
+<style lang="scss">
 #login {
   overflow: hidden;
   position: relative;
@@ -44,46 +43,46 @@ const handleBtn = () => {
   border-radius: 12px;
   color: #4a75b5;
   font-family: Georgia, serif;
-}
-#login h1 {
-  font-weight: bolder;
-  font-size: 24px !important;
-  color: #4a75b5;
-  text-align: center;
-  line-height: 36px;
-}
-#login input {
-  min-width: 300px;
-  height: 25px;
-  margin: 40px 0 0 0;
-  opacity: 0.6;
-  padding: 8px 12px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  color: #666;
-  font-size: 14px;
-  outline: none;
-}
-#login .login-from {
-  display: inline-block;
-  margin: 50px 0 0 0;
-  transform: translateX(-11px);
-}
-#login .login-from span {
-  font-size: 16px;
-}
-#login .login-btn {
-  cursor: pointer;
-  margin: 30px;
-  width: 80px;
-  height: 37px;
-  display: inline-block;
-  background-color: #ffffff;
-  color: #4a75b5;
-  border: 1px solid #4a75b5;
-  padding: 10px 24px;
-  border-radius: 4px;
-  transition: all 0.3s;
-  line-height: 15px;
+  h1 {
+    font-weight: bolder;
+    font-size: 24px !important;
+    color: #4a75b5;
+    text-align: center;
+    line-height: 36px;
+  }
+  input {
+    min-width: 300px;
+    height: 25px;
+    margin: 40px 0 0 0;
+    opacity: 0.6;
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    color: #666;
+    font-size: 14px;
+    outline: none;
+  }
+  .login-from {
+    display: inline-block;
+    margin: 50px 0 0 0;
+    transform: translateX(-11px);
+  }
+  .login-from span {
+    font-size: 16px;
+  }
+  .login-btn {
+    cursor: pointer;
+    margin: 30px;
+    width: 80px;
+    height: 37px;
+    display: inline-block;
+    background-color: #ffffff;
+    color: #4a75b5;
+    border: 1px solid #4a75b5;
+    padding: 10px 24px;
+    border-radius: 4px;
+    transition: all 0.3s;
+    line-height: 15px;
+  }
 }
 </style>

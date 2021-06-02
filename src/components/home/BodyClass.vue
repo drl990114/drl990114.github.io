@@ -17,7 +17,7 @@
   </div>
 </template>
 
- <style scoped>
+ <style lang="scss">
 .home-class {
   display: flex;
   flex-wrap: wrap;
@@ -25,34 +25,34 @@
   border: 1px solid #ccc;
   padding: 15px;
   margin-bottom: 30px;
-}
-.home-class ul {
-  margin: 0px;
-  font-size: 20px;
-  display: block;
-  list-style: none;
-  padding-left: 20px;
-}
-.home-class li {
-  margin-bottom: 5px;
-  line-height: 28px;
-  font-size: 16px;
-}
-.home-class li::marker {
-  unicode-bidi: isolate;
-  font-variant-numeric: tabular-nums;
-  text-transform: none;
-  text-indent: 0px !important;
-  text-align: start !important;
-  text-align-last: start !important;
-}
-.home-class h2 {
-  font-size: 22px;
-  font-weight: 400;
-  border-bottom: 1px dashed #ccc;
-  width: 100%;
-  max-width: 100%;
-  line-height: 2;
-  margin-bottom: 15px;
+  .home-class ul {
+    margin: 0px;
+    font-size: 20px;
+    display: block;
+    list-style: none;
+    padding-left: 20px;
+  }
+  li {
+    margin-bottom: 5px;
+    line-height: 28px;
+    font-size: 16px;
+  }
+  li::marker {
+    unicode-bidi: isolate;
+    font-variant-numeric: tabular-nums;
+    text-transform: none;
+    text-indent: 0px !important;
+    text-align: start !important;
+    text-align-last: start !important;
+  }
+  h2 {
+    font-size: 22px;
+    font-weight: 400;
+    border-bottom: 1px dashed #ccc;
+    width: 100%;
+    max-width: 100%;
+    line-height: 2;
+    margin-bottom: 15px;
+  }
 }
 </style>

@@ -10,14 +10,11 @@
   </div>
 </template>
 <script lang="ts">
-import { ref, defineComponent,defineAsyncComponent } from 'vue'
-export default defineComponent({
-
-})
-
+import { ref, defineComponent, defineAsyncComponent } from "vue";
+export default defineComponent({});
 </script>
 
- <style scoped>
+ <style lang="scss">
 .read-left {
   border-right: none;
   position: fixed;
@@ -32,53 +29,54 @@ export default defineComponent({
   transition: all 0.3s;
   z-index: 80;
   background: #fff;
+
+  .bar-up {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    bottom: 10px;
+    width: 26px;
+    height: 26px;
+    font-size: 18px;
+    text-align: center;
+    color: #666;
+    transition: all 0.3s;
+  }
+
+  .bar-up span {
+    cursor: pointer;
+    padding: 6px 0;
+    display: block;
+    height: 18px;
+    line-height: 18px;
+    font-size: 27px;
+  }
+  #show {
+    position: absolute;
+    top: 0px;
+    right: -15px;
+    font-size: 15px !important;
+    opacity: 0;
+    text-align: center;
+    color: #666;
+  }
 }
 
 .read-left:hover {
   left: -648px;
   transition: all 0.3s;
-}
-.read-left:hover .bar-up {
-  right: 20px;
-  width: 52px;
-  transition: all 0.3s;
-}
+  .bar-up {
+    right: 20px;
+    width: 52px;
+    transition: all 0.3s;
+  }
 
-.read-left:hover .bar-up span {
-  font-size: 23px;
-  transition: all 0.3s;
-}
-.read-left:hover #show {
-  opacity: 1;
-}
-.bar-up {
-  position: absolute;
-  right: 0;
-  top: 10px;
-  bottom: 10px;
-  width: 26px;
-  height: 26px;
-  font-size: 18px;
-  text-align: center;
-  color: #666;
-  transition: all 0.3s;
-}
-
-.bar-up span {
-  cursor: pointer;
-  padding: 6px 0;
-  display: block;
-  height: 18px;
-  line-height: 18px;
-  font-size: 27px;
-}
-#show {
-  position: absolute;
-  top: 0px;
-  right: -15px;
-  font-size: 15px !important;
-  opacity: 0;
-  text-align: center;
-  color: #666;
+  .bar-up span {
+    font-size: 23px;
+    transition: all 0.3s;
+  }
+  #show {
+    opacity: 1;
+  }
 }
 </style>

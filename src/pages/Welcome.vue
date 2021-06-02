@@ -25,9 +25,9 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style lang="scss">
 .welcome {
-  width: 100%;
+  width: 100% ;
   margin: 0 auto;
 }
 .nav {
@@ -38,7 +38,7 @@ export default defineComponent({
   border-radius: 20px;
   font-size: 1.5rem;
   box-shadow: -6px -6px 20px rgba(255, 255, 255, 1),
-    6px 6px 20px rgba(0, 0, 0, 0.1);
+    6px 6px 20px rgba(0, 0, 0, 0.1) ;
 }
 .link {
   margin: 4px;

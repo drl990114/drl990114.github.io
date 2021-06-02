@@ -11,10 +11,9 @@ import { defineComponent } from "vue";
 import Header from "../components/home/Header.vue";
 import Body from "../components/home/Body.vue";
 import Foot from "../components/home/Foot.vue";
-
 </script>
 
-<style scoped>
+<style lang="scss">
 .home {
   position: relative;
   left: 50%;

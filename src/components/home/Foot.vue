@@ -18,7 +18,7 @@
   </div>
 </template>
 
-<style>
+<style lang="scss">
 .body-foot {
   width: 100%;
   margin-top: 25px;
@@ -30,9 +30,9 @@
   font-size: 14px;
   padding-right: 20px;
   position: relative;
-}
-.body-foot small {
-  display: inline-block;
-  margin-right: 8px;
+  small {
+    display: inline-block;
+    margin-right: 8px;
+  }
 }
 </style>

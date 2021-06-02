@@ -4,7 +4,7 @@
     <span>站长统计</span>
     <ul>
       <li class="forkbtn">
-        <router-link to="/login" >写点文章</router-link>
+        <router-link to="/login">写点文章</router-link>
       </li>
       <li>
         <a href="http://www.barretlee.com/" target="_blank"
@@ -27,7 +27,7 @@
 </template>
 
 
-<style>
+<style lang="scss">
 #showdata-header {
   overflow: hidden;
   height: 64px;
@@ -50,41 +50,40 @@
   background: linear-gradient(to left, #e5e5be 0, #003973 100%);
 
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e5e5be', endColorstr='#003973', GradientType=1);
-}
-#showdata-header h1 {
-  font-size: 30px;
-  line-height: 64px;
-  color: #fff;
-  margin-left: 30px;
-  font-family: fantasy, cursive, consolas;
-  text-shadow: 1px 1px 1px #000, 1px 1px 3px #ccc;
-  display: inline-block;
-}
-#showdata-header span {
-  color: #fff;
-}
-#showdata-header ul {
-  position: absolute;
-  right: 20px;
-  top: 0;
-  list-style-type: none;
-  height: 64px;
-  line-height: 64px;
-}
-#showdata-header ul li {
-  float: left;
-  margin-left: 20px;
-}
-#showdata-header a {
-  display: inline-block;
-  height: 100%;
-  line-height: 64px;
-  color: rgb(6, 67, 179);
-  font-size: 16px;
-
-}
-.github-star {
-  position: relative;
-  top: 5px;
+  h1 {
+    font-size: 30px;
+    line-height: 64px;
+    color: #fff;
+    margin-left: 30px;
+    font-family: fantasy, cursive, consolas;
+    text-shadow: 1px 1px 1px #000, 1px 1px 3px #ccc;
+    display: inline-block;
+  }
+  span {
+    color: #fff;
+  }
+  ul {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    list-style-type: none;
+    height: 64px;
+    line-height: 64px;
+  }
+  ul li {
+    float: left;
+    margin-left: 20px;
+  }
+  a {
+    display: inline-block;
+    height: 100%;
+    line-height: 64px;
+    color: rgb(6, 67, 179);
+    font-size: 16px;
+  }
+  .github-star {
+    position: relative;
+    top: 5px;
+  }
 }
 </style>

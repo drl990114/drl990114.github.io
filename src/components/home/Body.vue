@@ -22,7 +22,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss">
 .home-body {
   display: flex;
   flex-wrap: wrap;

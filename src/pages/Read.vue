@@ -8,15 +8,10 @@
 
 <script setup>
 import { ref, defineComponent,defineAsyncComponent } from 'vue'
-const LeftBar = defineAsyncComponent(() =>
-  import('../components/read/leftbar.vue').then((mod) => mod.default)
-)
-function load(file) {
-  return defineAsyncComponent(() => import(`../components/${file}.vue`))
-}
+import LeftBar from '../components/read/leftbar.vue'
 </script>
 
-<style scoped>
+<style lang="scss">
 .read{
     max-width: 800px;
     padding-left: 40px;
@@ -25,3 +20,4 @@ function load(file) {
     word-wrap: break-word;
 }
 </style>
+

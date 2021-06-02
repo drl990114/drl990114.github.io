@@ -82,7 +82,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .dialogBox {
   width: 100%;
   height: 100%;
@@ -93,70 +93,71 @@ export default {
   justify-content: center;
   align-items: center;
   font-size: 16px;
-}
-.dialogBox button {
-  margin: 0 10px;
-  cursor: pointer;
-  width: 80px;
-  height: 37px;
-  display: inline-block;
-  background-color: #ffffff;
-  color: #4a75b5;
-  border: 1px solid #4a75b5;
-  padding: 10px 24px;
-  border-radius: 4px;
-  transition: all 0.3s;
-  line-height: 15px;
-}
-.dialogBoxContent {
-  width: 600px;
-  height: 400px;
-  border: 2px solid #e9e9e9;
-  border-radius: 10px;
-  background: #f3f3f3;
-}
-.headhead {
-  width: 100%;
-  height: 60px;
-  line-height: 60px;
-  border-bottom: 1px solid #e9e9e9;
-  box-sizing: border-box;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.headhead span {
-  font-size: 24px;
-}
-.headhead i {
-  font-size: 24px;
-  cursor: pointer;
-}
 
-.bodybody {
-  width: 100%;
-  height: calc(100% - 120px);
-}
-.footfoot {
-  width: 100%;
-  height: 60px;
-  line-height: 60px;
-  box-sizing: border-box;
-  border-top: 1px solid #e9e9e9;
-  padding: 0 20px;
-  text-align: right;
-}
+  button {
+    margin: 0 10px;
+    cursor: pointer;
+    width: 80px;
+    height: 37px;
+    display: inline-block;
+    background-color: #ffffff;
+    color: #4a75b5;
+    border: 1px solid #4a75b5;
+    padding: 10px 24px;
+    border-radius: 4px;
+    transition: all 0.3s;
+    line-height: 15px;
+  }
+  .dialogBoxContent {
+    width: 600px;
+    height: 400px;
+    border: 2px solid #e9e9e9;
+    border-radius: 10px;
+    background: #f3f3f3;
+  }
+  .headhead {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    border-bottom: 1px solid #e9e9e9;
+    box-sizing: border-box;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-.isShowMask {
-  background-color: rgba(0, 0, 0, 0.3);
-}
-.animation-enter,
-.animation-leave-to {
-  opacity: 0;
-}
-.animation-enter-active,
-.animation-leave-active {
-  transition: opacity 0.3s;
+    span {
+      font-size: 24px;
+    }
+    i {
+      font-size: 24px;
+      cursor: pointer;
+    }
+  }
+  .bodybody {
+    width: 100%;
+    height: calc(100% - 120px);
+  }
+  .footfoot {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    box-sizing: border-box;
+    border-top: 1px solid #e9e9e9;
+    padding: 0 20px;
+    text-align: right;
+  }
+
+  .isShowMask {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .animation-enter,
+  .animation-leave-to {
+    opacity: 0;
+  }
+  .animation-enter-active,
+  .animation-leave-active {
+    transition: opacity 0.3s;
+  }
 }
 </style>

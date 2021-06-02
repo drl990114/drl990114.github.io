@@ -13,7 +13,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
+<style lang="scss">
 label {
   margin: 0 0.5em;
   font-weight: bold;

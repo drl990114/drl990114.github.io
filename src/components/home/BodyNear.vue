@@ -207,48 +207,50 @@
   </div>
 </template>
 
- <style scoped>
+ <style lang="scss">
 .home-near {
   height: 548px;
-}
 
-.home-near h2 {
-  font-size: 22px;
-  font-weight: 400;
-  border-bottom: 1px dashed #ccc;
-  width: 100%;
-  line-height: 2;
-  margin-bottom: 15px;
-  margin-top: 40px;
-}
+  h2 {
+    font-size: 22px;
+    font-weight: 400;
+    border-bottom: 1px dashed #ccc;
+    width: 100%;
+    line-height: 2;
+    margin-bottom: 15px;
+    margin-top: 40px;
+  }
 
-.home-near h2 a {
-  float: right;
-  font-size: 14px;
-  margin-top: 10px;
-  font-weight: 700;
-}
+  h2 a {
+    float: right;
+    font-size: 14px;
+    margin-top: 10px;
+    font-weight: 700;
+  }
 
-.home-near ul {
-  padding-left: 27px;
-}
-.home-near li {
-  margin-bottom: 5px;
-  list-style: circle;
-  line-height: 28px;
-  font-size: 16px;
-  text-overflow: ellipsis;
-}
-.home-near li span {
-  color: #999;
-  display: inline-block;
-  max-width: 100px;
-}
-.aria-readonly {
+  ul {
+    padding-left: 27px;
+  }
+  li {
+    margin-bottom: 5px;
+    list-style: circle;
+    line-height: 28px;
+    font-size: 16px;
+    text-overflow: ellipsis;
+  }
+  li span {
+    color: #999;
+    display: inline-block;
+    max-width: 100px;
+  }
+  .aria-readonly {
   height: 0;
   width: 0;
   line-height: 0;
   position: absolute !important;
   left: -9999px !important;
 }
+}
+
+
 </style>

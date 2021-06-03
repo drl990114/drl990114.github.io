@@ -4,7 +4,6 @@ const md5 = require('blueimp-md5')
 const userSchema = new mongoose.Schema({
     username: {type: String, required: true}, // 用户名
     password: {type: String, required: true}, // 密码
-    email: {type: String, required: true},
     create_time: {type: Number, default: Date.now},
     writeArticle: {type: Array , default: []}, //保存发布的文章id的数组
     favArticle: {type: Array , default: []}, //保存收藏的文章id的数组

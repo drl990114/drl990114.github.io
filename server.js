@@ -2,7 +2,7 @@
 const fs = require('fs')
 const path = require('path')
 const express = require('express')
-
+const mongoose = require('mongoose')
 const isTest = process.env.NODE_ENV === 'test' || !!process.env.VITE_TEST_BUILD
 
 async function createServer(
@@ -17,14 +17,24 @@ async function createServer(
 
   const manifest = isProd
     ? // @ts-ignore
-      require('./dist/client/ssr-manifest.json')
+    require('./dist/client/ssr-manifest.json')
     : {}
 
   const app = express()
 
-  /**
-   * @type {import('vite').ViteDevServer}
-   */
+  app.use(express.static('public'))
+  app.use(express.static('./build'))
+  // 声明使用解析post请求的中间件
+  app.use(express.urlencoded({ extended: true })) // 请求体参数是: name=tom&pwd=123
+  app.use(express.json()) // 请求体参数是json结构: {name: tom, pwd: 123}
+  // 声明使用解析cookie数据的中间件
+  const cookieParser = require('cookie-parser')
+  app.use(cookieParser())
+  // 声明使用路由器中间件
+  const indexRouter = require('./routers')
+  app.use('/', indexRouter)  //
+
+
   let vite
   if (!isProd) {
     vite = await require('vite').createServer({
@@ -85,9 +95,18 @@ async function createServer(
 
 if (!isTest) {
   createServer().then(({ app }) =>
-    app.listen(3000, () => {
-      console.log('http://localhost:3000')
-    })
+    mongoose.connect('mongodb://localhost/server_db3', { useNewUrlParser: true })
+      .then(() => {
+        console.log('连接数据库成功!!!')
+        // 只有当连接上数据库后才去启动服务器
+        app.listen('5000', () => {
+          console.log('服务器启动成功, 请访问: http://localhost:5000')
+        })
+      })
+      .catch(error => {
+        console.error('连接数据库失败', error)
+      })
+
   )
 }
 

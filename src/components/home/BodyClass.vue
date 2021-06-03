@@ -25,11 +25,11 @@
   border: 1px solid #ccc;
   padding: 15px;
   margin-bottom: 30px;
-  .home-class ul {
+  ul {
+    list-style-type: disc;
     margin: 0px;
     font-size: 20px;
     display: block;
-    list-style: none;
     padding-left: 20px;
   }
   li {

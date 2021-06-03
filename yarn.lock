@@ -276,7 +276,7 @@
     "@vue/shared" "3.0.11"
     csstype "^2.6.8"
 
-"@vue/server-renderer@^3.0.11":
+"@vue/server-renderer@^3.0.6":
   version "3.0.11"
   resolved "https://registry.nlark.com/@vue/server-renderer/download/@vue/server-renderer-3.0.11.tgz#d340f0db630ed56d4af7615faf495dc77558b44c"
   integrity sha1-00Dw22MO1W1K92Ffr0ldx3VYtEw=
@@ -735,6 +735,13 @@ aws4@^1.8.0:
   version "1.11.0"
   resolved "https://registry.nlark.com/aws4/download/aws4-1.11.0.tgz#d61f46d83b2519250e2784daf5b09479a8b41c59"
   integrity sha1-1h9G2DslGSUOJ4Ta9bCUeai0HFk=
+
+axios@^0.21.1:
+  version "0.21.1"
+  resolved "https://registry.npm.taobao.org/axios/download/axios-0.21.1.tgz?cache=0&sync_timestamp=1608609324963&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Faxios%2Fdownload%2Faxios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
+  integrity sha1-IlY0gZYvTWvemnbVFu8OXTwJsrg=
+  dependencies:
+    follow-redirects "^1.10.0"
 
 balanced-match@^1.0.0:
   version "1.0.2"
@@ -2046,10 +2053,6 @@ denque@^1.4.1:
   resolved "https://registry.npm.taobao.org/denque/download/denque-1.5.0.tgz#773de0686ff2d8ec2ff92914316a47b73b1c73de"
   integrity sha1-dz3gaG/y2Owv+SkUMWpHtzscc94=
 
-"dep-import-type@link:./dep-import-type":
-  version "0.0.0"
-  uid ""
-
 depd@~1.1.2:
   version "1.1.2"
   resolved "https://registry.nlark.com/depd/download/depd-1.1.2.tgz#9bcd52e14c097763e749b274c4346ed2e560b5a9"
@@ -2612,7 +2615,7 @@ flush-write-stream@^1.0.0:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
 
-follow-redirects@^1.0.0:
+follow-redirects@^1.0.0, follow-redirects@^1.10.0:
   version "1.14.1"
   resolved "https://registry.nlark.com/follow-redirects/download/follow-redirects-1.14.1.tgz#d9114ded0a1cfdd334e164e6662ad02bfd91ff43"
   integrity sha1-2RFN7Qoc/dM04WTmZirQK/2R/0M=
@@ -6209,9 +6212,9 @@ vue-tsc@^0.0.24:
   dependencies:
     unzipper "0.10.11"
 
-vue@^3.0.5:
+vue@^3.0.11:
   version "3.0.11"
-  resolved "https://registry.nlark.com/vue/download/vue-3.0.11.tgz?cache=0&sync_timestamp=1620856192360&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fvue%2Fdownload%2Fvue-3.0.11.tgz#c82f9594cbf4dcc869241d4c8dd3e08d9a8f4b5f"
+  resolved "https://registry.nlark.com/vue/download/vue-3.0.11.tgz?cache=0&sync_timestamp=1622557833062&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fvue%2Fdownload%2Fvue-3.0.11.tgz#c82f9594cbf4dcc869241d4c8dd3e08d9a8f4b5f"
   integrity sha1-yC+VlMv03MhpJB1MjdPgjZqPS18=
   dependencies:
     "@vue/compiler-dom" "3.0.11"

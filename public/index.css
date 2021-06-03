@@ -6,7 +6,7 @@
     /* 文章分类 */
     .home-class {
         order: -1;
-        margin: 0 auto;
+        margin: 0 0 20px 0;
         width: 607px;
         float: left;
         min-height: 170px;
@@ -23,11 +23,6 @@
         width: 100%;
         order: 0;
     }
-    .home-headlines-article {
-        width: 100%-40px;
-        min-height: 220px;
-    }
-
 }
 @media screen and (min-width: 631px) and (max-width: 998px) {
     #container {
@@ -35,7 +30,7 @@
     }
     .home-class {
         order: -1;
-        margin: 0 auto;
+        margin: 0 0 20px 0;
         width: 100%-30px;
         height: 116px;
         float: left;
@@ -50,9 +45,6 @@
     .home-headlines {
         width: 100%;
         order: 0;
-    }
-    .home-headlines-article {
-        width: 100%-40px;
     }
 }
 @media screen and (min-width: 998px) and (max-width: 1280px) {

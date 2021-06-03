@@ -15,15 +15,26 @@
   </div>
 </template>
 
-<script setup>
-import { defineComponent } from "vue"
-import { useRouter } from "vue-router"
-import Header from "../components/showdata/header.vue"
-const router = useRouter()
-const handleBtn = () => {
-  router.push({
-    path: "/write",
-  });
+<script>
+import Header from "../components/showdata/header.vue";
+import { useRouter } from "vue-router";
+export default {
+  components: {
+    Header,
+  },
+  setup() {
+    console.log("setup");
+    const router = useRouter();
+    const handleBtn = () => {
+      console.log(1);
+      router.push({
+        path: "/write",
+      });
+    };
+    return {
+      handleBtn: handleBtn,
+    };
+  },
 };
 </script>
 
@@ -46,7 +57,7 @@ const handleBtn = () => {
   h1 {
     font-weight: bolder;
     font-size: 24px !important;
-    color: #4a75b5;
+    color: #fff;
     text-align: center;
     line-height: 36px;
   }

@@ -1,3 +1,12 @@
+
+/**
+ * 移动元素高度
+ * 
+ * @param {*} obj 元素
+ * @param {*} speed 速度
+ * @param {*} zd 终点
+ * @param {*} callback 回调
+ */
 export const move = (obj, speed, zd, callback) => {
   let timer;
   clearInterval(timer);
@@ -20,19 +29,53 @@ export const move = (obj, speed, zd, callback) => {
   }, 30);
 }
 
+/**
+ * 根据时间排序
+ * 
+ * @param {*} pagesArr 
+ * @returns  sort后数组 新发布的在前面
+ */
 export const timeSort = (pagesArr) => {
-  pagesArr.sort((a,b)=>{
+  pagesArr.sort((a, b) => {
     let timeA = Date.parse(a.lastUpdated)
     let timeB = Date.parse(b.lastUpdated)
-     return timeB - timeA
+    return timeB - timeA
   })
   return pagesArr
 }
 
-export const nearFormatTime = (lastUpdated) =>{
+/**
+ * 格式化lastupdated
+ * @param {*} lastUpdated 
+ * @returns  字符串
+ */
+export const nearFormatTime = (lastUpdated) => {
   let time = new Date(lastUpdated)
   let year = time.getFullYear()
   let day = time.getDate()
   let Month = time.getMonth() + 1
   return (`${year}-${Month}-${day}`)
 }
+
+/**
+ * 获得文章全部分类categories
+ * 
+ * @param {*} pages  全部文章
+ * @returns 全部分类数组
+ */
+export const getCategories = (pages) => {
+  let categoriesArr = []
+  let currentCateforie
+  pages.forEach(item => {
+    currentCateforie = item.frontmatter.categories
+    if (currentCateforie && currentCateforie.length !== 0) {
+      for (let i = 0; i < currentCateforie.length; i++) {
+        if (categoriesArr.indexOf(currentCateforie[i]) === -1) {
+          categoriesArr.push(currentCateforie[i])
+        }
+      }
+    }
+  })
+  return categoriesArr
+}
+

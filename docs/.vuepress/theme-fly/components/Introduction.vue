@@ -19,8 +19,8 @@
 export default {
   computed: {
     // 仅读取
-    aDouble: function () {
-      // console.log(this.$themeConfig)
+    introduction:  ()=> {
+      console.log(this.$themeConfig)
       return this.a * 2;
     },
     // 读取和设置

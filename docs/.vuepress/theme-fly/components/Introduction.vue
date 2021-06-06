@@ -1,36 +1,29 @@
  <template>
   <div class="home-introduction">
     <div class="home-introduction-header">
-      <img :src="$withBase('/img/头像.jpg')" />
+      <img :src="$withBase(avatarUrl)" />
       <h3>
-        RuiLinDong{{ aDouble }}
+        {{author}}
         <span>浙江杭州</span>
       </h3>
       <br />
     </div>
 
-    <span
-      >一名热爱前端的程序员，我喜欢编程、音乐、各种棋类，希望和你交个朋友。</span
-    >
+    <span>{{ introduction }}</span>
     <a class="aboutme">关于我</a>
   </div>
 </template>
 <script>
 export default {
   computed: {
-    // 仅读取
-    introduction:  ()=> {
-      console.log(this.$themeConfig)
-      return this.a * 2;
+    introduction() {
+      return this.$themeConfig.introduction
     },
-    // 读取和设置
-    aPlus: {
-      get: function () {
-        return this.a + 1;
-      },
-      set: function (v) {
-        this.a = v - 1;
-      },
+    avatarUrl(){
+      return this.$themeConfig.avatar
+    },
+    author() {
+      return this.$themeConfig.author
     },
   },
 };
@@ -58,8 +51,9 @@ export default {
 
    img {
      display: inline-block;
-     width: 70px;
-     border-radius: 35px;
+     width: 60px;
+     height 60px
+     border-radius: 30px;
      transition: all 0.3s;
    }
 
@@ -81,7 +75,7 @@ export default {
 
    span {
      display: block;
-     margin-top: 16px;
+     margin-top: 12px;
      font: 300 14px / 1.8 PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, Helvetica, sans-serif;
    }
 
@@ -91,7 +85,7 @@ export default {
      cursor: pointer;
      text-align: right;
      padding-right: 12px;
-     line-height: 65px;
+     line-height: 60px;
      font-size: 12px;
      color: #0078b6;
    }

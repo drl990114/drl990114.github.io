@@ -22,7 +22,7 @@
   float: right;
   border: 1px solid #ccc;
   padding: 15px;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   ul {
     list-style-type: disc;
     margin: 0px;

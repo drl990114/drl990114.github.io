@@ -16,9 +16,9 @@ export default {
   components: { HomeHeader, HomeBody, HomeFoot },
   computed: {
     consoleLog() {
-      console.log(this.$site);
-      console.log(this.$page);
-      console.log(this.$themeConfig);
+      // console.log(this.$site);
+      // console.log(this.$page);
+      // console.log(this.$themeConfig);
     },
   },
 };

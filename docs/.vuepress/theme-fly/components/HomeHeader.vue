@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="home-header-right">
-      {{menuHeight}}
+      {{ menuHeight }}
       <input placeholder="站内搜索" />
     </div>
   </div>
@@ -24,10 +24,10 @@
 import { move } from "../util";
 export default {
   name: "HomeHeader",
-  computed:{
-    menuHeight: ()=>{
+  computed: {
+    menuHeight() {
       // console.log(this.$site)
-    }
+    },
   },
   methods: {
     arrowClick: () => {

@@ -1,6 +1,6 @@
  <template>
   <div class="home-body">
-    <HomeBodyHeadline />
+    <HomeBodyLeft />
     <div class="rightbar">
       <HomeBodyClass />
       <Introduction />
@@ -9,14 +9,14 @@
 </template>
 
 <script>
-import HomeBodyHeadline from "./HomeBodyHeadline.vue";
+import HomeBodyLeft from "./HomeBodyLeft.vue";
 import HomeBodyClass from "./HomeBodyClass.vue";
 import Introduction from "./Introduction.vue";
 
 export default {
   name: "HomeBody",
   components: {
-    HomeBodyHeadline,
+    HomeBodyLeft,
     HomeBodyClass,
     Introduction,
   },

@@ -34,34 +34,38 @@ export default {
     HomeBodyNear,
   },
   setup() {},
-}
+};
 </script>
 
  <style lang="stylus">
-.home-leftBody {
-  border-radius: 2px;
-  .home-leftBody-article {
-    min-height: 180px;
-    background: #f3f3f3;
-    box-shadow: 2px 2px 4px #e2e2e2;
-    padding: 20px;
-  }
-  h1 {
-    font-size: 22px;
-    margin: 8px 0;
-    font-weight: 400;
-  }
-  p {
-    font-size: 15px;
-    line-height: 30px;
-    padding-bottom: 15px;
-    margin-bottom: 15px;
-    border-bottom: 1px dashed #ccc;
-  }
-  span {
-    float: right;
-    font-size: 14px;
-    color: #999;
-  }
-}
+ .home-leftBody {
+   border-radius: 2px;
+
+   .home-leftBody-article {
+     min-height: 180px;
+     background: #f3f3f3;
+     box-shadow: 2px 2px 4px #e2e2e2;
+     padding: 20px;
+
+     h1 {
+       font-size: 22px;
+       margin: 8px 0;
+       font-weight: 400;
+     }
+
+     p {
+       font-size: 15px;
+       line-height: 30px;
+       padding-bottom: 15px;
+       margin-bottom: 15px;
+       border-bottom: 1px dashed #ccc;
+     }
+
+     span {
+       float: right;
+       font-size: 14px;
+       color: #999;
+     }
+   }
+ }
 </style>

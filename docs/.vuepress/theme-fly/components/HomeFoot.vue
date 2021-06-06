@@ -9,19 +9,29 @@
         ></small
       ></span
     >
-    本站由 <a href="/">Barret李靖</a> 纯手工打造 |
+    本站由 <a href="/">{{author}}</a> 纯手工打造 |
     <a href="/about#contact">联系方式</a> | 总热度：<em
       id="busuanzi_value_site_pv"
       >1634282</em
     >
-    | <router-link to="/showdata">站长管理</router-link>
+    | <router-link to="/showdata">站长统计</router-link>
   </div>
 </template>
+
+<script>
+export default {
+  computed: {
+    author() {
+      return this.$themeConfig.author
+    },
+  },
+};
+</script>
 
 <style lang="stylus">
 .body-foot {
   width: 100%;
-  margin-top: 25px;
+  margin: 10px 0;
   padding-bottom: 10px;
   color: #aaa;
   text-align: right;

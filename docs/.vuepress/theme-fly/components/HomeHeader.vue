@@ -1,7 +1,7 @@
 <template>
   <div class="home-header">
     <div class="home-header-left">
-      <router-link to="/welcome">RuiLinDong</router-link>
+      <router-link to="/welcome">{{author}}</router-link>
       <span aria-hidden="true"> » 博客 </span>
       <div id="arrow-expend" @click="arrowClick">
         ▾
@@ -15,7 +15,6 @@
       </div>
     </div>
     <div class="home-header-right">
-      {{ menuHeight }}
       <input placeholder="站内搜索" />
     </div>
   </div>
@@ -25,8 +24,8 @@ import { move } from "../util";
 export default {
   name: "HomeHeader",
   computed: {
-    menuHeight() {
-      // console.log(this.$site)
+    author() {
+      return this.$themeConfig.author;
     },
   },
   methods: {
@@ -59,7 +58,7 @@ export default {
 .home-header {
   width: 100%;
   height: 70px;
-  margin: 50px 0 -6px 0;
+  margin-top: 50px;
   font-size: 28px;
   font-weight: bold;
 

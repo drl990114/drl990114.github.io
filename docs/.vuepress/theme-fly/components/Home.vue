@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="home">
     <HomeHeader />
     <HomeBody />
     <HomeFoot />
@@ -25,15 +25,7 @@ export default {
 </script>
 
 <style>
-label {
-  margin: 0 0.5em;
-  font-weight: bold;
-}
-
-code {
-  background-color: #eee;
-  padding: 2px 4px;
-  border-radius: 4px;
-  color: #304455;
+.home {
+  font-family: Palatino, Garamond, Times, Georgia, serif;
 }
 </style>

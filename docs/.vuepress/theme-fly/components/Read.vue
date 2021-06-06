@@ -1,21 +1,26 @@
 <template>
   <div>
     <h1>read</h1>
-  <div >{{consoleLog}}</div>
-  <Content/>
+    <div>{{ consoleLog }}</div>
+    <Content />
+    <LeftNav />
   </div>
 </template>
 
 <script>
+import LeftNav from "./LeftNav.vue";
 export default {
-  name: "Read",
-  computed:{
-    consoleLog(){
-      console.log(this.$site)
-      console.log(this.$page)
-    }
-  }
-}
+  name:'Read',
+  components: {
+    LeftNav,
+  },
+  computed: {
+    consoleLog() {
+      console.log(this.$site);
+      console.log(this.$page);
+    },
+  },
+};
 </script>
 
 <style>

@@ -11,6 +11,9 @@
       <template v-if="this.$router.history.current.path.indexOf('home') != -1">
         <Home />
       </template>
+      <template v-if="this.$router.history.current.path.indexOf('archives') != -1">
+        <Archive />
+      </template>
     </div>
   </div>
 </template>
@@ -19,9 +22,10 @@
 import Welcome from "../components/Welcome.vue";
 import Read from "../components/Read.vue";
 import Home from "../components/Home.vue";
+import Archive from "../components/Archive.vue";
 import { isIndex } from "../util/isPath.js";
 export default {
-  components: { Welcome, Read, Home },
+  components: { Welcome, Read, Home,Archive },
   computed: {
     consoleLog() {
       // console.log(this.$site);
@@ -36,7 +40,7 @@ export default {
 </script>
 <style lang="stylus">
 @import url('../styles/index.styl');
-
+@import url('../styles/font/iconfont.css');
 * {
   margin: 0;
   padding: 0;
@@ -45,13 +49,11 @@ export default {
 html, body {
   min-height: 100vh;
   min-width: 90vw;
-  font-size: 12px;
   /* background: #222; */
   /* color: #ccc; */
 }
 
 .theme-container {
-  /* display: flex; */
   position: relative;
   left: 50%;
   transform: translateX(-50%);
@@ -59,13 +61,6 @@ html, body {
   height: 100%;
   margin: 0 auto;
   background: rgb(255, 255, 255);
-     font-family: Palatino, Garamond, Times, Georgia, serif; 
-  /* font-family: Avenir, Helvetica, Arial, sans-serif; */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  /* text-align: center; */
-  /* color: #2c3e50; */
-  /* filter: invert(0.87) hue-rotate(180deg); */
 }
 
 a {

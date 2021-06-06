@@ -6,8 +6,8 @@
     </h2>
     <ul>
       <li v-for="item in nearPages" :key="item.key">
-        <span>{{item.nearFormatT}} » </span>
-        <a href="/blog/2020/12/19/transform/">{{ item.frontmatter.title }}</a>
+        <span>{{ item.nearFormatT }} » </span>
+        <a :href="item.path">{{ item.frontmatter.title }}</a>
       </li>
       <li>
         <a href="/blog/archives/">所有文章 »</a>
@@ -33,8 +33,6 @@ export default {
       if (pageArr.length >= 10) {
         pageArr.length = 10;
       }
-      console.log(pageArr);
-
       return pageArr;
     },
   },
@@ -54,7 +52,7 @@ export default {
      line-height: 2;
      margin-bottom: 15px;
      margin-top: 40px;
-     padding-left 5px
+     padding-left: 5px;
 
      a {
        float: right;

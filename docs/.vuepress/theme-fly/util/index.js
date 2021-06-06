@@ -46,7 +46,7 @@ export const timeSort = (pagesArr) => {
 
 /**
  * 格式化lastupdated
- * @param {*} lastUpdated 
+ * @param {*} time 
  * @returns  字符串
  */
 export const nearFormatTime = (lastUpdated) => {
@@ -79,3 +79,37 @@ export const getCategories = (pages) => {
   return categoriesArr
 }
 
+export const filterConfigMd = (pages) => {
+  let articleArr = []
+  pages.forEach(item => {
+    if (!item.frontmatter.hasOwnProperty("article") && !item.article) {
+      articleArr.push(item)
+    }
+  })
+
+  return articleArr
+}
+
+export const getTimeLines = (pages) => {
+  let resultArr = new Map()
+  let upDated = []
+  const articles = filterConfigMd(pages)
+  //获得更新过的文章，并且将文章覆盖的年份给map
+  articles.forEach(item => {
+    if (item.lastUpdated) {
+      upDated.push(item)
+      let time = new Date(item.lastUpdated)
+      let year = time.getFullYear()
+      if (!resultArr.has(year) && typeof year === 'number') {
+        resultArr.set(year, [])
+      }
+    }
+  })
+  //如果key相同则push到对应的数组
+  upDated.forEach(item => {
+    let time = new Date(item.lastUpdated)
+    let year = time.getFullYear()
+    resultArr.get(year).push(item)
+  })
+  return resultArr
+}

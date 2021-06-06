@@ -1,7 +1,7 @@
  <template>
   <div class="home-near">
     <h2>
-      <a href="/blog/categories/前端杂烩/" aria-hidden="true">博客归档 »</a
+      <a href="/categories/">博客归档 »</a
       >近期文章
     </h2>
     <ul>
@@ -10,7 +10,7 @@
         <a :href="item.path">{{ item.frontmatter.title }}</a>
       </li>
       <li>
-        <a href="/blog/archives/">所有文章 »</a>
+        <a href="/categories/">所有文章 »</a>
       </li>
     </ul>
   </div>

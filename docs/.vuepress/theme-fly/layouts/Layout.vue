@@ -11,8 +11,8 @@
       <template v-if="this.$router.history.current.path.indexOf('home') != -1">
         <Home />
       </template>
-      <template v-if="this.$router.history.current.path.indexOf('archives') != -1">
-        <Archive />
+      <template v-if="this.$router.history.current.path.indexOf('categories') != -1">
+        <Categories />
       </template>
     </div>
   </div>
@@ -22,10 +22,10 @@
 import Welcome from "../components/Welcome.vue";
 import Read from "../components/Read.vue";
 import Home from "../components/Home.vue";
-import Archive from "../components/Archive.vue";
+import Categories from "../components/Categories.vue";
 import { isIndex } from "../util/isPath.js";
 export default {
-  components: { Welcome, Read, Home,Archive },
+  components: { Welcome, Read, Home,Categories },
   computed: {
     consoleLog() {
       // console.log(this.$site);

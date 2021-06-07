@@ -1,108 +1,179 @@
  <template>
   <div class="categories">
-    <div class="cate-wraper post">
-      <div class="cate-header text-info">
-        <div>
-          <span>类别:</span>
-          <div class="cate-list">
-            <a href="/blog/categories/JavaScript/">JavaScript</a>
-            <a href="/blog/categories/杂物间/">杂物间</a>
-            <a href="/blog/categories/剪贴板/">剪贴板</a>
-            <a href="/blog/categories/网络交互/">网络交互</a>
-
-            <a
-              href="/blog/categories/苹果/"
-              class="cate-header_on"
-              onclick="return!1"
-              >苹果</a
-            >
-          </div>
+    <div class="categories-main">
+      <Categoriesheader />
+      <div class="categories-class">
+        <span> 类别：</span>
+        <div class="categories-list">
+          <a href="/categories/">全部</a>
+          <a
+            v-bind:class="{ current: currentCate === item }"
+            v-for="item in allCategories"
+            :key="item"
+            :href="'/categories/?name=' + item"
+            >{{ item }}</a
+          >
         </div>
       </div>
-      <div class="cate-detail response-overflow">
-        <a href="/blog/archives/2016/" class="archive-year"
-          ><strong>2016 年</strong></a
-        >
-        <ul>
-          <li>
-            <a
-              href="/blog/2016/04/06/operation-not-permitted-problem-in-linux-or-unix-system/"
-              >Unix/Linux 系统中的 Operation Not Permitted 问题 </a
-            ><span
-              >(2016/04/06 · 标签:<a
-                class="article-tag-link"
-                href="/blog/tags/Operation-Not-Permitted/"
-                >Operation Not Permitted</a
+      <div
+        class="categories-detail"
+        v-for="([key, value], index) in archivePages"
+        :key="index"
+      >
+        <strong><a href="">{{ key }}年</a></strong>
+        <div class="currentYear">
+          <ul>
+            <li v-for="item in value" :key="item.key">
+              <a :href="item.path">{{ item.title }} </a>
+              <span
+                >({{item.lastUpdated.split(",")[0]}} · 分类:{{
+                  item.frontmatter.categories
+                    ? item.frontmatter.categories[0]
+                    : "无"
+                }})</span
               >
-              ·<span
-                class="ds-thread-count disqus-comment-count cy_cmt_count"
-                data-thread-key="operation-not-permitted-problem-in-linux-or-unix-system"
-                data-disqus-identifier="operation-not-permitted-problem-in-linux-or-unix-system"
-                id="sourceId::operation-not-permitted-problem-in-linux-or-unix-system"
-              ></span
-              >)</span
-            >
-          </li>
-        </ul>
-        <a href="/blog/archives/2015/" class="archive-year"
-          ><strong>2015 年</strong></a
-        >
-        <ul>
-          <li>
-            <a href="/blog/2015/03/30/autojump-in-mac/"
-              >Mac下的效率工具autojump </a
-            ><span
-              >(2015/03/30 · 标签:<a
-                class="article-tag-link"
-                href="/blog/tags/autojump/"
-                >autojump</a
-              >,
-              <a class="article-tag-link" href="/blog/tags/mac/">mac</a> ·<span
-                class="ds-thread-count disqus-comment-count cy_cmt_count"
-                data-thread-key="autojump-in-mac"
-                data-disqus-identifier="autojump-in-mac"
-                id="sourceId::autojump-in-mac"
-              ></span
-              >)</span
-            >
-          </li>
-        </ul>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
     <LeftNav />
-    {{ archivePages }}
   </div>
 </template>
 <script>
 import LeftNav from "./LeftNav.vue";
-import { getTimeLines } from "../util";
+import Categoriesheader from "./Categoriesheader.vue";
+import { getTimeLines, getCategories, getUrlParams ,nearFormatTime} from "../util";
 export default {
-  components: { LeftNav },
+  components: { LeftNav, Categoriesheader },
   computed: {
     archivePages() {
       const res = getTimeLines(this.$site.pages);
-      console.log(res);
-      return this.$themeConfig.author;
+      return res;
+    },
+    currentCate() {
+      let urlparam = getUrlParams("name");
+      return urlparam;
+    },
+    allCategories() {
+      const res = getCategories(this.$site.pages);
+      return res;
     },
   },
 };
 </script>
  <style lang="stylus">
+ .current {
+   background: #eee;
+ }
+
  .categories {
-   padding: 70px 40px 30px;
    font-size: 14px;
+   height: 100vh;
+   width: 70%;
+   font-family: Palatino, Garamond, Times, Georgia, serif;
+   margin: 0 auto;
+   transition all .3s
 
-   .share-article {
-     margin: 40px 0;
+   .categories-main {
+     .categories-class {
+       display: flex;
+       margin-bottom: 10px;
+       padding: 15px;
+       font-size: 16px;
+       background: #f8f8f8;
+       min-height: 80px;
 
-     .share-box {
-       line-height: 55px;
+       span {
+         display: inline-block;
+         width: 60px;
+         padding: 5px 0 0 0;
+         text-align: right;
+         font-weight: 700;
+         margin-right: 8px;
+       }
+
+       .categories-list {
+         display: inline-block;
+         width: 595px;
+         vertical-align: top;
+         max-width: 80%;
+
+         a {
+           display: inline-block;
+           padding: 2px 8px;
+           font-size: 16px;
+           line-height: 24px;
+         }
+       }
+     }
+
+     .categories-detail {
+       font-size: 14px;
+
+       strong {
+         display: block;
+         margin: 20px 0;
+         padding-bottom: 6px;
+         border-bottom: 1px dashed #aaa;
+         font-size: 18px;
+         font-weight: bold;
+         line-height: 30px;
+         text-align: center;
+         color: #555;
+         font-family: Georgia, serif;
+         a {
+           color: #555;
+         }
+       }
+
+       a:hover {
+         color: #E58C7C;
+       }
+
+       .currentYear a {
+         display: inline-block;
+         color: #4a75b5;
+         font-weight: normal;
+         word-break: break-all;
+         text-decoration: none;
+         list-style-type: square;
+         line-height: 28px;
+         font-size: 16px;
+         padding: 0;
+         border: none;
+         margin: 0;
+
+         &:hover {
+           color: #E58C7C;
+           border-bottom 1px solid #E58C7C 
+         }
+       }
+
+       ul {
+         margin: 25px 0 25px 35px;
+         list-style-type: square;
+         line-height: 30px;
+
+         li {
+           display: list-item;
+           margin-bottom: 2px;
+           list-style-type: square;
+           line-height: 28px;
+           font-size: 16px;
+         }
+
+         span {
+           color: #666;
+           vertical-align: top;
+           white-space: nowrap;
+           font-size: 12px;
+           display: inline-block;
+           margin-left: 2px;
+           font-family: Georgia, serif;
+         }
+       }
      }
    }
-   .cate-wraper h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #333;
-}
  }
 </style>

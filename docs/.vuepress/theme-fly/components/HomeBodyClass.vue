@@ -3,7 +3,9 @@
     <h2>文章分类</h2>
     <ul>
       <li v-for="item in categories" :key="item">
-        <a :href="'/categories/?name='+item">{{ item }}</a>
+        <a :href="'/categories/?name=' + encodeURI(encodeURI(item))">{{
+          item
+        }}</a>
       </li>
       <li><a href="/categories/?name=all">更多分类 »</a></li>
     </ul>

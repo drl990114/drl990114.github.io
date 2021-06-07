@@ -9,7 +9,7 @@ module.exports = {
   // base: '/', // 格式：'/<仓库名>/'， 默认'/'
   // base: '.',
   markdown: {
-    lineNumbers: true, // 代码行号
+    lineNumbers: false, // 代码行号
   },
   head,
   themeConfig,

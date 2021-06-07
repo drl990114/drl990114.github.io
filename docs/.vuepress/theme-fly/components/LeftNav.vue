@@ -52,6 +52,7 @@ export default {
 
    .bar-item span {
      font-size: 23px;
+     padding 8px 0
    }
 
    #show {

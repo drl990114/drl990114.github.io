@@ -18,11 +18,11 @@ export default {
  .read-left {
    border-right: none;
    position: fixed;
-   left: -680px;
-   width: 706px;
-   min-height: 100vh;
    top: 0;
    bottom: 0;
+   left: -680px;
+   width: 706px;
+   height: 100vh;
    box-shadow: 10px 0 10px 0 #f1f1f1;
    transition: all 0.3s;
    z-index: 80;
@@ -52,7 +52,7 @@ export default {
 
    .bar-item span {
      font-size: 23px;
-     padding 8px 0
+     padding: 8px 0;
    }
 
    #show {
@@ -84,6 +84,7 @@ export default {
    .bar-item span {
      font-size: 20px;
    }
+
    #show {
      opacity: 1;
    }

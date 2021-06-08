@@ -49,6 +49,7 @@ export default {
 html, body {
   min-height: 100vh;
   min-width: 90vw;
+  overflow-x hidden
   /* background: #222; */
   /* color: #ccc; */
 }

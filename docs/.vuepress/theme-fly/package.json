@@ -4,14 +4,14 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
+    "vuepress": "^1.8.2",
     "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.2",
-    "vuepress": "^1.8.2"
+    "stylus-loader": "^3.0.2"
   },
   "dependencies": {
+    "vuepress": "^1.8.2",
     "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.2",
-    "vuepress": "^1.8.2"
+    "stylus-loader": "^3.0.2"
   },
   "scripts": {
     "dev": "vuepress dev docs",

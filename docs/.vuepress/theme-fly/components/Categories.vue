@@ -5,7 +5,11 @@
       <div class="categories-class">
         <span> 类别：</span>
         <div class="categories-list">
-          <a href="/categories/">全部</a>
+          <a
+            v-bind:class="{ current: !currentCate }"
+            href="/categories/"
+            >全部</a
+          >
           <a
             v-bind:class="{ current: currentCate === item }"
             v-for="item in allCategories"
@@ -20,13 +24,15 @@
         v-for="([key, value], index) in archivePages"
         :key="index"
       >
-        <strong><a href="">{{ key }}年</a></strong>
+        <strong
+          ><a :href="'/archives/?year=' + key">{{ key }}年</a></strong
+        >
         <div class="currentYear">
           <ul>
             <li v-for="item in value" :key="item.key">
               <a :href="item.path">{{ item.title }} </a>
               <span
-                >({{item.lastUpdated.split(",")[0]}} · 分类:{{
+                >({{ item.lastUpdated.split(",")[0] }} · 分类:{{
                   item.frontmatter.categories
                     ? item.frontmatter.categories[0]
                     : "无"
@@ -43,12 +49,30 @@
 <script>
 import LeftNav from "./LeftNav.vue";
 import Categoriesheader from "./Categoriesheader.vue";
-import { getTimeLines, getCategories, getUrlParams ,nearFormatTime} from "../util";
+import {
+  getTimeLines,
+  getCategories,
+  getUrlParams,
+  nearFormatTime,
+} from "../util";
 export default {
   components: { LeftNav, Categoriesheader },
   computed: {
     archivePages() {
       const res = getTimeLines(this.$site.pages);
+      let nameParam = getUrlParams("name");
+
+      // let cateActicle
+      if (nameParam) {
+        const cateActicle = this.$site.pages.filter(
+          (page) =>
+            page.frontmatter.categories &&
+            page.frontmatter.categories[0] === nameParam
+        );
+        const cateActicles = getTimeLines(cateActicle);
+        console.log(cateActicles);
+        return cateActicles;
+      }
       return res;
     },
     currentCate() {
@@ -57,6 +81,7 @@ export default {
     },
     allCategories() {
       const res = getCategories(this.$site.pages);
+
       return res;
     },
   },
@@ -73,7 +98,7 @@ export default {
    width: 70%;
    font-family: Palatino, Garamond, Times, Georgia, serif;
    margin: 0 auto;
-   transition all .3s
+   transition: all 0.3s;
 
    .categories-main {
      .categories-class {
@@ -122,6 +147,7 @@ export default {
          text-align: center;
          color: #555;
          font-family: Georgia, serif;
+
          a {
            color: #555;
          }
@@ -146,7 +172,7 @@ export default {
 
          &:hover {
            color: #E58C7C;
-           border-bottom 1px solid #E58C7C 
+           border-bottom: 1px solid #E58C7C;
          }
        }
 

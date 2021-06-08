@@ -1,4 +1,5 @@
 // import vue from 'vue/dist/vue.esm.browser'
+
 export default ({
   Vue, // VuePress 正在使用的 Vue 构造函数
   options, // 附加到根实例的一些选项
@@ -6,5 +7,7 @@ export default ({
   siteData // 站点元数据
 }) => {
 
+  // const app =   Vue.creatApp();
+  // VMdPreview.use(githubTheme);
   // window.Vue = vue // 使页面中可以使用Vue构造函数 （使页面中的vue demo生效）
 }

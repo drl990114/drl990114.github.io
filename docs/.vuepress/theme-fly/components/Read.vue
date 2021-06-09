@@ -2,8 +2,10 @@
   <div class="read">
     <ReadHead />
     <ReadMain />
+
     <div class="read-foot"></div>
     <LeftNav />
+    <Directory />
   </div>
 </template>
 
@@ -11,12 +13,14 @@
 import LeftNav from "./LeftNav.vue";
 import ReadHead from "./ReadHead.vue";
 import ReadMain from "./ReadMain.vue";
+import Directory from "./Directory.vue";
 export default {
   name: "Read",
   components: {
     LeftNav,
     ReadHead,
     ReadMain,
+    Directory,
   },
 
   computed: {

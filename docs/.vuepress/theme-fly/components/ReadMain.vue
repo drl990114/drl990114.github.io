@@ -161,7 +161,7 @@ export default {
    }
 
    h1 {
-     display none
+     display: none;
    }
 
    h2 {

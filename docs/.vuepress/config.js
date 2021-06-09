@@ -11,6 +11,8 @@ module.exports = {
   markdown: {
     lineNumbers: false, // 代码行号
   },
+  displayAllHeaders: true,
+  activeHeaderLinks: false, // 默认值：true
   head,
   themeConfig,
 }

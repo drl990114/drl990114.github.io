@@ -23,7 +23,7 @@ export default {
    left: -680px;
    width: 706px;
    height: 100vh;
-   box-shadow: 10px 0 10px 0 #f1f1f1;
+   box-shadow: 10px 0 10px 0 #282c341c;
    transition: all 0.3s;
    z-index: 80;
    background: #fff;

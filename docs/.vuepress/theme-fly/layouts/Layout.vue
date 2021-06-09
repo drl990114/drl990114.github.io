@@ -1,20 +1,22 @@
 <template>
   <div class="theme-container">
+    <div>{{ consoleLog }}</div>
+    <template v-if="index">
+      <Welcome />
+    </template>
+    <template v-if="this.$router.history.current.path.indexOf('read') != -1">
+      <Read />
+    </template>
     <div id="container">
-      <div>{{ consoleLog }}</div>
-      <template v-if="index">
-        <Welcome />
-      </template>
-      <template v-if="this.$router.history.current.path.indexOf('read') != -1">
-        <Read />
-      </template>
       <template v-if="this.$router.history.current.path.indexOf('home') != -1">
         <Home />
       </template>
-      <template v-if="this.$router.history.current.path.indexOf('categories') != -1">
-        <Categories />
-      </template>
     </div>
+    <template
+      v-if="this.$router.history.current.path.indexOf('categories') != -1"
+    >
+      <Categories />
+    </template>
   </div>
 </template>
 
@@ -25,7 +27,7 @@ import Home from "../components/Home.vue";
 import Categories from "../components/Categories.vue";
 import { isIndex } from "../util/isPath.js";
 export default {
-  components: { Welcome, Read, Home,Categories },
+  components: { Welcome, Read, Home, Categories },
   computed: {
     consoleLog() {
       // console.log(this.$site);
@@ -41,6 +43,7 @@ export default {
 <style lang="stylus">
 @import url('../styles/index.styl');
 @import url('../styles/font/iconfont.css');
+
 * {
   margin: 0;
   padding: 0;
@@ -49,13 +52,12 @@ export default {
 html, body {
   min-height: 100vh;
   min-width: 90vw;
-  overflow-x hidden
+  overflow-x: hidden;
   /* background: #222; */
   /* color: #ccc; */
 }
 
 .theme-container {
-  
   width: 100%;
   height: 100%;
   margin: 0 auto;

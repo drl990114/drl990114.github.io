@@ -37,7 +37,6 @@ export default {
    .read-header-nav {
      text-align: right;
      position: absolute;
-     left: 119px;
      top: 31px;
      border-left: 4px solid #7b9ac9;
      padding-left: 20px;
@@ -55,7 +54,6 @@ export default {
    .read-header-head {
      position: absolute;
      top: 100px;
-     left: 190px;
 
      img {
        width: 120px;
@@ -63,6 +61,36 @@ export default {
        border-radius: 100%;
        box-shadow: 1px 1px 3px #ccc;
      }
+   }
+ }
+
+ @media screen and (min-width: 1281px) {
+   .read-header-head {
+     left: 12%;
+   }
+
+   .read-header-nav {
+     left: 12%;
+   }
+ }
+
+ @media screen and (min-width: 998px) and (max-width: 1280px) {
+   .read-header-head {
+     left: 9%;
+   }
+
+   .read-header-nav {
+     left: 12%;
+   }
+ }
+
+ @media screen and (max-width: 998px) {
+   .read-header-head {
+     display: none;
+   }
+
+   .read-header-nav {
+     left 0px
    }
  }
 </style>

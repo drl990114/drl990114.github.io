@@ -55,4 +55,22 @@ export default {
   overflow: hidden;
   z-index: 1000px;
 }
+
+@media screen and (min-width: 1281px) {
+  .read {
+    padding-left: 20px;
+  }
+}
+
+@media screen and (min-width: 998px) and (max-width: 1280px) {
+   .read {
+    padding-left: 20px;
+  }
+}
+
+@media screen and (max-width: 998px) {
+   .read {
+    padding-left: 0;
+  }
+}
 </style>

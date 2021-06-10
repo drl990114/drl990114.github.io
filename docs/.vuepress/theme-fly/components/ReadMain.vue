@@ -94,7 +94,6 @@ export default {
 </script>
  <style lang="stylus">
  .read-main {
-   width: 55%;
    margin: 0 auto;
 
    h1, h2, h3, h4, h5, h6 {
@@ -131,7 +130,7 @@ export default {
        border-bottom: 1px dashed #ccc;
        padding: 30px 55px 50px 55px;
        background: #f8f8f8;
-       margin: 45px -40px 40px -40px;
+
        font-size: 14px;
        font-family: 'lucida grande', 'lucida sans unicode', lucida, 'Helvetica Neue', helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
 
@@ -207,6 +206,24 @@ export default {
      margin: 15px 0;
      border-radius: 5px;
      border-spacing: 0;
+   }
+ }
+
+ @media screen and (min-width: 1281px) {
+   .read-main {
+     width: 55%;
+   }
+ }
+
+ @media screen and (min-width: 998px) and (max-width: 1280px) {
+   .read-main {
+     width: 60%;
+   }
+ }
+
+ @media screen and (max-width: 998px) {
+   .read-main {
+     width: 100%;
    }
  }
 </style>

@@ -1,19 +1,46 @@
  <template>
   <div class="read-directory">
     <ul>
+      <li id="directoryTitle">{{ articleTitle }}</li>
       <li v-for="item in articleHeader" :key="item.slug">
         <a :href="'./#' + item.slug">{{ item.title }}</a>
       </li>
     </ul>
-    <BackTop/>
+    <BackTop />
   </div>
 </template>
 <script>
-import BackTop from "./BackTop.vue"
+import BackTop from "./BackTop.vue";
 export default {
   name: "ReadHead",
-  components:{
-      BackTop
+  components: {
+    BackTop,
+  },
+  mounted() {
+    if (typeof document != "undefined") {
+      const h2Arr = document.getElementsByTagName("h2");
+      const h3Arr = document.getElementsByTagName("h3");
+      let directoryArr = [...h2Arr, ...h3Arr];
+      const linkArr = document.getElementsByTagName("a");
+      document.addEventListener("scroll", () => {
+        directoryArr.forEach((item, idx) => {
+          if (
+            document.documentElement.scrollTop - item.offsetTop < 20 &&
+            document.documentElement.scrollTop - item.offsetTop > -20
+          ) {
+            linkArr.forEach((itm) => {
+              const hashUrl = decodeURIComponent(itm.hash.split("#")[1]);
+              if (hashUrl === item.id) {
+                console.log(item.id);
+                itm.parentNode.style.background = "#f5f5f5";
+              } else {
+                itm.parentNode.style.background = "white";
+              }
+            });
+          }
+        });
+      });
+    }
   },
   computed: {
     themeConfigs() {
@@ -25,6 +52,9 @@ export default {
       } else {
         return [];
       }
+    },
+    articleTitle() {
+      return this.$page.title;
     },
   },
   methods: {
@@ -40,7 +70,6 @@ export default {
         }
       }
     },
-    
   },
 };
 </script>

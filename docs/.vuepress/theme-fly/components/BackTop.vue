@@ -11,8 +11,6 @@ export default {
   },
   mounted() {
     if (typeof document != "undefined" && document.getElementById("backTop")) {
-      console.log(this.$themeConfig);
-      console.log(this.$page);
       window.onscroll = function () {
         scrollFunction();
       };
@@ -27,9 +25,6 @@ export default {
           document.getElementById("backTop").style.display = "none";
         }
       }
-
-      const hArr = document.getElementsByTagName('h2')
-      hArr.forEach(item=>{console.log(item.getBoundingClientRect().top)})
     }
   },
   methods: {

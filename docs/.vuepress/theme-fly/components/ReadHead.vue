@@ -90,7 +90,7 @@ export default {
    }
 
    .read-header-nav {
-     left 0px
+     left 10px
    }
  }
 </style>

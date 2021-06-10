@@ -223,7 +223,7 @@ export default {
 
  @media screen and (max-width: 998px) {
    .read-main {
-     width: 100%;
+     width: 96%;
    }
  }
 </style>

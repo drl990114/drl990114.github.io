@@ -5,9 +5,7 @@
       <div class="categories-class">
         <span> 类别：</span>
         <div class="categories-list">
-          <a
-            v-bind:class="{ current: !currentCate }"
-            href="/categories/"
+          <a v-bind:class="{ current: !currentCate }" href="/categories/"
             >全部</a
           >
           <a
@@ -95,7 +93,7 @@ export default {
  .categories {
    font-size: 14px;
    height: 100vh;
-   width: 70%;
+   width: 50%;
    font-family: Palatino, Garamond, Times, Georgia, serif;
    margin: 0 auto;
    transition: all 0.3s;
@@ -150,6 +148,7 @@ export default {
 
          a {
            color: #555;
+           font-weight: 700;
          }
        }
 
@@ -172,12 +171,14 @@ export default {
 
          &:hover {
            color: #E58C7C;
+           padding: 0;
+           margin: 0;
            border-bottom: 1px solid #E58C7C;
          }
        }
 
        ul {
-         margin: 25px 0 25px 35px;
+         margin: 25px 0 25px 25px;
          list-style-type: square;
          line-height: 30px;
 
@@ -187,6 +188,7 @@ export default {
            list-style-type: square;
            line-height: 28px;
            font-size: 16px;
+           height 28px
          }
 
          span {

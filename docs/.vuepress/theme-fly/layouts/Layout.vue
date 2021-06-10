@@ -48,7 +48,9 @@ export default {
   margin: 0;
   padding: 0;
 }
-
+*::selection {
+  background  #fde6ba
+}
 html, body {
   min-height: 100vh;
   min-width: 90vw;

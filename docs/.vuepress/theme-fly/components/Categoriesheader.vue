@@ -60,7 +60,7 @@ export default {
   padding-top: 100px;
   font-size: 28px;
   font-weight: bold;
-
+  margin-bottom 30px
   .categories-header-left {
     float: left;
   }

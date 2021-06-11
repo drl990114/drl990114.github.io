@@ -2,7 +2,7 @@
   <div class="read-directory">
     <ul>
       <li id="directoryTitle">{{ articleTitle }}</li>
-      <li v-for="item in articleHeader" :key="item.slug">
+      <li v-for="item in articleHeader" :key="item.slug" class="directory-li">
         <a :href="'./#' + item.slug">{{ item.title }}</a>
       </li>
     </ul>
@@ -21,7 +21,8 @@ export default {
       const h2Arr = document.getElementsByTagName("h2");
       const h3Arr = document.getElementsByTagName("h3");
       let directoryArr = [...h2Arr, ...h3Arr];
-      const linkArr = document.getElementsByTagName("a");
+      const linkArr = document.getElementsByClassName('directory-li')
+      
       document.addEventListener("scroll", () => {
         directoryArr.forEach((item, idx) => {
           if (
@@ -29,12 +30,12 @@ export default {
             document.documentElement.scrollTop - item.offsetTop > -20
           ) {
             linkArr.forEach((itm) => {
-              const hashUrl = decodeURIComponent(itm.hash.split("#")[1]);
+              const hashUrl = decodeURIComponent(itm.childNodes[0].hash.split("#")[1]);
               if (hashUrl === item.id) {
                 console.log(item.id);
-                itm.parentNode.style.background = "#f5f5f5";
+                itm.style.background = "#f5f5f5";
               } else {
-                itm.parentNode.style.background = "white";
+                itm.style.background = "white";
               }
             });
           }

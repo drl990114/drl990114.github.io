@@ -4,10 +4,29 @@
       <div class="bar-item">
         <span class="icon iconfont icon-yingyong bar-item-current">
           <span class="show">首页</span>
-          <div class="bar-item-hover">s</div>
+          <div class="bar-item-hover">
+            首页瞧瞧
+            <div class="triangle"></div>
+            <div class="triangleBorder"></div>
+          </div>
         </span>
-        <span class="icon iconfont icon-yingyong bar-item-current">
-          <span class="show">首页</span>
+        <span class="icon iconfont icon-rijianmoshi bar-item-current">
+          <span class="show">日间</span>
+          <div class="bar-item-hover">
+            <div style="width: 100px; height: 200px">
+              <div class="triangle"></div>
+              <div class="triangleBorder"></div>
+            </div>
+          </div>
+        </span>
+        <span class="icon iconfont icon-wode bar-item-current">
+          <span class="show">关于</span>
+          <div class="bar-item-hover">
+            <div style="width: 100px; height: 50px">
+              <div class="triangle"></div>
+              <div class="triangleBorder"></div>
+            </div>
+          </div>
         </span>
       </div>
     </div>
@@ -28,7 +47,7 @@ export default {
    width: 706px;
    height: 100vh;
    box-shadow: 10px 0 10px 0 #282c341c;
-   transition: all 0.3s;
+   transition: all 0.5s;
    z-index: 80;
    background: #fff;
 
@@ -42,7 +61,7 @@ export default {
      font-size: 18px;
      text-align: center;
      color: #666;
-     transition: all 0.3s;
+     transition: all 0.5s;
    }
 
    .bar-up span {
@@ -75,15 +94,47 @@ export default {
      }
 
      .bar-item-hover {
-       position: absolute;
-       left: 32px;
-       top: 15px;
-       min-width: 80px;
-       margin-top: -50% !important;
-       border: 1px solid #ccc;
-       padding: 8px;
-       background: #eee;
-       font-size: 14px;
+       display: none;
+       opacity: 0;
+
+       .triangle {
+         display: block;
+         width: 0;
+         height: 0;
+         border-width: 8px 8px 9px 0;
+         border-style: solid;
+         border-color: transparent #ccc transparent transparent;
+         position: absolute;
+         top: 8px;
+         left: -8px;
+       }
+
+       .triangleBorder {
+         width: 0;
+         height: 0;
+         border-width: 7px 7px 8px 0;
+         border-style: solid;
+         border-color: transparent #eee transparent transparent;
+         position: absolute;
+         top: 9px;
+         left: -7px;
+       }
+     }
+
+     &:hover {
+       .bar-item-hover {
+         position: absolute;
+         left: 80px;
+         top: 30px;
+         display: inline-block;
+         opacity: 1;
+         min-width: 80px;
+         margin-top: -50% !important;
+         border: 1px solid #ccc;
+         padding: 8px;
+         background: #eee;
+         font-size: 14px;
+       }
      }
    }
  }
@@ -110,7 +161,6 @@ export default {
    .show {
      opacity: 1;
    }
-
  }
 
  @media screen and (max-width: 998px) {

@@ -1,7 +1,6 @@
  <template>
   <div class="read-directory">
     <ul>
-      <li id="directoryTitle">{{ articleTitle }}</li>
       <li v-for="item in articleHeader" :key="item.slug" class="directory-li">
         <a :href="'./#' + item.slug">{{ item.title }}</a>
       </li>
@@ -32,7 +31,6 @@ export default {
             linkArr.forEach((itm) => {
               const hashUrl = decodeURIComponent(itm.childNodes[0].hash.split("#")[1]);
               if (hashUrl === item.id) {
-                console.log(item.id);
                 itm.style.background = "#f5f5f5";
               } else {
                 itm.style.background = "white";
@@ -86,14 +84,13 @@ export default {
    border: 1px solid #fff;
    font-family: 'Microsoft Yahei';
    z-index: 1;
-   max-height: 560px;
+   max-height: 360px;
 
    ul {
      list-style: none;
-     font-size: 16px;
 
      li {
-       font-size: 14px;
+       font-size: 12px;
        font-weight: 400;
        margin-bottom: 10px;
      }

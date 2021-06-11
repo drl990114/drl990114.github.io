@@ -82,7 +82,6 @@ export default {
 
    .bar-item-current {
      position: relative;
-
      .show {
        position: absolute;
        right: -16px;

@@ -125,12 +125,12 @@ export default {
    }
 
    .main-foot {
+     margin-top 50px
      .info {
        border-top: 1px dashed #ccc;
        border-bottom: 1px dashed #ccc;
        padding: 30px 55px 50px 55px;
        background: #f8f8f8;
-
        font-size: 14px;
        font-family: 'lucida grande', 'lucida sans unicode', lucida, 'Helvetica Neue', helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
 

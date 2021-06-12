@@ -15,4 +15,9 @@ module.exports = {
   activeHeaderLinks: false, // 默认值：true
   head,
   themeConfig,
+  plugins: [
+    ['@vuepress/search', {
+      searchMaxSuggestions: 10
+    }]
+  ]
 }

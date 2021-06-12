@@ -1,5 +1,7 @@
  <template>
-  <div id="backTop" @click="topFunction">回到顶部</div>
+  <div id="backTop" @click="topFunction">
+    <span class="icon iconfont icon-dingbu" />
+  </div>
 </template>
 <script>
 export default {
@@ -33,7 +35,7 @@ export default {
         let wTop =
           document.documentElement.scrollTop || document.body.scrollTop;
         document.documentElement.scrollTop = document.body.scrollTop =
-          wTop - 500;
+          wTop - 300;
         if (wTop <= 0) {
           clearInterval(timer);
         }
@@ -46,15 +48,24 @@ export default {
  #backTop {
    position: fixed;
    display: none;
-   bottom: 20px;
+   bottom: 140px;
    right: 30px;
    z-index: 99;
    border: none;
    outline: none;
-   background-color: red; /* 设置背景颜色，你可以设置自己想要的颜色或图片 */
-   color: white; /* 文本颜色 */
+   color: #999;
+   width: 40px;
+   height: 40px;
+   border: 1px solid #ccc;
+   line-height: 20px;
+   text-align: center;
    cursor: pointer;
-   padding: 15px;
-   border-radius: 10px; /* 圆角 */
+
+   span {
+     display: inline-block;
+     margin-top: 10px;
+     font-size: 20px;
+     font-weight: bold;
+   }
  }
 </style>

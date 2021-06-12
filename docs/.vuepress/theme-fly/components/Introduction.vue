@@ -65,7 +65,7 @@ export default {
      display: inline-block;
      margin: 12px 20px;
      color: #0078b6;
-     fon: 17px / 1.125 Arial, Helvetica, sans-serif;
+     font-size: 18px !important;
    }
 
    h3 span {

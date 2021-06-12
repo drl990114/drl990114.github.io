@@ -2,8 +2,7 @@
   <div class="read">
     <ReadHead />
     <ReadMain />
-
-    <div class="read-foot"></div>
+    <ReadFoot/>
     <LeftNav />
     <Directory />
   </div>
@@ -14,6 +13,7 @@ import LeftNav from "./LeftNav.vue";
 import ReadHead from "./ReadHead.vue";
 import ReadMain from "./ReadMain.vue";
 import Directory from "./Directory.vue";
+import ReadFoot from "./ReadFoot.vue";
 export default {
   name: "Read",
   components: {
@@ -21,6 +21,7 @@ export default {
     ReadHead,
     ReadMain,
     Directory,
+    ReadFoot
   },
 
   computed: {
@@ -49,12 +50,7 @@ export default {
   font-size: 18px;
 }
 
-.read-foot {
-  height: 410px;
-  background: #3f3f3f;
-  overflow: hidden;
-  z-index: 1000px;
-}
+
 
 @media screen and (min-width: 1281px) {
   .read {

@@ -115,10 +115,37 @@ export const getTimeLines = (pages) => {
 }
 
 
-export function getUrlParams(name) { 
+export function getUrlParams(name) {
   let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); //定义正则表达式 
-  let r = window.location.search.substr(1).match(reg);  
-  if (r != null) return decodeURIComponent(decodeURIComponent(r[2])); 
+  let r = window.location.search.substr(1).match(reg);
+  if (r != null) return decodeURIComponent(decodeURIComponent(r[2]));
   console.log(r)
-return null; 
+  return null;
+}
+
+
+export const findPrevNext = (currentPage, pages) => {
+  const PATH = currentPage.path
+  const currentIndex = pages.findIndex(item => {
+    if (item.path === PATH) {
+      return true
+    } else return false
+  })
+  if (currentIndex !== -1 && currentIndex !== 0 && currentIndex !== pages.length) {
+    return {
+      prev: pages[currentIndex - 1],
+      next: pages[currentIndex + 1]
+    }
+  }
+  if (currentIndex == 0) {
+    return {
+      prev: null,
+      next: pages[currentIndex + 1]
+    }
+  }
+  if (currentIndex == pages.length) P
+  return {
+    prev: pages[currentIndex - 1],
+    next: null
+  }
 }

@@ -33,8 +33,8 @@ export default {
         let wTop =
           document.documentElement.scrollTop || document.body.scrollTop;
         document.documentElement.scrollTop = document.body.scrollTop =
-          wTop - 200;
-        if (wTop === 0) {
+          wTop - 500;
+        if (wTop <= 0) {
           clearInterval(timer);
         }
       }, 30);

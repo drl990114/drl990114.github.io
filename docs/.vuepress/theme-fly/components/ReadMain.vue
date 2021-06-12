@@ -64,19 +64,19 @@
         </ul>
       </div>
       <div class="post-relative">
-        <a href="/blog/2020/12/19/transform/" class="prev" title="转变"
-          ><b>转变</b> </a
-        ><a
-          href="/blog/2020/11/03/answers-from-users/"
-          class="next"
-          title="从用户嘴里找答案"
-          ><b>从用户嘴里找答案</b></a
-        >
+        <a :href="prevNext.prev.path" class="prev"
+          ><span class="icon iconfont icon-jiantou1" />
+          <b>{{ prevNext.prev.title }}</b> </a
+        ><a :href="prevNext.next.path" class="next"
+          ><b>{{ prevNext.next.title }}</b
+          ><span class="icon iconfont icon-jiantou"
+        /></a>
       </div>
     </div>
   </div>
 </template>
 <script>
+import { findPrevNext } from "../util";
 export default {
   name: "ReadMain",
   computed: {
@@ -88,6 +88,11 @@ export default {
     },
     themeConfigs() {
       return this.$themeConfig;
+    },
+    prevNext() {
+      const res = findPrevNext(this.$page, this.$site.pages);
+      console.log(res);
+      return res;
     },
   },
 };
@@ -125,7 +130,8 @@ export default {
    }
 
    .main-foot {
-     margin-top 50px
+     margin-top: 50px;
+
      .info {
        border-top: 1px dashed #ccc;
        border-bottom: 1px dashed #ccc;
@@ -141,7 +147,7 @@ export default {
 
      .post-relative {
        overflow: hidden;
-       margin-bottom: 50px;
+       margin: 25px 0;
        font-weight: 700;
        display: flex;
        flex-direction: row;
@@ -150,6 +156,15 @@ export default {
        padding-left: 30px;
        padding-right: 30px;
        justify-content: space-between;
+
+       a {
+         display: flex;
+         line-height: 1px;
+       }
+
+       span {
+         font-size: 25px;
+       }
 
        b {
          font-size: 20px;

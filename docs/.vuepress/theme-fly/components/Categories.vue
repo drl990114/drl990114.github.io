@@ -5,7 +5,9 @@
       <div class="categories-class">
         <span> 类别：</span>
         <div class="categories-list">
-          <a v-bind:class="{ current: !currentCate }" href="/categories/"
+          <a
+            v-bind:class="{ current: currentCate === 'all' }"
+            href="/categories/?name=all"
             >全部</a
           >
           <a
@@ -62,14 +64,19 @@ export default {
 
       // let cateActicle
       if (nameParam) {
-        const cateActicle = this.$site.pages.filter(
-          (page) =>
-            page.frontmatter.categories &&
-            page.frontmatter.categories[0] === nameParam
-        );
-        const cateActicles = getTimeLines(cateActicle);
-        console.log(cateActicles);
-        return cateActicles;
+        if (nameParam == "all") {
+          const cateActicles = getTimeLines(this.$site.pages);
+          return cateActicles;
+        } else {
+          const cateActicle = this.$site.pages.filter(
+            (page) =>
+              page.frontmatter.categories &&
+              page.frontmatter.categories[0] === nameParam
+          );
+          const cateActicles = getTimeLines(cateActicle);
+          console.log(cateActicles);
+          return cateActicles;
+        }
       }
       return res;
     },
@@ -188,7 +195,7 @@ export default {
            list-style-type: square;
            line-height: 28px;
            font-size: 16px;
-           height 28px
+           height: 28px;
          }
 
          span {

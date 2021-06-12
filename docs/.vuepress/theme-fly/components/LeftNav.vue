@@ -5,15 +5,19 @@
         <span class="icon iconfont icon-yingyong bar-item-current">
           <span class="show">首页</span>
           <div class="bar-item-hover">
-            首页瞧瞧
+            首页瞧瞧~
             <div class="triangle"></div>
             <div class="triangleBorder"></div>
           </div>
         </span>
-        <span class="icon iconfont icon-rijianmoshi bar-item-current">
+        <span class="icon iconfont icon-A bar-item-current">
           <span class="show">日间</span>
           <div class="bar-item-hover">
-            <div style="width: 100px; height: 200px">
+            <div>
+              <div class="choose-box">
+                <div><span class="icon iconfont icon-rijianmoshi" /></div>
+                <div><span class="icon iconfont icon-yejianmoshi1" /></div>
+              </div>
               <div class="triangle"></div>
               <div class="triangleBorder"></div>
             </div>
@@ -23,6 +27,9 @@
           <span class="show">关于</span>
           <div class="bar-item-hover">
             <div style="width: 100px; height: 50px">
+              <div class="about">
+                <div>关于作者</div>
+              </div>
               <div class="triangle"></div>
               <div class="triangleBorder"></div>
             </div>
@@ -54,7 +61,7 @@ export default {
    .bar-up {
      position: absolute;
      right: 0;
-     top: 10px;
+     top: 15px;
      bottom: 10px;
      width: 26px;
      height: 26px;
@@ -75,18 +82,19 @@ export default {
 
    .bar-item {
      span {
-       font-size: 22px;
+       font-size: 20px;
        padding: 8px 0;
      }
    }
 
    .bar-item-current {
      position: relative;
+
      .show {
        position: absolute;
-       right: -16px;
+       right: -14px;
        top: 0px;
-       font-size: 15px !important;
+       font-size: 14px !important;
        opacity: 0;
        text-align: center;
        color: #666;
@@ -95,6 +103,7 @@ export default {
      .bar-item-hover {
        display: none;
        opacity: 0;
+       border-radius: 3px;
 
        .triangle {
          display: block;
@@ -104,7 +113,7 @@ export default {
          border-style: solid;
          border-color: transparent #ccc transparent transparent;
          position: absolute;
-         top: 8px;
+         top: 7px;
          left: -8px;
        }
 
@@ -115,7 +124,7 @@ export default {
          border-style: solid;
          border-color: transparent #eee transparent transparent;
          position: absolute;
-         top: 9px;
+         top: 8px;
          left: -7px;
        }
      }
@@ -123,7 +132,7 @@ export default {
      &:hover {
        .bar-item-hover {
          position: absolute;
-         left: 80px;
+         left: 76px;
          top: 30px;
          display: inline-block;
          opacity: 1;
@@ -133,6 +142,38 @@ export default {
          padding: 8px;
          background: #eee;
          font-size: 14px;
+       }
+
+       .read-left {
+         left: -648px;
+         transition: all 0.3s;
+       }
+
+       .about {
+         padding: 10px 5px;
+         background: #eee;
+         border: 1px solid #d4d4d4;
+         border-radius: 4px;
+         background-image: none;
+         box-shadow: none;
+       }
+
+       .choose-box {
+         display: flex;
+
+         div {
+           width: 45px;
+           padding: 3px 20px;
+           background: #eee;
+           border: 1px solid #d4d4d4;
+           border-radius: 4px;
+           background-image: none;
+           box-shadow: none;
+
+           span {
+             font-size: 20px;
+           }
+         }
        }
      }
    }
@@ -148,13 +189,8 @@ export default {
      transition: all 0.3s;
    }
 
-   .bar-up span {
-     font-size: 23px;
-     transition: all 0.3s;
-   }
-
    .bar-item span {
-     font-size: 20px;
+     font-size: 18px;
    }
 
    .show {

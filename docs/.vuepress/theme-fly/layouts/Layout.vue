@@ -48,9 +48,11 @@ export default {
   margin: 0;
   padding: 0;
 }
+
 *::selection {
-  background  #fde6ba
+  background: #fde6ba;
 }
+
 html, body {
   min-height: 100vh;
   min-width: 90vw;
@@ -62,6 +64,7 @@ html, body {
 .theme-container {
   width: 100%;
   height: 100%;
+  // filter: invert(1) hue-rotate(180deg);
   margin: 0 auto;
   background: rgb(255, 255, 255);
 }

@@ -32,8 +32,15 @@ import Home from "../components/Home.vue";
 import Categories from "../components/Categories.vue";
 import Archives from "../components/Archives.vue";
 import { isIndex } from "../util/isPath.js";
+import { toLight, toDark, currentMode } from "../util/colorMode";
 export default {
   components: { Welcome, Read, Home, Categories, Archives },
+  mounted() {
+    let current = currentMode();
+    if (current == "dark") {
+      toDark();
+    } else toLight();
+  },
   computed: {
     consoleLog() {
       // console.log(this.$site);

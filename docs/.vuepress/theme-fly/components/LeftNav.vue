@@ -18,7 +18,7 @@
                 <div @click="light">
                   <span class="icon iconfont icon-rijianmoshi" />
                 </div>
-                <div @click="dark">
+                <div @click="dark"  class="mode">
                   <span class="icon iconfont icon-yejianmoshi1" />
                 </div>
               </div>
@@ -44,7 +44,7 @@
   </div>
 </template>
 <script>
-import { toDark, toLight } from "../util";
+import { toDark, toLight, currentMode } from "../util/colorMode.js";
 export default {
   name: "LeftNav",
   methods: {
@@ -56,6 +56,13 @@ export default {
     },
     light: function () {
       toLight();
+    },
+  },
+  computed: {
+    currentMode() {
+      const res = currentMode();
+      console.log(res);
+      return res == "light";
     },
   },
 };
@@ -73,6 +80,10 @@ export default {
    transition: all 0.5s;
    z-index: 80;
    background: var(--leftNavColor);
+
+   .mode {
+     background: var(--darkModeBtn) !important;
+   }
 
    .bar-up {
      position: absolute;
@@ -120,6 +131,7 @@ export default {
        display: none;
        opacity: 0;
        border-radius: 3px;
+       color: var(--textColor);
 
        .triangle {
          display: block;
@@ -138,7 +150,7 @@ export default {
          height: 0;
          border-width: 7px 7px 8px 0;
          border-style: solid;
-         border-color: transparent var(--leftNavColor) transparent transparent;
+         border-color: transparent var(--leftNavBtn) transparent transparent;
          position: absolute;
          top: 8px;
          left: -7px;
@@ -148,7 +160,7 @@ export default {
      &:hover {
        .bar-item-hover {
          position: absolute;
-         left: 76px;
+         left: 72px;
          top: 30px;
          display: inline-block;
          opacity: 1;
@@ -156,7 +168,7 @@ export default {
          margin-top: -50% !important;
          border: 1px solid var(--borderColor);
          padding: 8px;
-         background: var(--leftNavColor);
+         background: var(--leftNavBtn);
          font-size: 14px;
        }
 
@@ -181,7 +193,7 @@ export default {
          div {
            width: 45px;
            padding: 3px 20px;
-           background: var(--leftNavBtn);
+           background: var(--lightModeBtn);
            border: 1px solid var(--borderColor);
            border-radius: 4px;
            background-image: none;

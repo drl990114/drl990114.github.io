@@ -3,8 +3,8 @@
     <div class="bar-up">
       <div class="bar-item">
         <span class="icon iconfont icon-yingyong bar-item-current">
-          <span class="show">首页</span>
-          <div class="bar-item-hover">
+          <span class="show" @click="backHome">首页</span>
+          <div class="bar-item-hover" @click="backHome">
             首页瞧瞧~
             <div class="triangle"></div>
             <div class="triangleBorder"></div>
@@ -15,8 +15,12 @@
           <div class="bar-item-hover">
             <div>
               <div class="choose-box">
-                <div><span class="icon iconfont icon-rijianmoshi" /></div>
-                <div><span class="icon iconfont icon-yejianmoshi1" /></div>
+                <div @click="light">
+                  <span class="icon iconfont icon-rijianmoshi" />
+                </div>
+                <div @click="dark">
+                  <span class="icon iconfont icon-yejianmoshi1" />
+                </div>
               </div>
               <div class="triangle"></div>
               <div class="triangleBorder"></div>
@@ -40,8 +44,25 @@
   </div>
 </template>
 <script>
+import { toDark, toLight } from "../util";
 export default {
   name: "LeftNav",
+  // watch: {
+  //   $route(to, from) {
+  //     this.$router.go(0);
+  //   },
+  // },
+  methods: {
+    backHome: function () {
+      window.location.href = "/home/";
+    },
+    dark: function () {
+      toDark();
+    },
+    light: function () {
+      toLight();
+    },
+  },
 };
 </script>
  <style lang="stylus">
@@ -56,7 +77,7 @@ export default {
    box-shadow: 10px 0 10px 0 #282c341c;
    transition: all 0.5s;
    z-index: 80;
-   background: #fff;
+   background: var(--leftNavColor);
 
    .bar-up {
      position: absolute;
@@ -67,7 +88,7 @@ export default {
      height: 26px;
      font-size: 18px;
      text-align: center;
-     color: #666;
+     color: var(--codeColor);
      transition: all 0.5s;
    }
 
@@ -97,7 +118,7 @@ export default {
        font-size: 14px !important;
        opacity: 0;
        text-align: center;
-       color: #666;
+       color: var(--textColor);
      }
 
      .bar-item-hover {
@@ -111,7 +132,7 @@ export default {
          height: 0;
          border-width: 8px 8px 9px 0;
          border-style: solid;
-         border-color: transparent #ccc transparent transparent;
+         border-color: transparent var(--borderColor) transparent transparent;
          position: absolute;
          top: 7px;
          left: -8px;
@@ -122,7 +143,7 @@ export default {
          height: 0;
          border-width: 7px 7px 8px 0;
          border-style: solid;
-         border-color: transparent #eee transparent transparent;
+         border-color: transparent var(--leftNavColor) transparent transparent;
          position: absolute;
          top: 8px;
          left: -7px;
@@ -138,9 +159,9 @@ export default {
          opacity: 1;
          min-width: 80px;
          margin-top: -50% !important;
-         border: 1px solid #ccc;
+         border: 1px solid var(--borderColor);
          padding: 8px;
-         background: #eee;
+         background: var(--leftNavColor);
          font-size: 14px;
        }
 
@@ -151,11 +172,12 @@ export default {
 
        .about {
          padding: 10px 5px;
-         background: #eee;
-         border: 1px solid #d4d4d4;
+         background: var(--leftNavBtn);
+         border: 1px solid var(--borderColor);
          border-radius: 4px;
          background-image: none;
          box-shadow: none;
+         color: var(--textColor);
        }
 
        .choose-box {
@@ -164,11 +186,12 @@ export default {
          div {
            width: 45px;
            padding: 3px 20px;
-           background: #eee;
-           border: 1px solid #d4d4d4;
+           background: var(--leftNavBtn);
+           border: 1px solid var(--borderColor);
            border-radius: 4px;
            background-image: none;
            box-shadow: none;
+           color: var(--textColor);
 
            span {
              font-size: 20px;
@@ -198,7 +221,7 @@ export default {
    }
  }
 
- @media screen and (max-width: 998px) {
+ @media screen and (max-width: 660px) {
    .read-left {
      display: none;
    }

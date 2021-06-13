@@ -64,10 +64,10 @@
         </ul>
       </div>
       <div class="post-relative">
-        <a :href="prevNext.prev.path" class="prev"
+        <a v-if="prevNext.prev"   :href="prevNext.prev.path" class="prev"
           ><span class="icon iconfont icon-jiantou1" />
           <b>{{ prevNext.prev.title }}</b> </a
-        ><a :href="prevNext.next.path" class="next"
+        ><a v-if="prevNext.next" :href="prevNext.next.path" class="next"
           ><b>{{ prevNext.next.title }}</b
           ><span class="icon iconfont icon-jiantou"
         /></a>
@@ -76,7 +76,7 @@
   </div>
 </template>
 <script>
-import { findPrevNext } from "../util";
+import { findPrevNext,filterConfigMd} from "../util";
 export default {
   name: "ReadMain",
   computed: {
@@ -90,8 +90,8 @@ export default {
       return this.$themeConfig;
     },
     prevNext() {
-      const res = findPrevNext(this.$page, this.$site.pages);
-      console.log(res);
+      let articles =  filterConfigMd(this.$site.pages)
+      const res = findPrevNext(this.$page, articles);
       return res;
     },
   },

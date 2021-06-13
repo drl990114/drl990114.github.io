@@ -4,7 +4,7 @@ date: 2021-01-12
 permalink: /read/2021011201
 author: RuiLin Dong
 categories:
-  - raact
+  - react
 tags:
   - javascript
   - react

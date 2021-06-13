@@ -17,12 +17,10 @@
     <div class="home-header-right">
       <input placeholder="站内搜索" />
     </div>
-    <div id="hits" style="font-size:14px">
-      <!-- Hits widget will appear here -->
+    <!-- <div id="hits" style="display:none">
     </div>
-    <div id="searchbox" >
-      <!-- Hits widget will appear here -->
-    </div>
+    <div id="searchbox" style="display:none">
+    </div> -->
   </div>
 </template>
 <script>
@@ -35,34 +33,34 @@ export default {
       return this.$themeConfig.author;
     },
   },
-  mounted: function () {
-    this.$nextTick(function () {
-      const algoliasearch = require("algoliasearch/lite");
-      const instantsearch = require("instantsearch.js").default;
+  // mounted: function () {
+  //   this.$nextTick(function () {
+  //     const algoliasearch = require("algoliasearch/lite");
+  //     const instantsearch = require("instantsearch.js").default;
 
-      const searchClient = algoliasearch(
-        "8OGO3JZZRY",
-        "6956f18773dbf5757dc4f3a3c375222d"
-      );
+  //     const searchClient = algoliasearch(
+  //       "8OGO3JZZRY",
+  //       "6956f18773dbf5757dc4f3a3c375222d"
+  //     );
 
-      const search = instantsearch({
-        indexName: "dev_blog",
-        searchClient,
-      });
+  //     const search = instantsearch({
+  //       indexName: "dev_blog",
+  //       searchClient,
+  //     });
 
-      search.addWidgets([
-        searchBox({
-          container: "#searchbox",
-        }),
+  //     search.addWidgets([
+  //       searchBox({
+  //         container: "#searchbox",
+  //       }),
 
-        hits({
-          container: "#hits",
-        }),
-      ]);
+  //       hits({
+  //         container: "#hits",
+  //       }),
+  //     ]);
 
-      search.start();
-    });
-  },
+  //     search.start();
+  //   });
+  // },
 
   methods: {
     arrowClick: () => {

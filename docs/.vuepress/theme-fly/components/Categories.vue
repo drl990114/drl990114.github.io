@@ -32,10 +32,8 @@
             <li v-for="item in value" :key="item.key">
               <a :href="item.path">{{ item.title }} </a>
               <span
-                >({{ item.lastUpdated.split(",")[0] }} · 分类:{{
-                  item.frontmatter.categories
-                    ? item.frontmatter.categories[0]
-                    : "无"
+                >({{ item.lastUpdated.split(",")[0] }} · 标签:{{
+                  item.frontmatter.tags ? item.frontmatter.tags[0] : "无"
                 }})</span
               >
             </li>

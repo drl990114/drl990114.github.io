@@ -127,11 +127,12 @@ export function getUrlParams(name) {
 export const findPrevNext = (currentPage, pages) => {
   const PATH = currentPage.path
   const currentIndex = pages.findIndex(item => {
-    if (item.path === PATH) {
+    if (item.path == PATH) {
       return true
     } else return false
   })
-  if (currentIndex !== -1 && currentIndex !== 0 && currentIndex !== pages.length) {
+  console.log(currentIndex)
+  if (currentIndex != -1 && currentIndex != 0 && currentIndex != pages.length) {
     return {
       prev: pages[currentIndex - 1],
       next: pages[currentIndex + 1]

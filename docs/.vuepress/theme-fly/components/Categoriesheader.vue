@@ -1,8 +1,8 @@
 <template>
   <div class="categories-header">
     <div class="categories-header-left">
-      <router-link to="/welcome">{{author}}</router-link> »
-      <a href="/home/">  博客 </a>
+      <router-link to="/welcome">{{ author }}</router-link> »
+      <a href="/home/"> 博客 </a>
 
       <div id="arrow-expend" @click="arrowClick">
         ▾
@@ -57,10 +57,9 @@ export default {
 .categories-header {
   width: 100%;
   height: 70px;
-  padding-top: 100px;
   font-size: 28px;
   font-weight: bold;
-  margin-bottom 30px
+
   .categories-header-left {
     float: left;
   }
@@ -117,6 +116,34 @@ export default {
       list-style: none;
       line-height: 40px;
     }
+  }
+}
+
+@media screen and (min-width: 1281px) {
+  .categories-header {
+    padding-top: 100px;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (min-width: 998px) and (max-width: 1280px) {
+  .categories-header {
+    padding-top: 70px;
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (min-width: 660px) and (max-width: 997px) {
+  .categories-header {
+    padding-top: 50px;
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 659px) {
+  .categories-header {
+    padding-top: 30px;
+    margin-bottom: 0px;
   }
 }
 </style>

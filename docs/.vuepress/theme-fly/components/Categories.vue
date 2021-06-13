@@ -98,7 +98,6 @@ export default {
  .categories {
    font-size: 14px;
    height: 100vh;
-   width: 50%;
    font-family: Palatino, Garamond, Times, Georgia, serif;
    margin: 0 auto;
    transition: all 0.3s;
@@ -207,6 +206,30 @@ export default {
          }
        }
      }
+   }
+ }
+
+ @media screen and (min-width: 1281px) {
+   .categories {
+     width: 50%;
+   }
+ }
+
+ @media screen and (min-width: 998px) and (max-width: 1280px) {
+   .categories {
+     width: 60%;
+   }
+ }
+
+ @media screen and (min-width: 660px) and (max-width: 997px) {
+   .categories {
+     width: 75%;
+   }
+ }
+
+ @media screen and (max-width: 659px) {
+   .categories {
+     width: 94%;
    }
  }
 </style>

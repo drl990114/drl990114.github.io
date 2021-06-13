@@ -48,8 +48,8 @@ export default {
         return archiveActicles;
       } else {
         const currentYearActs = archiveActicles.get(yearParam);
-        let res = new Map()
-        res.set(yearParam,currentYearActs)
+        let res = new Map();
+        res.set(yearParam, currentYearActs);
         return res;
       }
     },
@@ -60,7 +60,6 @@ export default {
  .archives {
    font-size: 14px;
    height: 100vh;
-   width: 50%;
    font-family: Palatino, Garamond, Times, Georgia, serif;
    margin: 0 auto;
    transition: all 0.3s;
@@ -135,6 +134,30 @@ export default {
          font-family: Georgia, serif;
        }
      }
+   }
+ }
+
+ @media screen and (min-width: 1281px) {
+   .archives {
+     width: 50%;
+   }
+ }
+
+ @media screen and (min-width: 998px) and (max-width: 1280px) {
+   .archives {
+     width: 60%;
+   }
+ }
+
+ @media screen and (min-width: 660px) and (max-width: 997px) {
+   .archives {
+     width: 75%;
+   }
+ }
+
+ @media screen and (max-width: 659px) {
+   .archives {
+     width: 94%;
    }
  }
 </style>

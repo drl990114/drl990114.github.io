@@ -92,6 +92,7 @@ export default {
  <style lang="stylus">
  .read-main {
    margin: 0 auto;
+   color: var(--textColor);
 
    h1, h2, h3, h4, h5, h6 {
      font-family: Palatino, Garamond, Times, Georgia, serif;
@@ -145,17 +146,15 @@ export default {
        overflow: hidden;
        margin: 25px 0;
        font-weight: 700;
-       display: flex;
-       flex-direction: row;
-       align-items: center;
        height: 60px;
-       padding-left: 30px;
-       padding-right: 30px;
        justify-content: space-between;
 
-       a {
-         display: flex;
-         line-height: 1px;
+       .prev {
+         float: left;
+       }
+
+       .next {
+         float: right;
        }
 
        span {
@@ -197,6 +196,10 @@ export default {
      margin: 15px 0;
      border-radius: 5px;
      border-spacing: 0;
+   }
+
+   ul {
+     margin-bottom: 10px;
    }
  }
 
@@ -295,7 +298,7 @@ export default {
        font-size: 35px;
        line-height: 68px;
        margin: 15px 0;
-       font-weight: bold;
+       font-weight: 400px;
      }
 
      h3 {
@@ -322,7 +325,7 @@ export default {
      }
 
      .post-relative {
-       font-size: 16px;
+       font-size: 14px;
      }
 
      h1 {
@@ -333,7 +336,7 @@ export default {
        font-size: 30px;
        line-height: 68px;
        margin: 8px 0;
-       font-weight: bold;
+       font-weight: 400px;
      }
 
      h3 {

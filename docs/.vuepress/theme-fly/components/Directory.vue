@@ -1,10 +1,12 @@
  <template>
-  <div class="read-directory">
-    <ul>
-      <li v-for="item in articleHeader" :key="item.slug" class="directory-li">
-        <a :href="'./#' + item.slug">{{ item.title }}</a>
-      </li>
-    </ul>
+  <div>
+    <div class="read-directory">
+      <ul>
+        <li v-for="item in articleHeader" :key="item.slug" class="directory-li">
+          <a :href="'./#' + item.slug">{{ item.title }}</a>
+        </li>
+      </ul>
+    </div>
     <BackTop />
   </div>
 </template>
@@ -20,8 +22,8 @@ export default {
       const h2Arr = document.getElementsByTagName("h2");
       const h3Arr = document.getElementsByTagName("h3");
       let directoryArr = [...h2Arr, ...h3Arr];
-      const linkArr = document.getElementsByClassName('directory-li')
-      
+      const linkArr = document.getElementsByClassName("directory-li");
+
       document.addEventListener("scroll", () => {
         directoryArr.forEach((item, idx) => {
           if (
@@ -29,11 +31,13 @@ export default {
             document.documentElement.scrollTop - item.offsetTop > -20
           ) {
             linkArr.forEach((itm) => {
-              const hashUrl = decodeURIComponent(itm.childNodes[0].hash.split("#")[1]);
+              const hashUrl = decodeURIComponent(
+                itm.childNodes[0].hash.split("#")[1]
+              );
               if (hashUrl === item.id) {
-                itm.style.background = "#f5f5f5";
+                itm.childNodes[0].style.color = "#e58c7c";
               } else {
-                itm.style.background = "white";
+                itm.childNodes[0].style.color = "#4a75b5";
               }
             });
           }
@@ -56,20 +60,6 @@ export default {
       return this.$page.title;
     },
   },
-  methods: {
-    scrollFunction: () => {
-      if (typeof window !== "undefined") {
-        if (
-          document.body.scrollTop > 20 ||
-          document.documentElement.scrollTop > 20
-        ) {
-          document.getElementById("myBtn").style.display = "block";
-        } else {
-          document.getElementById("myBtn").style.display = "none";
-        }
-      }
-    },
-  },
 };
 </script>
  <style lang="stylus">
@@ -79,21 +69,34 @@ export default {
    right: 15px;
    width: 200px;
    overflow: auto;
-   background: rgba(255, 255, 255, 0.58);
+   background: transparent;
    padding: 10px;
-   border: 1px solid #fff;
    font-family: 'Microsoft Yahei';
    z-index: 1;
    max-height: 360px;
 
    ul {
      list-style: none;
+     background: transparent;
 
-     li {
+     .directory-li {
        font-size: 12px;
        font-weight: 400;
        margin-bottom: 10px;
+       background: transparent !important;
      }
+   }
+ }
+
+ @media screen and (min-width: 1281px) {
+   .read-directory {
+     display: inline-block;
+   }
+ }
+
+ @media screen and (max-width: 998px) {
+   .read-directory {
+     display: none;
    }
  }
 </style>

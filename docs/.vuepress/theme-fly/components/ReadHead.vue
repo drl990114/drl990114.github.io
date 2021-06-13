@@ -28,6 +28,8 @@ export default {
 </script>
  <style lang="stylus">
  .read-head {
+   color: var(--textColor);
+
    .read-header {
      height: 25px;
      margin-bottom: 20px;
@@ -80,17 +82,24 @@ export default {
    }
 
    .read-header-nav {
-     left: 12%;
+     left: 9%;
    }
  }
 
- @media screen and (max-width: 998px) {
+ @media screen and (min-width: 661px) and (max-width: 997px) {
    .read-header-head {
      display: none;
    }
 
    .read-header-nav {
-     left 10px
+     left: 8%;
    }
+ }
+
+ @media screen and (max-width: 660px) {
+   .read-head {
+     display: none;
+   }
+
  }
 </style>

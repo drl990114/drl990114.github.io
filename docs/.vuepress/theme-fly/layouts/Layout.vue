@@ -1,5 +1,5 @@
 <template>
-  <div class="theme-container">
+  <div id="theme-container">
     <div>{{ consoleLog }}</div>
     <template v-if="index">
       <Welcome />
@@ -43,37 +43,37 @@ export default {
     index() {
       return isIndex(this.$router.history.current.path);
     },
-   
   },
 };
 </script>
 <style lang="stylus">
-@import url('../styles/index.styl');
-@import url('../styles/font/iconfont.css');
-@import url("https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4/dist/instantsearch.min.css");
+@require '../styles/index.styl';
+@require '../styles/font/iconfont.css';
+@require '../styles/palette.styl';
+
 * {
   margin: 0;
   padding: 0;
 }
 
 *::selection {
-  background: #fde6ba;
+  background: $fontSelect;
 }
 
 html, body {
   min-height: 100vh;
   min-width: 90vw;
   overflow-x: hidden;
-  /* background: #222; */
-  /* color: #ccc; */
+  background: var(--bodyBg);
 }
 
-.theme-container {
+#theme-container {
   width: 100%;
   height: 100%;
   // filter: invert(1) hue-rotate(180deg);
   margin: 0 auto;
-  background: rgb(255, 255, 255);
+  background: var(--bodyBg);
+  color: var(--textColor);
 }
 
 a {
@@ -89,5 +89,9 @@ a:hover {
 #container {
   margin: 0 auto;
   height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--titleColor);
 }
 </style>

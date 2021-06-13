@@ -6,12 +6,20 @@
           <a href="">相关文章</a>
         </div>
       </div>
+      <div style="display: block">
+        <div class="read-foot-btn">回到首页</div>
+      </div>
+      <HomeFoot />
     </div>
   </div>
 </template>
 <script>
+import HomeFoot from "./HomeFoot.vue";
 export default {
   name: "ReadFoot",
+  components: {
+    HomeFoot,
+  },
   computed: {
     themeConfigs() {
       return this.$themeConfig;
@@ -21,7 +29,7 @@ export default {
 </script>
  <style lang="stylus">
  .read-foot {
-   height: 410px;
+   min-height: 250px;
    background: #3f3f3f;
    overflow: hidden;
    z-index: 1000px;
@@ -32,24 +40,39 @@ export default {
      margin: 0 auto;
 
      .content-main {
+       min-height 150px
        .content-main-nav {
-         min-height: 410px;
+         min-height: 70px;
          width: 800px;
-         margin: auto;
+         margin: 0 auto;
          padding-left: 40px;
          color: #fff;
 
          a {
            display: inline-block;
            margin-right: 10px;
-           border-top: 5px solid #3f3f3f;
+           border-top: 5px solid #e58c7c;
            padding: 10px 6px;
            color: #fff;
-           border-top-color: #e58c7c;
            text-decoration: none;
-           box-shadow: 0 -17px 26px #130f0fc9;
+           box-shadow: 0 -17px 26px #1b15157d;
          }
        }
+     }
+
+     .read-foot-btn {
+       width: 400px;
+       max-width: 98%;
+       font-size: 14px;
+       margin: 30px auto;
+       border-radius: 10px;
+       line-height: 40px;
+       text-align: center;
+       box-shadow: 3px 3px 5px #555;
+       cursor: pointer;
+       background-color: #565656;
+       color: #ccc;
+       text-decoration: none;
      }
    }
  }

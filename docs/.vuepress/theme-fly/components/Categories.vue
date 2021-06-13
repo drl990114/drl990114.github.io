@@ -92,7 +92,7 @@ export default {
 </script>
  <style lang="stylus">
  .current {
-   background: #eee;
+   background: var(--cateCurrent);
  }
 
  .categories {
@@ -109,7 +109,7 @@ export default {
        margin-bottom: 10px;
        padding: 15px;
        font-size: 16px;
-       background: #f8f8f8;
+       background: var(--categories);
        min-height: 80px;
 
        span {

@@ -47,11 +47,6 @@
 import { toDark, toLight } from "../util";
 export default {
   name: "LeftNav",
-  // watch: {
-  //   $route(to, from) {
-  //     this.$router.go(0);
-  //   },
-  // },
   methods: {
     backHome: function () {
       window.location.href = "/home/";

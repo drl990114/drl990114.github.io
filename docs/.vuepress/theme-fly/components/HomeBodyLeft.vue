@@ -43,8 +43,8 @@ export default {
 
    .home-leftBody-article {
      min-height: 180px;
-     background: #f3f3f3;
-     box-shadow: 2px 2px 4px #e2e2e2;
+     background: var(--homeArticleBg);
+     box-shadow: 2px 2px 4px var(--shadowColor);
      padding: 20px;
 
      h1 {

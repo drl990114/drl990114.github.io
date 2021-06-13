@@ -11,18 +11,10 @@
             >本文最后更新于 {{ articleData.lastUpdated }}</span
           > </span
         ><span
-          >分类:<a
-            class="category-link"
-            href="/blog/categories/工具/前端杂烩/"
-            >{{ articleData.frontmatter.categories[0] }}</a
-          ></span
-        >
-        <span
-          tabindex="0"
-          aria-hidden="true"
-          id="busuanzi_container_site_pv"
-          style="display: inline"
-          >热度: <span id="busuanzi_value_page_pv">270133</span></span
+          >分类:
+          <a class="category-link" href="/blog/categories/工具/前端杂烩/">{{
+            articleData.frontmatter.categories[0] || "无"
+          }}</a></span
         >
       </div>
     </div>
@@ -44,7 +36,7 @@
               >CC BY-NC-ND 3.0</a
             >）
           </li>
-          <li>最后编辑时间: {{ articleData.lastUpdated }}</li>
+          <li>最后更新时间: {{ articleData.lastUpdated }}</li>
           <!-- <li>
             Feed 订阅: <a href="/rss2.xml"><i class="icon">◈</i></a>
           </li> -->
@@ -64,7 +56,7 @@
         </ul>
       </div>
       <div class="post-relative">
-        <a v-if="prevNext.prev"   :href="prevNext.prev.path" class="prev"
+        <a v-if="prevNext.prev" :href="prevNext.prev.path" class="prev"
           ><span class="icon iconfont icon-jiantou1" />
           <b>{{ prevNext.prev.title }}</b> </a
         ><a v-if="prevNext.next" :href="prevNext.next.path" class="next"
@@ -76,7 +68,7 @@
   </div>
 </template>
 <script>
-import { findPrevNext,filterConfigMd} from "../util";
+import { findPrevNext, filterConfigMd } from "../util";
 export default {
   name: "ReadMain",
   computed: {
@@ -90,7 +82,7 @@ export default {
       return this.$themeConfig;
     },
     prevNext() {
-      let articles =  filterConfigMd(this.$site.pages)
+      let articles = filterConfigMd(this.$site.pages);
       const res = findPrevNext(this.$page, articles);
       return res;
     },
@@ -107,38 +99,42 @@ export default {
 
    .read-header-mes {
      font-size: 14px;
-     color: grey;
+     color: var(--textColor);
      font-weight: 700;
      margin-bottom: 25px;
      position: relative;
      z-index: 8;
-     background: #fff;
+     background: var(--bodyBg);
      font-family: Palatino, Garamond, Times, Georgia, serif;
 
      span {
        padding-right: 10px;
      }
+
+     .post-info {
+       color: #808080;
+     }
    }
 
    .read-header-title {
-     padding: 50px 0 20px 0;
-     font-size: 55px;
      line-height: 70px;
      margin-bottom: 20px;
      font-weight: 400;
      font-family: Palatino, Garamond, Times, Georgia, serif;
+     color: var(--titleColor);
    }
 
    .main-foot {
      margin-top: 50px;
 
      .info {
-       border-top: 1px dashed #ccc;
-       border-bottom: 1px dashed #ccc;
+       border-top: 1px dashed var(--borderColor);
+       border-bottom: 1px dashed var(--borderColor);
        padding: 30px 55px 50px 55px;
-       background: #f8f8f8;
+       background: var(--categories);
        font-size: 14px;
        font-family: 'lucida grande', 'lucida sans unicode', lucida, 'Helvetica Neue', helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
+       color: var(--textColor);
 
        ul {
          list-style: none;
@@ -163,48 +159,28 @@ export default {
        }
 
        span {
-         font-size: 25px;
        }
 
        b {
-         font-size: 20px;
          font-weight: 1000;
          font-family: Georgia, serif;
        }
      }
    }
 
-   h1 {
-     display: none;
-   }
-
-   h2 {
-     font-size: 40px;
-     line-height: 68px;
-     margin: 15px 0;
-     font-weight: 400;
-   }
-
-   h3 {
-     font-size: 32px;
-     line-height: 64px;
-     margin: 15px 0;
-     font-weight: normal;
-   }
-
    p {
-     margin-bottom: 25px;
      -webkit-font-smoothing: antialiased;
      word-break: break-word;
      white-space: normal;
+     color: var(--textColor);
    }
 
    pre {
      font-family: monospace, Consolas, 'Courier New';
-     background: #fafafa !important;
+     background: var(--codeBg) !important;
      padding: 10px 4070px;
      overflow-x: auto;
-     border: 1px dashed #eee;
+     border: 1px dashed var(--borderColor);
      border-width: 1px 0;
      margin-left: -4070px;
      margin-right: -4080px;
@@ -213,7 +189,7 @@ export default {
      line-height: 26px;
      max-width: 960px;
      overflow: auto;
-     color: #727272;
+     color: var(--codeColor);
    }
 
    table {
@@ -226,19 +202,151 @@ export default {
 
  @media screen and (min-width: 1281px) {
    .read-main {
-     width: 55%;
+     width: 51%;
+
+     .read-header-title {
+       font-size: 55px;
+       padding: 50px 0 20px 0;
+     }
+
+     .post-relative {
+       font-size: 20px;
+     }
+
+     h1 {
+       display: none;
+     }
+
+     h2 {
+       font-size: 40px;
+       line-height: 68px;
+       margin: 15px 0;
+       font-weight: 500;
+     }
+
+     h3 {
+       font-size: 32px;
+       line-height: 64px;
+       margin: 15px 0;
+       font-weight: normal;
+     }
+
+     p {
+       margin-bottom: 25px;
+     }
    }
  }
 
  @media screen and (min-width: 998px) and (max-width: 1280px) {
    .read-main {
      width: 60%;
+
+     .read-header-title {
+       font-size: 50px;
+       padding: 40px 0 20px 0;
+     }
+
+     .post-relative {
+       font-size: 20px;
+     }
+
+     h1 {
+       display: none;
+     }
+
+     h2 {
+       font-size: 40px;
+       line-height: 68px;
+       margin: 15px 0;
+       font-weight: 400;
+     }
+
+     h3 {
+       font-size: 32px;
+       line-height: 64px;
+       margin: 15px 0;
+       font-weight: normal;
+     }
+
+     p {
+       margin-bottom: 20px;
+     }
    }
  }
 
- @media screen and (max-width: 998px) {
+ @media screen and (min-width: 660px) and (max-width: 997px) {
    .read-main {
-     width: 96%;
+     width: 80%;
+
+     .read-header-title {
+       font-size: 45px;
+       padding: 30px 0 20px 0;
+     }
+
+     .post-relative {
+       font-size: 18px;
+     }
+
+     h1 {
+       display: none;
+     }
+
+     h2 {
+       font-size: 35px;
+       line-height: 68px;
+       margin: 15px 0;
+       font-weight: bold;
+     }
+
+     h3 {
+       font-size: 30px;
+       line-height: 64px;
+       margin: 15px 0;
+       font-weight: normal;
+     }
+
+     p {
+       font-size: 16px;
+       margin-bottom: 15px;
+     }
+   }
+ }
+
+ @media screen and (max-width: 660px) {
+   .read-main {
+     width: 94%;
+
+     .read-header-title {
+       font-size: 35px;
+       padding: 10px 0 0 0;
+     }
+
+     .post-relative {
+       font-size: 16px;
+     }
+
+     h1 {
+       display: none;
+     }
+
+     h2 {
+       font-size: 30px;
+       line-height: 68px;
+       margin: 8px 0;
+       font-weight: bold;
+     }
+
+     h3 {
+       font-size: 25px;
+       line-height: 40px;
+       margin: 5px 0;
+       font-weight: normal;
+     }
+
+     p {
+       font-size: 16px;
+       margin-bottom: 10px;
+     }
    }
  }
 </style>

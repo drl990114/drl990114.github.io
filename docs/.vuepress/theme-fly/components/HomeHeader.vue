@@ -1,7 +1,7 @@
 <template>
   <div class="home-header">
     <div class="home-header-left">
-      <router-link to="/welcome">{{author}}</router-link>
+      <router-link to="/welcome">{{ author }}</router-link>
       <span aria-hidden="true"> » 博客 </span>
       <div id="arrow-expend" @click="arrowClick">
         ▾
@@ -17,10 +17,17 @@
     <div class="home-header-right">
       <input placeholder="站内搜索" />
     </div>
+    <div id="hits" style="font-size:14px">
+      <!-- Hits widget will appear here -->
+    </div>
+    <div id="searchbox" >
+      <!-- Hits widget will appear here -->
+    </div>
   </div>
 </template>
 <script>
 import { move } from "../util";
+import { searchBox, hits } from "instantsearch.js/es/widgets";
 export default {
   name: "HomeHeader",
   computed: {
@@ -28,6 +35,35 @@ export default {
       return this.$themeConfig.author;
     },
   },
+  mounted: function () {
+    this.$nextTick(function () {
+      const algoliasearch = require("algoliasearch/lite");
+      const instantsearch = require("instantsearch.js").default;
+
+      const searchClient = algoliasearch(
+        "8OGO3JZZRY",
+        "6956f18773dbf5757dc4f3a3c375222d"
+      );
+
+      const search = instantsearch({
+        indexName: "dev_blog",
+        searchClient,
+      });
+
+      search.addWidgets([
+        searchBox({
+          container: "#searchbox",
+        }),
+
+        hits({
+          container: "#hits",
+        }),
+      ]);
+
+      search.start();
+    });
+  },
+
   methods: {
     arrowClick: () => {
       if (typeof window !== "undefined") {

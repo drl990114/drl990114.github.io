@@ -9,6 +9,9 @@
     "vuepress": "^1.8.2"
   },
   "dependencies": {
+    "algoliasearch": "^4.9.2",
+    "algoliasearch-helper": "3.4.5",
+    "instantsearch.js": "^4.23.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "vuepress": "^1.8.2"

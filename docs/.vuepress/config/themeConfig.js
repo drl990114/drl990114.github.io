@@ -10,4 +10,8 @@ module.exports = {
   docsDir: 'docs', // 编辑的文件夹
   introduction: '一名热爱前端的程序员，我喜欢编程、音乐、各种棋类，希望和你交个朋友。',
   search: true,
+  algolia: {
+    apiKey: '6956f18773dbf5757dc4f3a3c375222d',
+    indexName: 'dev_blog'
+  }
 }

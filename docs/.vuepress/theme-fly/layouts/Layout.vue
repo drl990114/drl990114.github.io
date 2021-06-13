@@ -43,13 +43,14 @@ export default {
     index() {
       return isIndex(this.$router.history.current.path);
     },
+   
   },
 };
 </script>
 <style lang="stylus">
 @import url('../styles/index.styl');
 @import url('../styles/font/iconfont.css');
-
+@import url("https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4/dist/instantsearch.min.css");
 * {
   margin: 0;
   padding: 0;

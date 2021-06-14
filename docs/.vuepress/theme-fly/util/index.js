@@ -82,7 +82,10 @@ export const getCategories = (pages) => {
 export const filterConfigMd = (pages) => {
   let articleArr = []
   pages.forEach(item => {
-    if (!item.frontmatter.hasOwnProperty("article") && !item.article) {
+    if (!item.frontmatter.hasOwnProperty("article")
+      && !item.article
+      && item.frontmatter
+      && item.relativePath != "README.md") {
       articleArr.push(item)
     }
   })
@@ -116,11 +119,10 @@ export const getTimeLines = (pages) => {
 
 
 export function getUrlParams(name) {
-  if(typeof window != 'undefined'){
+  if (typeof window != 'undefined') {
     let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); //定义正则表达式 
     let r = window.location.search.substr(1).match(reg);
     if (r != null) return decodeURIComponent(decodeURIComponent(r[2]));
-    console.log(r)
     return null;
   }
 }

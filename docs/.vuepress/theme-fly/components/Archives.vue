@@ -1,35 +1,34 @@
  <template>
-<div>
- <div class="archives">
-    <Categoriesheader />
-    <div
-      class="categories-detail"
-      v-for="([key, value], index) in archivePages"
-      :key="index"
-    >
-      <strong
-        ><a :href="'/archives/?year=' + key">{{ key }}年</a></strong
+  <div>
+    <div class="archives">
+      <Categoriesheader />
+      <div
+        class="categories-detail"
+        v-for="([key, value], index) in archivePages"
+        :key="index"
       >
-      <div class="currentYear">
-        <ul>
-          <li v-for="item in value" :key="item.key">
-            <a :href="item.path">{{ item.title }} </a>
-            <span
-              >({{ item.lastUpdated.split(",")[0] }} · 分类:{{
-                item.frontmatter.categories
-                  ? item.frontmatter.categories[0]
-                  : "无"
-              }})</span
-            >
-          </li>
-        </ul>
+        <strong
+          ><a :href="base+'/archives/?year=' + key">{{ key }}年</a></strong
+        >
+        <div class="currentYear">
+          <ul>
+            <li v-for="item in value" :key="item.key">
+              <a :href="base+item.path">{{ item.title }} </a>
+              <span
+                >({{ item.lastUpdated.split(",")[0] }} · 分类:{{
+                  item.frontmatter.categories
+                    ? item.frontmatter.categories[0]
+                    : "无"
+                }})</span
+              >
+            </li>
+          </ul>
+        </div>
       </div>
+      <LeftNav />
     </div>
-    <LeftNav />
+    <ReadFoot />
   </div>
-  <ReadFoot/>
-</div>
- 
 </template>
 <script>
 import LeftNav from "./LeftNav.vue";
@@ -38,10 +37,14 @@ import ReadFoot from "./ReadFoot.vue";
 import { getTimeLines, getUrlParams } from "../util";
 export default {
   name: "Archives",
-  components: { LeftNav, Categoriesheader ,ReadFoot},
+  components: { LeftNav, Categoriesheader, ReadFoot },
   computed: {
     themeConfigs() {
       return this.$themeConfig;
+    },
+    base() {
+      const res = this.$site.base.substr(0, this.$site.base.length - 1);
+      return res;
     },
     archivePages() {
       const res = getTimeLines(this.$site.pages);

@@ -1,16 +1,13 @@
  <template>
   <div class="home-near">
-    <h2>
-      <a href="/archives/">博客归档 »</a
-      >近期文章
-    </h2>
+    <h2><a :href="base+'/archives/'">博客归档 »</a>近期文章</h2>
     <ul>
       <li v-for="item in nearPages" :key="item.key">
         <span>{{ item.nearFormatT }} » </span>
-        <a :href="item.path">{{ item.frontmatter.title }}</a>
+        <a :href="base+item.path">{{ item.frontmatter.title }}</a>
       </li>
       <li>
-        <a href="/archives/">所有文章 »</a>
+        <a :href="base+'/archives/'">所有文章 »</a>
       </li>
     </ul>
   </div>
@@ -20,6 +17,10 @@
 import { timeSort, nearFormatTime } from "../util";
 export default {
   computed: {
+    base() {
+      const res = this.$site.base.substr(0, this.$site.base.length - 1);
+      return res;
+    },
     nearPages() {
       let pageArr = [];
       this.$site.pages.forEach((item) => {

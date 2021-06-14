@@ -9,9 +9,9 @@
         <a :href="recommend.link">阅读全文 »</a>
       </p>
       <span
-        >Posted by <a href="/about/">{{ author }}</a> at
-        <a href="/archives/"></a> on <time>{{recommend.time}}</time>
-        <a href="/archives/"
+        >Posted by <a :href="base+'/about/'">{{ author }}</a> at
+        <a :href="base+'/archives/'"></a> on <time>{{ recommend.time }}</time>
+        <a :href="base+'/archives/'"
           ><b
             class="ds-thread-count disqus-comment-count cy_cmt_count"
             data-thread-key="year-2020"
@@ -37,6 +37,10 @@ export default {
     recommend() {
       console.log(this.$themeConfig.recommend);
       return this.$themeConfig.recommend;
+    },
+    base() {
+      const res = this.$site.base.substr(0, this.$site.base.length - 1);
+      return res;
     },
   },
 };

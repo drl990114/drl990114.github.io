@@ -3,11 +3,11 @@
     <h2>文章分类</h2>
     <ul>
       <li v-for="item in categories" :key="item">
-        <a :href="'/categories/?name=' + encodeURI(encodeURI(item))">{{
+        <a :href="base+'/categories/?name=' + encodeURI(encodeURI(item))">{{
           item
         }}</a>
       </li>
-      <li><a href="/categories/?name=all">更多分类 »</a></li>
+      <li><a :href="base+'/categories/?name=all'">更多分类 »</a></li>
     </ul>
   </div>
 </template>
@@ -22,6 +22,10 @@ export default {
         categoriesArr.length = 10;
       }
       return categoriesArr;
+    },
+    base() {
+      const res = this.$site.base.substr(0, this.$site.base.length - 1);
+      return res;
     },
   },
 };

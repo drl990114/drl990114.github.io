@@ -57,9 +57,13 @@ export default {
     light: function () {
       toLight();
     },
-    toAbout: function() {
+    toAbout: function () {
       window.location.href = "/about/";
-    }
+    },
+    base() {
+      const res = this.$site.base.substr(0, this.$site.base.length - 1);
+      return res;
+    },
   },
   computed: {
     currentMode() {

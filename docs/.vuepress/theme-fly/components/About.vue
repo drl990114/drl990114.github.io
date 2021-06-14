@@ -6,7 +6,6 @@
         <div class="aboutme">
           <strong class="title">一个有趣的灵魂<span> / About Me</span></strong>
           <div>
-            <a class="site-avatar" href="/blogimgs/avatar.png"></a>
             {{ about.aboutMe.introduction || "" }}
           </div>
           <strong class="title"
@@ -70,6 +69,10 @@ export default {
     },
     avatarUrl() {
       return this.$themeConfig.avatar;
+    },
+    base() {
+      const res = this.$site.base.substr(0, this.$site.base.length - 1);
+      return res;
     },
   },
 };

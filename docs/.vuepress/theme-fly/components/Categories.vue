@@ -8,14 +8,14 @@
           <div class="categories-list">
             <a
               v-bind:class="{ current: currentCate === 'all' }"
-              href="/categories/?name=all"
+              :href="base+'/categories/?name=all'"
               >全部</a
             >
             <a
               v-bind:class="{ current: currentCate === item }"
               v-for="item in allCategories"
               :key="item"
-              :href="'/categories/?name=' + item"
+              :href="base+'/categories/?name=' + item"
               >{{ item }}</a
             >
           </div>
@@ -26,12 +26,12 @@
           :key="index"
         >
           <strong
-            ><a :href="'/archives/?year=' + key">{{ key }}年</a></strong
+            ><a :href="base+'/archives/?year=' + key">{{ key }}年</a></strong
           >
           <div class="currentYear">
             <ul>
               <li v-for="item in value" :key="item.key">
-                <a :href="item.path">{{ item.title }} </a>
+                <a :href="base+item.path">{{ item.title }} </a>
                 <span
                   >({{ item.lastUpdated.split(",")[0] }} · 标签:{{
                     item.frontmatter.tags ? item.frontmatter.tags[0] : "无"
@@ -90,6 +90,10 @@ export default {
     allCategories() {
       const res = getCategories(this.$site.pages);
 
+      return res;
+    },
+    base() {
+      const res = this.$site.base.substr(0, this.$site.base.length - 1);
       return res;
     },
   },

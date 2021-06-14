@@ -1,13 +1,13 @@
 <template>
   <div class="categories-header">
     <div class="categories-header-left">
-      <a href="/about/">{{ author }}</a> »
+      <a :href="base+'/about/'">{{ author }}</a> »
       <span style="color: #4a75b5">{{ blogNav }} </span>
       <div id="arrow-expend" @click="arrowClick">
         ▾
         <ul id="arrow-expend-ul">
           <li v-for="item in headNav" :key="item.label">
-            <a :href="item.link">{{ item.label }}</a>
+            <a :href="base+item.link">{{ item.label }}</a>
           </li>
         </ul>
       </div>
@@ -26,6 +26,10 @@ export default {
     },
     author() {
       return this.$themeConfig.author;
+    },
+    base() {
+      const res = this.$site.base.substr(0, this.$site.base.length - 1);
+      return res;
     },
     headNav() {
       return this.$themeConfig.headNav;
@@ -81,7 +85,6 @@ export default {
 
   .categories-header-left {
     float: left;
-
   }
 
   .categories-header-right {

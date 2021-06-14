@@ -5,9 +5,11 @@
     </div>
     <div class="read-header">
       <div class="read-header-nav">
-        <a href="/about/">{{ themeConfigs.author }} 的个人博客</a> »
-        <a href="/home/">博客</a> »
-        <a v-for="item in pageCate" :key="item" href="/categories/">{{item}}</a>
+        <a :href="base+'/about/'">{{ themeConfigs.author }} 的个人博客</a> »
+        <a :href="base+'/home/'">博客</a> »
+        <a v-for="item in pageCate" :key="item" :href="base+'/categories/'">{{
+          item
+        }}</a>
       </div>
     </div>
   </div>
@@ -19,9 +21,13 @@ export default {
     themeConfigs() {
       return this.$themeConfig;
     },
-    pageCate(){
-      return this.$page.frontmatter.categories || []
-    }
+    base() {
+      const res = this.$site.base.substr(0, this.$site.base.length - 1);
+      return res;
+    },
+    pageCate() {
+      return this.$page.frontmatter.categories || [];
+    },
   },
 };
 </script>
@@ -99,6 +105,5 @@ export default {
    .read-head {
      display: none;
    }
-
  }
 </style>

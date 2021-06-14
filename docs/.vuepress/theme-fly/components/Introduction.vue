@@ -3,30 +3,34 @@
     <div class="home-introduction-header">
       <img :src="$withBase(avatarUrl)" />
       <h3>
-        {{author}}
-        <span>{{location}}</span>
+        {{ author }}
+        <span>{{ location }}</span>
       </h3>
       <br />
     </div>
 
     <span>{{ introduction }}</span>
-    <a class="aboutme" href="/about/">关于我</a>
+    <a class="aboutme" :href="base+'/about/'">关于我</a>
   </div>
 </template>
 <script>
 export default {
   computed: {
-    introduction() {
-      return this.$themeConfig.introduction
+    base() {
+      const res = this.$site.base.substr(0, this.$site.base.length - 1);
+      return res;
     },
-    avatarUrl(){
-      return this.$themeConfig.avatar
+    introduction() {
+      return this.$themeConfig.introduction;
+    },
+    avatarUrl() {
+      return this.$themeConfig.avatar;
     },
     author() {
-      return this.$themeConfig.author
+      return this.$themeConfig.author;
     },
     location() {
-      return this.$themeConfig.location
+      return this.$themeConfig.location;
     },
   },
 };
@@ -55,7 +59,7 @@ export default {
    img {
      display: inline-block;
      width: 60px;
-     height 60px
+     height: 60px;
      border-radius: 30px;
      transition: all 0.3s;
    }

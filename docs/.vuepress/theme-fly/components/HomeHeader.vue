@@ -1,13 +1,13 @@
 <template>
   <div class="home-header">
     <div class="home-header-left">
-      <a href="/about/">{{ author }}</a>
+      <a :href="base+'/about/'">{{ author }}</a>
       <span aria-hidden="true"> » 博客 </span>
       <div id="arrow-expend" @click="arrowClick">
         ▾
         <ul id="arrow-expend-ul">
           <li v-for="item in headNav" :key="item.label">
-            <a :href="item.link">{{ item.label }}</a>
+            <a :href="base+item.link">{{ item.label }}</a>
           </li>
         </ul>
       </div>
@@ -32,6 +32,10 @@ export default {
     },
     headNav() {
       return this.$themeConfig.headNav;
+    },
+    base() {
+      const res = this.$site.base.substr(0, this.$site.base.length - 1);
+      return res;
     },
   },
   // mounted: function () {

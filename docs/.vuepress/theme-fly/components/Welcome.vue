@@ -2,10 +2,9 @@
   <div class="welcome">
     <div class="nav">
       <h3 style="margin-bottom: 30px">Welcome</h3>
-      <p  style="margin-bottom: 10px">{{welcome}}
-      </p>
-      <a href="./home/">博客</a>
-      <a href="./about/"> 关于我 </a>
+      <p style="margin-bottom: 10px">{{ welcome }}</p>
+      <a :href="base + '/home/'">博客</a>
+      <a :href="base + '/about/'"> 关于我 </a>
     </div>
   </div>
 </template>
@@ -21,9 +20,13 @@ export default {
       console.log(this.$router.history.current.path);
       return this.$themeLocaleConfig.nav || this.$site.themeConfig.nav || [];
     },
-    welcome(){
-      return this.$themeConfig.welcome
-    }
+    base() {
+      const res = this.$site.base.substr(0, this.$site.base.length - 1);
+      return res;
+    },
+    welcome() {
+      return this.$themeConfig.welcome;
+    },
   },
 };
 </script>
@@ -35,19 +38,17 @@ export default {
   justify-content: center;
   width: 100%;
   height: 90vh;
-  color: var(--textColor)
+  color: var(--textColor);
 }
 
 .nav {
   width: 100%;
   margin: 20px auto;
   padding: 40px 30px;
-  text-align center
+  text-align: center;
 }
 
 .link {
   margin: 4px;
 }
-
-
 </style>

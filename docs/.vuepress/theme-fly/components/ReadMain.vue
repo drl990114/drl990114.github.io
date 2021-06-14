@@ -4,7 +4,7 @@
     <div class="read-header-mes">
       <div class="post-info">
         <span
-          >作者: <a href="/about/">{{ themeConfigs.author || "" }}</a></span
+          >作者: <a :href="base+'/about/'">{{ themeConfigs.author || "" }}</a></span
         >
         <span>
           <span class="aria-readonly"
@@ -12,7 +12,7 @@
           > </span
         ><span
           >分类:
-          <a class="category-link" href="/blog/categories/工具/前端杂烩/">{{
+          <a class="category-link" :href="base+'/categories/'">{{
             articleData.frontmatter.categories
               ? articleData.frontmatter.categories[0]
               : "无"
@@ -26,7 +26,7 @@
         <ul>
           <li>
             作者:
-            <a href="/about/" itemprop="name">{{ themeConfigs.author }}</a>
+            <a :href="base+'/about/'" itemprop="name">{{ themeConfigs.author }}</a>
           </li>
           <li>发表日期: {{ articleData.frontmatter.date || "" }}</li>
           <li>
@@ -72,10 +72,10 @@
         </ul>
       </div>
       <div class="post-relative">
-        <a v-if="prevNext.prev" :href="prevNext.prev.path || ''" class="prev"
+        <a v-if="prevNext.prev" :href="base+prevNext.prev.path || ''" class="prev"
           ><span class="icon iconfont icon-jiantou1" />
           <b>{{ prevNext.prev.title || "" }}</b> </a
-        ><a v-if="prevNext.next" :href="prevNext.next.path || ''" class="next"
+        ><a v-if="prevNext.next" :href="base+prevNext.next.path || ''" class="next"
           ><b>{{ prevNext.next.title || "" }}</b
           ><span class="icon iconfont icon-jiantou"
         /></a>
@@ -93,6 +93,10 @@ export default {
       console.log(this.$page);
       console.log(this.$themeConfig);
       return this.$page;
+    },
+    base() {
+      const res = this.$site.base.substr(0, this.$site.base.length - 1);
+      return res;
     },
     themeConfigs() {
       return this.$themeConfig;

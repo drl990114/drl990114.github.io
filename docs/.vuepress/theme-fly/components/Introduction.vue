@@ -4,13 +4,13 @@
       <img :src="$withBase(avatarUrl)" />
       <h3>
         {{author}}
-        <span>浙江杭州</span>
+        <span>{{location}}</span>
       </h3>
       <br />
     </div>
 
     <span>{{ introduction }}</span>
-    <a class="aboutme">关于我</a>
+    <a class="aboutme" href="/about/">关于我</a>
   </div>
 </template>
 <script>
@@ -24,6 +24,9 @@ export default {
     },
     author() {
       return this.$themeConfig.author
+    },
+    location() {
+      return this.$themeConfig.location
     },
   },
 };

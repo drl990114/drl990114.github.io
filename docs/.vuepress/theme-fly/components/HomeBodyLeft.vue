@@ -10,7 +10,7 @@
       </p>
       <span
         >Posted by <a href="/about/">{{ author }}</a> at
-        <a href="/blog/categories/undefined/"></a> on <time>2020-11-29</time>
+        <a href="/blog/categories/undefined/"></a> on <time>{{recommend.time}}</time>
         <a href="/blog/2020/11/29/year-2020/#comments"
           ><b
             class="ds-thread-count disqus-comment-count cy_cmt_count"

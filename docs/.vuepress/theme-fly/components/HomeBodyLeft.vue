@@ -2,17 +2,14 @@
   <div class="home-leftBody">
     <div class="home-leftBody-article">
       <h1>
-        <router-link to="/read">不恋过往</router-link>
+        <a :href="recommend.link">{{ recommend.title }}</a>
       </h1>
       <p itemprop="description">
-        依稀还记得，5
-        岁的我就进入了小学学堂，比好多孩子都早了一年，因此后来不管是上大学还是走进社会，我都是同届年龄最小的那搓人，也一直觉得自己是最年轻的，这种感觉在内心驻留了许久，直到最近，才发现，自己已...
-        <a href="/blog/2020/11/29/year-2020/"
-          >阅读全文 <span aria-hidden="true">»</span></a
-        >
+        {{ recommend.more + "..." }}
+        <a :href="recommend.link">阅读全文 »</a>
       </p>
       <span
-        >Posted by <a href="/about/">Barret李靖</a> at
+        >Posted by <a href="/about/">{{ author }}</a> at
         <a href="/blog/categories/undefined/"></a> on <time>2020-11-29</time>
         <a href="/blog/2020/11/29/year-2020/#comments"
           ><b
@@ -33,7 +30,15 @@ export default {
   components: {
     HomeBodyNear,
   },
-  setup() {},
+  computed: {
+    author() {
+      return this.$themeConfig.author;
+    },
+    recommend() {
+      console.log(this.$themeConfig.recommend);
+      return this.$themeConfig.recommend;
+    },
+  },
 };
 </script>
 

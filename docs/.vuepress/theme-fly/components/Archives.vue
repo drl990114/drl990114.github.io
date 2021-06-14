@@ -1,5 +1,6 @@
  <template>
-  <div class="archives">
+<div>
+ <div class="archives">
     <Categoriesheader />
     <div
       class="categories-detail"
@@ -26,14 +27,18 @@
     </div>
     <LeftNav />
   </div>
+  <ReadFoot/>
+</div>
+ 
 </template>
 <script>
 import LeftNav from "./LeftNav.vue";
 import Categoriesheader from "./Categoriesheader.vue";
+import ReadFoot from "./ReadFoot.vue";
 import { getTimeLines, getUrlParams } from "../util";
 export default {
   name: "Archives",
-  components: { LeftNav, Categoriesheader },
+  components: { LeftNav, Categoriesheader ,ReadFoot},
   computed: {
     themeConfigs() {
       return this.$themeConfig;
@@ -59,7 +64,6 @@ export default {
  <style lang="stylus">
  .archives {
    font-size: 14px;
-   height: 100vh;
    font-family: Palatino, Garamond, Times, Georgia, serif;
    margin: 0 auto;
    transition: all 0.3s;

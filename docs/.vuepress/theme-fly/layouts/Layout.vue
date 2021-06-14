@@ -1,26 +1,24 @@
 <template>
   <div id="theme-container">
-    <div>{{ consoleLog }}</div>
     <template v-if="index">
       <Welcome />
     </template>
-    <template v-if="this.$router.history.current.path.indexOf('read') != -1">
+    <template v-if="read">
       <Read />
     </template>
     <div id="container">
-      <template v-if="this.$router.history.current.path.indexOf('home') != -1">
+      <template v-if="home">
         <Home />
       </template>
     </div>
-    <template
-      v-if="this.$router.history.current.path.indexOf('categories') != -1"
-    >
+    <template v-if="categories">
       <Categories />
     </template>
-    <template
-      v-if="this.$router.history.current.path.indexOf('archives') != -1"
-    >
+    <template v-if="archives">
       <Archives />
+    </template>
+    <template v-if="about">
+      <Aout />
     </template>
   </div>
 </template>
@@ -31,10 +29,18 @@ import Read from "../components/Read.vue";
 import Home from "../components/Home.vue";
 import Categories from "../components/Categories.vue";
 import Archives from "../components/Archives.vue";
-import { isIndex } from "../util/isPath.js";
+import About from "../components/About.vue";
+import {
+  isIndex,
+  isHome,
+  isRead,
+  isArchives,
+  isCategories,
+  isAbout,
+} from "../util/isPath.js";
 import { toLight, toDark, currentMode } from "../util/colorMode";
 export default {
-  components: { Welcome, Read, Home, Categories, Archives },
+  components: { Welcome, Read, Home, Categories, Archives, About },
   mounted() {
     let current = currentMode();
     if (current == "dark") {
@@ -42,13 +48,26 @@ export default {
     } else toLight();
   },
   computed: {
-    consoleLog() {
-      // console.log(this.$site);
-      // console.log(this.$page);
-      // console.log(this.$themeConfig);
+    PATH() {
+      return this.$router.history.current.path;
     },
     index() {
-      return isIndex(this.$router.history.current.path);
+      return isIndex(this.PATH);
+    },
+    home() {
+      return isHome(this.PATH);
+    },
+    about() {
+      return isAbout(this.PATH);
+    },
+    read() {
+      return isRead(this.PATH);
+    },
+    archives() {
+      return isArchives(this.PATH);
+    },
+    categories() {
+      return isCategories(this.PATH);
     },
   },
 };

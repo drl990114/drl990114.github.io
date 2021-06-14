@@ -131,7 +131,6 @@ export default {
      .info {
        border-top: 1px dashed var(--borderColor);
        border-bottom: 1px dashed var(--borderColor);
-       padding: 30px 55px 50px 55px;
        background: var(--categories);
        font-size: 14px;
        font-family: 'lucida grande', 'lucida sans unicode', lucida, 'Helvetica Neue', helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
@@ -216,6 +215,10 @@ export default {
        font-size: 20px;
      }
 
+     .info {
+       padding: 30px 55px 50px 55px;
+     }
+
      h1 {
        display: none;
      }
@@ -251,6 +254,10 @@ export default {
 
      .post-relative {
        font-size: 20px;
+     }
+
+     .info {
+       padding: 25px 45px 40px 45px;
      }
 
      h1 {
@@ -290,6 +297,10 @@ export default {
        font-size: 18px;
      }
 
+     .info {
+       padding: 15px 30px 25px 30px;
+     }
+
      h1 {
        display: none;
      }
@@ -326,6 +337,10 @@ export default {
 
      .post-relative {
        font-size: 14px;
+     }
+
+     .info {
+       padding: 10px
      }
 
      h1 {

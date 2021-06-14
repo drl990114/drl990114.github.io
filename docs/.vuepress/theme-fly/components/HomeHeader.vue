@@ -1,16 +1,14 @@
 <template>
   <div class="home-header">
     <div class="home-header-left">
-      <router-link to="/welcome">{{ author }}</router-link>
+      <a href="/about/">{{ author }}</a>
       <span aria-hidden="true"> » 博客 </span>
       <div id="arrow-expend" @click="arrowClick">
         ▾
         <ul id="arrow-expend-ul">
-          <li><a href="/entry/">博客</a></li>
-          <li><a href="/translation/">翻译</a></li>
-          <li><a href="/message/">留言</a></li>
-          <li><a href="/demo/">实验室</a></li>
-          <li><a href="/friends/">友情链接</a></li>
+          <li v-for="item in headNav" :key="item.label">
+            <a :href="item.link">{{ item.label }}</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -31,6 +29,9 @@ export default {
   computed: {
     author() {
       return this.$themeConfig.author;
+    },
+    headNav() {
+      return this.$themeConfig.headNav;
     },
   },
   // mounted: function () {
@@ -63,16 +64,17 @@ export default {
   // },
 
   methods: {
-    arrowClick: () => {
+    arrowClick: function () {
       if (typeof window !== "undefined") {
         const arrow = document.getElementById("arrow-expend");
         const arrowUl = document.getElementById("arrow-expend-ul");
         let callback = () => {
           arrowUl.style.display = "none";
         };
-        if (arrowUl.style.height !== "200px") {
+        let moveHight = this.$themeConfig.headNav.length * 40;
+        if (arrowUl.style.height != moveHight + "px") {
           arrowUl.style.display = "inline-block";
-          move(arrowUl, 20, 200, () => {});
+          move(arrowUl, 20, moveHight, () => {});
         } else {
           move(arrowUl, 20, 0, callback);
         }
@@ -101,6 +103,7 @@ export default {
   }
 
   .home-header-right {
+    display none
     position: relative;
     width: 150px;
     height: 40%;

@@ -1,52 +1,57 @@
  <template>
-  <div class="categories">
-    <div class="categories-main">
-      <Categoriesheader />
-      <div class="categories-class">
-        <span> 类别：</span>
-        <div class="categories-list">
-          <a
-            v-bind:class="{ current: currentCate === 'all' }"
-            href="/categories/?name=all"
-            >全部</a
-          >
-          <a
-            v-bind:class="{ current: currentCate === item }"
-            v-for="item in allCategories"
-            :key="item"
-            :href="'/categories/?name=' + item"
-            >{{ item }}</a
-          >
+  <div>
+    <div class="categories">
+      <div class="categories-main">
+        <Categoriesheader />
+        <div class="categories-class">
+          <span> 类别：</span>
+          <div class="categories-list">
+            <a
+              v-bind:class="{ current: currentCate === 'all' }"
+              href="/categories/?name=all"
+              >全部</a
+            >
+            <a
+              v-bind:class="{ current: currentCate === item }"
+              v-for="item in allCategories"
+              :key="item"
+              :href="'/categories/?name=' + item"
+              >{{ item }}</a
+            >
+          </div>
         </div>
-      </div>
-      <div
-        class="categories-detail"
-        v-for="([key, value], index) in archivePages"
-        :key="index"
-      >
-        <strong
-          ><a :href="'/archives/?year=' + key">{{ key }}年</a></strong
+        <div
+          class="categories-detail"
+          v-for="([key, value], index) in archivePages"
+          :key="index"
         >
-        <div class="currentYear">
-          <ul>
-            <li v-for="item in value" :key="item.key">
-              <a :href="item.path">{{ item.title }} </a>
-              <span
-                >({{ item.lastUpdated.split(",")[0] }} · 标签:{{
-                  item.frontmatter.tags ? item.frontmatter.tags[0] : "无"
-                }})</span
-              >
-            </li>
-          </ul>
+          <strong
+            ><a :href="'/archives/?year=' + key">{{ key }}年</a></strong
+          >
+          <div class="currentYear">
+            <ul>
+              <li v-for="item in value" :key="item.key">
+                <a :href="item.path">{{ item.title }} </a>
+                <span
+                  >({{ item.lastUpdated.split(",")[0] }} · 标签:{{
+                    item.frontmatter.tags ? item.frontmatter.tags[0] : "无"
+                  }})</span
+                >
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
+      <LeftNav />
     </div>
-    <LeftNav />
+    <ReadFoot />
   </div>
 </template>
 <script>
 import LeftNav from "./LeftNav.vue";
 import Categoriesheader from "./Categoriesheader.vue";
+import ReadFoot from "./ReadFoot.vue";
+import HomeHeader from "./HomeHeader.vue";
 import {
   getTimeLines,
   getCategories,
@@ -54,7 +59,7 @@ import {
   nearFormatTime,
 } from "../util";
 export default {
-  components: { LeftNav, Categoriesheader },
+  components: { LeftNav, Categoriesheader, ReadFoot },
   computed: {
     archivePages() {
       const res = getTimeLines(this.$site.pages);
@@ -97,7 +102,7 @@ export default {
 
  .categories {
    font-size: 14px;
-   height: 100vh;
+   min-height: 100vh;
    font-family: Palatino, Garamond, Times, Georgia, serif;
    margin: 0 auto;
    transition: all 0.3s;

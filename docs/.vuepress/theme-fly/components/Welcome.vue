@@ -4,8 +4,8 @@
       <h3 style="margin-bottom: 30px">Welcome</h3>
       <p  style="margin-bottom: 10px">{{welcome}}
       </p>
-      <a href="/home/">博客</a>
-      <a href="/categories/"> 关于我 </a>
+      <a href="./home/">博客</a>
+      <a href="./about/"> 关于我 </a>
     </div>
   </div>
 </template>

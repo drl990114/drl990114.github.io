@@ -1,20 +1,20 @@
  <template>
   <div class="home-near">
-    <h2><a :href="base+'/archives/'">博客归档 »</a>近期文章</h2>
+    <h2><a :href="base + '/archives/'">博客归档 »</a>近期文章</h2>
     <ul>
       <li v-for="item in nearPages" :key="item.key">
         <span>{{ item.nearFormatT }} » </span>
-        <a :href="base+item.path">{{ item.frontmatter.title }}</a>
+        <a :href="base + item.path">{{ item.frontmatter.title }}</a>
       </li>
       <li>
-        <a :href="base+'/archives/'">所有文章 »</a>
+        <a :href="base + '/archives/'">所有文章 »</a>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-import { timeSort, nearFormatTime } from "../util";
+import { timeSort, nearFormatTime, filterConfigMd } from "../util";
 export default {
   computed: {
     base() {
@@ -23,7 +23,8 @@ export default {
     },
     nearPages() {
       let pageArr = [];
-      this.$site.pages.forEach((item) => {
+      let articleArr = filterConfigMd(this.$site.pages);
+      articleArr.forEach((item) => {
         if (!item.frontmatter.hasOwnProperty("article") && !item.article) {
           let nearFormatT = nearFormatTime(item.lastUpdated);
           item.nearFormatT = nearFormatT;

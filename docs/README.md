@@ -8,6 +8,7 @@
 
 - 我的博客：https://halodong.github.io/vuepress-theme-deeply/
 
+刚开始写博客，内容较少，还在不断完善中，本博客布局参考https://www.barretlee.com/ 小胡子哥大神的网站布局。
 ### 🔨 建造中的功能
 - 搜索
 - 评论

@@ -1530,7 +1530,7 @@ ajv@^6.1.0, ajv@^6.10.2, ajv@^6.12.3, ajv@^6.12.4:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-algoliasearch-helper@3.4.5, algoliasearch-helper@^3.4.4:
+algoliasearch-helper@^3.4.4:
   version "3.4.5"
   resolved "https://registry.nlark.com/algoliasearch-helper/download/algoliasearch-helper-3.4.5.tgz#f907494cf7057f9fc4f91e7dee9a40fee789ac5c"
   integrity sha1-+QdJTPcFf5/E+R597ppA/ueJrFw=

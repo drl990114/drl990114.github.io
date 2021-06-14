@@ -1,5 +1,5 @@
 {
-  "name": "deep",
+  "name": "deeply",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "algoliasearch": "^4.9.2",
-    "algoliasearch-helper": "3.4.5",
     "instantsearch.js": "^4.23.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",

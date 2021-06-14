@@ -32,7 +32,6 @@
                 target="_blank"
                 >https://github.com/halodong/blog</a
               >，本站由
-              <!-- <a href="http://pages.coding.me" target="_blank">Coding</a> &amp; -->
               <a href="https://pages.github.com/" target="_blank">Github</a>
               强力驱动。
             </p>

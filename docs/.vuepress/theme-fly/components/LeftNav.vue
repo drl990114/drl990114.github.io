@@ -57,9 +57,9 @@ export default {
     light: function () {
       toLight();
     },
-    toAbout: function () {
+    toAbout: function() {
       window.location.href = "/about/";
-    },
+    }
   },
   computed: {
     currentMode() {

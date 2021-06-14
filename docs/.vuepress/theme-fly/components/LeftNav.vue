@@ -49,7 +49,8 @@ export default {
   name: "LeftNav",
   methods: {
     backHome: function () {
-      window.location.href = "/home/";
+      const res = this.$site.base.substr(0, this.$site.base.length - 1);
+      window.location.href = `${res}/home/`;
     },
     dark: function () {
       toDark();
@@ -58,7 +59,8 @@ export default {
       toLight();
     },
     toAbout: function () {
-      window.location.href = "/about/";
+      const res = this.$site.base.substr(0, this.$site.base.length - 1);
+      window.location.href = `${res}/about/`;
     },
     base() {
       const res = this.$site.base.substr(0, this.$site.base.length - 1);

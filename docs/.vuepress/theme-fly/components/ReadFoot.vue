@@ -27,7 +27,8 @@ export default {
   },
   methods: {
     backHome: function () {
-      window.location.href = "/home/";
+      const res = this.$site.base.substr(0, this.$site.base.length - 1);
+      window.location.href = `${res}/home/`;
     },
   },
 };

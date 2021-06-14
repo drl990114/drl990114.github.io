@@ -2,11 +2,11 @@
   <div class="home-leftBody">
     <div class="home-leftBody-article">
       <h1>
-        <a :href="recommend.link">{{ recommend.title }}</a>
+        <a :href="base+recommend.link">{{ recommend.title }}</a>
       </h1>
       <p itemprop="description">
         {{ recommend.more + "..." }}
-        <a :href="recommend.link">阅读全文 »</a>
+        <a :href="base+recommend.link">阅读全文 »</a>
       </p>
       <span
         >Posted by <a :href="base+'/about/'">{{ author }}</a> at

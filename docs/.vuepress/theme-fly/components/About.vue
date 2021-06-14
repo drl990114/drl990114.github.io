@@ -7,7 +7,7 @@
           <strong class="title">一个有趣的灵魂<span> / About Me</span></strong>
           <div>
             <a class="site-avatar" href="/blogimgs/avatar.png"></a>
-            {{ about.aboutMe.introduction }}
+            {{ about.aboutMe.introduction || "" }}
           </div>
           <strong class="title"
             >关于内容<span> / About The Website</span></strong
@@ -28,11 +28,11 @@
           <div v-if="about.rss.show">
             <p>
               博客源码：<a
-                href="https://github.com/barretlee/blog"
+                href="https://github.com/halodong/blog"
                 target="_blank"
-                >https://github.com/barretlee/blog</a
+                >https://github.com/halodong/blog</a
               >，本站由
-              <a href="http://pages.coding.me" target="_blank">Coding</a> &amp;
+              <!-- <a href="http://pages.coding.me" target="_blank">Coding</a> &amp; -->
               <a href="https://pages.github.com/" target="_blank">Github</a>
               强力驱动。
             </p>
@@ -41,15 +41,17 @@
           <div class="about-post">
             <ul>
               <li v-for="item in about.social" :key="item.link">
-                {{ item.label }}:
-                <a :href="item.link" target="_blank">{{ item.name }}</a>
+                {{ item.label || "" }}:
+                <a :href="item.link || '/'" target="_blank">{{
+                  item.name || ""
+                }}</a>
               </li>
             </ul>
           </div>
         </div>
       </div>
       <LeftNav />
-      <div class="lastChange">最后更新时间： {{ about.lastChange }}</div>
+      <div class="lastChange">最后更新时间： {{ about.lastChange || "" }}</div>
     </div>
     <ReadFoot />
   </div>
@@ -92,6 +94,10 @@ export default {
        margin-top: 30px;
        color: var(--codeColor);
        padding-bottom: 8px;
+
+       span {
+         color: #b6b6b6;
+       }
      }
 
      p {

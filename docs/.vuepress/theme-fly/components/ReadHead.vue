@@ -5,13 +5,9 @@
     </div>
     <div class="read-header">
       <div class="read-header-nav">
-        <a href="/">{{ themeConfigs.author }} 的个人博客</a> »
+        <a href="/about/">{{ themeConfigs.author }} 的个人博客</a> »
         <a href="/home/">博客</a> »
-        <a class="category-link" href="/categories/">工具</a>,<a
-          class="category-link"
-          href="/categories/"
-          >前端杂烩</a
-        >
+        <a v-for="item in pageCate" :key="item" href="/categories/">{{item}}</a>
       </div>
     </div>
   </div>
@@ -23,6 +19,9 @@ export default {
     themeConfigs() {
       return this.$themeConfig;
     },
+    pageCate(){
+      return this.$page.frontmatter.categories || []
+    }
   },
 };
 </script>

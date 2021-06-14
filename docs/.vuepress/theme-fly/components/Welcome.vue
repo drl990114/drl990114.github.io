@@ -1,10 +1,11 @@
 <template>
   <div class="welcome">
-    <h1>Welcome</h1>
     <div class="nav">
-      <a href="/read/">read</a>
-      <a href="/home/">blog</a>
-      <a href="/categories/"> categories </a>
+      <h3 style="margin-bottom: 30px">Welcome</h3>
+      <p  style="margin-bottom: 10px">{{welcome}}
+      </p>
+      <a href="/home/">博客</a>
+      <a href="/categories/"> 关于我 </a>
     </div>
   </div>
 </template>
@@ -20,26 +21,33 @@ export default {
       console.log(this.$router.history.current.path);
       return this.$themeLocaleConfig.nav || this.$site.themeConfig.nav || [];
     },
+    welcome(){
+      return this.$themeConfig.welcome
+    }
   },
 };
 </script>
 
 <style lang="stylus">
-.welcome 
-  width: 100%
-  margin: 0 auto
+.welcome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  color: var(--textColor)
+}
 
-.nav 
-  width: 40%
-  margin: 20px auto
-  padding: 40px 30px
-  background: #ecf0f3
-  border-radius: 20px
-  font-size: 1.5rem
-  box-shadow: -6px -6px 20px rgba(255, 255, 255, 1),
-    6px 6px 20px rgba(0, 0, 0, 0.1)
+.nav {
+  width: 100%;
+  margin: 20px auto;
+  padding: 40px 30px;
+  text-align center
+}
 
-.link 
-  margin: 4px
+.link {
+  margin: 4px;
+}
+
 
 </style>

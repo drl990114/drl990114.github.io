@@ -1,6 +1,6 @@
 <template>
   <div class="body-foot" aria-hidden="true">
-    <a class="page_editor" href="/admin/#/" target="_blank">🙈</a>
+    <a class="page_editor">🙈</a>
     <span
       >©{{themeConfig.foot.year || ''}}
       <small

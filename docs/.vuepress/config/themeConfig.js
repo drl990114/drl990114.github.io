@@ -14,6 +14,7 @@ module.exports = {
     apiKey: '6956f18773dbf5757dc4f3a3c375222d',
     indexName: 'dev_blog'
   },
+  welcome: "欢迎来到RuiLin Dong的网站，你在这里可以看到以下内容",
   headNav: [
     {
       label: '博客',
@@ -67,6 +68,12 @@ module.exports = {
         label: '知乎',
         name: 'zhihu',
         link: 'https://www.zhihu.com/people/drl-66'
+
+      },
+      {
+        label: 'E-mail',
+        name: 'drl1999@foxmail.com',
+        link: 'https://www.foxmail.com'
 
       },
     ],

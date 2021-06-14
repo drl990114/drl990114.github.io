@@ -30,7 +30,7 @@
         <span class="icon iconfont icon-wode bar-item-current">
           <span class="show">关于</span>
           <div class="bar-item-hover">
-            <div style="width: 100px; height: 50px">
+            <div style="width: 100px; height: 60px">
               <div class="about">
                 <div>关于作者</div>
               </div>

@@ -1,6 +1,5 @@
 ---
-tagsPage: true
-title: 博客首页
+title: 博客
 permalink: /home/
 article: false
 ---

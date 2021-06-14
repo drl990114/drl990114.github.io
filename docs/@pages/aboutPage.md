@@ -1,5 +1,5 @@
 ---
 title: 归档
-permalink: /archives/
+permalink: /about/
 article: false
 ---

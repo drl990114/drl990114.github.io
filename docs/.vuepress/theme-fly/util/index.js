@@ -116,11 +116,13 @@ export const getTimeLines = (pages) => {
 
 
 export function getUrlParams(name) {
-  let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); //定义正则表达式 
-  let r = window.location.search.substr(1).match(reg);
-  if (r != null) return decodeURIComponent(decodeURIComponent(r[2]));
-  console.log(r)
-  return null;
+  if(typeof window != 'undefined'){
+    let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); //定义正则表达式 
+    let r = window.location.search.substr(1).match(reg);
+    if (r != null) return decodeURIComponent(decodeURIComponent(r[2]));
+    console.log(r)
+    return null;
+  }
 }
 
 

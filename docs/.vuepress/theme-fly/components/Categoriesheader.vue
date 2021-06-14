@@ -2,7 +2,7 @@
   <div class="categories-header">
     <div class="categories-header-left">
       <a href="/about/">{{ author }}</a> »
-      <span style="color: #4a75b5">博客 </span>
+      <span style="color: #4a75b5">{{ blogNav }} </span>
       <div id="arrow-expend" @click="arrowClick">
         ▾
         <ul id="arrow-expend-ul">
@@ -11,33 +11,42 @@
           </li>
         </ul>
       </div>
-      <span>» {{currentNav}}</span>
+      <span v-if="currentNav">» {{ currentNav }}</span>
     </div>
   </div>
 </template>
 <script>
 import { move } from "../util";
+import { isAbout, isIndex, isCategories, isArchives } from "../util/isPath";
 export default {
-  name: "HomeHeader",
+  name: "Categoriesheader",
   computed: {
+    PATH() {
+      return this.$router.history.current.path;
+    },
     author() {
       return this.$themeConfig.author;
     },
     headNav() {
       return this.$themeConfig.headNav;
     },
-    currentNav(){
-      if(this.$router.history.current.path.indexOf('categories') != -1){
-        return '文章分类'
-      } 
-      if(this.$router.history.current.path.indexOf('archives') != -1){
-        return '归档'
-      } 
-    }
+    currentNav() {
+      if (isCategories(this.PATH)) {
+        return "文章分类";
+      }
+      if (isArchives(this.PATH)) {
+        return "归档";
+      }
+    },
+    blogNav() {
+      if (isAbout(this.PATH)) {
+        return "关于我";
+      } else return "博客";
+    },
   },
   methods: {
     arrowClick: function () {
-      if (typeof window !== "undefined") {
+      if (typeof window != "undefined") {
         const arrow = document.getElementById("arrow-expend");
         const arrowUl = document.getElementById("arrow-expend-ul");
         let callback = () => {
@@ -68,6 +77,7 @@ export default {
   height: 70px;
   font-size: 28px;
   font-weight: bold;
+  font-family: Palatino, Garamond, Times, Georgia, serif;
 
   .categories-header-left {
     float: left;

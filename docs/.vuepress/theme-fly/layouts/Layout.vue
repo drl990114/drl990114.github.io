@@ -18,7 +18,7 @@
       <Archives />
     </template>
     <template v-if="about">
-      <Aout />
+      <About />
     </template>
   </div>
 </template>

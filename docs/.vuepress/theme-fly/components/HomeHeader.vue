@@ -23,7 +23,7 @@
 </template>
 <script>
 import { move } from "../util";
-import { searchBox, hits } from "instantsearch.js/es/widgets";
+// import { searchBox, hits } from "instantsearch.js/es/widgets";
 export default {
   name: "HomeHeader",
   computed: {
@@ -65,7 +65,7 @@ export default {
 
   methods: {
     arrowClick: function () {
-      if (typeof window !== "undefined") {
+      if (typeof window != "undefined") {
         const arrow = document.getElementById("arrow-expend");
         const arrowUl = document.getElementById("arrow-expend-ul");
         let callback = () => {
@@ -141,7 +141,7 @@ export default {
     position: absolute;
     width: 120px;
     height: 0px;
-    background: #fff;
+    background: var(--leftNavColor);
     border: 1px solid #ccc;
     left: -56px;
     text-align: center;

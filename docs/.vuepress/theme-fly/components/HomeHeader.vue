@@ -103,7 +103,6 @@ export default {
   }
 
   .home-header-right {
-    display none
     position: relative;
     width: 150px;
     height: 40%;

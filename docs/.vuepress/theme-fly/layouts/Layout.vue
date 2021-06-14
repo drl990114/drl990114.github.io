@@ -84,6 +84,7 @@ export default {
 
 *::selection {
   background: $fontSelect;
+  color: black;
 }
 
 html, body {

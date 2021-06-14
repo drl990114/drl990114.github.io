@@ -29,7 +29,7 @@ export default {
 </script>
  <style lang="stylus">
  .read-foot {
-   min-height: 250px;
+   min-height: 200px;
    background: #3f3f3f;
    overflow: hidden;
    z-index: 1000px;
@@ -40,7 +40,7 @@ export default {
      margin: 0 auto;
 
      .content-main {
-       min-height 150px
+       min-height 100px
        .content-main-nav {
          min-height: 70px;
          width: 800px;

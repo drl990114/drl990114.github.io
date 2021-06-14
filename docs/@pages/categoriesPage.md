@@ -1,5 +1,5 @@
 ---
-title: 归档
+title: 分类
 permalink: /categories/
 article: false
 ---

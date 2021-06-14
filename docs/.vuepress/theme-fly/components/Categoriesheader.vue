@@ -81,6 +81,7 @@ export default {
 
   .categories-header-left {
     float: left;
+
   }
 
   .categories-header-right {
@@ -140,8 +141,8 @@ export default {
 
 @media screen and (min-width: 1281px) {
   .categories-header {
-    padding-top: 100px;
-    margin-bottom: 30px;
+    padding-top: 80px;
+    margin-bottom: 20px;
   }
 }
 

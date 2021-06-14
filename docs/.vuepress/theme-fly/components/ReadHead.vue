@@ -7,9 +7,9 @@
       <div class="read-header-nav">
         <a href="/">{{ themeConfigs.author }} 的个人博客</a> »
         <a href="/home/">博客</a> »
-        <a class="category-link" href="/blog/categories/工具/">工具</a>,<a
+        <a class="category-link" href="/categories/">工具</a>,<a
           class="category-link"
-          href="/blog/categories/工具/前端杂烩/"
+          href="/categories/"
           >前端杂烩</a
         >
       </div>

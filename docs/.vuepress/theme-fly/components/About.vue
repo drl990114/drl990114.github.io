@@ -6,17 +6,8 @@
         <div class="aboutme">
           <strong class="title">一个有趣的灵魂<span> / About Me</span></strong>
           <div>
-            <a class="site-avatar" href="/blogimgs/avatar.png"
-              ><img
-                :src="$withBase(avatarUrl)"
-                height="100"
-                width="100"
-                alt="Barret李靖"
-            /></a>
-            <p>
-              My name is Lee Jing(李靖). You can call me Barret. I was born in
-              1992.
-            </p>
+            <a class="site-avatar" href="/blogimgs/avatar.png"></a>
+            {{ about.aboutMe.introduction }}
           </div>
           <strong class="title"
             >关于内容<span> / About The Website</span></strong
@@ -29,14 +20,12 @@
                 >CC BY-NC-ND 3.0</a
               >）
             </p>
-            <p>
-              所有文章非特别说明皆为原创。技术更迭迅猛，部分内容可能会作修改，为保证信息与源同步，转载时请务必注明文章出处！谢谢合作
-              :-)
-            </p>
-            <p>文章皆为个人观点，不代表所服务的公司。</p>
+            {{ about.aboutWebsite.content }}
           </div>
-          <strong class="title">订阅地址<span> / The RSS Address</span></strong>
-          <div>
+          <strong v-if="about.rss.show" class="title"
+            >订阅地址<span> / The RSS Address</span></strong
+          >
+          <div v-if="about.rss.show">
             <p>
               博客源码：<a
                 href="https://github.com/barretlee/blog"
@@ -48,32 +37,19 @@
               强力驱动。
             </p>
           </div>
-          <strong class="title">社交信息<span> / The RSS Address</span></strong>
+          <strong class="title">社交信息<span> / Social Links</span></strong>
           <div class="about-post">
             <ul>
-              <li>
-                Github：
-                <a href="https://github.com/barretlee" target="_blank"
-                  >@barretlee</a
-                >
-              </li>
-              <li>
-                Social：
-                <a href="http://www.zhihu.com/people/barretlee" target="_blank"
-                  >知乎</a
-                >
-              </li>
-              <li>
-                E-mail：
-                <a href="mailto:barret.china@gmail.com" target="_blank"
-                  >barret.china(at)gmail.com</a
-                >
+              <li v-for="item in about.social" :key="item.link">
+                {{ item.label }}:
+                <a :href="item.link" target="_blank">{{ item.name }}</a>
               </li>
             </ul>
           </div>
         </div>
       </div>
       <LeftNav />
+      <div class="lastChange">最后更新时间： {{ about.lastChange }}</div>
     </div>
     <ReadFoot />
   </div>
@@ -87,8 +63,9 @@ export default {
   name: "About",
   components: { LeftNav, Categoriesheader, ReadFoot },
   computed: {
-    themeConfigs() {
-      return this.$themeConfig;
+    about() {
+      console.log(this.$themeConfig.about);
+      return this.$themeConfig.about;
     },
     avatarUrl() {
       return this.$themeConfig.avatar;
@@ -98,12 +75,14 @@ export default {
 </script>
  <style lang="stylus">
  .aboutPage {
-   font-size: 14px;
+   font-size: 16px;
    margin: 0 auto;
    transition: all 0.3s;
    color: var(--textColor);
 
    .aboutme {
+     font-size: 16px;
+
      strong.title {
        display: block;
        font-size: 20px;
@@ -111,19 +90,17 @@ export default {
        line-height: 30px;
        margin-bottom: 15px;
        margin-top: 30px;
-       color: var(--textColor);
+       color: var(--codeColor);
        padding-bottom: 8px;
      }
 
      p {
        line-height: 28px;
-       font-size: 16px;
        margin-bottom: 15px;
      }
    }
 
    .about-post ul {
-     margin: 25px 0 25px 35px;
      list-style-type: square;
 
      li {
@@ -132,6 +109,15 @@ export default {
        line-height: 28px;
        font-size: 16px;
      }
+   }
+
+   .lastChange {
+     padding: 20px;
+     margin: 30px 0;
+     text-align: center;
+     background: #f8f8f8;
+     border-top: 1px dashed #ccc;
+     border-bottom: 1px dashed #ccc;
    }
  }
 

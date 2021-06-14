@@ -1,5 +1,5 @@
 ---
-title: 归档
+title: 关于
 permalink: /about/
 article: false
 ---

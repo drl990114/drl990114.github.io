@@ -1,19 +1,21 @@
  <template>
   <div class="read-main">
-    <div class="read-header-title">{{ articleData.title }}</div>
+    <div class="read-header-title">{{ articleData.title || "" }}</div>
     <div class="read-header-mes">
       <div class="post-info">
         <span
-          >作者: <a href="/about/">{{ themeConfigs.author }}</a></span
+          >作者: <a href="/about/">{{ themeConfigs.author || "" }}</a></span
         >
         <span>
           <span class="aria-readonly"
-            >本文最后更新于 {{ articleData.lastUpdated }}</span
+            >本文最后更新于 {{ articleData.lastUpdated || "" }}</span
           > </span
         ><span
           >分类:
           <a class="category-link" href="/blog/categories/工具/前端杂烩/">{{
-            articleData.frontmatter.categories[0] || "无"
+            articleData.frontmatter.categories
+              ? articleData.frontmatter.categories[0]
+              : "无"
           }}</a></span
         >
       </div>
@@ -26,9 +28,23 @@
             作者:
             <a href="/about/" itemprop="name">{{ themeConfigs.author }}</a>
           </li>
-          <li>发表日期: {{ articleData.frontmatter.date }}</li>
-          <li>文章分类: {{ articleData.frontmatter.categories[0] }}</li>
-          <li>文章标签: {{ articleData.frontmatter.tags[0] || "无" }}</li>
+          <li>发表日期: {{ articleData.frontmatter.date || "" }}</li>
+          <li>
+            文章分类:
+            {{
+              articleData.frontmatter.categories
+                ? articleData.frontmatter.categories[0]
+                : "无"
+            }}
+          </li>
+          <li>
+            文章标签:
+            {{
+              articleData.frontmatter.tags
+                ? articleData.frontmatter.tags[0]
+                : "无"
+            }}
+          </li>
           <li>
             版权声明: 署名-非商业性使用-禁止演绎 3.0 国际（<a
               href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh"
@@ -56,11 +72,11 @@
         </ul>
       </div>
       <div class="post-relative">
-        <a v-if="prevNext.prev" :href="prevNext.prev.path" class="prev"
+        <a v-if="prevNext.prev" :href="prevNext.prev.path || ''" class="prev"
           ><span class="icon iconfont icon-jiantou1" />
-          <b>{{ prevNext.prev.title }}</b> </a
-        ><a v-if="prevNext.next" :href="prevNext.next.path" class="next"
-          ><b>{{ prevNext.next.title }}</b
+          <b>{{ prevNext.prev.title || "" }}</b> </a
+        ><a v-if="prevNext.next" :href="prevNext.next.path || ''" class="next"
+          ><b>{{ prevNext.next.title || "" }}</b
           ><span class="icon iconfont icon-jiantou"
         /></a>
       </div>
@@ -340,7 +356,7 @@ export default {
      }
 
      .info {
-       padding: 10px
+       padding: 10px;
      }
 
      h1 {

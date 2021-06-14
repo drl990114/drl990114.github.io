@@ -2,27 +2,23 @@
   <div class="body-foot" aria-hidden="true">
     <a class="page_editor" href="/admin/#/" target="_blank">🙈</a>
     <span
-      >©2013-2021
+      >©{{themeConfig.foot.year || ''}}
       <small
-        ><a href="http://www.miitbeian.gov.cn/" about="_blank"
-          >湘ICP备14007107号-1</a
+        ><a href="/" about="_blank"
+          >{{themeConfig.foot.record || ''}}</a
         ></small
       ></span
     >
-    本站由 <a href="/">{{author}}</a> 纯手工打造 |
-    <a href="/about#contact">联系方式</a> | 总热度：<em
-      id="busuanzi_value_site_pv"
-      >1634282</em
-    >
-    | <router-link to="/showdata">站长统计</router-link>
+    本站由 <a href="/about/">{{themeConfig.author}}</a> 纯手工打造 |
+    <a href="/about/">联系方式</a> 
   </div>
 </template>
 
 <script>
 export default {
   computed: {
-    author() {
-      return this.$themeConfig.author
+    themeConfig() {
+      return this.$themeConfig
     },
   },
 };

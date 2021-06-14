@@ -18,7 +18,7 @@
                 <div @click="light">
                   <span class="icon iconfont icon-rijianmoshi" />
                 </div>
-                <div @click="dark"  class="mode">
+                <div @click="dark" class="mode">
                   <span class="icon iconfont icon-yejianmoshi1" />
                 </div>
               </div>
@@ -27,7 +27,7 @@
             </div>
           </div>
         </span>
-        <span class="icon iconfont icon-wode bar-item-current">
+        <span class="icon iconfont icon-wode bar-item-current" @click="toAbout">
           <span class="show">关于</span>
           <div class="bar-item-hover">
             <div style="width: 100px; height: 60px">
@@ -56,6 +56,9 @@ export default {
     },
     light: function () {
       toLight();
+    },
+    toAbout: function () {
+      window.location.href = "/about/";
     },
   },
   computed: {

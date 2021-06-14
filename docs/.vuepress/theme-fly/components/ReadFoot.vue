@@ -7,7 +7,7 @@
         </div>
       </div>
       <div style="display: block">
-        <div class="read-foot-btn">回到首页</div>
+        <div class="read-foot-btn" @click="backHome">回到首页</div>
       </div>
       <HomeFoot />
     </div>
@@ -25,6 +25,11 @@ export default {
       return this.$themeConfig;
     },
   },
+  methods: {
+    backHome: function () {
+      window.location.href = "/home/";
+    },
+  },
 };
 </script>
  <style lang="stylus">
@@ -40,7 +45,8 @@ export default {
      margin: 0 auto;
 
      .content-main {
-       min-height 100px
+       min-height: 100px;
+
        .content-main-nav {
          min-height: 70px;
          width: 800px;
@@ -74,6 +80,30 @@ export default {
        color: #ccc;
        text-decoration: none;
      }
+   }
+ }
+
+ @media screen and (min-width: 1281px) {
+   .archives {
+     width: 50%;
+   }
+ }
+
+ @media screen and (min-width: 998px) and (max-width: 1280px) {
+   .archives {
+     width: 60%;
+   }
+ }
+
+ @media screen and (min-width: 660px) and (max-width: 997px) {
+   .archives {
+     width: 75%;
+   }
+ }
+
+ @media screen and (max-width: 659px) {
+   .archives {
+     width: 94%;
    }
  }
 </style>

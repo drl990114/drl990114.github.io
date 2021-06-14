@@ -115,9 +115,9 @@ export default {
      padding: 20px;
      margin: 30px 0;
      text-align: center;
-     background: #f8f8f8;
-     border-top: 1px dashed #ccc;
-     border-bottom: 1px dashed #ccc;
+     background: var(--categories);
+     border-top: 1px dashed var(--borderColor);
+     border-bottom: 1px dashed var(--borderColor);
    }
  }
 

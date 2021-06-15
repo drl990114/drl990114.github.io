@@ -9,7 +9,7 @@ tags:
   - javascript
 ---
 使用原生的js获取的DOM对象，只能使用一次addEventLisenter方法添加事件，如果要接着添加事件，还得再调用addEventLisenter。
-
+<!-- more -->
 ```js
 var area = document.querySelector('.area');
 area.addEventListener('mouseenter', function(){

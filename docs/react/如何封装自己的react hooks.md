@@ -6,7 +6,6 @@ author: RuiLin Dong
 categories:
   - react
 tags:
-  - javascript
   - react
 ---
 
@@ -15,9 +14,10 @@ tags:
 ## 1、常用的一个hooks
 官方中提供了几个内置的钩子，下面做下简单介绍
 
+
 ### 1.1 useState：状态
 使用useState钩子，我们就可以给函数组件添加state了，例如点击按钮一下，count+1的操作：
-
+<!-- more -->
 ```javascript
 const [count , setCount] = useState(0)
 

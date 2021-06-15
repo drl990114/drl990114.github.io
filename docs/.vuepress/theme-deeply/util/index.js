@@ -93,6 +93,11 @@ export const filterConfigMd = (pages) => {
   return articleArr
 }
 
+/**
+ * 
+ * @param {*} pages 
+ * @returns 时间线map
+ */
 export const getTimeLines = (pages) => {
   let resultArr = new Map()
   let upDated = []
@@ -156,3 +161,26 @@ export const findPrevNext = (currentPage, pages) => {
 }
 
 
+export const getRelevant = (currentPage, pages) => {
+  if (!currentPage) return
+  const arcticlePage = filterConfigMd(pages)
+  const relevantArr = []
+  if (currentPage.frontmatter.tags &&
+    currentPage.frontmatter.tags.length > 0) {
+    currentPage.frontmatter.tags.forEach(tag => {
+      arcticlePage.forEach(item => {
+        if (item.frontmatter.tags &&
+          item.frontmatter.tags.length > 0) {
+          item.frontmatter.tags.findIndex(itm => {
+            if(itm == tag){
+              relevantArr.push(item)
+              return true
+            } else return false
+          })
+        }
+      })
+    })
+  }
+  
+  return relevantArr
+}

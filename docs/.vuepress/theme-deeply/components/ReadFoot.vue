@@ -7,14 +7,30 @@
         </div>
       </div>
       <div style="display: block">
+        <div class="read-foot-btn" @click="backHome">打开评论</div>
+      </div>
+      <ul>
+        <li>
+          <span><font>2019-10-30 » </font> </span
+          ><a href="/">Google 的 Code Review 实践经验</a>
+          <div class="relative-box">
+            <span class="aria-readonly">文章概要 </span>Google 的 Code Review
+            目标是不断提高 codebase 的质量，同时要求审阅者在目标是不断提高
+            codebase 的质量，同时要求审阅者在......
+          </div>
+        </li>
+      </ul>
+      <div style="display: block">
         <div class="read-foot-btn" @click="backHome">回到首页</div>
       </div>
+      {{ relevant }}
       <HomeFoot />
     </div>
   </div>
 </template>
 <script>
 import HomeFoot from "./HomeFoot.vue";
+import { getRelevant } from "../util";
 export default {
   name: "ReadFoot",
   components: {
@@ -23,6 +39,11 @@ export default {
   computed: {
     themeConfigs() {
       return this.$themeConfig;
+    },
+    relevant() {
+      const res = getRelevant(this.$page, this.$site.pages);
+      console.log(res);
+      return;
     },
   },
   methods: {
@@ -45,9 +66,31 @@ export default {
      height: 100%;
      margin: 0 auto;
 
-     .content-main {
-       min-height: 100px;
+     ul {
+       list-style-type: square;
+       line-height: 28px;
+       color: #cacaca;
+       margin: 0 10px;
+       font-family: 'lucida grande', 'lucida sans unicode', lucida, 'Helvetica Neue', helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
 
+       li a {
+         color: #b9857b;
+
+         &:hover {
+           color: #e58c7c;
+         }
+       }
+
+       .relative-box {
+         border-left: 4px solid #757575;
+         padding-left: 15px;
+         font-size: 15px;
+         margin-top: 10px;
+         margin-bottom: 40px;
+       }
+     }
+
+     .content-main {
        .content-main-nav {
          min-height: 70px;
          width: 800px;

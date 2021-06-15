@@ -9,7 +9,6 @@
   "dependencies": {
     "algoliasearch": "^4.9.2",
     "instantsearch.js": "^4.23.0",
-    "marked": "^2.0.7",
     "vuepress": "^1.8.2"
   },
   "scripts": {

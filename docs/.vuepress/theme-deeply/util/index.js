@@ -172,7 +172,7 @@ export const getRelevant = (currentPage, pages) => {
         if (item.frontmatter.tags &&
           item.frontmatter.tags.length > 0) {
           item.frontmatter.tags.findIndex(itm => {
-            if(itm == tag){
+            if (itm == tag) {
               relevantArr.push(item)
               return true
             } else return false
@@ -181,6 +181,8 @@ export const getRelevant = (currentPage, pages) => {
       })
     })
   }
-  
-  return relevantArr
+  if (relevantArr.length > 5) {
+    relevantArr.length = 5
+    return relevantArr
+  } else return relevantArr
 }

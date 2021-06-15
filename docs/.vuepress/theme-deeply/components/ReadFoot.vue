@@ -9,28 +9,28 @@
       <div style="display: block">
         <div class="read-foot-btn" @click="backHome">打开评论</div>
       </div>
-      <ul>
-        <li>
-          <span><font>2019-10-30 » </font> </span
-          ><a href="/">Google 的 Code Review 实践经验</a>
+      <ul v-if="relevant">
+        <li :v-if="relevant" v-for="item in relevant" :key="item.path">
+          <span
+            ><font>{{ item.nearTime || "" }} » </font> </span
+          ><a href="/">{{ item.title || "" }}</a>
           <div class="relative-box">
-            <span class="aria-readonly">文章概要 </span>Google 的 Code Review
-            目标是不断提高 codebase 的质量，同时要求审阅者在目标是不断提高
-            codebase 的质量，同时要求审阅者在......
+            <span class="aria-readonly">文章概要： </span>
+            <span style="display:inline" v-html="item.excerpt || '空'" id="moreRelevant"></span>...
           </div>
         </li>
       </ul>
       <div style="display: block">
         <div class="read-foot-btn" @click="backHome">回到首页</div>
       </div>
-      {{ relevant }}
       <HomeFoot />
     </div>
   </div>
 </template>
 <script>
 import HomeFoot from "./HomeFoot.vue";
-import { getRelevant } from "../util";
+import marked from "marked";
+import { getRelevant, nearFormatTime } from "../util";
 export default {
   name: "ReadFoot",
   components: {
@@ -43,7 +43,10 @@ export default {
     relevant() {
       const res = getRelevant(this.$page, this.$site.pages);
       console.log(res);
-      return;
+      res.forEach((item) => {
+        item.nearTime = nearFormatTime(item.lastUpdated);
+      });
+      return res;
     },
   },
   methods: {
@@ -61,8 +64,15 @@ export default {
    overflow: hidden;
    z-index: 1000px;
 
+   #moreRelevant {
+     font-size: 14px !important;
+
+     h1, h2, h3, h4, h5, h6 {
+       display: none !important;
+     }
+   }
+
    .content {
-     width: 55%;
      height: 100%;
      margin: 0 auto;
 
@@ -128,26 +138,26 @@ export default {
  }
 
  @media screen and (min-width: 1281px) {
-   .archives {
+   .content {
      width: 50%;
    }
  }
 
  @media screen and (min-width: 998px) and (max-width: 1280px) {
-   .archives {
+   .content {
      width: 60%;
    }
  }
 
  @media screen and (min-width: 660px) and (max-width: 997px) {
-   .archives {
+   .content {
      width: 75%;
    }
  }
 
  @media screen and (max-width: 659px) {
-   .archives {
-     width: 94%;
+   .content {
+     width: 96%;
    }
  }
 </style>

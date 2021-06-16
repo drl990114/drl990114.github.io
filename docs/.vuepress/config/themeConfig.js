@@ -4,7 +4,7 @@ module.exports = {
   author: "RuiLin Dong", //作者名
   avatar: '/img/头像.jpg', // 头像
   search: true,
-  location:'浙江杭州',
+  location: '浙江杭州',
   repo: '', // 导航栏右侧生成Github链接
   searchMaxSuggestions: 10, // 搜索结果显示最大数
   lastUpdated: '上次更新', // 开启更新时间，并配置前缀文字   string | boolean (取值为git提交时间)
@@ -38,8 +38,7 @@ module.exports = {
     more: `不知何时，我一直有冒过写博客的想法但却一直没有坚持，
     最近忙于公司业务上的需求，不断的在学习新的框架、新的知识，却一直没有总结，
     我是个喜欢反思的人，我意识到要赶紧行动起来，用博客来记录一些东西，并不局限于技术。
-    这个博客网站的建立是基于vuepress的，这是一个很好的框架，我用它结合vue写了当前的这个博客主题，这是一个新的开始，
-    这里将记录我的生活和技术上的成长。`
+    这是一个新的开始，这里将记录我的生活和技术上的成长`
   },
   foot: {
     year: '2021',//网站创建年份

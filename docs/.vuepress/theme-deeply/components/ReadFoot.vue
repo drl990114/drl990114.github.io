@@ -13,10 +13,15 @@
         <li :v-if="relevant" v-for="item in relevant" :key="item.path">
           <span
             ><font>{{ item.nearTime || "" }} » </font> </span
-          ><a href="/">{{ item.title || "" }}</a>
+          ><a :href="base + item.path">{{ item.title || "" }}</a>
           <div class="relative-box">
-            <span class="aria-readonly">文章概要： </span>
-            <span style="display:inline" v-html="item.excerpt || '空'" id="moreRelevant"></span>...
+            <span>文章概要： </span>
+            <span
+              style="display: inline"
+              v-html="item.excerpt || '空'"
+              id="moreRelevant"
+            ></span
+            >...
           </div>
         </li>
       </ul>
@@ -29,7 +34,6 @@
 </template>
 <script>
 import HomeFoot from "./HomeFoot.vue";
-import marked from "marked";
 import { getRelevant, nearFormatTime } from "../util";
 export default {
   name: "ReadFoot",
@@ -40,9 +44,12 @@ export default {
     themeConfigs() {
       return this.$themeConfig;
     },
+    base() {
+      const res = this.$site.base.substr(0, this.$site.base.length - 1);
+      return res;
+    },
     relevant() {
       const res = getRelevant(this.$page, this.$site.pages);
-      console.log(res);
       res.forEach((item) => {
         item.nearTime = nearFormatTime(item.lastUpdated);
       });

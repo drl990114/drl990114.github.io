@@ -165,10 +165,11 @@ export const getRelevant = (currentPage, pages) => {
   if (!currentPage) return
   const arcticlePage = filterConfigMd(pages)
   const relevantArr = []
+  const arcticles = arcticlePage.filter(page=>page.path != currentPage.path)
   if (currentPage.frontmatter.tags &&
     currentPage.frontmatter.tags.length > 0) {
     currentPage.frontmatter.tags.forEach(tag => {
-      arcticlePage.forEach(item => {
+      arcticles.forEach(item => {
         if (item.frontmatter.tags &&
           item.frontmatter.tags.length > 0) {
           item.frontmatter.tags.findIndex(itm => {

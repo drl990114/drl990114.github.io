@@ -1,5 +1,5 @@
 <template>
-  <div id="theme-container">
+  <div class="theme-container">
     <div class="remind">
       <span>Not Found~</span>
       <h2>可能因为网站改造，导致页面地址变化~</h2>
@@ -37,24 +37,26 @@ export default {
 </script>
 
 <style lang="stylus" >
-#theme-container {
-  min-height: 70vh;
+.theme-container {
+  min-height: 60vh;
   min-width: 90vw;
-  padding-top: 30vh;
+  margin-top: 40vh;
   background: var(--bodyBg);
   color: var(--textColor);
   font-family: Palatino, Garamond, Times, Georgia, serif;
 
   .remind {
-
+    height: 100%;
     text-align: center;
     margin: 0 auto;
+    margin-top: 40vh;
     color: var(--textColor);
 
     h2 {
       font-size: 24px;
       color: #585858;
       line-height: 1.2;
+      margin-top: 20px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;

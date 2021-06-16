@@ -8,12 +8,12 @@
         :key="index"
       >
         <strong
-          ><a :href="base+'/archives/?year=' + key">{{ key }}年</a></strong
+          ><a :href="base + '/archives/?year=' + key">{{ key }}年</a></strong
         >
         <div class="currentYear">
           <ul>
             <li v-for="item in value" :key="item.key">
-              <a :href="base+item.path">{{ item.title }} </a>
+              <a :href="base + item.path">{{ item.title }} </a>
               <span
                 >({{ item.lastUpdated.split(",")[0] }} · 分类:{{
                   item.frontmatter.categories
@@ -70,6 +70,7 @@ export default {
    font-family: Palatino, Garamond, Times, Georgia, serif;
    margin: 0 auto;
    transition: all 0.3s;
+   min-height: 100vh;
 
    .categories-detail {
      font-size: 14px;

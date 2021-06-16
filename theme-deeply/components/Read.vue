@@ -2,7 +2,7 @@
   <div class="read">
     <ReadHead />
     <ReadMain />
-    <ReadFoot/>
+    <ReadFoot />
     <LeftNav />
     <Directory />
   </div>
@@ -21,7 +21,7 @@ export default {
     ReadHead,
     ReadMain,
     Directory,
-    ReadFoot
+    ReadFoot,
   },
 
   computed: {
@@ -48,9 +48,8 @@ export default {
   padding-left: 20px;
   color: #2f2f2f;
   font-size: 18px;
+  min-height: 100vh;
 }
-
-
 
 @media screen and (min-width: 1281px) {
   .read {
@@ -59,13 +58,13 @@ export default {
 }
 
 @media screen and (min-width: 998px) and (max-width: 1280px) {
-   .read {
+  .read {
     padding-left: 20px;
   }
 }
 
 @media screen and (max-width: 998px) {
-   .read {
+  .read {
     padding-left: 0;
   }
 }

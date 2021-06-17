@@ -3,8 +3,7 @@
 module.exports = {
   author: "RuiLin Dong", //作者名
   avatar: '/img/头像.jpg', // 头像
-  search: true,
-  location: '浙江杭州',
+  location: '浙江杭州', //地点
   repo: '', // 导航栏右侧生成Github链接
   searchMaxSuggestions: 10, // 搜索结果显示最大数
   lastUpdated: '上次更新', // 开启更新时间，并配置前缀文字   string | boolean (取值为git提交时间)
@@ -15,8 +14,9 @@ module.exports = {
     apiKey: '6956f18773dbf5757dc4f3a3c375222d',
     indexName: 'dev_blog'
   },
-  welcome: "欢迎来到RuiLin Dong的网站，你在这里可以看到以下内容",
+  welcome: "欢迎来到RuiLin Dong的网站，你在这里可以看到以下内容",//welcome页面的欢迎语
   headNav: [
+    //所有页面中，导航下拉菜单
     {
       label: '博客',
       link: "/home/"
@@ -45,7 +45,9 @@ module.exports = {
     record: '',//网站备案链接
   },
   about: {
+    //关于页面的配置
     aboutMe: {
+      //”关于我“的介绍
       introduction: `My name is RuiLin Dong(董瑞林). 
       You can call me RuiLin. I was born in 1999.
       I graduated from Baoji College of Arts and Sciences with a Bachelor of Engineering degree.
@@ -54,16 +56,19 @@ module.exports = {
 
     },
     aboutWebsite: {
-      show: true,
+      //关于网站内容的介绍
+      show: true,//false 则不显示此栏
       content: `
       所有文章非特别说明皆为原创。技术更迭迅猛，部分内容可能会作修改，为保证信息与源同步，
       转载时请务必注明文章出处！文章皆为个人观点，不代表所服务的公司。`
     },
     rss: {
+      //rss订阅信息
       show: true,
       link: ''
     },
     social: [
+      //社交网站链接，可以添加多个
       {
         label: 'github',
         name: '@halodong',
@@ -86,6 +91,7 @@ module.exports = {
 
   },
   blogRoll: [
+    //友情链接
     {
       name: '小胡子哥的个人网站',
       link: 'https://www.barretlee.com/',

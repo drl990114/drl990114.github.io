@@ -3,6 +3,8 @@
 # 确保脚本抛出遇到的错误
 set -e
 
+git push -f git@github.com:halodong/vuepress-theme-deeply.git master
+
 # 生成静态文件
 npm run build
 

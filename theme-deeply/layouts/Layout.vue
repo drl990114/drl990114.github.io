@@ -20,6 +20,9 @@
     <template v-if="about">
       <About />
     </template>
+    <template v-if="blogRoll">
+      <BlogRoll />
+    </template>
   </div>
 </template>
 
@@ -30,6 +33,7 @@ import Home from "../components/Home.vue";
 import Categories from "../components/Categories.vue";
 import Archives from "../components/Archives.vue";
 import About from "../components/About.vue";
+import BlogRoll from "../components/BlogRoll.vue";
 import {
   isIndex,
   isHome,
@@ -37,10 +41,19 @@ import {
   isArchives,
   isCategories,
   isAbout,
+  isBlogRoll
 } from "../util/isPath.js";
 import { toLight, toDark, currentMode } from "../util/colorMode";
 export default {
-  components: { Welcome, Read, Home, Categories, Archives, About },
+  components: {
+    Welcome,
+    Read,
+    Home,
+    Categories,
+    Archives,
+    About,
+    BlogRoll
+  },
   mounted() {
     let current = currentMode();
     if (current == "dark") {
@@ -69,6 +82,9 @@ export default {
     categories() {
       return isCategories(this.PATH);
     },
+    blogRoll() {
+      return isBlogRoll(this.PATH)
+    }
   },
 };
 </script>

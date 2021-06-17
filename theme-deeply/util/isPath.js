@@ -21,3 +21,7 @@ export const isCategories = (currentpath) => {
 export const isAbout = (currentpath) => {
     return currentpath.indexOf('/about/') != -1
 }
+
+export const isBlogRoll = (currentpath) => {
+    return currentpath.indexOf('/blogroll/') != -1
+}

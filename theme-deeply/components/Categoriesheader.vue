@@ -1,13 +1,13 @@
 <template>
   <div class="categories-header">
     <div class="categories-header-left">
-      <a :href="base+'/about/'">{{ author }}</a> »
-      <span style="color: #4a75b5">{{ blogNav }} </span>
+      <a :href="base + '/about/'">{{ author }}</a> »
+      <span >{{ blogNav }} </span>
       <div id="arrow-expend" @click="arrowClick">
         ▾
         <ul id="arrow-expend-ul">
           <li v-for="item in headNav" :key="item.label">
-            <a :href="base+item.link">{{ item.label }}</a>
+            <a :href="base + item.link">{{ item.label }}</a>
           </li>
         </ul>
       </div>
@@ -17,7 +17,7 @@
 </template>
 <script>
 import { move } from "../util";
-import { isAbout, isIndex, isCategories, isArchives } from "../util/isPath";
+import { isAbout, isBlogRoll, isCategories, isArchives } from "../util/isPath";
 export default {
   name: "Categoriesheader",
   computed: {
@@ -45,6 +45,8 @@ export default {
     blogNav() {
       if (isAbout(this.PATH)) {
         return "关于我";
+      } else if (isBlogRoll(this.PATH)) {
+        return "友情链接";
       } else return "博客";
     },
   },

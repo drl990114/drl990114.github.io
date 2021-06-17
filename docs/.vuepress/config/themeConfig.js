@@ -1,4 +1,4 @@
-// const headNav = require("./head.js")
+
 // 主题配置
 module.exports = {
   author: "RuiLin Dong", //作者名
@@ -27,7 +27,7 @@ module.exports = {
     },
     {
       label: '友情链接',
-      link: "/friend/"
+      link: "/blogroll/"
     }
   ],
   recommend: {
@@ -84,5 +84,12 @@ module.exports = {
     ],
     lastChange: '2021年6月15日' //about页面的最后更新时间
 
-  }
+  },
+  blogRoll: [
+    {
+      name: '小胡子哥的个人网站',
+      link: 'https://www.barretlee.com/',
+      desc: '一眼就爱上的网站布局，内容也很干货'
+    }
+  ]
 }

@@ -4,9 +4,9 @@ date: 2021-01-13
 permalink: /read/2021011301
 author: RuiLin Dong
 categories:
-  - react
+  - React
 tags:
-  - react
+  - React
 ---
 
 使用React来简单实现下组件的递归。在React可以通过props和children来向子组件传递信息，不过在这里大致的思路都是一样的。我们先定义一下要渲染的json结构：

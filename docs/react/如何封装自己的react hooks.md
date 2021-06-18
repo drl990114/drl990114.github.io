@@ -4,9 +4,9 @@ date: 2021-01-12
 permalink: /read/2021011201
 author: RuiLin Dong
 categories:
-  - react
+  - React
 tags:
-  - react
+  - React
 ---
 
 通过自定义 Hook，可以将组件逻辑提取到可重用的函数中。

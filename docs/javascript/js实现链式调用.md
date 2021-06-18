@@ -4,9 +4,9 @@ date: 2021-03-12
 permalink: /read/2021031201
 author: RuiLin Dong
 categories:
-  - javascript
+  - JavaScript
 tags:
-  - javascript
+  - JavaScript
 ---
 使用原生的js获取的DOM对象，只能使用一次addEventLisenter方法添加事件，如果要接着添加事件，还得再调用addEventLisenter。
 <!-- more -->

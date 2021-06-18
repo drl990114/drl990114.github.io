@@ -1,7 +1,7 @@
 ---
 title: js实现链式调用
 date: "2021年3月26日 15：30"
-permalink: /read/2021031201
+permalink: /read/2021032601
 author: RuiLin Dong
 categories:
   - JavaScript

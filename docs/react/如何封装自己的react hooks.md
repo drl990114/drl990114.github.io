@@ -1,7 +1,7 @@
 ---
 title: 如何封装自己的react hooks
 date: "2021年4月19日 18：58"
-permalink: /read/2021011201
+permalink: /read/2021041901
 author: RuiLin Dong
 categories:
   - React

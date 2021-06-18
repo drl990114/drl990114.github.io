@@ -1,6 +1,6 @@
 ---
 title: js实现链式调用
-date: 2021-03-12
+date: "2021年3月26日 15：30"
 permalink: /read/2021031201
 author: RuiLin Dong
 categories:

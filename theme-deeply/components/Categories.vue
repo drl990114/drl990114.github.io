@@ -8,14 +8,14 @@
           <div class="categories-list">
             <a
               v-bind:class="{ current: currentCate === 'all' }"
-              :href="base+'/categories/?name=all'"
+              :href="base + '/categories/?name=all'"
               >全部</a
             >
             <a
               v-bind:class="{ current: currentCate === item }"
               v-for="item in allCategories"
               :key="item"
-              :href="base+'/categories/?name=' + item"
+              :href="base + '/categories/?name=' + item"
               >{{ item }}</a
             >
           </div>
@@ -26,12 +26,12 @@
           :key="index"
         >
           <strong
-            ><a :href="base+'/archives/?year=' + key">{{ key }}年</a></strong
+            ><a :href="base + '/archives/?year=' + key">{{ key }}年</a></strong
           >
           <div class="currentYear">
             <ul>
               <li v-for="item in value" :key="item.key">
-                <a :href="base+item.path">{{ item.title }} </a>
+                <a :href="base + item.path">{{ item.title }} </a>
                 <span
                   >({{ item.lastUpdated.split(",")[0] }} · 标签:{{
                     item.frontmatter.tags ? item.frontmatter.tags[0] : "无"
@@ -64,7 +64,8 @@ export default {
     archivePages() {
       const res = getTimeLines(this.$site.pages);
       let nameParam = getUrlParams("name");
-
+      console.log(nameParam);
+      console.log(this.$site.pages);
       // let cateActicle
       if (nameParam) {
         if (nameParam == "all") {
@@ -74,10 +75,9 @@ export default {
           const cateActicle = this.$site.pages.filter(
             (page) =>
               page.frontmatter.categories &&
-              page.frontmatter.categories[0] === nameParam
+              page.frontmatter.categories[0] == nameParam
           );
           const cateActicles = getTimeLines(cateActicle);
-          console.log(cateActicles);
           return cateActicles;
         }
       }

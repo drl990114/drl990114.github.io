@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
   "devDependencies": {
     "vuepress": "^1.8.2"
   },
@@ -10,9 +14,5 @@
     "algoliasearch": "^4.9.2",
     "instantsearch.js": "^4.23.0",
     "vuepress": "^1.8.2"
-  },
-  "scripts": {
-    "dev": "vuepress dev docs",
-    "build": "vuepress build docs"
   }
 }

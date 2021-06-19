@@ -3,31 +3,49 @@
     <div class="content">
       <div class="content-main">
         <div class="content-main-nav">
-          <a href="">相关文章</a>
+          <a
+            @click="relatedNav"
+            v-bind:class="{ currentNav: currentNav === 'related' }"
+            >相关文章</a
+          >
+          <a
+            @click="commentNav"
+            v-bind:class="{ currentNav: currentNav === 'comments' }"
+            >评论内容</a
+          >
         </div>
       </div>
-      <div style="display: block">
-        <div class="read-foot-btn" @click="backHome">打开评论</div>
-      </div>
-      <ul v-if="relevant">
-        <li :v-if="relevant" v-for="item in relevant" :key="item.path">
-          <span
-            ><font>{{ item.nearTime || "" }} » </font> </span
-          ><a :href="base + item.path">{{ item.title || "" }}</a>
-          <div class="relative-box">
-            <span>文章概要： </span>
-            <span
-              style="display: inline"
-              v-html="item.excerpt || '空'"
-              id="moreRelevant"
-            ></span
-            >...
+      <div class="read-active">
+        <div style="display: block">
+          <div
+            v-if="currentNav == 'related'"
+            class="read-foot-btn"
+            @click="commentNav"
+          >
+            打开评论
           </div>
-        </li>
-      </ul>
-      <div style="display: block">
-        <div class="read-foot-btn" @click="backHome">回到首页</div>
+        </div>
+        <ul v-if="currentNav == 'related'">
+          <li :v-if="relevant" v-for="item in relevant" :key="item.path">
+            <span
+              ><font>{{ item.nearTime || "" }} » </font> </span
+            ><a :href="base + item.path">{{ item.title || "" }}</a>
+            <div class="relative-box">
+              <span
+                style="display: inline"
+                v-html="item.excerpt || '空'"
+                id="moreRelevant"
+              ></span
+              >...
+            </div>
+          </li>
+        </ul>
+        <Vssue v-if="currentNav == 'comments'" :title="title" />
+        <div style="display: block">
+          <div class="read-foot-btn" @click="backHome">回到首页</div>
+        </div>
       </div>
+
       <HomeFoot />
     </div>
   </div>
@@ -39,6 +57,11 @@ export default {
   name: "ReadFoot",
   components: {
     HomeFoot,
+  },
+  data() {
+    return {
+      currentNav: "related",
+    };
   },
   computed: {
     themeConfigs() {
@@ -55,11 +78,20 @@ export default {
       });
       return res;
     },
+    title() {
+      return this.$page.title;
+    },
   },
   methods: {
-    backHome: function () {
+    backHome() {
       const res = this.$site.base.substr(0, this.$site.base.length - 1);
       window.location.href = `${res}/home/`;
+    },
+    commentNav() {
+      this.currentNav = "comments";
+    },
+    relatedNav() {
+      this.currentNav = "related";
     },
   },
 };
@@ -82,6 +114,10 @@ export default {
    .content {
      height: 100%;
      margin: 0 auto;
+
+     .read-active {
+       min-height: 200px;
+     }
 
      ul {
        list-style-type: square;
@@ -112,12 +148,18 @@ export default {
          min-height: 70px;
          width: 800px;
          margin: 0 auto;
-         padding-left: 40px;
+         padding-left: 30px;
          color: #fff;
+         font-size: 16px;
 
          a {
            display: inline-block;
            margin-right: 10px;
+           color: #999;
+           cursor: pointer;
+         }
+
+         .currentNav {
            border-top: 5px solid #e58c7c;
            padding: 10px 6px;
            color: #fff;

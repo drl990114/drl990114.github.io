@@ -12,9 +12,18 @@ module.exports = {
   displayAllHeaders: true,
   activeHeaderLinks: false, // 默认值：true
   themeConfig,
-  plugins: [
-    ['@vuepress/search', {
-      searchMaxSuggestions: 10
-    }]
-  ]
+  plugins: {
+    '@vssue/vuepress-plugin-vssue': {
+      // 设置 `platform` 而不是 `api`
+      platform: 'github',
+
+      // 其他的 Vssue 配置
+      owner: 'halodong',
+      repo: 'vuepress-theme-deeply',
+      clientId: '4185e1a31e80d0b76772',
+      clientSecret: '95eed2195d27127a5e5401dd91d20b6de26fdf39',
+      locale: 'zh'
+    },
+  },
+
 }

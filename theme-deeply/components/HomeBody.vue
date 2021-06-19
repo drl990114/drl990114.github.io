@@ -5,6 +5,7 @@
       <HomeBodyClass />
       <Introduction />
     </div>
+    <Vssue title="home"/>
   </div>
 </template>
 

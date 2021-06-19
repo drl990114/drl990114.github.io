@@ -44,7 +44,7 @@ export default {
 
  <style lang="stylus">
  .home-near {
-   height: 475px;
+   min-height: 340px;
 
    h2 {
      font-size: 22px;

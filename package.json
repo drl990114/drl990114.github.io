@@ -11,6 +11,8 @@
     "vuepress": "^1.8.2"
   },
   "dependencies": {
+    "@vssue/api-github-v3": "^1.4.7",
+    "@vssue/vuepress-plugin-vssue": "^1.4.8",
     "algoliasearch": "^4.9.2",
     "instantsearch.js": "^4.23.0",
     "vuepress": "^1.8.2"

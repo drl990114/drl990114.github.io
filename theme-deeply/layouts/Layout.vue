@@ -41,7 +41,7 @@ import {
   isArchives,
   isCategories,
   isAbout,
-  isBlogRoll
+  isBlogRoll,
 } from "../util/isPath.js";
 import { toLight, toDark, currentMode } from "../util/colorMode";
 export default {
@@ -52,7 +52,7 @@ export default {
     Categories,
     Archives,
     About,
-    BlogRoll
+    BlogRoll,
   },
   mounted() {
     let current = currentMode();
@@ -83,8 +83,8 @@ export default {
       return isCategories(this.PATH);
     },
     blogRoll() {
-      return isBlogRoll(this.PATH)
-    }
+      return isBlogRoll(this.PATH);
+    },
   },
 };
 </script>
@@ -92,6 +92,8 @@ export default {
 @require '../styles/index.styl';
 @require '../styles/font/iconfont.css';
 @require '../styles/palette.styl';
+@require '~vssue/src/styles/index';
+@require '~github-markdown-css/github-markdown.css';
 
 * {
   margin: 0;

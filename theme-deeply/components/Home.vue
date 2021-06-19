@@ -13,7 +13,6 @@ import HomeFoot from "./HomeFoot.vue";
 export default {
   name: "Home",
   components: { HomeHeader, HomeBody, HomeFoot },
-
 };
 </script>
 

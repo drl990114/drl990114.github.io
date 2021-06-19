@@ -4,18 +4,16 @@ module.exports = {
   head: [
     [
       'link',
-      { rel: 'icon', href: 'favicon.ico' }
+      { rel: 'icon', href: '/img/favicon.ico' }
     ]
   ],
   title: "RuiLin Dong's blog",
-  description: 'web前端技术博客,简洁至上,专注web前端学习与总结。JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github等技术文章。',
+  description: 'web前端技术博客,专注web前端学习与总结。JavaScript,ES6,TypeScript,React,Vue,css3,html5,Node等技术文章。',
   // base: '/', // 格式：'/<仓库名>/'，必需项
   base: '/vuepress-theme-deeply/',
   markdown: {
     lineNumbers: false, // 代码行号
   },
-  displayAllHeaders: true,
-  activeHeaderLinks: false, // 默认值：true
   themeConfig,
   plugins: {
     '@vssue/vuepress-plugin-vssue': {

@@ -53,7 +53,7 @@ export default {
      width: 100%;
      line-height: 2;
      margin-bottom: 15px;
-     margin-top: 40px;
+     margin-top: 35px;
      padding-left: 5px;
 
      a {

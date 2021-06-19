@@ -2,16 +2,17 @@
   <div class="home-leftBody">
     <div class="home-leftBody-article">
       <h1>
-        <a :href="base+recommend.link">{{ recommend.title }}</a>
+        <a :href="base + recommend.link">{{ recommend.title }}</a>
       </h1>
       <p itemprop="description">
         {{ recommend.more + "..." }}
-        <a :href="base+recommend.link">阅读全文 »</a>
+        <a :href="base + recommend.link">阅读全文 »</a>
       </p>
       <span
-        >Posted by <a :href="base+'/about/'">{{ author }}</a> at
-        <a :href="base+'/archives/'"></a> on <time>{{ recommend.time }}</time>
-        <a :href="base+'/archives/'"
+        >Posted by <a :href="base + '/about/'">{{ author }}</a> at
+        <a :href="base + '/archives/'"></a> on
+        <time>{{ recommend.time }}</time>
+        <a :href="base + '/archives/'"
           ><b
             class="ds-thread-count disqus-comment-count cy_cmt_count"
             data-thread-key="year-2020"
@@ -51,7 +52,7 @@ export default {
    border-radius: 2px;
 
    .home-leftBody-article {
-     min-height: 180px;
+     min-height: 190px;
      background: var(--homeArticleBg);
      box-shadow: 2px 2px 4px var(--shadowColor);
      padding: 20px;
@@ -65,12 +66,13 @@ export default {
      p {
        font-size: 15px;
        line-height: 30px;
-       padding-bottom: 15px;
-       margin-bottom: 15px;
+       padding-bottom: 10px;
+       margin-bottom: 10px;
        border-bottom: 1px dashed #ccc;
      }
 
      span {
+       display: block;
        float: right;
        font-size: 14px;
        color: #999;

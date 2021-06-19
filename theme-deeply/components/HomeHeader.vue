@@ -1,13 +1,13 @@
 <template>
   <div class="home-header">
     <div class="home-header-left">
-      <a :href="base+'/about/'">{{ author }}</a>
-      <span aria-hidden="true"> » 博客 </span>
+      <a :href="base + '/about/'" style="font-weight: bold">{{ author }}</a>
+      <span> » 博客 </span>
       <div id="arrow-expend" @click="arrowClick">
         ▾
         <ul id="arrow-expend-ul">
           <li v-for="item in headNav" :key="item.label">
-            <a :href="base+item.link">{{ item.label }}</a>
+            <a :href="base + item.link">{{ item.label }}</a>
           </li>
         </ul>
       </div>
@@ -123,6 +123,7 @@ export default {
       font-size: 1rem;
       color: #888;
       font-family: initial;
+      background: var(--leftNavColor);
     }
   }
 

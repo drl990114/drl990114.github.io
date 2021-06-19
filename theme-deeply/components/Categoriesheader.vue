@@ -127,7 +127,7 @@ export default {
     position: absolute;
     width: 120px;
     height: 0px;
-    background: #fff;
+    background: var(--leftNavColor);
     border: 1px solid #ccc;
     left: -56px;
     text-align: center;

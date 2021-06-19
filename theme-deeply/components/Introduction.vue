@@ -72,6 +72,7 @@ export default {
      display: inline-block;
      margin: 12px 20px;
      color: #0078b6;
+     font-weight normal
      font-size: 18px !important;
    }
 

@@ -20,8 +20,10 @@ module.exports = {
       // 其他的 Vssue 配置
       owner: 'halodong',
       repo: 'vuepress-theme-deeply',
-      clientId: '612c892c769627382be8',
+      clientId: '612c892c769627382be8', //GitHub page
       clientSecret: '61e933f88b95f35e462f27243ea3dce33b6bfac9',
+//       clientId: '4185e1a31e80d0b76772', //本地
+//       clientSecret: '95eed2195d27127a5e5401dd91d20b6de26fdf39',
       locale: 'zh'
     },
   },

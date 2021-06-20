@@ -1,4 +1,4 @@
-## 欢迎使用vuepress-theme-deeply
+## vuepress-theme-deeply
 
 
 ### ✨ 特性

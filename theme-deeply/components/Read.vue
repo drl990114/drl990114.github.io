@@ -47,7 +47,6 @@ export default {
   width: 100%;
   padding-left: 20px;
   color: #2f2f2f;
-  font-size: 18px;
   min-height: 100vh;
 }
 

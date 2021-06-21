@@ -4,7 +4,8 @@
     <div class="read-header-mes">
       <div class="post-info">
         <span
-          >作者: <a :href="base+'/about/'">{{ themeConfigs.author || "" }}</a></span
+          >作者:
+          <a :href="base + '/about/'">{{ themeConfigs.author || "" }}</a></span
         >
         <span>
           <span class="aria-readonly"
@@ -12,7 +13,7 @@
           > </span
         ><span
           >分类:
-          <a class="category-link" :href="base+'/categories/'">{{
+          <a class="category-link" :href="base + '/categories/'">{{
             articleData.frontmatter.categories
               ? articleData.frontmatter.categories[0]
               : "无"
@@ -21,12 +22,15 @@
       </div>
     </div>
     <Content />
+
     <div class="main-foot">
       <div class="info">
         <ul>
           <li>
             作者:
-            <a :href="base+'/about/'" itemprop="name">{{ themeConfigs.author }}</a>
+            <a :href="base + '/about/'" itemprop="name">{{
+              themeConfigs.author
+            }}</a>
           </li>
           <li>发表日期: {{ articleData.frontmatter.date || "" }}</li>
           <li>
@@ -72,10 +76,16 @@
         </ul>
       </div>
       <div class="post-relative">
-        <a v-if="prevNext.prev" :href="base+prevNext.prev.path || ''" class="prev"
+        <a
+          v-if="prevNext.prev"
+          :href="base + prevNext.prev.path || ''"
+          class="prev"
           ><span class="icon iconfont icon-jiantou1" />
           <b>{{ prevNext.prev.title || "" }}</b> </a
-        ><a v-if="prevNext.next" :href="base+prevNext.next.path || ''" class="next"
+        ><a
+          v-if="prevNext.next"
+          :href="base + prevNext.next.path || ''"
+          class="next"
           ><b>{{ prevNext.next.title || "" }}</b
           ><span class="icon iconfont icon-jiantou"
         /></a>
@@ -216,10 +226,6 @@ export default {
      border-radius: 5px;
      border-spacing: 0;
    }
-
-   ul {
-     margin-bottom: 10px;
-   }
  }
 
  @media screen and (min-width: 1281px) {
@@ -239,26 +245,31 @@ export default {
        padding: 30px 55px 50px 55px;
      }
 
-     h1 {
-       display: none;
-     }
+     .content__default {
+       width: 100%;
 
-     h2 {
-       font-size: 40px;
-       line-height: 68px;
-       margin: 15px 0;
-       font-weight: 500;
-     }
+       h1 {
+         display: none;
+       }
 
-     h3 {
-       font-size: 32px;
-       line-height: 64px;
-       margin: 15px 0;
-       font-weight: normal;
-     }
+       h2 {
+         font-size: 40px;
+         line-height: 68px;
+         margin: 15px 0;
+         font-weight: 500;
+       }
 
-     p {
-       margin-bottom: 25px;
+       h3 {
+         font-size: 32px;
+         line-height: 64px;
+         margin: 15px 0;
+         font-weight: normal;
+       }
+
+       > * {
+         font-size: 18px;
+         margin-bottom: 10px;
+       }
      }
    }
  }
@@ -280,26 +291,31 @@ export default {
        padding: 25px 45px 40px 45px;
      }
 
-     h1 {
-       display: none;
-     }
+     .content__default {
+       width: 100%;
 
-     h2 {
-       font-size: 40px;
-       line-height: 68px;
-       margin: 15px 0;
-       font-weight: 400;
-     }
+       h1 {
+         display: none;
+       }
 
-     h3 {
-       font-size: 32px;
-       line-height: 64px;
-       margin: 15px 0;
-       font-weight: normal;
-     }
+       h2 {
+         font-size: 40px;
+         line-height: 68px;
+         margin: 15px 0;
+         font-weight: 400;
+       }
 
-     p {
-       margin-bottom: 20px;
+       h3 {
+         font-size: 32px;
+         line-height: 64px;
+         margin: 15px 0;
+         font-weight: normal;
+       }
+
+       > * {
+         font-size: 16px;
+         margin-bottom: 10px;
+       }
      }
    }
  }
@@ -321,27 +337,31 @@ export default {
        padding: 15px 30px 25px 30px;
      }
 
-     h1 {
-       display: none;
-     }
+     .content__default {
+       width: 100%;
 
-     h2 {
-       font-size: 35px;
-       line-height: 68px;
-       margin: 15px 0;
-       font-weight: 400px;
-     }
+       h1 {
+         display: none;
+       }
 
-     h3 {
-       font-size: 30px;
-       line-height: 64px;
-       margin: 15px 0;
-       font-weight: normal;
-     }
+       h2 {
+         font-size: 35px;
+         line-height: 68px;
+         margin: 15px 0;
+         font-weight: 400px;
+       }
 
-     p {
-       font-size: 16px;
-       margin-bottom: 15px;
+       h3 {
+         font-size: 30px;
+         line-height: 64px;
+         margin: 15px 0;
+         font-weight: normal;
+       }
+
+       > * {
+         font-size: 16px;
+         margin-bottom: 10px;
+       }
      }
    }
  }
@@ -363,27 +383,31 @@ export default {
        padding: 10px;
      }
 
-     h1 {
-       display: none;
-     }
+     .content__default {
+       width: 100%;
 
-     h2 {
-       font-size: 30px;
-       line-height: 68px;
-       margin: 8px 0;
-       font-weight: 400px;
-     }
+       h1 {
+         display: none;
+       }
 
-     h3 {
-       font-size: 25px;
-       line-height: 40px;
-       margin: 5px 0;
-       font-weight: normal;
-     }
+       h2 {
+         font-size: 30px;
+         line-height: 68px;
+         margin: 8px 0;
+         font-weight: 400px;
+       }
 
-     p {
-       font-size: 16px;
-       margin-bottom: 10px;
+       h3 {
+         font-size: 25px;
+         line-height: 40px;
+         margin: 5px 0;
+         font-weight: normal;
+       }
+
+       > * {
+         font-size: 16px;
+         margin-bottom: 10px;
+       }
      }
    }
  }

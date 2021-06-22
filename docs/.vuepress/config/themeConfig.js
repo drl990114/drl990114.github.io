@@ -14,7 +14,6 @@ module.exports = {
     apiKey: '6956f18773dbf5757dc4f3a3c375222d',
     indexName: 'dev_blog'
   },
-  welcome: "欢迎来到RuiLin Dong的网站，你在这里可以看到以下内容",//welcome页面的欢迎语
   headNav: [
     //所有页面中，导航下拉菜单
     {

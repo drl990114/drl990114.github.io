@@ -1,10 +1,22 @@
 <template>
   <div class="welcome">
     <div class="nav">
-      <h3 style="margin-bottom: 30px">Welcome</h3>
-      <p style="margin-bottom: 10px">{{ welcome }}</p>
-      <a :href="base + '/home/'">博客</a>
-      <a :href="base + '/about/'"> 关于我 </a>
+      <h2>
+        {{ author }}的个人网站
+        <a :href="base + '/home/'"><img :src="$withBase(avatarUrl)" /></a>
+      </h2>
+      <h3>{{ author }}'s personal website</h3>
+      <p>
+        <font>»</font>
+        <a :href="base + '/home/'"> 博客 /</a>
+        <a :href="base + '/about/'"> 关于我 </a>
+      </p>
+      <p>
+        <font>»</font>
+        <a v-for="item in social" :href="item.link" :key="item.link">
+          <span :class="'icon iconfont ' + item.className"
+        /></a>
+      </p>
     </div>
   </div>
 </template>
@@ -13,19 +25,18 @@
 export default {
   name: "Welcome",
   computed: {
-    userNav() {
-      console.log(this.$site);
-      console.log(this.$page);
-      console.log(this.$themeConfig);
-      console.log(this.$router.history.current.path);
-      return this.$themeLocaleConfig.nav || this.$site.themeConfig.nav || [];
+    social() {
+      return this.$themeConfig.about.social;
     },
     base() {
       const res = this.$site.base.substr(0, this.$site.base.length - 1);
       return res;
     },
-    welcome() {
-      return this.$themeConfig.welcome;
+    avatarUrl() {
+      return this.$themeConfig.avatar;
+    },
+    author() {
+      return this.$themeConfig.author;
     },
   },
 };
@@ -37,15 +48,88 @@ export default {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 90vh;
+  min-height: 100vh;
   color: var(--textColor);
+  background: linear-gradient(to right, #003973 0, #e5e5be 100%);
 }
 
 .nav {
-  width: 100%;
   margin: 20px auto;
   padding: 40px 30px;
   text-align: center;
+  -webkit-user-select: none;
+  z-index: 10;
+  width: 440px;
+  min-height: 200px;
+  background: rgba(97, 97, 97, 0.3);
+  padding: 20px;
+  border-radius: 12px;
+  color: #eee;
+  font-family: Georgia, serif;
+
+  h2 {
+    color: #eee;
+    font-weight: 400;
+    font-size: 24px;
+    text-align: center;
+    line-height: 36px;
+    margin: 0;
+    border: none;
+    padding: 0;
+  }
+
+  h3 {
+    color: #eee;
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    line-height: 36px;
+    margin-bottom: 30px;
+  }
+
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    vertical-align: middle;
+    margin-left: 5px;
+  }
+
+  span {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 24px;
+  }
+
+  p {
+    display: flex;
+    justify-content: start;
+    background: rgba(154, 154, 154, 0.5);
+    padding: 10px;
+    line-height: 24px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-size: 18px;
+    color: #eee;
+
+    font {
+      margin-right: 5px;
+    }
+
+    a {
+      margin-right: 7px;
+      color: #eee;
+    }
+
+    &:hover {
+      background: rgba(228, 228, 228, 0.7);
+      color: #9c9c9c;
+
+      a {
+        color: #000000;
+      }
+    }
+  }
 }
 
 .link {

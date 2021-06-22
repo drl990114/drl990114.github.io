@@ -72,19 +72,21 @@ module.exports = {
       {
         label: 'github',
         name: '@halodong',
-        link: 'https://github.com/halodong'
+        link: 'https://github.com/halodong',
+        className: 'icon-github'
       },
       {
         label: '知乎',
         name: 'zhihu',
-        link: 'https://www.zhihu.com/people/drl-66'
+        link: 'https://www.zhihu.com/people/drl-66',
+        className: 'icon-zhihu'
 
       },
       {
         label: 'E-mail',
         name: 'drl1999@foxmail.com',
-        link: 'https://www.foxmail.com'
-
+        link: 'https://www.foxmail.com',
+        className: 'icon-youxiang1'
       },
     ],
     lastChange: '2021年6月15日' //about页面的最后更新时间

@@ -97,6 +97,11 @@ module.exports = {
       name: '小胡子哥的个人网站',
       link: 'https://www.barretlee.com/',
       desc: '一眼就爱上的网站布局，内容也很干货'
+    },
+    {
+      name: 'VuePress',
+      link: 'https://vuepress.vuejs.org/zh/',
+      desc: '一个很棒的博客框架！'
     }
   ]
 }

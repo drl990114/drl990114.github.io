@@ -1,9 +1,9 @@
-## vuepress-theme-deeply
+## VuePress-theme-deeply
 
 
 ### ✨ 特性
 
-- 一个轻量级，简洁的 vuepress 主题。
+- 一个轻量级，简洁的 VuePress 主题。
 
 ### 📦 效果
 

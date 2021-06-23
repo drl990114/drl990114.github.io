@@ -2,7 +2,10 @@
   <div class="body-foot" aria-hidden="true">
     <a id="music" @click="bgPlay"
       >🙈
-      <div>点击播放音乐</div>
+      <div>
+        <span>小彩蛋：</span>
+        <p>点击播放音乐~</p>
+      </div>
     </a>
     <span
       >©{{ themeConfig.foot.year || "" }}
@@ -30,7 +33,12 @@ export default {
     bgPlay() {
       if (typeof window != "undefined") {
         let bgm = document.getElementById("musicplayer");
-        bgm.play();
+        console.log(bgm.pause);
+        if (bgm.paused) {
+          bgm.play();
+        } else {
+          bgm.pause();
+        }
       }
     },
   },
@@ -60,12 +68,17 @@ export default {
 
     &:hover div {
       position: absolute;
-      top: -35px;
-      left: -5px;
-      background: red;
-      width: 100px;
-      height: 30px;
+      top: -60px;
+      left: -40px;
+      padding: 7px;
+      background: var(--darkModeBtn);
+      border: 1px solid var(--borderColor);
+      min-width: 100px;
+      min-height: 30px;
       display: inline-block;
+      color: var(--textColor);
+      text-align: left;
+      font-family: Palatino, Garamond, Times, Georgia, serif;
     }
   }
 

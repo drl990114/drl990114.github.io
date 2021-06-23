@@ -3,6 +3,7 @@
 module.exports = {
   author: "RuiLin Dong", //作者名
   avatar: '/img/头像.jpg', // 头像
+  bgSound: '/sound/bgm.mp3',
   location: '浙江杭州', //地点
   repo: '', // 导航栏右侧生成Github链接
   searchMaxSuggestions: 10, // 搜索结果显示最大数

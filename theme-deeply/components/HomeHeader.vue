@@ -33,10 +33,6 @@ export default {
     headNav() {
       return this.$themeConfig.headNav;
     },
-    base() {
-      const res = this.$site.base.substr(0, this.$site.base.length - 1);
-      return res;
-    },
   },
   // mounted: function () {
   //   this.$nextTick(function () {

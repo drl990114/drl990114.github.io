@@ -16,10 +16,6 @@
 <script>
 export default {
   computed: {
-    base() {
-      const res = this.$site.base.substr(0, this.$site.base.length - 1);
-      return res;
-    },
     introduction() {
       return this.$themeConfig.introduction;
     },

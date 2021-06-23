@@ -3,7 +3,7 @@
     <div class="bar-up">
       <div class="bar-item">
         <span class="icon iconfont icon-yingyong bar-item-current">
-          <span class="show" @click="test">首页</span>
+          <span class="show" @click="backHome">首页</span>
           <div class="bar-item-hover" @click="backHome">
             首页瞧瞧~
             <div class="triangle"></div>
@@ -51,8 +51,9 @@ export default {
   name: "LeftNavTop",
   methods: {
     backHome() {
-      const res = this.$site.base.substr(0, this.$site.base.length - 1);
-      window.location.href = `${res}/home/`;
+      this.$router.push({
+        path: "/",
+      });
     },
     dark() {
       toDark();
@@ -61,16 +62,8 @@ export default {
       toLight();
     },
     toAbout() {
-      const res = this.$site.base.substr(0, this.$site.base.length - 1);
-      window.location.href = `${res}/about/`;
-    },
-    base() {
-      const res = this.$site.base.substr(0, this.$site.base.length - 1);
-      return res;
-    },
-    test() {
       this.$router.push({
-        path: "/home/",
+        path: "/about/",
       });
     },
   },

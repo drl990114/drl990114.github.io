@@ -1,9 +1,9 @@
 <template>
   <div class="body-foot" aria-hidden="true">
-    <router-link id="music" @click="bgPlay"
+    <a id="music" @click="bgPlay"
       >🙈
       <div>点击播放音乐</div>
-    </router-link>
+    </a>
     <span
       >©{{ themeConfig.foot.year || "" }}
       <small
@@ -24,10 +24,6 @@ export default {
   computed: {
     themeConfig() {
       return this.$themeConfig;
-    },
-    base() {
-      const res = this.$site.base.substr(0, this.$site.base.length - 1);
-      return res;
     },
   },
   methods: {

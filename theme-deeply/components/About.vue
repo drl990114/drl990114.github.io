@@ -70,10 +70,6 @@ export default {
     avatarUrl() {
       return this.$themeConfig.avatar;
     },
-    base() {
-      const res = this.$site.base.substr(0, this.$site.base.length - 1);
-      return res;
-    },
   },
 };
 </script>

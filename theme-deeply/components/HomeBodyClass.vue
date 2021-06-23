@@ -23,10 +23,6 @@ export default {
       }
       return categoriesArr;
     },
-    base() {
-      const res = this.$site.base.substr(0, this.$site.base.length - 1);
-      return res;
-    },
   },
 };
 </script>

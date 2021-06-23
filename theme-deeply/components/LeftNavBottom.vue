@@ -20,8 +20,9 @@ export default {
   name: "LeftNavBottom",
   methods: {
     toBlogroll() {
-      const res = this.$site.base.substr(0, this.$site.base.length - 1);
-      window.location.href = `${res}/blogroll/`;
+      this.$router.push({
+        path: "/blogroll/",
+      });
     },
   },
 };

@@ -26,12 +26,12 @@
           :key="index"
         >
           <strong
-            ><a :href="base + '/archives/?year=' + key">{{ key }}年</a></strong
+            ><router-link :to="'/archives/?year=' + key">{{ key }}年</router-link></strong
           >
           <div class="currentYear">
             <ul>
               <li v-for="item in value" :key="item.key">
-                <a :href="base + item.path">{{ item.title }} </a>
+                <router-link :to="item.path">{{ item.title }} </router-link>
                 <span
                   >({{ item.lastUpdated.split(",")[0] }} · 标签:{{
                     item.frontmatter.tags ? item.frontmatter.tags[0] : "无"
@@ -90,10 +90,6 @@ export default {
     allCategories() {
       const res = getCategories(this.$site.pages);
 
-      return res;
-    },
-    base() {
-      const res = this.$site.base.substr(0, this.$site.base.length - 1);
       return res;
     },
   },

@@ -39,10 +39,6 @@ export default {
       console.log(this.$themeConfig.recommend);
       return this.$themeConfig.recommend;
     },
-    base() {
-      const res = this.$site.base.substr(0, this.$site.base.length - 1);
-      return res;
-    },
   },
 };
 </script>

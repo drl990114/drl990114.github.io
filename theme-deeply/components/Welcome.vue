@@ -28,10 +28,6 @@ export default {
     social() {
       return this.$themeConfig.about.social;
     },
-    base() {
-      const res = this.$site.base.substr(0, this.$site.base.length - 1);
-      return res;
-    },
     avatarUrl() {
       return this.$themeConfig.avatar;
     },

@@ -17,10 +17,6 @@
 import { timeSort, nearFormatTime, filterConfigMd } from "../util";
 export default {
   computed: {
-    base() {
-      const res = this.$site.base.substr(0, this.$site.base.length - 1);
-      return res;
-    },
     nearPages() {
       let pageArr = [];
       let articleArr = filterConfigMd(this.$site.pages);

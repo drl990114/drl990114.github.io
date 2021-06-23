@@ -67,10 +67,6 @@ export default {
     themeConfigs() {
       return this.$themeConfig;
     },
-    base() {
-      const res = this.$site.base.substr(0, this.$site.base.length - 1);
-      return res;
-    },
     relevant() {
       const res = getRelevant(this.$page, this.$site.pages);
       res.forEach((item) => {
@@ -84,8 +80,9 @@ export default {
   },
   methods: {
     backHome() {
-      const res = this.$site.base.substr(0, this.$site.base.length - 1);
-      window.location.href = `${res}/home/`;
+     this.$router.push({
+        path: "/home/",
+      });
     },
     commentNav() {
       this.currentNav = "comments";

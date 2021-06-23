@@ -27,10 +27,6 @@ export default {
     author() {
       return this.$themeConfig.author;
     },
-    base() {
-      const res = this.$site.base.substr(0, this.$site.base.length - 1);
-      return res;
-    },
     headNav() {
       return this.$themeConfig.headNav;
     },

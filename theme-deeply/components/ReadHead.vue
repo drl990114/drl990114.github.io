@@ -21,10 +21,6 @@ export default {
     themeConfigs() {
       return this.$themeConfig;
     },
-    base() {
-      const res = this.$site.base.substr(0, this.$site.base.length - 1);
-      return res;
-    },
     pageCate() {
       return this.$page.frontmatter.categories || [];
     },

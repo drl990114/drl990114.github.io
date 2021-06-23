@@ -31,10 +31,6 @@ export default {
       console.log(this.$themeConfig);
       return this.$themeConfig.blogRoll;
     },
-    base() {
-      const res = this.$site.base.substr(0, this.$site.base.length - 1);
-      return res;
-    },
   },
 };
 </script>

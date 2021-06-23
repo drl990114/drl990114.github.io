@@ -28,9 +28,9 @@
         <ul>
           <li>
             作者:
-            <a :href="base + '/about/'" itemprop="name">{{
+            <router-link to="/about/" itemprop="name">{{
               themeConfigs.author
-            }}</a>
+            }}</router-link>
           </li>
           <li>发表日期: {{ articleData.frontmatter.date || "" }}</li>
           <li>
@@ -103,10 +103,6 @@ export default {
       console.log(this.$page);
       console.log(this.$themeConfig);
       return this.$page;
-    },
-    base() {
-      const res = this.$site.base.substr(0, this.$site.base.length - 1);
-      return res;
     },
     themeConfigs() {
       return this.$themeConfig;

@@ -44,10 +44,6 @@ export default {
     themeConfigs() {
       return this.$themeConfig;
     },
-    base() {
-      const res = this.$site.base.substr(0, this.$site.base.length - 1);
-      return res;
-    },
     archivePages() {
       const res = getTimeLines(this.$site.pages);
       const archiveActicles = getTimeLines(this.$site.pages);

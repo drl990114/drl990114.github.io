@@ -1,27 +1,30 @@
 <template>
   <div id="theme-container">
+    <audio id="musicplayer">
+      <source :src="$withBase(bgSound)" />
+    </audio>
     <template v-if="index">
-      <Welcome />
+      <Welcome key="welcome" />
     </template>
     <template v-if="read">
-      <Read />
+      <Read key="read" />
     </template>
     <div id="container">
       <template v-if="home">
-        <Home />
+        <Home key="home" />
       </template>
     </div>
     <template v-if="categories">
-      <Categories />
+      <Categories key="categories" />
     </template>
     <template v-if="archives">
-      <Archives />
+      <Archives key="archives" />
     </template>
     <template v-if="about">
-      <About />
+      <About key="about" />
     </template>
     <template v-if="blogRoll">
-      <BlogRoll />
+      <BlogRoll key="blogroll" />
     </template>
   </div>
 </template>
@@ -62,7 +65,10 @@ export default {
   },
   computed: {
     PATH() {
-      return this.$router.history.current.path;
+      return this.$page.path;
+    },
+    bgSound() {
+      return this.$themeConfig.bgSound;
     },
     index() {
       return isIndex(this.PATH);

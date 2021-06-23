@@ -3,11 +3,11 @@
     <h2>文章分类</h2>
     <ul>
       <li v-for="item in categories" :key="item">
-        <a :href="base+'/categories/?name=' + encodeURI(encodeURI(item))">{{
+        <router-link :to="'/categories/?name=' + encodeURI(encodeURI(item))">{{
           item
-        }}</a>
+        }}</router-link>
       </li>
-      <li><a :href="base+'/categories/?name=all'">更多分类 »</a></li>
+      <li><router-link to="/categories/?name=all">更多分类 »</router-link></li>
     </ul>
   </div>
 </template>

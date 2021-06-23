@@ -3,19 +3,19 @@
     <div class="nav">
       <h2>
         {{ author }}的个人网站
-        <a :href="base + '/home/'"><img :src="$withBase(avatarUrl)" /></a>
+        <router-link :to="'/home/'"><img :src="$withBase(avatarUrl)" /></router-link>
       </h2>
       <h3>{{ author }}'s personal website</h3>
       <p>
         <font>»</font>
-        <a :href="base + '/home/'"> 博客 /</a>
-        <a :href="base + '/about/'"> 关于我 </a>
+        <router-link :to="'/home/'"> 博客 /</router-link>
+        <router-link :to="'/about/'"> 关于我 </router-link>
       </p>
       <p>
         <font>»</font>
-        <a v-for="item in social" :href="item.link" :key="item.link">
+        <router-link v-for="item in social" :to="item.link" :key="item.link">
           <span :class="'icon iconfont ' + item.className"
-        /></a>
+        /></router-link>
       </p>
     </div>
   </div>

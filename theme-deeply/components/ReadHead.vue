@@ -5,11 +5,11 @@
     </div>
     <div class="read-header">
       <div class="read-header-nav">
-        <a :href="base+'/about/'">{{ themeConfigs.author }} 的个人博客</a> »
-        <a :href="base+'/home/'">博客</a> »
-        <a v-for="item in pageCate" :key="item" :href="base+'/categories/'">{{
+        <router-link to="/about/">{{ themeConfigs.author }} 的个人博客</router-link> »
+        <router-link to="/home/">博客</router-link> »
+        <router-link v-for="item in pageCate" :key="item" to="/categories/">{{
           item
-        }}</a>
+        }}</router-link>
       </div>
     </div>
   </div>

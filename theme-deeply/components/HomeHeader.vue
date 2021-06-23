@@ -1,13 +1,13 @@
 <template>
   <div class="home-header">
     <div class="home-header-left">
-      <a :href="base + '/about/'" style="font-weight: bold">{{ author }}</a>
+      <router-link to="/about/" style="font-weight: bold">{{ author }}</router-link>
       <span> » 博客 </span>
       <div id="arrow-expend" @click="arrowClick">
         ▾
         <ul id="arrow-expend-ul">
           <li v-for="item in headNav" :key="item.label">
-            <a :href="base + item.link">{{ item.label }}</a>
+            <router-link :to="item.link">{{ item.label }}</router-link>
           </li>
         </ul>
       </div>
@@ -68,7 +68,7 @@ export default {
   // },
 
   methods: {
-    arrowClick: function () {
+    arrowClick() {
       if (typeof window != "undefined") {
         const arrow = document.getElementById("arrow-expend");
         const arrowUl = document.getElementById("arrow-expend-ul");

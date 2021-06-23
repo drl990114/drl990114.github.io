@@ -6,17 +6,17 @@
         <div class="categories-class">
           <span> 类别：</span>
           <div class="categories-list">
-            <a
+            <router-link
               v-bind:class="{ current: currentCate === 'all' }"
-              :href="base + '/categories/?name=all'"
-              >全部</a
+              to="/categories/?name=all"
+              >全部</router-link
             >
-            <a
+            <router-link
               v-bind:class="{ current: currentCate === item }"
               v-for="item in allCategories"
               :key="item"
-              :href="base + '/categories/?name=' + item"
-              >{{ item }}</a
+              :to="'/categories/?name=' + item"
+              >{{ item }}</router-link
             >
           </div>
         </div>

@@ -1,13 +1,13 @@
  <template>
   <div class="home-near">
-    <h2><a :href="base + '/archives/'">博客归档 »</a>近期文章</h2>
+    <h2><router-link to="/archives/">博客归档 »</router-link>近期文章</h2>
     <ul>
       <li v-for="item in nearPages" :key="item.key">
         <span>{{ item.nearFormatT }} » </span>
-        <a :href="base + item.path">{{ item.frontmatter.title }}</a>
+        <router-link :to="item.path">{{ item.frontmatter.title }}</router-link>
       </li>
       <li>
-        <a :href="base + '/archives/'">所有文章 »</a>
+        <router-link to="/archives/">所有文章 »</router-link>
       </li>
     </ul>
   </div>

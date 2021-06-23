@@ -2,10 +2,10 @@
   <div class="blogroll">
     <Categoriesheader />
     <div class="blogroll-main">
-      <p>欢迎交流~（<a :href="base + '/about/'">我的联系方式</a>）</p>
+      <p>欢迎交流~（<router-link to="/about/">我的联系方式</router-link>）</p>
       <ul>
         <li v-for="item in blogRollArr" :key="item.link">
-          <a :href="item.link" target="_blank">{{ item.name }}</a>
+          <router-link :to="item.link" target="_blank">{{ item.name }}</router-link>
           <font> » </font>
           <span>{{ item.desc }}</span>
         </li>

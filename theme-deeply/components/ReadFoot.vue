@@ -29,7 +29,7 @@
           <li :v-if="relevant" v-for="item in relevant" :key="item.path">
             <span
               ><font>{{ item.nearTime || "" }} » </font> </span
-            ><a :href="base + item.path">{{ item.title || "" }}</a>
+            ><router-link :to="item.path">{{ item.title || "" }}</router-link>
             <div class="relative-box">
               <span
                 style="display: inline"

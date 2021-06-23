@@ -2,23 +2,23 @@
   <div class="home-leftBody">
     <div class="home-leftBody-article">
       <h1>
-        <a :href="base + recommend.link">{{ recommend.title }}</a>
+        <router-link :to="recommend.link">{{ recommend.title }}</router-link>
       </h1>
       <p itemprop="description">
         {{ recommend.more + "..." }}
-        <a :href="base + recommend.link">阅读全文 »</a>
+        <router-link :to="recommend.link">阅读全文 »</router-link>
       </p>
       <span
-        >Posted by <a :href="base + '/about/'">{{ author }}</a> at
-        <a :href="base + '/archives/'"></a> on
+        >Posted by <router-link to="/about/">{{ author }}</router-link> at
+        <router-link to="/archives/"></router-link> on
         <time>{{ recommend.time }}</time>
-        <a :href="base + '/archives/'"
+        <router-link to="/archives/"
           ><b
             class="ds-thread-count disqus-comment-count cy_cmt_count"
             data-thread-key="year-2020"
             data-disqus-identifier="year-2020"
             id="sourceId::year-2020"
-          ></b></a
+          ></b></router-link
       ></span>
     </div>
     <HomeBodyNear />

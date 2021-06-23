@@ -10,7 +10,7 @@
     </div>
 
     <span>{{ introduction }}</span>
-    <a class="aboutme" :href="base+'/about/'">关于我</a>
+    <router-link class="aboutme" to="/about/">关于我</router-link>
   </div>
 </template>
 <script>
@@ -72,7 +72,7 @@ export default {
      display: inline-block;
      margin: 12px 20px;
      color: #0078b6;
-     font-weight normal
+     font-weight: normal;
      font-size: 18px !important;
    }
 

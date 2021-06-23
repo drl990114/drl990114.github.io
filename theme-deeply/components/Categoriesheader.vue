@@ -1,13 +1,13 @@
 <template>
   <div class="categories-header">
     <div class="categories-header-left">
-      <a :href="base + '/about/'">{{ author }}</a> »
+      <router-link to="/about/">{{ author }}</router-link> »
       <span >{{ blogNav }} </span>
       <div id="arrow-expend" @click="arrowClick">
         ▾
         <ul id="arrow-expend-ul">
           <li v-for="item in headNav" :key="item.label">
-            <a :href="base + item.link">{{ item.label }}</a>
+            <router-link :to="item.link">{{ item.label }}</router-link>
           </li>
         </ul>
       </div>

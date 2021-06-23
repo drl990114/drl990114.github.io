@@ -3,7 +3,7 @@
     <div class="read-directory">
       <ul>
         <li v-for="item in articleHeader" :key="item.slug" class="directory-li">
-          <a :href="'./#' + item.slug">{{ item.title }}</a>
+          <router-link :to="'./#' + item.slug">{{ item.title }}</router-link>
         </li>
       </ul>
     </div>

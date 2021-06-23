@@ -5,7 +5,7 @@
       <div class="post-info">
         <span
           >作者:
-          <a :href="base + '/about/'">{{ themeConfigs.author || "" }}</a></span
+          <router-link to="/about/">{{ themeConfigs.author || "" }}</router-link></span
         >
         <span>
           <span class="aria-readonly"
@@ -13,11 +13,11 @@
           > </span
         ><span
           >分类:
-          <a class="category-link" :href="base + '/categories/'">{{
+          <router-link class="category-link" to="/categories/">{{
             articleData.frontmatter.categories
               ? articleData.frontmatter.categories[0]
               : "无"
-          }}</a></span
+          }}</router-link></span
         >
       </div>
     </div>
@@ -76,19 +76,19 @@
         </ul>
       </div>
       <div class="post-relative">
-        <a
+        <router-link
           v-if="prevNext.prev"
-          :href="base + prevNext.prev.path || ''"
+          :to="prevNext.prev.path || ''"
           class="prev"
           ><span class="icon iconfont icon-jiantou1" />
-          <b>{{ prevNext.prev.title || "" }}</b> </a
-        ><a
+          <b>{{ prevNext.prev.title || "" }}</b> </router-link
+        ><router-link
           v-if="prevNext.next"
-          :href="base + prevNext.next.path || ''"
+          :to="prevNext.next.path || ''"
           class="next"
           ><b>{{ prevNext.next.title || "" }}</b
           ><span class="icon iconfont icon-jiantou"
-        /></a>
+        /></router-link>
       </div>
     </div>
   </div>

@@ -13,9 +13,9 @@
       </p>
       <p>
         <font>»</font>
-        <router-link v-for="item in social" :to="item.link" :key="item.link">
+        <a v-for="item in social" :href="item.link" :key="item.link">
           <span :class="'icon iconfont ' + item.className"
-        /></router-link>
+        /></a>
       </p>
     </div>
   </div>

@@ -2,7 +2,7 @@
   <div class="categories-header">
     <div class="categories-header-left">
       <router-link to="/about/">{{ author }}</router-link> »
-      <span >{{ blogNav }} </span>
+      <span>{{ blogNav }} </span>
       <div id="arrow-expend" @click="arrowClick">
         ▾
         <ul id="arrow-expend-ul">
@@ -11,7 +11,8 @@
           </li>
         </ul>
       </div>
-      <span v-if="currentNav">» {{ currentNav }}</span>
+      <font v-if="currentNav"> » </font>
+      <a @click="reloaded" v-if="currentNav">{{ currentNav }}</a>
     </div>
   </div>
 </template>
@@ -47,6 +48,9 @@ export default {
     },
   },
   methods: {
+    reloaded() {
+      window.location.reload();
+    },
     arrowClick: function () {
       if (typeof window != "undefined") {
         const arrow = document.getElementById("arrow-expend");
@@ -84,7 +88,6 @@ export default {
   .categories-header-left {
     float: left;
   }
-
   .categories-header-right {
     position: relative;
     width: 150px;

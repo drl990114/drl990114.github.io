@@ -5,7 +5,9 @@
       <div class="post-info">
         <span
           >作者:
-          <router-link to="/about/">{{ themeConfigs.author || "" }}</router-link></span
+          <router-link to="/about/">{{
+            themeConfigs.author || ""
+          }}</router-link></span
         >
         <span>
           <span class="aria-readonly"
@@ -13,12 +15,23 @@
           > </span
         ><span
           >分类:
-          <router-link class="category-link" to="/categories/">{{
-            articleData.frontmatter.categories
-              ? articleData.frontmatter.categories[0]
-              : "无"
-          }}</router-link></span
-        >
+          <span v-if="categories !== '无'">
+            <router-link
+              v-for="item in categories"
+              class="category-link"
+              :to="{
+                path: '/categories/',
+                query: { name: item },
+              }"
+              :key="item"
+            >{{item}}</router-link>
+          </span>
+          <router-link
+            v-if="categories == '无'"
+            class="category-link"
+            to="/categories/"
+          ></router-link>
+        </span>
       </div>
     </div>
     <Content />
@@ -99,9 +112,6 @@ export default {
   name: "ReadMain",
   computed: {
     articleData() {
-      console.log(this.$site);
-      console.log(this.$page);
-      console.log(this.$themeConfig);
       return this.$page;
     },
     themeConfigs() {
@@ -111,6 +121,9 @@ export default {
       let articles = filterConfigMd(this.$site.pages);
       const res = findPrevNext(this.$page, articles);
       return res;
+    },
+    categories() {
+      return this.$page.frontmatter.categories || "无";
     },
   },
 };

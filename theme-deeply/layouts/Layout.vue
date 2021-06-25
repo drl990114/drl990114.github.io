@@ -131,6 +131,7 @@ a {
   color: #4a75b5;
   word-break: break-all;
   text-decoration: none;
+  cursor: pointer;
 }
 
 a:hover {

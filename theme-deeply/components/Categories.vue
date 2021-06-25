@@ -65,7 +65,7 @@ export default {
       categories:
         typeof this.$route.query.name == "undefined"
           ? "all"
-          : decodeURIComponent(decodeURIComponent(this.$route.query.name)),
+          : this.$route.query.name,
     };
   },
   computed: {

@@ -94,6 +94,7 @@ export const filterConfigMd = (pages) => {
 }
 
 /**
+ * 获取时间线map
  * 
  * @param {*} pages 
  * @returns 时间线map
@@ -101,7 +102,7 @@ export const filterConfigMd = (pages) => {
 export const getTimeLines = (pages) => {
   let resultArr = new Map()
   let upDated = []
-  const articles = filterConfigMd(pages)
+  const articles = timeSort(filterConfigMd(pages))
   //获得更新过的文章，并且将文章覆盖的年份给map
   articles.forEach(item => {
     if (item.lastUpdated) {
@@ -123,6 +124,7 @@ export const getTimeLines = (pages) => {
 }
 
 
+//解析url参数
 export function getUrlParams(name) {
   if (typeof window != 'undefined') {
     let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); //定义正则表达式 
@@ -133,6 +135,7 @@ export function getUrlParams(name) {
 }
 
 
+//查找上一篇和下一篇文章
 export const findPrevNext = (currentPage, pages) => {
   const PATH = currentPage.path
   const currentIndex = pages.findIndex(item => {
@@ -161,6 +164,7 @@ export const findPrevNext = (currentPage, pages) => {
 }
 
 
+//获取相关文章
 export const getRelevant = (currentPage, pages) => {
   if (!currentPage) return
   const arcticlePage = filterConfigMd(pages)

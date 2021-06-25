@@ -6,17 +6,17 @@
         <div class="categories-class">
           <span> 类别：</span>
           <div class="categories-list">
-            <router-link
-              v-bind:class="{ current: currentCate === 'all' }"
-              to="/categories/?name=all"
-              >全部</router-link
+            <a
+              v-bind:class="{ current: categories === 'all' }"
+              @click="categories = 'all'"
+              >全部</a
             >
-            <router-link
-              v-bind:class="{ current: currentCate === item }"
+            <a
+              v-bind:class="{ current: categories === item }"
               v-for="item in allCategories"
               :key="item"
-              :to="'/categories/?name=' + item"
-              >{{ item }}</router-link
+              @click="categories = item"
+              >{{ item }}</a
             >
           </div>
         </div>
@@ -26,7 +26,9 @@
           :key="index"
         >
           <strong
-            ><router-link :to="'/archives/?year=' + key">{{ key }}年</router-link></strong
+            ><router-link :to="'/archives/?year=' + key"
+              >{{ key }}年</router-link
+            ></strong
           >
           <div class="currentYear">
             <ul>
@@ -51,22 +53,18 @@
 import LeftNav from "./LeftNav.vue";
 import Categoriesheader from "./Categoriesheader.vue";
 import ReadFoot from "./ReadFoot.vue";
-import HomeHeader from "./HomeHeader.vue";
-import {
-  getTimeLines,
-  getCategories,
-  getUrlParams,
-  nearFormatTime,
-} from "../util";
+import { getTimeLines, getCategories } from "../util";
 export default {
   components: { LeftNav, Categoriesheader, ReadFoot },
+  data() {
+    return {
+      categories: "all",
+    };
+  },
   computed: {
     archivePages() {
       const res = getTimeLines(this.$site.pages);
-      let nameParam = getUrlParams("name");
-      console.log(nameParam);
-      console.log(this.$site.pages);
-      // let cateActicle
+      let nameParam = this.categories;
       if (nameParam) {
         if (nameParam == "all") {
           const cateActicles = getTimeLines(this.$site.pages);
@@ -83,13 +81,8 @@ export default {
       }
       return res;
     },
-    currentCate() {
-      let urlparam = getUrlParams("name");
-      return urlparam;
-    },
     allCategories() {
       const res = getCategories(this.$site.pages);
-
       return res;
     },
   },
@@ -136,6 +129,7 @@ export default {
            padding: 2px 8px;
            font-size: 16px;
            line-height: 24px;
+           cursor: pointer;
          }
        }
      }

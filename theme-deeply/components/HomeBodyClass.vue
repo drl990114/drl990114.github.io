@@ -3,11 +3,15 @@
     <h2>文章分类</h2>
     <ul>
       <li v-for="item in categories" :key="item">
-        <router-link :to="'/categories/?name=' + encodeURI(encodeURI(item))">{{
-          item
-        }}</router-link>
+        <router-link
+          :to="{
+            path: '/categories/',
+            query: { name: encodeURI(encodeURI(item)) },
+          }"
+          >{{ item }}</router-link
+        >
       </li>
-      <li><router-link to="/categories/?name=all">更多分类 »</router-link></li>
+      <li><router-link to="/categories/">更多分类 »</router-link></li>
     </ul>
   </div>
 </template>

@@ -8,9 +8,7 @@
         :key="index"
       >
         <strong
-          ><router-link :to="'/archives/?year=' + key"
-            >{{ key }}年</router-link
-          ></strong
+          ><a @click="year = key">{{ key }}年</a></strong
         >
         <div class="currentYear">
           <ul>
@@ -36,21 +34,26 @@
 import LeftNav from "./LeftNav.vue";
 import Categoriesheader from "./Categoriesheader.vue";
 import ReadFoot from "./ReadFoot.vue";
-import { getTimeLines, getUrlParams } from "../util";
+import { getTimeLines } from "../util";
 export default {
   name: "Archives",
   components: { LeftNav, Categoriesheader, ReadFoot },
+  data() {
+    return {
+      year: this.$route.query.year,
+    };
+  },
   computed: {
     themeConfigs() {
       return this.$themeConfig;
     },
     archivePages() {
-      const res = getTimeLines(this.$site.pages);
       const archiveActicles = getTimeLines(this.$site.pages);
-
-      let yearParam = Number.parseInt(getUrlParams("year"));
-
-      if (!yearParam) {
+      let yearParam =
+        typeof this.year == "undefined"
+          ? this.year
+          : Number.parseInt(this.year);
+      if (!yearParam && isNaN(yearParam)) {
         return archiveActicles;
       } else {
         const currentYearActs = archiveActicles.get(yearParam);
@@ -88,6 +91,7 @@ export default {
        a {
          color: #555;
          font-weight: 700;
+         cursor: pointer;
        }
      }
 

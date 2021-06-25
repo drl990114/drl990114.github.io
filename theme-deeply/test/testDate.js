@@ -1,4 +1,4 @@
-let testPage = [
+export let testPage = [
     {
       "title": "ES5面向对象",
       "frontmatter": {
@@ -69,6 +69,6 @@ let testPage = [
       "relativePath": "01.前端/25.JavaScript文章/03.ES5面向对象.md",
       "key": "v-df044acv",
       "path": "/read/b1af5cb8996363c5/",
-      "lastUpdated": "6/6/2021, 9:05:04 PM"
+      "lastUpdated": "6/6/2019, 9:05:04 PM"
     }
   ]

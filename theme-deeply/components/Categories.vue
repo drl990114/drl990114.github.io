@@ -26,7 +26,11 @@
           :key="index"
         >
           <strong
-            ><router-link :to="'/archives/?year=' + key"
+            ><router-link
+              :to="{
+                path: '/archives/',
+                query: { year: key },
+              }"
               >{{ key }}年</router-link
             ></strong
           >
@@ -58,7 +62,10 @@ export default {
   components: { LeftNav, Categoriesheader, ReadFoot },
   data() {
     return {
-      categories: "all",
+      categories:
+        typeof this.$route.query.name == "undefined"
+          ? "all"
+          : decodeURIComponent(decodeURIComponent(this.$route.query.name)),
     };
   },
   computed: {

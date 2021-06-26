@@ -7,7 +7,7 @@
         <p>点击播放音乐~</p>
       </div>
     </a>
-  
+
     <span
       >©{{ themeConfig.foot.year || "" }}
       <small
@@ -16,12 +16,13 @@
         }}</router-link></small
       ></span
     >
-    
+
     本站由
     <router-link to="/about/">{{ themeConfig.author }}</router-link> 纯手工打造
-    |
-    <router-link to="/about/">联系方式</router-link> | 
-       <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    | <router-link to="/about/">联系方式</router-link> |
+    <span id="busuanzi_container_site_pv"
+      >本站总访问量 <span id="busuanzi_value_site_pv"></span>次
+    </span>
   </div>
 </template>
 

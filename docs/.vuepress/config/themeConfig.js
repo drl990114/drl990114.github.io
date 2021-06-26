@@ -104,5 +104,8 @@ module.exports = {
       link: 'https://vuepress.vuejs.org/zh/',
       desc: '一个很棒的博客框架！'
     }
-  ]
+  ],
+  statistics: {
+    baidu: "https://hm.baidu.com/hm.js?62d2c28ed48f158fc50c2a111bf89fcc"
+  }
 }

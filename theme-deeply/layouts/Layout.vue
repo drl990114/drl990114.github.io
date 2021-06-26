@@ -57,6 +57,18 @@ export default {
     About,
     BlogRoll,
   },
+  created() {
+    const PATH = this.$themeConfig.statistics.baidu
+    if (typeof PATH !== 'undefined') {
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = PATH;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    }
+  },
   mounted() {
     let current = currentMode();
     if (current == "dark") {

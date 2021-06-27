@@ -33,6 +33,17 @@ export default {
       return this.$themeConfig;
     },
   },
+  created() {
+    if (typeof this.$themeConfig !== 'undefined') {
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js';
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    }
+  },
   methods: {
     bgPlay() {
       if (typeof window != "undefined") {

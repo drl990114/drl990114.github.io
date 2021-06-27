@@ -57,14 +57,14 @@ export default {
     About,
     BlogRoll,
   },
-  created() {
-    const PATH = this.$themeConfig.statistics.baidu
-    if (typeof PATH !== 'undefined') {
-      var _hmt = _hmt || [];
+  mounted() {
+    const PATH = this.$themeConfig.statistics.baidu;
+    if (typeof PATH !== "undefined" && typeof document !== "undefined") {
+      let _hmt = _hmt || [];
       (function () {
-        var hm = document.createElement("script");
+        let hm = document.createElement("script");
         hm.src = PATH;
-        var s = document.getElementsByTagName("script")[0];
+        let s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
       })();
     }

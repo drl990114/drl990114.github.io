@@ -33,7 +33,7 @@ export default {
       return this.$themeConfig;
     },
   },
-  mounted() {
+  created() {
     if (
       typeof this.$themeConfig !== "undefined" &&
       typeof document !== "undefined"

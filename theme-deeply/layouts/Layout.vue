@@ -57,7 +57,7 @@ export default {
     About,
     BlogRoll,
   },
-  mounted() {
+  created() {
     const PATH = this.$themeConfig.statistics.baidu;
     if (typeof PATH !== "undefined" && typeof document !== "undefined") {
       let _hmt = _hmt || [];

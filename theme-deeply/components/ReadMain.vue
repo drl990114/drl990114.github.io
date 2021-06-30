@@ -117,18 +117,20 @@ export default {
       return this.$page;
     },
     publishDate() {
+      const format = "YYYY-MM-DD HH:mm";
       const time = String(
         moment(this.$page.frontmatter.date)
           .subtract(moment().utcOffset() / 60, "hours")
-          .format("YYYY-MM-DD HH:mm")
+          .format(format)
       );
       return time || "";
     },
     lastUpdateDate() {
+      const format = "YYYY-MM-DD HH:mm";
       const time = String(
         moment(this.$page.lastUpdated)
           .subtract(moment().utcOffset() / 60, "hours")
-          .format("YYYY-MM-DD HH:mm")
+          .format(format)
       );
       return time || "";
     },

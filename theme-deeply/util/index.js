@@ -1,4 +1,4 @@
-
+const moment = require('moment')
 /**
  * 移动元素高度
  * 
@@ -105,9 +105,12 @@ export const getTimeLines = (pages) => {
   const articles = timeSort(filterConfigMd(pages))
   //获得更新过的文章，并且将文章覆盖的年份给map
   articles.forEach(item => {
-    if (item.lastUpdated) {
+    if (item.frontmatter.date) {
+      item.frontmatter.formatDate = moment(item.frontmatter.date)
+        .subtract(moment().utcOffset() / 60, "hours")
+        .format("YYYY-MM-DD")
       upDated.push(item)
-      let time = new Date(item.lastUpdated)
+      let time = new Date(item.frontmatter.date)
       let year = time.getFullYear()
       if (!resultArr.has(year) && typeof year === 'number') {
         resultArr.set(year, [])
@@ -116,7 +119,7 @@ export const getTimeLines = (pages) => {
   })
   //如果key相同则push到对应的数组
   upDated.forEach(item => {
-    let time = new Date(item.lastUpdated)
+    let time = new Date(item.frontmatter.date)
     let year = time.getFullYear()
     resultArr.get(year).push(item)
   })
@@ -169,7 +172,7 @@ export const getRelevant = (currentPage, pages) => {
   if (!currentPage) return
   const arcticlePage = filterConfigMd(pages)
   const relevantArr = []
-  const arcticles = arcticlePage.filter(page=>page.path != currentPage.path)
+  const arcticles = arcticlePage.filter(page => page.path != currentPage.path)
   if (currentPage.frontmatter.tags &&
     currentPage.frontmatter.tags.length > 0) {
     currentPage.frontmatter.tags.forEach(tag => {

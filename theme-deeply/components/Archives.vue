@@ -15,7 +15,7 @@
             <li v-for="item in value" :key="item.key">
               <router-link :to="item.path">{{ item.title }} </router-link>
               <span
-                >({{ item.lastUpdated.split(",")[0] }} · 分类:{{
+                >({{ item.frontmatter.formatDate }} · 分类:{{
                   item.frontmatter.categories
                     ? item.frontmatter.categories[0]
                     : "无"

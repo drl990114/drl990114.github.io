@@ -39,7 +39,7 @@
               <li v-for="item in value" :key="item.key">
                 <router-link :to="item.path">{{ item.title }} </router-link>
                 <span
-                  >({{ item.lastUpdated.split(",")[0] }} · 标签:{{
+                  >({{ item.frontmatter.formatDate }} · 标签:{{
                     item.frontmatter.tags ? item.frontmatter.tags[0] : "无"
                   }})</span
                 >

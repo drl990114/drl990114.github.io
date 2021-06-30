@@ -79,6 +79,7 @@ export default {
      span {
        color: #999;
        max-width: 100px;
+       font-family: Georgia, serif;
      }
 
      a {

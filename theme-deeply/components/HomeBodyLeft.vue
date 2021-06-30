@@ -72,6 +72,7 @@ export default {
        float: right;
        font-size: 14px;
        color: #999;
+       font-family: Georgia, serif;
      }
    }
  }

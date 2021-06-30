@@ -6,11 +6,13 @@ module.exports = {
   bgSound: '/sound/bgm.mp3',//网站背景音乐路径，开关在博客底部点击小猴子头像
   location: '浙江杭州', //地点
   repo: '', // 导航栏右侧生成Github链接
-  searchMaxSuggestions: 10, // 搜索结果显示最大数
+
   lastUpdated: '上次更新', // 开启更新时间，并配置前缀文字   string | boolean (取值为git提交时间)
   docsDir: 'docs', // 编辑的文件夹
   introduction: '一名热爱前端的程序员，我喜欢编程、音乐、各种棋类，希望和你交个朋友。',
   search: true,
+  searchMaxSuggestions: 10, // 搜索结果显示最大数
+  searchPlaceholder: '站内搜索',
   algolia: {
     apiKey: '6956f18773dbf5757dc4f3a3c375222d',
     indexName: 'dev_blog'

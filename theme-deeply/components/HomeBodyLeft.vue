@@ -51,7 +51,7 @@ export default {
      min-height: 190px;
      background: var(--homeArticleBg);
      box-shadow: 2px 2px 4px var(--shadowColor);
-     padding: 20px;
+     padding: 20px 20px 25px 20px;
 
      h1 {
        font-size: 22px;

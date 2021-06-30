@@ -1,7 +1,9 @@
 <template>
   <div class="home-header">
     <div class="home-header-left">
-      <router-link to="/about/" style="font-weight: bold">{{ author }}</router-link>
+      <router-link to="/about/" style="font-weight: bold">{{
+        author
+      }}</router-link>
       <span> » 博客 </span>
       <div id="arrow-expend" @click="arrowClick">
         ▾
@@ -12,9 +14,7 @@
         </ul>
       </div>
     </div>
-    <div class="home-header-right">
-      <input placeholder="站内搜索" />
-    </div>
+    <SearchBox class="home-header-right" />
     <!-- <div id="hits" style="display:none">
     </div>
     <div id="searchbox" style="display:none">
@@ -23,9 +23,11 @@
 </template>
 <script>
 import { move } from "../util";
+import SearchBox from "@SearchBox";
 // import { searchBox, hits } from "instantsearch.js/es/widgets";
 export default {
   name: "HomeHeader",
+  components: { SearchBox },
   computed: {
     author() {
       return this.$themeConfig.author;
@@ -104,19 +106,31 @@ export default {
 
   .home-header-right {
     position: relative;
+    top: 10%;
     width: 150px;
     height: 40%;
+    margin: 0;
+    padding: 0;
     float: right;
-    top: 10%;
     border: 1px solid black;
+
+    .suggestions {
+      > * {
+        font-size: 16px;
+      }
+    }
 
     input {
       position: absolute;
       border: none;
+      left: 2%;
       margin: 0;
-      width: 100%;
+      padding: 0;
+      line-height: 0px;
+      width: 98%;
       height: 100%;
       font-size: 1rem;
+      border-radius: 0;
       color: #888;
       font-family: initial;
       background: var(--leftNavColor);

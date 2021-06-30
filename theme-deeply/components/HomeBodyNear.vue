@@ -15,6 +15,7 @@
 
 <script>
 import { timeSort, nearFormatTime, filterConfigMd } from "../util";
+import moment from "moment";
 export default {
   computed: {
     nearPages() {
@@ -22,7 +23,11 @@ export default {
       let articleArr = filterConfigMd(this.$site.pages);
       articleArr.forEach((item) => {
         if (!item.frontmatter.hasOwnProperty("article") && !item.article) {
-          let nearFormatT = nearFormatTime(item.lastUpdated);
+          let nearFormatT = String(
+            moment(item.frontmatter.date)
+              .subtract(moment().utcOffset() / 60, "hours")
+              .format("YYYY-MM-DD")
+          );
           item.nearFormatT = nearFormatT;
           pageArr.push(item);
         }

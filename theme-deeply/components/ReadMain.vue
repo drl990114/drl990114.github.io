@@ -11,7 +11,7 @@
         >
         <span>
           <span class="aria-readonly"
-            >本文最后更新于 {{ articleData.lastUpdated || "" }}</span
+            >本文发布于 {{ publishDate || "" }}</span
           > </span
         ><span
           >分类:
@@ -24,7 +24,8 @@
                 query: { name: item },
               }"
               :key="item"
-            >{{item}}</router-link>
+              >{{ item }}</router-link
+            >
           </span>
           <router-link
             v-if="categories == '无'"
@@ -45,7 +46,7 @@
               themeConfigs.author
             }}</router-link>
           </li>
-          <li>发表日期: {{ articleData.frontmatter.date || "" }}</li>
+          <li>发表日期:{{ publishDate }}</li>
           <li>
             文章分类:
             {{
@@ -108,11 +109,20 @@
 </template>
 <script>
 import { findPrevNext, filterConfigMd } from "../util";
+import moment from "moment";
 export default {
   name: "ReadMain",
   computed: {
     articleData() {
       return this.$page;
+    },
+    publishDate() {
+      const time = String(
+        moment(this.$page.frontmatter.date)
+          .subtract(moment().utcOffset() / 60, "hours")
+          .format("YYYY-MM-DD HH:mm")
+      );
+      return time || "";
     },
     themeConfigs() {
       return this.$themeConfig;

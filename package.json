@@ -15,7 +15,10 @@
     "@vssue/api-github-v3": "^1.4.7",
     "@vssue/vuepress-plugin-vssue": "^1.4.8",
     "algoliasearch": "^4.9.2",
+    "chalk": "^4.0.0",
     "instantsearch.js": "^4.23.0",
+    "json2yaml": "^1.1.0",
+    "moment": "^2.29.1",
     "vuepress": "^1.8.2"
   }
 }

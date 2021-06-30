@@ -1,6 +1,6 @@
 ---
 title: 寻找指定className的子节点
-date: "2021年6月29日 21：20"
+date: 2021-06-29 21:20:34
 permalink: /read/2021062901
 author: RuiLin Dong
 categories:
@@ -11,8 +11,8 @@ tags:
 
 今天在工作中遇到了一个问题，在 AntVX6 中，使用了 dataV 这个第三方库，但它的动态环图不能通过配置来更改字的颜色，只能更改翻牌器的颜色。
 
-于是我需要找到这个字的 HTMLElement 来进行更改,例如以下的HTML标签：
-```jsx
+于是我需要找到这个字的 HTMLElement 来进行更改,例如以下的 JSX 标签：
+```JSX
 <div>
   <ArctiveRing>
     <span>翻牌器</span>
@@ -23,7 +23,7 @@ tags:
 需要找到 className 为 'target' 的DOM元素，但我们不能去直接使用 getElementsByClassName ，因为画布中可能会存在多个该节点，所以我们可以通过先找到父节点的方式，再来寻找我们的目标节点
 
 我们需要先将 cellId 给父节点，这是为了给节点一个唯一的标识，来方便我们从画布中寻找到 'target' 的父节点。
-```jsx
+```JSX
 <div id={cellId}>
   <ArctiveRing>
     <span>翻牌器</span>

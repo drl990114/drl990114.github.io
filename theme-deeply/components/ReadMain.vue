@@ -70,7 +70,7 @@
               >CC BY-NC-ND 3.0</a
             >）
           </li>
-          <li>最后更新时间: {{ articleData.lastUpdated }}</li>
+          <li>最后更新时间: {{ lastUpdateDate }}</li>
           <!-- <li>
             Feed 订阅: <a href="/rss2.xml"><i class="icon">◈</i></a>
           </li> -->
@@ -119,6 +119,14 @@ export default {
     publishDate() {
       const time = String(
         moment(this.$page.frontmatter.date)
+          .subtract(moment().utcOffset() / 60, "hours")
+          .format("YYYY-MM-DD HH:mm")
+      );
+      return time || "";
+    },
+    lastUpdateDate() {
+      const time = String(
+        moment(this.$page.lastUpdated)
           .subtract(moment().utcOffset() / 60, "hours")
           .format("YYYY-MM-DD HH:mm")
       );

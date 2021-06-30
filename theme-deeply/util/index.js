@@ -37,8 +37,8 @@ export const move = (obj, speed, zd, callback) => {
  */
 export const timeSort = (pagesArr) => {
   pagesArr.sort((a, b) => {
-    let timeA = Date.parse(a.lastUpdated)
-    let timeB = Date.parse(b.lastUpdated)
+    let timeA = Date.parse(a.frontmatter.date)
+    let timeB = Date.parse(b.frontmatter.date)
     return timeB - timeA
   })
   return pagesArr

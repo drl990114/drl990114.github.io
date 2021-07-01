@@ -53,6 +53,7 @@
 <script>
 import HomeFoot from "./HomeFoot.vue";
 import { getRelevant, nearFormatTime } from "../util";
+import moment from "moment";
 export default {
   name: "ReadFoot",
   components: {
@@ -70,7 +71,9 @@ export default {
     relevant() {
       const res = getRelevant(this.$page, this.$site.pages);
       res.forEach((item) => {
-        item.nearTime = nearFormatTime(item.lastUpdated);
+        item.nearTime = moment(item.frontmatter.date)
+          .subtract(moment().utcOffset() / 60, "hours")
+          .format("YYYY-MM-DD");
       });
       return res;
     },
@@ -80,7 +83,7 @@ export default {
   },
   methods: {
     backHome() {
-     this.$router.push({
+      this.$router.push({
         path: "/home/",
       });
     },

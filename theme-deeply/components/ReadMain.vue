@@ -249,6 +249,10 @@ export default {
      color: var(--codeColor);
    }
 
+   li {
+     margin-left: 13px;
+   }
+
    table {
      border: 1px solid #ccc;
      margin: 15px 0;

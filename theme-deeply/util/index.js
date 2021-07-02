@@ -110,6 +110,7 @@ export const getTimeLines = (pages) => {
       item.frontmatter.formatDate = moment(item.frontmatter.date)
         .subtract(moment().utcOffset() / 60, "hours")
         .format("YYYY-MM-DD")
+
       if (!resultArr.has(year) && typeof year === 'number') {
         resultArr.set(year, [])
       }
@@ -163,7 +164,7 @@ export const findPrevNext = (currentPage, pages) => {
 //获取相关文章
 export const getRelevant = (currentPage, pages) => {
   if (!currentPage) return
-  const arcticlePage = filterConfigMd(pages)
+  const arcticlePage = timeSort(filterConfigMd(pages))
   const relevantArr = []
   const arcticles = arcticlePage.filter(page => page.path != currentPage.path)
   if (currentPage.frontmatter.tags &&

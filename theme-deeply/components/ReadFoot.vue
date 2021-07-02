@@ -52,7 +52,7 @@
 </template>
 <script>
 import HomeFoot from "./HomeFoot.vue";
-import { getRelevant, nearFormatTime } from "../util";
+import { getRelevant, timeSort } from "../util";
 import moment from "moment";
 export default {
   name: "ReadFoot",

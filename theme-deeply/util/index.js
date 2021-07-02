@@ -101,26 +101,19 @@ export const filterConfigMd = (pages) => {
  */
 export const getTimeLines = (pages) => {
   let resultArr = new Map()
-  let upDated = []
   const articles = timeSort(filterConfigMd(pages))
   //获得更新过的文章，并且将文章覆盖的年份给map
   articles.forEach(item => {
+    let time = new Date(item.frontmatter.date)
+    let year = time.getFullYear()
     if (item.frontmatter.date) {
       item.frontmatter.formatDate = moment(item.frontmatter.date)
         .subtract(moment().utcOffset() / 60, "hours")
         .format("YYYY-MM-DD")
-      upDated.push(item)
-      let time = new Date(item.frontmatter.date)
-      let year = time.getFullYear()
       if (!resultArr.has(year) && typeof year === 'number') {
         resultArr.set(year, [])
       }
     }
-  })
-  //如果key相同则push到对应的数组
-  upDated.forEach(item => {
-    let time = new Date(item.frontmatter.date)
-    let year = time.getFullYear()
     resultArr.get(year).push(item)
   })
   return resultArr

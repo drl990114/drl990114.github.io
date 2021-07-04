@@ -140,7 +140,6 @@ export const findPrevNext = (currentPage, pages) => {
       return true
     } else return false
   })
-  console.log(currentIndex)
   if (currentIndex != -1 && currentIndex != 0 && currentIndex != pages.length) {
     return {
       prev: pages[currentIndex - 1],

@@ -127,11 +127,7 @@ export default {
     },
     lastUpdateDate() {
       const format = "YYYY-MM-DD HH:mm";
-      const time = String(
-        moment(this.$page.lastUpdated)
-          .subtract(moment().utcOffset() / 60, "hours")
-          .format(format)
-      );
+      const time = String(moment(this.$page.lastUpdated).format(format));
       return time || "";
     },
     themeConfigs() {
@@ -232,6 +228,11 @@ export default {
      color: var(--textColor);
    }
 
+   li {
+     margin-left: 13px;
+     margin-bottom: 8px !important;
+   }
+
    pre {
      font-family: monospace, Consolas, 'Courier New';
      background: var(--codeBg) !important;
@@ -247,10 +248,6 @@ export default {
      max-width: 960px;
      overflow: auto;
      color: var(--codeColor);
-   }
-
-   li {
-     margin-left: 13px;
    }
 
    table {
@@ -301,7 +298,7 @@ export default {
 
        > * {
          font-size: 18px;
-         margin-bottom: 10px;
+         margin-bottom: 25px;
        }
      }
    }
@@ -347,7 +344,7 @@ export default {
 
        > * {
          font-size: 16px;
-         margin-bottom: 10px;
+         margin-bottom: 20px;
        }
      }
    }
@@ -393,7 +390,7 @@ export default {
 
        > * {
          font-size: 16px;
-         margin-bottom: 10px;
+         margin-bottom: 15px;
        }
      }
    }

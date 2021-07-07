@@ -182,6 +182,11 @@ export default {
        background-color: #565656;
        color: #ccc;
        text-decoration: none;
+
+       &:hover {
+         background-color: #636363;
+         box-shadow: none;
+       }
      }
    }
  }

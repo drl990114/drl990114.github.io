@@ -17,6 +17,13 @@ module.exports = {
     apiKey: '6956f18773dbf5757dc4f3a3c375222d',
     indexName: 'dev_blog'
   },
+  copyright: {
+    version: '版权声明: 知识共享署名 4.0 国际许可协议',
+    link: {
+      name: 'CC BY-NC-ND 4.0',
+      url: 'http://creativecommons.org/licenses/by/4.0/'
+    }
+  },
   headNav: [
     //所有页面中，导航下拉菜单
     {

@@ -39,6 +39,7 @@
 
     <div class="main-foot">
       <div class="info">
+        <Avatar class="info-avatar" WH="90" />
         <ul>
           <li>
             作者:
@@ -64,10 +65,10 @@
             }}
           </li>
           <li>
-            版权声明: 署名-非商业性使用-禁止演绎 3.0 国际（<a
-              href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh"
+            {{ copyright.version }}（<a
+              :href="copyright.link.url"
               target="_blank"
-              >CC BY-NC-ND 3.0</a
+              >{{ copyright.link.name }}</a
             >）
           </li>
           <li>最后更新时间: {{ lastUpdateDate }}</li>
@@ -109,9 +110,11 @@
 </template>
 <script>
 import { findPrevNext, filterConfigMd } from "../util";
+import Avatar from "./Avatar.vue";
 import moment from "moment";
 export default {
   name: "ReadMain",
+  components: { Avatar },
   computed: {
     articleData() {
       return this.$page;
@@ -132,6 +135,9 @@ export default {
     },
     themeConfigs() {
       return this.$themeConfig;
+    },
+    copyright() {
+      return this.$themeConfig.copyright;
     },
     prevNext() {
       let articles = filterConfigMd(this.$site.pages);
@@ -190,6 +196,10 @@ export default {
        font-size: 14px;
        font-family: 'lucida grande', 'lucida sans unicode', lucida, 'Helvetica Neue', helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
        color: var(--textColor);
+
+       .info-avatar {
+         float: right;
+       }
 
        ul {
          list-style: none;
@@ -272,7 +282,7 @@ export default {
      }
 
      .info {
-       padding: 30px 55px 50px 55px;
+       padding: 40px 55px 40px 55px;
      }
 
      .content__default {
@@ -318,7 +328,7 @@ export default {
      }
 
      .info {
-       padding: 25px 45px 40px 45px;
+       padding: 30px 45px 30px 45px;
      }
 
      .content__default {
@@ -364,7 +374,7 @@ export default {
      }
 
      .info {
-       padding: 15px 30px 25px 30px;
+       padding: 25px 30px 25px 30px;
      }
 
      .content__default {
@@ -410,7 +420,7 @@ export default {
      }
 
      .info {
-       padding: 10px;
+       padding: 20px;
      }
 
      .content__default {

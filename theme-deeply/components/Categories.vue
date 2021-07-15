@@ -22,7 +22,7 @@
         </div>
         <div
           class="categories-detail"
-          v-for="([key, value], index) in archivePages"
+          v-for="([key, pages], index) in archivePages"
           :key="index"
         >
           <strong
@@ -36,11 +36,11 @@
           >
           <div class="currentYear">
             <ul>
-              <li v-for="item in value" :key="item.key">
-                <router-link :to="item.path">{{ item.title }} </router-link>
+              <li v-for="page in pages" :key="page.key">
+                <router-link :to="page.path">{{ page.title }} </router-link>
                 <span
-                  >({{ item.frontmatter.formatDate }} · 标签:{{
-                    item.frontmatter.tags ? item.frontmatter.tags[0] : "无"
+                  >({{ page.frontmatter.formatDate }} · 标签:{{
+                    page.frontmatter.tags ? page.frontmatter.tags[0] : "无"
                   }})</span
                 >
               </li>

@@ -13,10 +13,10 @@
           >
           <div>
             <p>
-              版权声明: 「署名-非商业性使用-禁止演绎 3.0 国际」（<a
-                href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh"
+              {{ copyright.version }}（<a
+                :href="copyright.link.url"
                 target="_blank"
-                >CC BY-NC-ND 3.0</a
+                >{{ copyright.link.name }}</a
               >）
             </p>
             {{ about.aboutWebsite.content }}
@@ -69,6 +69,9 @@ export default {
     },
     avatarUrl() {
       return this.$themeConfig.avatar;
+    },
+    copyright() {
+      return this.$themeConfig.copyright;
     },
   },
 };

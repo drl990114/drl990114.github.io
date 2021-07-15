@@ -49,7 +49,7 @@
         </div>
       </div>
       <LeftNav />
-      <div class="lastChange">最后更新时间： {{ about.lastChange || "" }}</div>
+      <div class="lastChange">最后更新时间： {{ lastUpdateTime || "" }}</div>
     </div>
     <ReadFoot />
   </div>
@@ -58,13 +58,13 @@
 import LeftNav from "./LeftNav.vue";
 import Categoriesheader from "./Categoriesheader.vue";
 import ReadFoot from "./ReadFoot.vue";
+import moment from "moment";
 import { getTimeLines, getUrlParams } from "../util";
 export default {
   name: "About",
   components: { LeftNav, Categoriesheader, ReadFoot },
   computed: {
     about() {
-      console.log(this.$themeConfig.about);
       return this.$themeConfig.about;
     },
     avatarUrl() {
@@ -72,6 +72,13 @@ export default {
     },
     copyright() {
       return this.$themeConfig.copyright;
+    },
+    lastUpdateTime() {
+      const last = moment(this.$page.lastUpdated)
+        .subtract(moment().utcOffset() / 60, "hours")
+        .format("YYYY年MM月DD日 hh:mm:ss");
+
+      return last;
     },
   },
 };

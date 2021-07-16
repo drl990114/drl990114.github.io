@@ -5,11 +5,19 @@
     </div>
     <div class="read-header">
       <div class="read-header-nav">
-        <router-link to="/about/">{{ themeConfigs.author }} 的个人博客</router-link> »
-        <router-link to="/home/">博客</router-link> »
-        <router-link v-for="item in pageCate" :key="item" to="/categories/">{{
-          item
-        }}</router-link>
+        <router-link to="/about/"
+          >{{ themeConfigs.author }} 的个人博客</router-link
+        >
+        » <router-link to="/home/">博客</router-link> »
+        <router-link
+          v-for="item in pageCate"
+          :key="item"
+          :to="{
+            path: '/categories/',
+            query: { name: item },
+          }"
+          >{{ item }}</router-link
+        >
       </div>
     </div>
   </div>

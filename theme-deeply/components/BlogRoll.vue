@@ -5,7 +5,7 @@
       <p>欢迎交流~（<router-link to="/about/">我的联系方式</router-link>）</p>
       <ul>
         <li v-for="item in blogRollArr" :key="item.link">
-          <router-link :to="item.link" target="_blank">{{ item.name }}</router-link>
+          <a :href="item.link" target="_blank">{{ item.name }}</a>
           <font> » </font>
           <span>{{ item.desc }}</span>
         </li>

@@ -72,6 +72,7 @@
             >）
           </li>
           <li>最后更新时间: {{ lastUpdateDate }}</li>
+          <li class="editThisPage"><a :href="editUrl">编辑本文: <span></></span></a></li>
           <!-- <li>
             Feed 订阅: <a href="/rss2.xml"><i class="icon">◈</i></a>
           </li> -->
@@ -118,6 +119,12 @@ export default {
   computed: {
     articleData() {
       return this.$page;
+    },
+    editUrl() {
+      const branch = this.$themeConfig.branch;
+      const relativePath = this.$page.relativePath;
+      const repoUrl = this.$themeConfig.repo;
+      return `${repoUrl}/edit/${branch}/docs/${relativePath}`;
     },
     publishDate() {
       const format = "YYYY-MM-DD HH:mm";
@@ -203,6 +210,16 @@ export default {
 
        ul {
          list-style: none;
+       }
+
+       .editThisPage {
+         text-align: right;
+         font-size: 14px;
+
+         a {
+           font-weight: bold;
+           color: #999;
+         }
        }
      }
 

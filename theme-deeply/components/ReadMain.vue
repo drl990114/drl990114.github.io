@@ -72,7 +72,9 @@
             >）
           </li>
           <li>最后更新时间: {{ lastUpdateDate }}</li>
-          <li class="editThisPage"><a :href="editUrl">编辑本文: <span></></span></a></li>
+          <li class="editThisPage">
+            <a :href="editUrl">{{ edit }} </a>
+          </li>
           <!-- <li>
             Feed 订阅: <a href="/rss2.xml"><i class="icon">◈</i></a>
           </li> -->
@@ -117,6 +119,9 @@ export default {
   name: "ReadMain",
   components: { Avatar },
   computed: {
+    edit() {
+      return "编辑本文：</>";
+    },
     articleData() {
       return this.$page;
     },

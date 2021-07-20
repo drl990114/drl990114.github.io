@@ -1,5 +1,5 @@
  <template>
-  <div id="backTop" @click="topFunction">
+  <div id="backTop" @click="topFunction(5)">
     <span class="icon iconfont icon-dingbu" />
   </div>
 </template>
@@ -30,16 +30,24 @@ export default {
     }
   },
   methods: {
-    topFunction: () => {
-      let timer = setInterval(() => {
-        let wTop =
-          document.documentElement.scrollTop || document.body.scrollTop;
-        document.documentElement.scrollTop = document.body.scrollTop =
-          wTop - 300;
-        if (wTop <= 0) {
-          clearInterval(timer);
+    topFunction: (rate) => {
+      let doc = document.body.scrollTop
+        ? document.body
+        : document.documentElement;
+      let scrollTop = doc.scrollTop;
+
+      let top = function () {
+        scrollTop = scrollTop + (0 - scrollTop) / (rate || 2);
+
+        // 临界判断，终止动画
+        if (scrollTop <= 1) {
+          doc.scrollTop = 0;
+          return;
         }
-      }, 30);
+        doc.scrollTop = scrollTop;
+        requestAnimationFrame(top);
+      };
+      top();
     },
   },
 };

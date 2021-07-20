@@ -1,5 +1,5 @@
  <template>
-  <div id="backTop" @click="topFunction(5)">
+  <div id="backTop" @click="topFunction(1)">
     <span class="icon iconfont icon-dingbu" />
   </div>
 </template>

@@ -128,6 +128,7 @@ html, body {
   min-width: 90vw;
   overflow-x: hidden;
   background: var(--bodyBg);
+  scroll-behavior: smooth;
 }
 
 #theme-container {

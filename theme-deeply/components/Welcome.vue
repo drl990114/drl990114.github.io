@@ -10,6 +10,7 @@
         <font>»</font>
         <router-link :to="'/home/'"> 博客 /</router-link>
         <router-link :to="'/about/'"> 关于我 </router-link>
+        <router-link :to="'/lab/'"> 实验室 </router-link>
       </p>
       <p>
         <font>»</font>

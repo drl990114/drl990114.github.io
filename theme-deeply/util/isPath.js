@@ -25,3 +25,7 @@ export const isAbout = (currentpath) => {
 export const isBlogRoll = (currentpath) => {
     return currentpath.indexOf('/blogroll/') != -1
 }
+
+export const isLab = (currentpath) => {
+    return currentpath.indexOf('/lab/') != -1
+}

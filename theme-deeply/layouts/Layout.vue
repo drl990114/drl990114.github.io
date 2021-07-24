@@ -26,6 +26,9 @@
     <template v-if="blogRoll">
       <BlogRoll key="blogroll" />
     </template>
+    <template v-if="lab">
+      <Lab key="lab" />
+    </template>
   </div>
 </template>
 
@@ -37,6 +40,7 @@ import Categories from "../components/Categories.vue";
 import Archives from "../components/Archives.vue";
 import About from "../components/About.vue";
 import BlogRoll from "../components/BlogRoll.vue";
+import Lab from "../components/Lab.vue";
 import {
   isIndex,
   isHome,
@@ -45,6 +49,7 @@ import {
   isCategories,
   isAbout,
   isBlogRoll,
+  isLab,
 } from "../util/isPath.js";
 import { toLight, toDark, currentMode } from "../util/colorMode";
 export default {
@@ -56,6 +61,7 @@ export default {
     Archives,
     About,
     BlogRoll,
+    Lab,
   },
   created() {
     const PATH = this.$themeConfig.statistics.baidu;
@@ -102,6 +108,9 @@ export default {
     },
     blogRoll() {
       return isBlogRoll(this.PATH);
+    },
+    lab() {
+      return isLab(this.PATH);
     },
   },
 };

@@ -1,4 +1,4 @@
-
+const labPageConfig = require('./labPageConfig')
 // 主题配置
 module.exports = {
   author: "RuiLin Dong", //作者名
@@ -117,5 +117,6 @@ module.exports = {
   ],
   statistics: {
     baidu: "https://hm.baidu.com/hm.js?62d2c28ed48f158fc50c2a111bf89fcc"
-  }
+  },
+  labPageConfig,
 }

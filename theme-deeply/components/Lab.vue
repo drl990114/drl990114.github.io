@@ -21,8 +21,10 @@
               ><span id="num-members">1</span> 位成员</a
             >
           </p>
-          <p class="email">
-            <a href="mailto:barret.china@gmail.com">barret.china@gmail.com</a>
+          <p v-if="labPageConfig.email">
+            <a :href="labPageConfig.email.link">{{
+              labPageConfig.email.name
+            }}</a>
           </p>
         </div>
 
@@ -62,26 +64,53 @@
         </div>
       </div>
 
-      <li class="repo"></li>
-      <li class="repo"></li>
-      <li class="repo"></li>
-      <li class="repo"></li>
-      <li class="repo"></li>
-      <li class="repo"></li>
-      <li class="repo"></li>
-      <li class="repo"></li>
-      <li class="repo"></li>
-      <li class="repo"></li>
-      <li class="repo"></li>
-      <li class="repo"></li>
+      <li class="repo" v-for="repo in repos" :key="repo.id">
+        <a :href="repo.labLink" target="blank">
+          <h2>{{ repo.name }}</h2></a
+        >
+      </li>
     </div>
   </div>
 </template>
 <script>
 import Avatar from "./Avatar.vue";
+import axios from "axios";
 export default {
   name: "Lab",
   components: { Avatar },
+  created() {
+    const reposArr = [];
+    axios.get("https://api.github.com/users/halodong/repos").then((res) => {
+      res.data.forEach((repo) => {
+        if (!repo.fork) {
+          repo.labLink = repo.homepage || repo.html_url
+          reposArr.push(repo);
+        }
+      });
+      this.repos = reposArr;
+    });
+    console.log(this.repos, "a1");
+  },
+  data() {
+    return {
+      repos: [],
+    };
+  },
+  computed: {
+    labPageConfig() {
+      console.log(this.repos);
+      // console.log(this.$themeConfig.labPageConfig);
+      return this.$themeConfig.labPageConfig;
+    },
+    // repos() {
+    //   let repos;
+    //   axios.get("https://api.github.com/users/halodong/repos").then((res) => {
+    //     repos = res.data;
+    //   });
+    //   console.log(res.data);
+    //   return repos;
+    // },
+  },
 };
 </script>
  <style lang="stylus">
@@ -91,7 +120,7 @@ export default {
    background: url('../public/bg.png') repeat;
    font: 13px 'HelveticaNeue', Helvetica, Arial, sans-serif;
    color: #666;
-   padding: 50px;
+   padding: 30px 50px 50px 50px;
 
    h1 {
      margin: 20px 0;
@@ -107,7 +136,7 @@ export default {
      grid-auto-flow: row;
      grid-row-gap: 20px;
      grid-column-gap: 20px;
-     width: 68%;
+     width: 70%;
      height: 100%;
      margin: 0 auto;
 
@@ -169,6 +198,19 @@ export default {
        list-style-type: none;
        background: rgba(255, 255, 255, 0.7);
        box-shadow: 0px 0px 5px 1px #0000001a;
+
+       a {
+         display: inline-block;
+         width: 100%;
+         height: 100%;
+         cursor: alias;
+
+         h2 {
+           font-weight: bold;
+           font-size: 20px;
+           color: #0084b4;
+         }
+       }
      }
    }
  }

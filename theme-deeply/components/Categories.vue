@@ -105,7 +105,6 @@ export default {
    min-height: 100vh;
    font-family: Palatino, Garamond, Times, Georgia, serif;
    margin: 0 auto;
-   transition: all 0.3s;
 
    .categories-main {
      .categories-class {

@@ -4,20 +4,22 @@
       <div class="labMy">
         <Avatar style="margin: 0 auto" :WH="64" />
         <h1>分享生活，分享代码</h1>
-        <li><router-link :to="'/home/'"> 博客 /</router-link></li>
+        <li><router-link :to="'/home/'"> 博客 </router-link></li>
         <li><router-link :to="'/about/'"> 关于我 </router-link></li>
-        <li><a :href="'/lab/'"> github </a></li>
+        <li>
+          <a :href="githubConfig.link"> {{ githubConfig.name }} </a>
+        </li>
       </div>
 
       <div class="labInfo">
         <div class="organization">
           <h1>DEMO平台</h1>
           <p>
-            <a href="https://github.com/demo-platform/repositories"
-              ><span id="num-repos">12</span> 个仓库</a
+            <a :href="githubConfig.link"
+              ><span id="num-repos">{{ repos.length || 0 }}</span> 个仓库</a
             >
             <br />
-            <a href="https://github.com/demo-platform?tab=members"
+            <a :href="githubConfig.link"
               ><span id="num-members">1</span> 位成员</a
             >
           </p>
@@ -29,45 +31,19 @@
         </div>
 
         <div class="recentlyUpdated">
-          <h1>
-            最近更新
-            <a
-              href="https://github.com/demo-platform/repositories"
-              target="_blank"
-              >在 github 上查看所有demo</a
-            >
-          </h1>
-          <ol id="recently-updated-repos">
-            <li>
-              <span class="name"
-                ><a href="https://github.com/demo-platform/resolve-blob"
-                  >resolve-blob</a
-                ></span
-              ><span class="time"
-                ><a href="https://github.com/demo-platform/resolve-blob/commits"
-                  >Nov 2, 2016</a
-                ></span
-              ><span class="bullet">⋅</span
-              ><span class="watchers"
-                ><a
-                  href="https://github.com/demo-platform/resolve-blob/watchers"
-                  >4 stargazers</a
-                ></span
-              ><span class="bullet">⋅</span
-              ><span class="forks"
-                ><a href="https://github.com/demo-platform/resolve-blob/network"
-                  >4 forks</a
-                ></span
-              >
-            </li>
-          </ol>
+          <h1>最近更新</h1>
+          <a :href="githubConfig.link" target="_blank"
+            >在 github 上查看所有demo</a
+          >
         </div>
       </div>
 
       <li class="repo" v-for="repo in repos" :key="repo.id">
         <a :href="repo.labLink" target="blank">
-          <h2>{{ repo.name }}</h2></a
-        >
+          <h2>{{ repo.name }}</h2>
+          <h5>{{ repo.language || "" }}</h5>
+          <p>{{ repo.description || "" }}</p>
+        </a>
       </li>
     </div>
   </div>
@@ -80,16 +56,15 @@ export default {
   components: { Avatar },
   created() {
     const reposArr = [];
-    axios.get("https://api.github.com/users/halodong/repos").then((res) => {
+    axios.get(this.githubConfig.repos).then((res) => {
       res.data.forEach((repo) => {
         if (!repo.fork) {
-          repo.labLink = repo.homepage || repo.html_url
+          repo.labLink = repo.homepage || repo.html_url;
           reposArr.push(repo);
         }
       });
       this.repos = reposArr;
     });
-    console.log(this.repos, "a1");
   },
   data() {
     return {
@@ -98,18 +73,11 @@ export default {
   },
   computed: {
     labPageConfig() {
-      console.log(this.repos);
-      // console.log(this.$themeConfig.labPageConfig);
       return this.$themeConfig.labPageConfig;
     },
-    // repos() {
-    //   let repos;
-    //   axios.get("https://api.github.com/users/halodong/repos").then((res) => {
-    //     repos = res.data;
-    //   });
-    //   console.log(res.data);
-    //   return repos;
-    // },
+    githubConfig() {
+      return this.$themeConfig.labPageConfig.github;
+    },
   },
 };
 </script>
@@ -120,7 +88,11 @@ export default {
    background: url('../public/bg.png') repeat;
    font: 13px 'HelveticaNeue', Helvetica, Arial, sans-serif;
    color: #666;
-   padding: 30px 50px 50px 50px;
+   padding: 20px 50px 50px 50px;
+
+   &>* {
+     transition: all 0.3s;
+   }
 
    h1 {
      margin: 20px 0;
@@ -187,17 +159,41 @@ export default {
          padding: 20px 30px 10px 30px;
          background: rgba(255, 255, 255, 0.7);
          box-shadow: 0px 0px 5px 1px #0000001a;
+
+         h1 {
+           display: inline-block;
+         }
        }
      }
 
      .repo {
+       position: relative;
        display: inline-block;
-       width: 220px;
-       height: 280px;
+       width: 180px;
+       height: 240px;
+       padding: 20px;
        grid-row-start: span 2;
        list-style-type: none;
        background: rgba(255, 255, 255, 0.7);
        box-shadow: 0px 0px 5px 1px #0000001a;
+       transition: all 0.3s;
+
+       &:hover {
+         background: #0000000D;
+       }
+
+       &:after {
+         content: '';
+         position: absolute;
+         right: 0;
+         top: 0;
+         width: 0;
+         height: 0;
+         border-bottom: 50px solid transparent;
+         border-left: 50px solid transparent;
+         border-right: 50px solid #0080b0;
+         pointer-events: none;
+       }
 
        a {
          display: inline-block;
@@ -207,8 +203,23 @@ export default {
 
          h2 {
            font-weight: bold;
-           font-size: 20px;
+           font-size: 18px;
            color: #0084b4;
+           max-width: 160px;
+           overflow: hidden;
+           border: none;
+         }
+
+         h5 {
+           font-size: 11px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+           color: #999;
+           font-weight: lighter;
+           margin-bottom: 5px;
+         }
+
+         p {
+           margin-top: 10px;
+           color: #666;
          }
        }
      }

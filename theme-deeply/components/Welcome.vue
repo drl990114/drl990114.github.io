@@ -3,19 +3,21 @@
     <div class="nav">
       <h2>
         {{ author }}的个人网站
-        <router-link :to="'/home/'"><img :src="$withBase(avatarUrl)" /></router-link>
+        <router-link :to="'/home/'"
+          ><img :src="$withBase(avatarUrl)"
+        /></router-link>
       </h2>
       <h3>{{ author }}'s personal website</h3>
       <p>
         <font>»</font>
-        <router-link :to="'/home/'"> 博客 /</router-link>
-        <router-link :to="'/about/'"> 关于我 </router-link>
-        <router-link :to="'/lab/'"> 实验室 </router-link>
+        <router-link class="hovera" :to="'/home/'"> 博客 </router-link>
+        <router-link class="hovera" :to="'/about/'"> 关于我 </router-link>
+        <router-link class="hovera" :to="'/lab/'"> 实验室 </router-link>
       </p>
       <p>
         <font>»</font>
         <a v-for="item in social" :href="item.link" :key="item.link">
-          <span :class="'icon iconfont ' + item.className"
+          <span :class="'hovera icon iconfont ' + item.className"
         /></a>
       </p>
     </div>
@@ -63,6 +65,16 @@ export default {
   border-radius: 12px;
   color: #eee;
   font-family: Georgia, serif;
+
+  .hovera {
+    word-break: break-all;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .hovera:hover {
+    color: #e58c7c;
+  }
 
   h2 {
     color: #eee;

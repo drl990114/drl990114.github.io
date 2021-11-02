@@ -16,16 +16,16 @@
 <script>
 export default {
   computed: {
-    introduction() {
+    introduction () {
       return this.$themeConfig.introduction;
     },
-    avatarUrl() {
+    avatarUrl () {
       return this.$themeConfig.avatar;
     },
-    author() {
+    author () {
       return this.$themeConfig.author;
     },
-    location() {
+    location () {
       return this.$themeConfig.location;
     },
   },

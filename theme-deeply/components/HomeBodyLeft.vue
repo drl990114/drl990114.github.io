@@ -32,10 +32,10 @@ export default {
     HomeBodyNear,
   },
   computed: {
-    author() {
+    author () {
       return this.$themeConfig.author;
     },
-    recommend() {
+    recommend () {
       console.log(this.$themeConfig.recommend);
       return this.$themeConfig.recommend;
     },

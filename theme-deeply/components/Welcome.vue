@@ -12,7 +12,7 @@
         <font>»</font>
         <router-link class="hovera" :to="'/home/'"> 博客 </router-link>
         <router-link class="hovera" :to="'/about/'"> 关于我 </router-link>
-        <router-link class="hovera" :to="'/lab/'"> 实验室 </router-link>
+        <!-- <router-link class="hovera" :to="'/lab/'"> 实验室 </router-link> -->
       </p>
       <p>
         <font>»</font>
@@ -28,13 +28,13 @@
 export default {
   name: "Welcome",
   computed: {
-    social() {
+    social () {
       return this.$themeConfig.about.social;
     },
-    avatarUrl() {
+    avatarUrl () {
       return this.$themeConfig.avatar;
     },
-    author() {
+    author () {
       return this.$themeConfig.author;
     },
   },

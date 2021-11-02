@@ -15,58 +15,24 @@
       </div>
     </div>
     <SearchBox class="home-header-right" />
-    <!-- <div id="hits" style="display:none">
-    </div>
-    <div id="searchbox" style="display:none">
-    </div> -->
   </div>
 </template>
 <script>
 import { move } from "../util";
 import SearchBox from "@SearchBox";
-// import { searchBox, hits } from "instantsearch.js/es/widgets";
 export default {
   name: "HomeHeader",
   components: { SearchBox },
   computed: {
-    author() {
+    author () {
       return this.$themeConfig.author;
     },
-    headNav() {
+    headNav () {
       return this.$themeConfig.headNav;
     },
   },
-  // mounted: function () {
-  //   this.$nextTick(function () {
-  //     const algoliasearch = require("algoliasearch/lite");
-  //     const instantsearch = require("instantsearch.js").default;
-
-  //     const searchClient = algoliasearch(
-  //       "8OGO3JZZRY",
-  //       "6956f18773dbf5757dc4f3a3c375222d"
-  //     );
-
-  //     const search = instantsearch({
-  //       indexName: "dev_blog",
-  //       searchClient,
-  //     });
-
-  //     search.addWidgets([
-  //       searchBox({
-  //         container: "#searchbox",
-  //       }),
-
-  //       hits({
-  //         container: "#hits",
-  //       }),
-  //     ]);
-
-  //     search.start();
-  //   });
-  // },
-
   methods: {
-    arrowClick() {
+    arrowClick () {
       if (typeof window != "undefined") {
         const arrow = document.getElementById("arrow-expend");
         const arrowUl = document.getElementById("arrow-expend-ul");
@@ -76,7 +42,7 @@ export default {
         let moveHight = this.$themeConfig.headNav.length * 40;
         if (arrowUl.style.height != moveHight + "px") {
           arrowUl.style.display = "inline-block";
-          move(arrowUl, 20, moveHight, () => {});
+          move(arrowUl, 20, moveHight, () => { });
         } else {
           move(arrowUl, 20, 0, callback);
         }

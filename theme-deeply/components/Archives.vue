@@ -38,16 +38,16 @@ import { getTimeLines } from "../util";
 export default {
   name: "Archives",
   components: { LeftNav, Categoriesheader, ReadFoot },
-  data() {
+  data () {
     return {
       year: this.$route.query.year,
     };
   },
   computed: {
-    themeConfigs() {
+    themeConfigs () {
       return this.$themeConfig;
     },
-    archivePages() {
+    archivePages () {
       const archiveActicles = getTimeLines(this.$site.pages);
       let yearParam =
         typeof this.year == "undefined"

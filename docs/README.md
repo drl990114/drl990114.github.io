@@ -8,7 +8,7 @@
 ### 📦 效果
 - https://halodong.github.io
 
-刚开始写博客，内容较少，还在不断完善中，本博客布局参考https://www.barretlee.com/ 小胡子哥的网站布局。
+刚开始写博客，内容较少，还在不断完善中，本博客布局参考 https://www.barretlee.com/ 小胡子哥的网站布局。
 
 ### 🌟 已有的功能
 - 搜索
@@ -22,7 +22,7 @@
 
 ### 🔗 如何使用
 ```bash
-git clone https://github.com/halodong/vuepress-theme-deeply.git
+git clone https://github.com/halodong.github.io
 ```
 接下来执行
 ```bash

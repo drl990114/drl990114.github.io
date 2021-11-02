@@ -5,7 +5,7 @@
       <HomeBodyClass />
       <Introduction />
     </div>
-    <Vssue title="home"/>
+    <Vssue title="home" />
   </div>
 </template>
 

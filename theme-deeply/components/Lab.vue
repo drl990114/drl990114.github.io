@@ -54,7 +54,7 @@ import axios from "axios";
 export default {
   name: "Lab",
   components: { Avatar },
-  created() {
+  created () {
     const reposArr = [];
     axios.get(this.githubConfig.repos).then((res) => {
       res.data.forEach((repo) => {
@@ -66,16 +66,16 @@ export default {
       this.repos = reposArr;
     });
   },
-  data() {
+  data () {
     return {
       repos: [],
     };
   },
   computed: {
-    labPageConfig() {
+    labPageConfig () {
       return this.$themeConfig.labPageConfig;
     },
-    githubConfig() {
+    githubConfig () {
       return this.$themeConfig.labPageConfig.github;
     },
   },

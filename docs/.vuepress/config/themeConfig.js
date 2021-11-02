@@ -5,7 +5,7 @@ module.exports = {
   avatar: '/img/头像.jpg', // 头像
   bgSound: '/sound/bgm.mp3',//网站背景音乐路径，开关在博客底部点击小猴子头像
   location: '浙江杭州', //地点
-  repo: 'https://github.com/halodong/vuepress-theme-deeply', // 生成文章编辑链接
+  repo: 'https://github.com/halodong/halodong.github.io', // 生成文章编辑链接
   branch: 'master',//文章的 github 分支
 
   lastUpdated: '上次更新', // 开启更新时间，并配置前缀文字   string | boolean (取值为git提交时间)
@@ -108,11 +108,6 @@ module.exports = {
       name: '小胡子哥的个人网站',
       link: 'https://www.barretlee.com/',
       desc: '一眼就爱上的网站布局，内容也很干货'
-    },
-    {
-      name: 'VuePress',
-      link: 'https://vuepress.vuejs.org/zh/',
-      desc: '一个很棒的博客框架！'
     }
   ],
   statistics: {

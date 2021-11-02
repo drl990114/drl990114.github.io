@@ -27,9 +27,9 @@
           <div v-if="about.rss.show">
             <p>
               博客源码：<a
-                href="https://github.com/halodong/blog"
+                href="https://github.com/halodong/halodong.github.io"
                 target="_blank"
-                >https://github.com/halodong/blog</a
+                >https://github.com/halodong/halodong.github.io</a
               >，本站由
               <a href="https://pages.github.com/" target="_blank">Github</a>
               强力驱动。
@@ -64,16 +64,16 @@ export default {
   name: "About",
   components: { LeftNav, Categoriesheader, ReadFoot },
   computed: {
-    about() {
+    about () {
       return this.$themeConfig.about;
     },
-    avatarUrl() {
+    avatarUrl () {
       return this.$themeConfig.avatar;
     },
-    copyright() {
+    copyright () {
       return this.$themeConfig.copyright;
     },
-    lastUpdateTime() {
+    lastUpdateTime () {
       const last = moment(this.$page.lastUpdated)
         .subtract(moment().utcOffset() / 60, "hours")
         .format("YYYY年MM月DD日 hh:mm:ss");

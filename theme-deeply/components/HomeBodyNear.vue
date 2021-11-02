@@ -18,7 +18,7 @@ import { timeSort, nearFormatTime, filterConfigMd } from "../util";
 import moment from "moment";
 export default {
   computed: {
-    nearPages() {
+    nearPages () {
       let pageArr = [];
       let articleArr = filterConfigMd(this.$site.pages);
       articleArr.forEach((item) => {

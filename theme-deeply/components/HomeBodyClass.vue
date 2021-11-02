@@ -20,7 +20,7 @@
 import { getCategories } from "../util";
 export default {
   computed: {
-    categories() {
+    categories () {
       let categoriesArr = getCategories(this.$site.pages);
       if (categoriesArr.length && categoriesArr.length >= 10) {
         categoriesArr.length = 10;

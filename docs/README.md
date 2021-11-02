@@ -6,10 +6,10 @@
 - 一个轻量级，简洁的 VuePress 主题。
 
 ### 📦 效果
-
-- https://halodong.github.io/vuepress-theme-deeply/
+- https://halodong.github.io
 
 刚开始写博客，内容较少，还在不断完善中，本博客布局参考https://www.barretlee.com/ 小胡子哥的网站布局。
+
 ### 🌟 已有的功能
 - 搜索
 - 夜间模式
@@ -21,9 +21,6 @@
 - 代码运行器
 
 ### 🔗 如何使用
-
-该主题还在热火朝天的开发中，后续会不断更新和完善该主题，目前还未发布到npm，只能使用本地主题
-
 ```bash
 git clone https://github.com/halodong/vuepress-theme-deeply.git
 ```

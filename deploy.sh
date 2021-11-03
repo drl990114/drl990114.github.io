@@ -3,7 +3,6 @@
 # 确保脚本抛出遇到的错误
 set -e
 
-git push -f git@github.com:halodong/vuepress-theme-deeply.git master
 git push -f git@github.com:halodong/halodong.github.io.git master
 
 # 生成静态文件
@@ -23,7 +22,6 @@ git commit -m 'deploy'
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
 
 # 如果发布到 https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:halodong/vuepress-theme-deeply.git master:gh-pages
 git push -f git@github.com:halodong/halodong.github.io.git master:gh-pages
 
 cd -

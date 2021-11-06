@@ -7,16 +7,20 @@
           <span> 类别：</span>
           <div class="categories-list">
             <a
-              v-bind:class="{ current: categories === 'all' }"
-              @click="categories = 'all'"
+              v-bind:class="{ current: categorieName === 'all' }"
+              @click="categorieName = 'all'"
               >全部</a
             >
-            <a
-              v-bind:class="{ current: categories === item }"
+
+            <router-link
+              v-bind:class="{ current: categorieName === item }"
               v-for="item in allCategories"
               :key="item"
-              @click="categories = item"
-              >{{ item }}</a
+              :to="{
+                path: '/categories/',
+                query: { category: item },
+              }"
+              >{{ item }}</router-link
             >
           </div>
         </div>
@@ -60,18 +64,19 @@ import ReadFoot from "./ReadFoot.vue";
 import { getTimeLines, getCategories } from "../util";
 export default {
   components: { LeftNav, Categoriesheader, ReadFoot },
-  data() {
+  data () {
+    console.log('router', this.$route)
     return {
-      categories:
-        typeof this.$route.query.name == "undefined"
+      categorieName:
+        typeof this.$route.query.category == "undefined"
           ? "all"
-          : this.$route.query.name,
+          : this.$route.query.category,
     };
   },
   computed: {
-    archivePages() {
+    archivePages () {
       const res = getTimeLines(this.$site.pages);
-      let nameParam = this.categories;
+      let nameParam = this.categorieName;
       if (nameParam) {
         if (nameParam == "all") {
           const cateActicles = getTimeLines(this.$site.pages);
@@ -88,11 +93,23 @@ export default {
       }
       return res;
     },
-    allCategories() {
+    allCategories () {
       const res = getCategories(this.$site.pages);
       return res;
     },
   },
+  watch: {
+    '$route.query.category' (category) {
+      this.categorieName = category
+      // this.category = category ? decodeURIComponent(category) : ''
+      // if (this.category) {
+      //   this.total = this.$groupPosts.categories[this.category].length
+      // } else {
+      //   this.total = this.$sortPosts.length
+      // }
+      // this.currentPage = 1
+    }
+  }
 };
 </script>
  <style lang="stylus">

@@ -1,4 +1,5 @@
-// import vue from 'vue/dist/vue.esm.browser'
+const fs = require('fs'); // 文件模块
+const path = require('path'); // 路径模块
 
 export default ({
   Vue, // VuePress 正在使用的 Vue 构造函数

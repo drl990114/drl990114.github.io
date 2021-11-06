@@ -6,7 +6,7 @@
         <router-link
           :to="{
             path: '/categories/',
-            query: { name: item },
+            query: { category: item },
           }"
           >{{ item }}</router-link
         >

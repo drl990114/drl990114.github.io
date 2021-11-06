@@ -94,7 +94,7 @@ module.exports = {
       },
       {
         label: 'E-mail',
-        name: 'drl1999@foxmail.com',
+        name: 'drl990114@foxmail.com',
         link: 'https://www.foxmail.com',
         className: 'icon-youxiang1'
       },
@@ -107,7 +107,7 @@ module.exports = {
     {
       name: '小胡子哥的个人网站',
       link: 'https://www.barretlee.com/',
-      desc: '一眼就爱上的网站布局，内容也很干货'
+      desc: '本主题参考胡子哥网站，0.9 : 1 比例打造'
     }
   ],
   statistics: {

@@ -21,7 +21,7 @@
               class="category-link"
               :to="{
                 path: '/categories/',
-                query: { name: item },
+                query: { category: item },
               }"
               :key="item"
               >{{ item }}</router-link
@@ -33,6 +33,20 @@
             to="/categories/"
           ></router-link>
         </span>
+
+        <span
+          >标签:
+          <router-link
+            v-for="tag in tags"
+            :key="tag"
+            class="category-link"
+            :to="{
+              path: '/tags/',
+              query: { tag },
+            }"
+            >{{ tag }}</router-link
+          ></span
+        >
       </div>
     </div>
     <Content />
@@ -58,11 +72,9 @@
           </li>
           <li>
             文章标签:
-            {{
-              articleData.frontmatter.tags
-                ? articleData.frontmatter.tags[0]
-                : "无"
-            }}
+            <span v-for="tag in articleData.frontmatter.tags" :key="tag">{{
+              tag
+            }}</span>
           </li>
           <li>
             {{ copyright.version }}（<a
@@ -119,19 +131,19 @@ export default {
   name: "ReadMain",
   components: { Avatar },
   computed: {
-    edit() {
+    edit () {
       return "编辑本文：</>";
     },
-    articleData() {
+    articleData () {
       return this.$page;
     },
-    editUrl() {
+    editUrl () {
       const branch = this.$themeConfig.branch;
       const relativePath = this.$page.relativePath;
       const repoUrl = this.$themeConfig.repo;
       return `${repoUrl}/edit/${branch}/docs/${relativePath}`;
     },
-    publishDate() {
+    publishDate () {
       const format = "YYYY-MM-DD HH:mm";
       const time = String(
         moment(this.$page.frontmatter.date)
@@ -140,25 +152,28 @@ export default {
       );
       return time || "";
     },
-    lastUpdateDate() {
+    lastUpdateDate () {
       const format = "YYYY-MM-DD HH:mm";
       const time = String(moment(this.$page.lastUpdated).format(format));
       return time || "";
     },
-    themeConfigs() {
+    themeConfigs () {
       return this.$themeConfig;
     },
-    copyright() {
+    copyright () {
       return this.$themeConfig.copyright;
     },
-    prevNext() {
+    prevNext () {
       let articles = filterConfigMd(this.$site.pages);
       const res = findPrevNext(this.$page, articles);
       return res;
     },
-    categories() {
+    categories () {
       return this.$page.frontmatter.categories || "无";
     },
+    tags () {
+      return this.$page.frontmatter.tags
+    }
   },
 };
 </script>
@@ -172,7 +187,7 @@ export default {
    }
 
    .read-header-mes {
-     font-size: 14px;
+     font-size: 13px;
      color: var(--textColor);
      font-weight: 700;
      margin-bottom: 25px;
@@ -183,6 +198,7 @@ export default {
 
      span {
        padding-right: 10px;
+       white-space: nowrap;
      }
 
      .post-info {
@@ -214,6 +230,7 @@ export default {
        }
 
        ul {
+         padding: 0;
          list-style: none;
        }
 
@@ -430,7 +447,7 @@ export default {
 
  @media screen and (max-width: 660px) {
    .read-main {
-     width: 94%;
+     width: 96%;
 
      .read-header-title {
        font-size: 35px;

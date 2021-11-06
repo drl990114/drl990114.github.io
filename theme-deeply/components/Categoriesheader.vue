@@ -18,28 +18,31 @@
 </template>
 <script>
 import { move } from "../util";
-import { isAbout, isBlogRoll, isCategories, isArchives } from "../util/isPath";
+import { isAbout, isBlogRoll, isCategories, isArchives, isTags } from "../util/isPath";
 export default {
   name: "Categoriesheader",
   computed: {
-    PATH() {
+    PATH () {
       return this.$router.history.current.path;
     },
-    author() {
+    author () {
       return this.$themeConfig.author;
     },
-    headNav() {
+    headNav () {
       return this.$themeConfig.headNav;
     },
-    currentNav() {
+    currentNav () {
       if (isCategories(this.PATH)) {
         return "文章分类";
       }
       if (isArchives(this.PATH)) {
         return "归档";
       }
+      if (isTags(this.PATH)) {
+        return "标签"
+      }
     },
-    blogNav() {
+    blogNav () {
       if (isAbout(this.PATH)) {
         return "关于我";
       } else if (isBlogRoll(this.PATH)) {
@@ -48,7 +51,7 @@ export default {
     },
   },
   methods: {
-    reloaded() {
+    reloaded () {
       window.location.reload();
     },
     arrowClick: function () {
@@ -61,7 +64,7 @@ export default {
         let moveHight = this.$themeConfig.headNav.length * 40;
         if (arrowUl.style.height != moveHight + "px") {
           arrowUl.style.display = "inline-block";
-          move(arrowUl, 20, moveHight, () => {});
+          move(arrowUl, 20, moveHight, () => { });
         } else {
           move(arrowUl, 20, 0, callback);
         }
@@ -88,6 +91,7 @@ export default {
   .categories-header-left {
     float: left;
   }
+
   .categories-header-right {
     position: relative;
     width: 150px;

@@ -45,15 +45,29 @@
               <li v-for="page in pages" :key="page.key">
                 <router-link :to="page.path">{{ page.title }} </router-link>
                 <span
-                  >({{ page.frontmatter.formatDate }} · 标签:<router-link
-                    class="currentYear-tag"
-                    v-for="tag in page.frontmatter.tags"
-                    :key="tag"
-                    :to="{
-                      path: '/tags/',
-                      query: { tag },
-                    }"
-                    >{{ tag }} </router-link
+                  >({{ page.frontmatter.formatDate
+                  }}<span class="currentYear-msg">
+                    · 分类:
+                    <router-link
+                      class="currentYear-tag"
+                      v-for="category in page.frontmatter.categories"
+                      :to="{
+                        path: '/categories/',
+                        query: { category },
+                      }"
+                      :key="category"
+                      >{{ category }}</router-link
+                    >
+                    · 标签:<router-link
+                      class="currentYear-tag"
+                      v-for="tag in page.frontmatter.tags"
+                      :key="tag"
+                      :to="{
+                        path: '/tags/',
+                        query: { tag },
+                      }"
+                      >{{ tag }}
+                    </router-link></span
                   >)
                 </span>
               </li>
@@ -140,6 +154,7 @@ export default {
          text-align: right;
          font-weight: 700;
          margin-right: 8px;
+         white-space: nowrap;
        }
 
        .categories-list {
@@ -229,7 +244,7 @@ export default {
            list-style-type: square;
            line-height: 28px;
            font-size: 16px;
-           height: 28px;
+           min-height: 28px;
          }
 
          span {
@@ -267,6 +282,31 @@ export default {
  @media screen and (max-width: 659px) {
    .categories {
      width: 94%;
+   }
+
+   .categories {
+     width: 94%;
+
+     .categories-main {
+       .categories-class {
+         font-size: 14px;
+
+         .categories-list {
+           a {
+             font-size: 14px;
+           }
+         }
+       }
+     }
+   }
+
+   .currentYear {
+     a {
+       font-size: 14px !important;
+     }
+   }
+   .currentYear-msg {
+     display: none !important;
    }
  }
 </style>

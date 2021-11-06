@@ -44,15 +44,29 @@
               <li v-for="page in pages" :key="page.key">
                 <router-link :to="page.path">{{ page.title }} </router-link>
                 <span
-                  >({{ page.frontmatter.formatDate }} · 标签:<router-link
-                    class="currentYear-tag"
-                    v-for="tag in page.frontmatter.tags"
-                    :key="tag"
-                    :to="{
-                      path: '/tags/',
-                      query: { tag },
-                    }"
-                    >{{ tag }} </router-link
+                  >({{ page.frontmatter.formatDate
+                  }}<span class="currentYear-msg">
+                    · 分类:
+                    <router-link
+                      class="currentYear-tag"
+                      v-for="category in page.frontmatter.categories"
+                      :to="{
+                        path: '/categories/',
+                        query: { category },
+                      }"
+                      :key="category"
+                      >{{ category }}</router-link
+                    >
+                    · 标签:<router-link
+                      class="currentYear-tag"
+                      v-for="tag in page.frontmatter.tags"
+                      :key="tag"
+                      :to="{
+                        path: '/tags/',
+                        query: { tag },
+                      }"
+                      >{{ tag }}
+                    </router-link></span
                   >)
                 </span>
               </li>
@@ -185,10 +199,12 @@ export default {
        }
 
        .currentYear {
+         font-size: 10px;
+
          .currentYear-tag {
            display: inline-block;
            margin: 0 3px;
-           font-size: 12px;
+           font-size: 10px;
            color: #555;
 
            &:hover {
@@ -230,7 +246,7 @@ export default {
            list-style-type: square;
            line-height: 28px;
            font-size: 16px;
-           height: 28px;
+           min-height: 28px;
          }
 
          span {
@@ -268,6 +284,28 @@ export default {
  @media screen and (max-width: 659px) {
    .tags {
      width: 94%;
+
+     .tags-main {
+       .tag-class {
+         font-size: 14px;
+
+         .tag-list {
+           a {
+             font-size: 14px;
+           }
+         }
+       }
+     }
+   }
+
+   .currentYear {
+     a {
+       font-size: 14px !important;
+     }
+   }
+
+   .currentYear-msg {
+     display: none !important;
    }
  }
 </style>

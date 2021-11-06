@@ -48,13 +48,6 @@ function setFrontmatter(sourceDir, themeConfig) {
       // categories:
       //   - ${categories[0]}${categories[1] ? '\r\n  - ' + categories[1] : ''}`;
 
-      const tagsStr =
-        isTag === false
-          ? ""
-          : `
-tags:
-  - `;
-
       const fmData = `---
 title: ${file.name}
 date: ${dateStr}

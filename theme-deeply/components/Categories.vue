@@ -6,10 +6,12 @@
         <div class="categories-class">
           <span> 类别：</span>
           <div class="categories-list">
-            <a
+            <router-link
               v-bind:class="{ current: categorieName === 'all' }"
-              @click="categorieName = 'all'"
-              >全部</a
+              :to="{
+                path: '/categories',
+              }"
+              >全部</router-link
             >
 
             <router-link
@@ -43,10 +45,17 @@
               <li v-for="page in pages" :key="page.key">
                 <router-link :to="page.path">{{ page.title }} </router-link>
                 <span
-                  >({{ page.frontmatter.formatDate }} · 标签:{{
-                    page.frontmatter.tags ? page.frontmatter.tags[0] : "无"
-                  }})</span
-                >
+                  >({{ page.frontmatter.formatDate }} · 标签:<router-link
+                    class="currentYear-tag"
+                    v-for="tag in page.frontmatter.tags"
+                    :key="tag"
+                    :to="{
+                      path: '/tags/',
+                      query: { tag },
+                    }"
+                    >{{ tag }} </router-link
+                  >)
+                </span>
               </li>
             </ul>
           </div>
@@ -65,7 +74,6 @@ import { getTimeLines, getCategories } from "../util";
 export default {
   components: { LeftNav, Categoriesheader, ReadFoot },
   data () {
-    console.log('router', this.$route)
     return {
       categorieName:
         typeof this.$route.query.category == "undefined"
@@ -100,14 +108,7 @@ export default {
   },
   watch: {
     '$route.query.category' (category) {
-      this.categorieName = category
-      // this.category = category ? decodeURIComponent(category) : ''
-      // if (this.category) {
-      //   this.total = this.$groupPosts.categories[this.category].length
-      // } else {
-      //   this.total = this.$sortPosts.length
-      // }
-      // this.currentPage = 1
+      this.categorieName = category ?? 'all'
     }
   }
 };
@@ -182,24 +183,38 @@ export default {
          color: #E58C7C;
        }
 
-       .currentYear a {
-         display: inline-block;
-         color: #4a75b5;
-         font-weight: normal;
-         word-break: break-all;
-         text-decoration: none;
-         list-style-type: square;
-         line-height: 28px;
-         font-size: 16px;
-         padding: 0;
-         border: none;
-         margin: 0;
+       .currentYear {
+         .currentYear-tag {
+           display: inline-block;
+           margin: 0 3px;
+           font-size: 12px;
+           color: #555;
 
-         &:hover {
-           color: #E58C7C;
+           &:hover {
+             color: #e58c7c;
+             margin: 0 3px;
+           }
+         }
+
+         a {
+           display: inline-block;
+           color: #4a75b5;
+           font-weight: normal;
+           word-break: break-all;
+           text-decoration: none;
+           list-style-type: square;
+           line-height: 28px;
+           font-size: 16px;
            padding: 0;
+           border: none;
            margin: 0;
-           border-bottom: 1px solid #E58C7C;
+
+           &:hover {
+             color: #E58C7C;
+             padding: 0;
+             margin: 0;
+             border-bottom: 1px solid #E58C7C;
+           }
          }
        }
 

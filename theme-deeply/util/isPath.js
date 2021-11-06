@@ -29,3 +29,7 @@ export const isBlogRoll = (currentpath) => {
 export const isLab = (currentpath) => {
     return currentpath.indexOf('/lab/') != -1
 }
+
+export const isTags = (currentpath) => {
+    return currentpath.indexOf('/tags/') != -1
+}

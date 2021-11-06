@@ -29,6 +29,9 @@
     <template v-if="lab">
       <Lab key="lab" />
     </template>
+    <template v-if="tags">
+      <Tags key="tags" />
+    </template>
   </div>
 </template>
 
@@ -41,6 +44,7 @@ import Archives from "../components/Archives.vue";
 import About from "../components/About.vue";
 import BlogRoll from "../components/BlogRoll.vue";
 import Lab from "../components/Lab.vue";
+import Tags from "../components/Tags.vue";
 import {
   isIndex,
   isHome,
@@ -50,6 +54,7 @@ import {
   isAbout,
   isBlogRoll,
   isLab,
+  isTags
 } from "../util/isPath.js";
 import { toLight, toDark, currentMode } from "../util/colorMode";
 export default {
@@ -62,6 +67,7 @@ export default {
     About,
     BlogRoll,
     Lab,
+    Tags
   },
   created() {
     const PATH = this.$themeConfig.statistics.baidu;
@@ -111,6 +117,9 @@ export default {
     },
     lab() {
       return isLab(this.PATH);
+    },
+    tags() {
+      return isTags(this.PATH);
     },
   },
 };

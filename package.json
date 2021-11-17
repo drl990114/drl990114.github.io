@@ -19,6 +19,7 @@
     "chalk": "^4.0.0",
     "instantsearch.js": "^4.23.0",
     "json2yaml": "^1.1.0",
-    "moment": "^2.29.1"
+    "moment": "^2.29.1",
+    "web-barrier-free": "^1.0.0"
   }
 }

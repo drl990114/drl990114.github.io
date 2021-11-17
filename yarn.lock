@@ -8024,6 +8024,11 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   dependencies:
     minimalistic-assert "^1.0.0"
 
+web-barrier-free@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/web-barrier-free/-/web-barrier-free-1.0.0.tgz#afd7ee0bd5e35e60497b630b8a23982057e0408b"
+  integrity sha512-6SWlUMtIltiSLdC6WCoJJsg44RjlvofPfxGVscRtGT6s+dGmrFCNvAizkg13B+Dx28lv1BgsuMrVYVZTCZagDg==
+
 webpack-chain@^4.9.0:
   version "4.12.1"
   resolved "https://registry.npm.taobao.org/webpack-chain/download/webpack-chain-4.12.1.tgz?cache=0&sync_timestamp=1595813159674&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fwebpack-chain%2Fdownload%2Fwebpack-chain-4.12.1.tgz#6c8439bbb2ab550952d60e1ea9319141906c02a6"

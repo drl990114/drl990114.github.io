@@ -7,12 +7,11 @@
           ><img :src="$withBase(avatarUrl)"
         /></router-link>
       </h2>
-      <h3>{{ author }}'s personal website</h3>
+      <a class="wbf" @click="open">无障碍浏览</a>
       <p>
         <font>»</font>
         <router-link class="hovera" :to="'/home/'"> 博客 </router-link>
         <router-link class="hovera" :to="'/about/'"> 关于我 </router-link>
-        <!-- <router-link class="hovera" :to="'/lab/'"> 实验室 </router-link> -->
       </p>
       <p>
         <font>»</font>
@@ -25,6 +24,7 @@
 </template>
 
 <script>
+import Wbf from 'web-barrier-free'
 export default {
   name: "Welcome",
   computed: {
@@ -38,6 +38,12 @@ export default {
       return this.$themeConfig.author;
     },
   },
+  methods: {
+    open () {
+      const wbf = new Wbf()
+      wbf.open()
+    }
+  }
 };
 </script>
 
@@ -51,7 +57,13 @@ export default {
   color: var(--textColor);
   background: linear-gradient(to right, #003973 0, #e5e5be 100%);
 }
-
+.wbf {
+  color: #e58c7c;
+  font-family: Georgia, serif;
+  &:hover {
+    color: white
+  }
+}
 .nav {
   margin: 20px auto;
   padding: 40px 30px;

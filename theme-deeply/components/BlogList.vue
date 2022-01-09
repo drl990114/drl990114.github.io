@@ -206,7 +206,7 @@ export default {
           word-break: break-all;
           text-decoration: none;
           list-style-type: square;
-          line-height: 28px;
+          line-height: 25px;
           font-size: 16px;
           padding: 0;
           border: none;

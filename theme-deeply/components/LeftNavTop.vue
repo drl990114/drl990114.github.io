@@ -52,7 +52,7 @@ export default {
   methods: {
     backHome() {
       this.$router.push({
-        path: "/",
+        path: "/home",
       });
     },
     dark() {

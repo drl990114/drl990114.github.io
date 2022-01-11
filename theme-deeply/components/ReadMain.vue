@@ -236,7 +236,7 @@ export default {
       text-align: right;
       position: absolute;
       left: -190px;
-      top: -10px;
+      top: 18px;
       border-left: 4px solid #7b9ac9;
       padding-left: 20px;
       line-height: 18px;

@@ -13,7 +13,6 @@
 <script>
 import BackTop from "./BackTop.vue";
 export default {
-  name: "ReadHead",
   components: {
     BackTop,
   },

@@ -251,13 +251,15 @@ export default {
 
 @media screen and (min-width: 1281px) {
   .bloglist {
-    width: 50%;
+    width: 35%;
+    min-width: 700px;
   }
 }
 
 @media screen and (min-width: 998px) and (max-width: 1280px) {
   .bloglist {
-    width: 60%;
+    width: 50%;
+    min-width: 700px;
   }
 }
 

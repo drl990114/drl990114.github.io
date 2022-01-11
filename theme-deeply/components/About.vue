@@ -1,4 +1,4 @@
- <template>
+<template>
   <div>
     <div class="aboutPage">
       <Categoriesheader />
@@ -64,16 +64,16 @@ export default {
   name: "About",
   components: { LeftNav, Categoriesheader, ReadFoot },
   computed: {
-    about () {
+    about() {
       return this.$themeConfig.about;
     },
-    avatarUrl () {
+    avatarUrl() {
       return this.$themeConfig.avatar;
     },
-    copyright () {
+    copyright() {
       return this.$themeConfig.copyright;
     },
-    lastUpdateTime () {
+    lastUpdateTime() {
       const last = moment(this.$page.lastUpdated)
         .subtract(moment().utcOffset() / 60, "hours")
         .format("YYYY年MM月DD日 hh:mm:ss");
@@ -83,79 +83,81 @@ export default {
   },
 };
 </script>
- <style lang="stylus">
- .aboutPage {
-   font-size: 16px;
-   margin: 0 auto;
-   transition: all 0.3s;
-   color: var(--textColor);
+<style lang="stylus">
+.aboutPage {
+  font-size: 16px;
+  margin: 0 auto;
+  transition: all 0.3s;
+  color: var(--textColor);
 
-   .aboutme {
-     font-size: 16px;
+  .aboutme {
+    font-size: 16px;
 
-     strong.title {
-       display: block;
-       font-size: 20px;
-       border-bottom: 1px dashed #ccc;
-       line-height: 30px;
-       margin-bottom: 15px;
-       margin-top: 30px;
-       color: var(--codeColor);
-       padding-bottom: 8px;
+    strong.title {
+      display: block;
+      font-size: 20px;
+      border-bottom: 1px dashed #ccc;
+      line-height: 30px;
+      margin-bottom: 15px;
+      margin-top: 30px;
+      color: var(--codeColor);
+      padding-bottom: 8px;
 
-       span {
-         color: #b6b6b6;
-       }
-     }
+      span {
+        color: #b6b6b6;
+      }
+    }
 
-     p {
-       line-height: 28px;
-       margin-bottom: 15px;
-     }
-   }
+    p {
+      line-height: 28px;
+      margin-bottom: 15px;
+    }
+  }
 
-   .about-post ul {
-     list-style-type: square;
+  .about-post ul {
+    list-style-type: square;
 
-     li {
-       margin-bottom: 5px;
-       list-style-type: square;
-       line-height: 28px;
-       font-size: 16px;
-     }
-   }
+    li {
+      margin-bottom: 5px;
+      list-style-type: square;
+      line-height: 28px;
+      font-size: 16px;
+    }
+  }
 
-   .lastChange {
-     padding: 20px;
-     margin: 30px 0;
-     text-align: center;
-     background: var(--categories);
-     border-top: 1px dashed var(--borderColor);
-     border-bottom: 1px dashed var(--borderColor);
-   }
- }
+  .lastChange {
+    padding: 20px;
+    margin: 30px 0;
+    text-align: center;
+    background: var(--categories);
+    border-top: 1px dashed var(--borderColor);
+    border-bottom: 1px dashed var(--borderColor);
+  }
+}
 
- @media screen and (min-width: 1281px) {
-   .aboutPage {
-     width: 50%;
-   }
- }
+@media screen and (min-width: 1281px) {
+  .aboutPage {
+    width: 35%;
+    min-width: 700px;
+  }
+}
 
- @media screen and (min-width: 998px) and (max-width: 1280px) {
-   .aboutPage {
-     width: 60%;
-   }
- }
+@media screen and (min-width: 998px) and (max-width: 1280px) {
+  .aboutPage {
+    width: 50%;
+    min-width: 700px;
+  }
+}
 
- @media screen and (min-width: 660px) and (max-width: 997px) {
-   .aboutPage {
-     width: 75%;
-   }
- }
+@media screen and (min-width: 660px) and (max-width: 997px) {
+  .aboutPage {
+    width: 75%;
+  }
+}
 
- @media screen and (max-width: 659px) {
-   .aboutPage {
-     width: 94%;
-   }
- }
+@media screen and (max-width: 659px) {
+  .aboutPage {
+    width: 94%;
+  }
+}
 </style>

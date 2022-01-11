@@ -1,6 +1,5 @@
 <template>
   <div class="read">
-    <ReadHead />
     <ReadMain />
     <ReadFoot />
     <LeftNav />
@@ -10,7 +9,6 @@
 
 <script>
 import LeftNav from "./LeftNav.vue";
-import ReadHead from "./ReadHead.vue";
 import ReadMain from "./ReadMain.vue";
 import Directory from "./Directory.vue";
 import ReadFoot from "./ReadFoot.vue";
@@ -18,7 +16,6 @@ export default {
   name: "Read",
   components: {
     LeftNav,
-    ReadHead,
     ReadMain,
     Directory,
     ReadFoot,

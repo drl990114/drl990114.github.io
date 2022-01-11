@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  name: "ReadHead",
+  name: "BackTop",
   computed: {
     themeConfigs() {
       return this.$themeConfig;

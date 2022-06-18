@@ -1,5 +1,5 @@
 ---
-title: 练习：类型标记 Pick 与 Omit
+title: 类型标记 Pick 与 Omit
 date: 2022-01-23 21:19:14
 author: RuiLin Dong
 permalink: /read/20220123091936

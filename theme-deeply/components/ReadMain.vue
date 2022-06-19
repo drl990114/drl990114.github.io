@@ -2,7 +2,7 @@
   <div class="read-main">
     <div class="read-header-title">
       {{ articleData.title || "" }}
-      <img :src="$withBase(themeConfigs.avatar)" />
+      <img class="read-avatar" :src="$withBase(themeConfigs.avatar)" />
       <div class="read-header-nav">
         <router-link to="/about/"
           >{{ themeConfigs.author }} 的个人博客</router-link
@@ -101,7 +101,7 @@
               >{{ copyright.link.name }}</a
             >）
           </li>
-          <li>最后更新时间: {{ lastUpdateDate }}</li>
+          <!-- <li>最后更新时间: {{ lastUpdateDate }}</li> -->
           <li class="editThisPage">
             <a :href="editUrl">{{ edit }} </a>
           </li>
@@ -255,7 +255,7 @@ export default {
       }
     }
 
-    img {
+    .read-avatar {
       position: absolute;
       left: -150px;
       width: 120px;
@@ -355,6 +355,10 @@ export default {
     margin: 15px 0;
     border-radius: 5px;
     border-spacing: 0;
+  }
+
+  img {
+    width: 100%
   }
 }
 
@@ -467,7 +471,7 @@ export default {
         display: none;
       }
 
-      img {
+      .read-avatar {
         display: none;
       }
     }
@@ -521,7 +525,7 @@ export default {
         display: none;
       }
 
-      img {
+      .read-avatar {
         display: none;
       }
     }

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>实现react组件的递归调用 | RuiLin Dong&#39;s blog</title>
+  <meta name="generator" content="VuePress 1.8.2">
+  <link rel="icon" href="/img/favicon.ico">
+  <meta name="description" content="web前端技术博客,专注web前端学习与总结。JavaScript,ES6,TypeScript,React,Vue,css3,html5,Node等技术文章。">
+  <link rel="preload" href="/assets/css/0.styles.8cb9a5ec.css" as="style"><link rel="preload" href="/assets/js/app.32955b20.js" as="script"><link rel="preload" href="/assets/js/3.6ea38f64.js" as="script"><link rel="preload" href="/assets/js/27.92b85d8e.js" as="script"><link rel="prefetch" href="/assets/js/10.8c332cd5.js"><link rel="prefetch" href="/assets/js/11.cd441e34.js"><link rel="prefetch" href="/assets/js/12.2763773c.js"><link rel="prefetch" href="/assets/js/13.70f81f27.js"><link rel="prefetch" href="/assets/js/14.75dd1ac4.js"><link rel="prefetch" href="/assets/js/15.9f5639ac.js"><link rel="prefetch" href="/assets/js/16.7f71d8fe.js"><link rel="prefetch" href="/assets/js/17.f56ea22c.js"><link rel="prefetch" href="/assets/js/18.d9145faf.js"><link rel="prefetch" href="/assets/js/19.fea07779.js"><link rel="prefetch" href="/assets/js/2.d3f86703.js"><link rel="prefetch" href="/assets/js/20.6e95f2e0.js"><link rel="prefetch" href="/assets/js/21.402f2e3c.js"><link rel="prefetch" href="/assets/js/22.4bd8da4e.js"><link rel="prefetch" href="/assets/js/23.8b9a7c2a.js"><link rel="prefetch" href="/assets/js/24.10810a28.js"><link rel="prefetch" href="/assets/js/25.f8aaad82.js"><link rel="prefetch" href="/assets/js/26.e3b0d489.js"><link rel="prefetch" href="/assets/js/28.ce133eb9.js"><link rel="prefetch" href="/assets/js/29.9ce5cdc5.js"><link rel="prefetch" href="/assets/js/30.e43c2cff.js"><link rel="prefetch" href="/assets/js/31.d5bb8ab9.js"><link rel="prefetch" href="/assets/js/32.eac9b030.js"><link rel="prefetch" href="/assets/js/33.2ceecce3.js"><link rel="prefetch" href="/assets/js/4.07bcf40d.js"><link rel="prefetch" href="/assets/js/5.a4179632.js"><link rel="prefetch" href="/assets/js/6.09ca258b.js"><link rel="prefetch" href="/assets/js/7.fa43c8f4.js"><link rel="prefetch" href="/assets/js/8.07bc9d20.js"><link rel="prefetch" href="/assets/js/9.79f2fb40.js">
+  <link rel="stylesheet" href="/assets/css/0.styles.8cb9a5ec.css">
+</head>
+
+<body class="theme-mode-light">
+  <div id="app" data-server-rendered="true"><div id="theme-container"><audio id="musicplayer"><source src="/sound/bgm.mp3"></audio> <!----> <div class="read"><div class="read-main"><div class="read-header-title">
+    实现react组件的递归调用
+    <img src="/img/头像.jpg" class="read-avatar"> <div class="read-header-nav"><a href="/about/">RuiLin Dong 的个人博客</a>
+      » <a href="/home/">博客</a> »
+      </div></div> <div class="read-header-mes"><div class="post-info"><span>作者:
+        <a href="/about/">RuiLin Dong</a></span> <span><span class="aria-readonly">本文发布于 2021-05-14 21:20</span></span><span>分类:
+        <span><a href="/categories/?category=React" class="category-link">React</a></span> <!----></span> <span>标签:
+        <a href="/tags/?tag=React" class="category-link">React</a></span></div></div> <div class="content__default"><p>使用React来简单实现下组件的递归。在React可以通过props和children来向子组件传递信息，不过在这里大致的思路都是一样的。我们先定义一下要渲染的json结构：
+</p> <div class="language-js extra-class"><pre class="language-js"><code>list <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+        name<span class="token operator">:</span> <span class="token string">'1'</span><span class="token punctuation">,</span>
+        children<span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            name<span class="token operator">:</span> <span class="token string">'1-1'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+            name<span class="token operator">:</span> <span class="token string">'1-2'</span><span class="token punctuation">,</span>
+            children<span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                name<span class="token operator">:</span> <span class="token string">'1-2-1'</span>
+            <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+            name<span class="token operator">:</span> <span class="token string">'1-3'</span>
+        <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        name<span class="token operator">:</span> <span class="token string">'2'</span><span class="token punctuation">,</span>
+        children<span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            name<span class="token operator">:</span> <span class="token string">'2-1'</span>
+        <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+
+</code></pre></div><p>我们的Item组件可以这样实现：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> list<span class="token operator">:</span> any <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>children <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+        <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">&quot;item&quot;</span><span class="token operator">&gt;</span>
+            <span class="token punctuation">{</span>
+                list<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">item<span class="token operator">:</span> ItemData<span class="token punctuation">,</span> index<span class="token operator">:</span> number</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">return</span> <span class="token operator">&lt;</span>React<span class="token punctuation">.</span>Fragment key<span class="token operator">=</span><span class="token punctuation">{</span>index<span class="token punctuation">}</span><span class="token operator">&gt;</span>
+                        <span class="token operator">&lt;</span>h3<span class="token operator">&gt;</span><span class="token punctuation">{</span>item<span class="token punctuation">.</span>name<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>h3<span class="token operator">&gt;</span>
+                        <span class="token punctuation">{</span>
+                            <span class="token comment">// 当该节点还有children时，则递归调用本身</span>
+                            item<span class="token punctuation">.</span>children <span class="token operator">&amp;&amp;</span> item<span class="token punctuation">.</span>children<span class="token punctuation">.</span>length <span class="token operator">?</span>
+                            <span class="token operator">&lt;</span>Item<span class="token operator">&gt;</span><span class="token punctuation">{</span>item<span class="token punctuation">.</span>children<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>Item<span class="token operator">&gt;</span> <span class="token operator">:</span> <span class="token keyword">null</span>
+                        <span class="token punctuation">}</span>
+                    <span class="token operator">&lt;</span><span class="token operator">/</span>React<span class="token punctuation">.</span>Fragment<span class="token operator">&gt;</span>
+                <span class="token punctuation">}</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>最后调用这个组件：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token operator">&lt;</span>Item<span class="token operator">&gt;</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>list<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>Item<span class="token operator">&gt;</span>
+</code></pre></div></div> <div class="main-foot"><div class="info"><div id="avatar" class="info-avatar" style="width:90px;"><img src="/img/头像.jpg" alt="avatar"></div> <ul><li>
+          作者:
+          <a href="/about/" itemprop="name">RuiLin Dong</a></li> <li>发表日期: 2021-05-14 21:20</li> <li>
+          文章分类:
+          React
+        </li> <li>
+          文章标签:
+          <span>React</span></li> <li>
+          版权声明: 知识共享署名 4.0 国际许可协议（<a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY-NC-ND 4.0</a>）
+        </li> <li class="editThisPage"><a href="https://github.com/halodong/halodong.github.io/edit/master/docs/React/实现react组件的递归调用.md">编辑本文：&lt;/&gt; </a></li></ul></div> <div class="post-relative"><a href="/read/2021041901/" class="prev"><span class="icon iconfont icon-jiantou1"></span> <b>如何封装自己的react hooks</b></a><a href="/read/20220123091936/" class="next"><b>类型标记 Pick 与 Omit</b><span class="icon iconfont icon-jiantou"></span></a></div></div></div> <div class="read-foot"><div class="content"><div class="content-main"><div class="content-main-nav"><a class="currentNav">相关文章</a> <a>评论内容</a></div></div> <div class="read-active"><div style="display: block"><div class="read-foot-btn">
+          打开评论
+        </div></div> <ul><li v-if="[object Object]"><span><font>2021-04-19 » </font></span><a href="/read/2021041901/">如何封装自己的react hooks</a> <div class="relative-box"><span id="moreRelevant" style="display: inline"><p>通过自定义 Hook，可以将组件逻辑提取到可重用的函数中。</p>
+<h2 id="_1、常用的一个hooks"><a class="header-anchor" href="#_1、常用的一个hooks">#</a> 1、常用的一个hooks</h2>
+<p>官方中提供了几个内置的钩子，下面做下简单介绍</p>
+<h3 id="_1-1-usestate-状态"><a class="header-anchor" href="#_1-1-usestate-状态">#</a> 1.1 useState：状态</h3>
+<p>使用useState钩子，我们就可以给函数组件添加state了，例如点击按钮一下，count+1的操作：</p>
+</span>...
+          </div></li></ul> <!----> <div style="display: block"><div class="read-foot-btn">回到首页</div></div></div> <div aria-hidden="true" class="body-foot"><a id="music">🙈
+    <div><span>小彩蛋：</span> <p>点击播放音乐~</p></div></a> <span>©2021
+    <small><a href="/" about="_blank" class="router-link-active"></a></small></span>
+
+  本站由
+  <a href="/about/">RuiLin Dong</a> 纯手工打造
+  | <a href="/about/">联系方式</a> |
+  <span id="busuanzi_container_site_pv">本站总访问量 <span id="busuanzi_value_site_pv"></span>次
+  </span></div></div></div> <div class="read-left"><div class="read-left-top"><div class="bar-up"><div class="bar-item"><span class="icon iconfont icon-yingyong bar-item-current"><span class="show">首页</span> <div class="bar-item-hover">
+          首页瞧瞧~
+          <div class="triangle"></div> <div class="triangleBorder"></div></div></span> <span class="icon iconfont icon-A bar-item-current"><span class="show">日间</span> <div class="bar-item-hover"><div><div class="choose-box"><div><span class="icon iconfont icon-rijianmoshi"></span></div> <div class="mode"><span class="icon iconfont icon-yejianmoshi1"></span></div></div> <div class="triangle"></div> <div class="triangleBorder"></div></div></div></span> <span class="icon iconfont icon-wode bar-item-current"><span class="show">关于</span> <div class="bar-item-hover"><div style="width: 100px; height: 60px"><div class="about"><div>关于作者</div></div> <div class="triangle"></div> <div class="triangleBorder"></div></div></div></span></div></div></div> <div class="bar-down"><div class="bar-item"><span class="icon iconfont icon-youqinglianjie1 bar-item-current"><span class="show">链接</span> <div class="bar-item-hover">
+        友情链接~
+        <div class="triangle"></div> <div class="triangleBorder"></div></div></span></div></div></div> <div><div class="read-directory"><ul></ul></div> <div id="backTop"><span class="icon iconfont icon-dingbu"></span></div></div></div> <div id="container"><!----></div> <!----> <!----> <!----> <!----> <!----> <!----></div><div class="global-ui"></div></div>
+  <script src="/assets/js/app.32955b20.js" defer></script><script src="/assets/js/3.6ea38f64.js" defer></script><script src="/assets/js/27.92b85d8e.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>常用数组排序 | RuiLin Dong&#39;s blog</title>
+  <meta name="generator" content="VuePress 1.8.2">
+  <link rel="icon" href="/img/favicon.ico">
+  <meta name="description" content="web前端技术博客,专注web前端学习与总结。JavaScript,ES6,TypeScript,React,Vue,css3,html5,Node等技术文章。">
+  <link rel="preload" href="/assets/css/0.styles.8cb9a5ec.css" as="style"><link rel="preload" href="/assets/js/app.32955b20.js" as="script"><link rel="preload" href="/assets/js/3.6ea38f64.js" as="script"><link rel="preload" href="/assets/js/32.eac9b030.js" as="script"><link rel="prefetch" href="/assets/js/10.8c332cd5.js"><link rel="prefetch" href="/assets/js/11.cd441e34.js"><link rel="prefetch" href="/assets/js/12.2763773c.js"><link rel="prefetch" href="/assets/js/13.70f81f27.js"><link rel="prefetch" href="/assets/js/14.75dd1ac4.js"><link rel="prefetch" href="/assets/js/15.9f5639ac.js"><link rel="prefetch" href="/assets/js/16.7f71d8fe.js"><link rel="prefetch" href="/assets/js/17.f56ea22c.js"><link rel="prefetch" href="/assets/js/18.d9145faf.js"><link rel="prefetch" href="/assets/js/19.fea07779.js"><link rel="prefetch" href="/assets/js/2.d3f86703.js"><link rel="prefetch" href="/assets/js/20.6e95f2e0.js"><link rel="prefetch" href="/assets/js/21.402f2e3c.js"><link rel="prefetch" href="/assets/js/22.4bd8da4e.js"><link rel="prefetch" href="/assets/js/23.8b9a7c2a.js"><link rel="prefetch" href="/assets/js/24.10810a28.js"><link rel="prefetch" href="/assets/js/25.f8aaad82.js"><link rel="prefetch" href="/assets/js/26.e3b0d489.js"><link rel="prefetch" href="/assets/js/27.92b85d8e.js"><link rel="prefetch" href="/assets/js/28.ce133eb9.js"><link rel="prefetch" href="/assets/js/29.9ce5cdc5.js"><link rel="prefetch" href="/assets/js/30.e43c2cff.js"><link rel="prefetch" href="/assets/js/31.d5bb8ab9.js"><link rel="prefetch" href="/assets/js/33.2ceecce3.js"><link rel="prefetch" href="/assets/js/4.07bcf40d.js"><link rel="prefetch" href="/assets/js/5.a4179632.js"><link rel="prefetch" href="/assets/js/6.09ca258b.js"><link rel="prefetch" href="/assets/js/7.fa43c8f4.js"><link rel="prefetch" href="/assets/js/8.07bc9d20.js"><link rel="prefetch" href="/assets/js/9.79f2fb40.js">
+  <link rel="stylesheet" href="/assets/css/0.styles.8cb9a5ec.css">
+</head>
+
+<body class="theme-mode-light">
+  <div id="app" data-server-rendered="true"><div id="theme-container"><audio id="musicplayer"><source src="/sound/bgm.mp3"></audio> <!----> <div class="read"><div class="read-main"><div class="read-header-title">
+    常用数组排序
+    <img src="/img/头像.jpg" class="read-avatar"> <div class="read-header-nav"><a href="/about/">RuiLin Dong 的个人博客</a>
+      » <a href="/home/">博客</a> »
+      </div></div> <div class="read-header-mes"><div class="post-info"><span>作者:
+        <a href="/about/">RuiLin Dong</a></span> <span><span class="aria-readonly">本文发布于 2021-01-12 21:08</span></span><span>分类:
+        <span><a href="/categories/?category=%E7%AE%97%E6%B3%95" class="category-link">算法</a></span> <!----></span> <span>标签:
+        <a href="/tags/?tag=%E6%8E%92%E5%BA%8F" class="category-link">排序</a><a href="/tags/?tag=JavaScript" class="category-link">JavaScript</a></span></div></div> <div class="content__default"><h1 id="常用数组排序"><a href="#常用数组排序" class="header-anchor">#</a> 常用数组排序</h1> <p>本文主要汇总一维数组排序相关的方法，以升序为例。</p> <h2 id="一、冒泡排序"><a href="#一、冒泡排序" class="header-anchor">#</a> 一、冒泡排序</h2> <p>步骤：
+1、两个for遍历，使用两个指针，外循环i指针，内循环j指针
+2、对比两个指针指向的元素大小，如果i&gt;j,则进行值交换
+
+代码如下：</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">let</span> <span class="token function-variable function">bubbleSort</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">arr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+
+    <span class="token comment">//双指针</span>
+  <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> i<span class="token operator">+</span><span class="token number">1</span> <span class="token punctuation">;</span> j<span class="token operator">&lt;</span>arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&gt;</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token keyword">let</span> t <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+      arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span>
+      arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> t
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> arr
+<span class="token punctuation">}</span>
+
+</code></pre></div><h2 id="二、快速排序"><a href="#二、快速排序" class="header-anchor">#</a> 二、快速排序</h2> <p>步骤：
+1、如果数组长度小于等于0则返回该数组
+2、先提取中间值，把小于中间值的元素放在左数组，其他的放在右数组
+3、递归重复第二步，用Array.prototype.concat合并数组</p> <p>代码如下：</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">let</span> <span class="token function-variable function">quickSort</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">arr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+    <span class="token keyword">if</span><span class="token punctuation">(</span>arr<span class="token punctuation">.</span>length <span class="token operator">&lt;=</span> <span class="token number">0</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> arr
+    <span class="token punctuation">}</span>
+    <span class="token keyword">let</span> midIdx <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>arr<span class="token punctuation">.</span>length <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span>
+    <span class="token keyword">let</span> mid <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span>midIdx<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    <span class="token keyword">let</span> left <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">let</span> right <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span>mid<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            left<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            right<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> <span class="token function">quickSort</span><span class="token punctuation">(</span>left<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token function">quickSort</span><span class="token punctuation">(</span>right<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><h2 id="三、插入排序"><a href="#三、插入排序" class="header-anchor">#</a> 三、插入排序</h2> <p>步骤：
+1、遍历数组
+2、保存当前i指针指向的元素，用prev指针来遍历当前对象之前的元素
+3、前一元素大于当前元素时，把较大值后移一个，与再前一项去对比，找到比当前元素小的元素时停止
+4、将prev指针指向当前元素</p> <p>代码如下：</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">let</span> <span class="token function-variable function">insertSort</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">arr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> current <span class="token punctuation">,</span> prev
+
+  <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>arr<span class="token punctuation">.</span>length <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    current <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+    prev <span class="token operator">=</span> i <span class="token operator">-</span><span class="token number">1</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>prev <span class="token operator">&gt;=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> current<span class="token operator">&lt;</span>arr<span class="token punctuation">[</span>prev<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      arr<span class="token punctuation">[</span>prev<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>prev<span class="token punctuation">]</span>
+      <span class="token comment">//prev指针前移</span>
+      prev<span class="token operator">--</span>
+    <span class="token punctuation">}</span>
+
+    arr<span class="token punctuation">[</span>prev<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> current
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="四、es6方法"><a href="#四、es6方法" class="header-anchor">#</a> 四、es6方法</h2> <p>sort() 方法用原地算法对数组的元素进行排序，并返回数组。默认排序顺序是在将元素转换为字符串，然后比较它们的UTF-16代码单元值序列时构建的。</p> <p>要比较数字而非字符串，比较函数可以简单的以 a 减 b，如下的代码将会将数组升序排列</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>
+<span class="token keyword">function</span> <span class="token function">sort</span><span class="token punctuation">(</span><span class="token parameter">arr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>arr<span class="token punctuation">.</span>length <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> arr
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> arr<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span>b</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span>a<span class="token operator">-</span>b<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><p>-----持续更新-----</p></div> <div class="main-foot"><div class="info"><div id="avatar" class="info-avatar" style="width:90px;"><img src="/img/头像.jpg" alt="avatar"></div> <ul><li>
+          作者:
+          <a href="/about/" itemprop="name">RuiLin Dong</a></li> <li>发表日期: 2021-01-12 21:08</li> <li>
+          文章分类:
+          算法
+        </li> <li>
+          文章标签:
+          <span>排序</span><span>JavaScript</span></li> <li>
+          版权声明: 知识共享署名 4.0 国际许可协议（<a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY-NC-ND 4.0</a>）
+        </li> <li class="editThisPage"><a href="https://github.com/halodong/halodong.github.io/edit/master/docs/算法/常用数组排序.md">编辑本文：&lt;/&gt; </a></li></ul></div> <div class="post-relative"><a href="/read/20220316010320/" class="prev"><span class="icon iconfont icon-jiantou1"></span> <b>Webpack工作流</b></a><a href="/read/2021061601/" class="next"><b>新的开始，扬帆起航</b><span class="icon iconfont icon-jiantou"></span></a></div></div></div> <div class="read-foot"><div class="content"><div class="content-main"><div class="content-main-nav"><a class="currentNav">相关文章</a> <a>评论内容</a></div></div> <div class="read-active"><div style="display: block"><div class="read-foot-btn">
+          打开评论
+        </div></div> <ul><li v-if="[object Object],[object Object],[object Object],[object Object],[object Object]"><span><font>2022-01-12 » </font></span><a href="/read/20220112082041/">浏览器下文件压缩与解压</a> <div class="relative-box"><span id="moreRelevant" style="display: inline">空</span>...
+          </div></li><li v-if="[object Object],[object Object],[object Object],[object Object],[object Object]"><span><font>2021-08-18 » </font></span><a href="/read/20210818073319/">发布订阅与观察者模式</a> <div class="relative-box"><span id="moreRelevant" style="display: inline">空</span>...
+          </div></li><li v-if="[object Object],[object Object],[object Object],[object Object],[object Object]"><span><font>2021-07-10 » </font></span><a href="/read/20210710090031/">JS导出Excel表格</a> <div class="relative-box"><span id="moreRelevant" style="display: inline"><p>最近遇到一个需求，是需要将数据导出为 Excel 表格，在 GitHub 上找了很久，找到一个比较好用的库，做下记录。</p>
+</span>...
+          </div></li><li v-if="[object Object],[object Object],[object Object],[object Object],[object Object]"><span><font>2021-07-02 » </font></span><a href="/read/20210702083333/">博客时间线的生成</a> <div class="relative-box"><span id="moreRelevant" style="display: inline"><p>关于博客时间线的生成，当时也是找了很多解决方法，不过没有找到比较合适的好的解决方案，以本博客(VuePress)为例，笔者想到的解决方案如下，如果你也是使用的 VuePress 那么你要处理的文章的数据格式很可能是这样的：</p>
+</span>...
+          </div></li><li v-if="[object Object],[object Object],[object Object],[object Object],[object Object]"><span><font>2021-06-29 » </font></span><a href="/read/2021062901/">寻找指定className的子节点</a> <div class="relative-box"><span id="moreRelevant" style="display: inline"><p>在 AntVX6 中，使用 dataV 这个第三方库，但它的动态环图不能通过配置来更改字的颜色，只能更改翻牌器的颜色。</p>
+</span>...
+          </div></li></ul> <!----> <div style="display: block"><div class="read-foot-btn">回到首页</div></div></div> <div aria-hidden="true" class="body-foot"><a id="music">🙈
+    <div><span>小彩蛋：</span> <p>点击播放音乐~</p></div></a> <span>©2021
+    <small><a href="/" about="_blank" class="router-link-active"></a></small></span>
+
+  本站由
+  <a href="/about/">RuiLin Dong</a> 纯手工打造
+  | <a href="/about/">联系方式</a> |
+  <span id="busuanzi_container_site_pv">本站总访问量 <span id="busuanzi_value_site_pv"></span>次
+  </span></div></div></div> <div class="read-left"><div class="read-left-top"><div class="bar-up"><div class="bar-item"><span class="icon iconfont icon-yingyong bar-item-current"><span class="show">首页</span> <div class="bar-item-hover">
+          首页瞧瞧~
+          <div class="triangle"></div> <div class="triangleBorder"></div></div></span> <span class="icon iconfont icon-A bar-item-current"><span class="show">日间</span> <div class="bar-item-hover"><div><div class="choose-box"><div><span class="icon iconfont icon-rijianmoshi"></span></div> <div class="mode"><span class="icon iconfont icon-yejianmoshi1"></span></div></div> <div class="triangle"></div> <div class="triangleBorder"></div></div></div></span> <span class="icon iconfont icon-wode bar-item-current"><span class="show">关于</span> <div class="bar-item-hover"><div style="width: 100px; height: 60px"><div class="about"><div>关于作者</div></div> <div class="triangle"></div> <div class="triangleBorder"></div></div></div></span></div></div></div> <div class="bar-down"><div class="bar-item"><span class="icon iconfont icon-youqinglianjie1 bar-item-current"><span class="show">链接</span> <div class="bar-item-hover">
+        友情链接~
+        <div class="triangle"></div> <div class="triangleBorder"></div></div></span></div></div></div> <div><div class="read-directory"><ul><li class="directory-li"><a href="/read/2020011206/#一、冒泡排序">一、冒泡排序</a></li><li class="directory-li"><a href="/read/2020011206/#二、快速排序">二、快速排序</a></li><li class="directory-li"><a href="/read/2020011206/#三、插入排序">三、插入排序</a></li><li class="directory-li"><a href="/read/2020011206/#四、es6方法">四、es6方法</a></li></ul></div> <div id="backTop"><span class="icon iconfont icon-dingbu"></span></div></div></div> <div id="container"><!----></div> <!----> <!----> <!----> <!----> <!----> <!----></div><div class="global-ui"></div></div>
+  <script src="/assets/js/app.32955b20.js" defer></script><script src="/assets/js/3.6ea38f64.js" defer></script><script src="/assets/js/32.eac9b030.js" defer></script>
+</body>
+
+</html>

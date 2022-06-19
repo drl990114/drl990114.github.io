@@ -79,7 +79,7 @@
               themeConfigs.author
             }}</router-link>
           </li>
-          <li>发表日期:{{ publishDate }}</li>
+          <li>发表日期: {{ publishDate }}</li>
           <li>
             文章分类:
             {{

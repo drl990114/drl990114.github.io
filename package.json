@@ -1,25 +1,28 @@
 {
-  "name": "deeply",
+  "name": "blog",
   "version": "1.0.0",
   "main": "index.js",
+  "author": "drl990114 <drl990114@foxmail.com>",
   "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.10.4",
+    "fast-glob": "^3.2.12",
+    "fs-extra": "^11.1.0",
+    "globby": "11.0.4",
+    "gray-matter": "^4.0.3",
+    "markdown-it": "^13.0.1",
+    "markdown-it-mathjax3": "^4.3.2",
+    "vitepress": "1.0.0-rc.14"
+  },
   "scripts": {
-    "dev": "vuepress dev docs",
-    "build": "vuepress build docs",
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "serve": "vitepress serve",
     "deploy": "./deploy.sh"
   },
-  "devDependencies": {
-    "vuepress": "^1.8.2"
-  },
   "dependencies": {
-    "@vssue/api-github-v3": "^1.4.7",
-    "@vssue/vuepress-plugin-vssue": "^1.4.8",
-    "algoliasearch": "^4.9.2",
-    "axios": "^0.21.1",
-    "chalk": "^4.0.0",
-    "instantsearch.js": "^4.23.0",
-    "json2yaml": "^1.1.0",
-    "moment": "^2.29.1",
-    "web-barrier-free": "^1.0.0"
+    "dayjs": "^1.11.7",
+    "gitalk": "^1.8.0",
+    "vue": "^3.3.11"
   }
 }

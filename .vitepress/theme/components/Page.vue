@@ -126,22 +126,20 @@ const transDate = (date: string) => {
 };
 
 const getBlogStyle = (index: number) => {
-  const isBottom = index >= (posts.value.length % 3 === 0 ? posts.value.length - 3 : posts.value.length - posts.value.length % 3 - 1);
-  const isMid = index % 3 === 1;
+  const isRight = index % 3 === 2
+  const isLeft = index % 3 === 0
 
   const borderStyle = '1px solid var(--border-color)'
 
   const style = {
-    'border-top': index < 3 ? 'none' : borderStyle,
   }
 
-  if (isBottom) {
-    style['border-bottom'] = borderStyle
-  }
-
-  if (isMid) {
-    style['border-left'] = borderStyle
+  if (isLeft) {
     style['border-right'] = borderStyle
+  }
+
+  if (isRight) {
+    style['border-left'] = borderStyle
   }
 
   return style
@@ -164,6 +162,7 @@ const getBlogStyle = (index: number) => {
   align-items: center;
   justify-content: center;
   background: var(--vp-c-bg);
+  border-bottom: 1px solid var(--border-color);
   cursor: pointer;
 }
 

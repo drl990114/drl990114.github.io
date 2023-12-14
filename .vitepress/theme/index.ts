@@ -8,7 +8,6 @@ export default {
   ...DefaultTheme,
   Layout: MyLayout,
   enhanceApp(ctx) {
-    console.log("enhanceApp", ctx);
     DefaultTheme.enhanceApp(ctx);
     const { app } = ctx;
     // register global components

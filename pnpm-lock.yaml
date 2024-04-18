@@ -17,8 +17,8 @@ dependencies:
 
 devDependencies:
   '@types/node':
-    specifier: ^20.10.4
-    version: 20.10.4
+    specifier: ^20.12.7
+    version: 20.12.7
   fast-glob:
     specifier: ^3.2.12
     version: 3.2.12
@@ -39,7 +39,7 @@ devDependencies:
     version: 4.3.2
   vitepress:
     specifier: 1.0.0-rc.14
-    version: 1.0.0-rc.14(@algolia/client-search@4.20.0)(@types/node@20.10.4)(markdown-it-mathjax3@4.3.2)(react-dom@15.7.0)(react@15.7.0)(search-insights@2.6.0)
+    version: 1.0.0-rc.14(@algolia/client-search@4.20.0)(@types/node@20.12.7)(markdown-it-mathjax3@4.3.2)(react-dom@15.7.0)(react@15.7.0)(search-insights@2.6.0)
 
 packages:
 
@@ -467,8 +467,8 @@ packages:
       fastq: 1.15.0
     dev: true
 
-  /@types/node@20.10.4:
-    resolution: {integrity: sha512-D08YG6rr8X90YB56tSIuBaddy/UXAA9RKJoFvrsnogAum/0pmjkgi4+2nx96A330FmioegBWmEYQ+syqCFaveg==}
+  /@types/node@20.12.7:
+    resolution: {integrity: sha512-wq0cICSkRLVaf3UGLMGItu/PtdY7oaXaI/RVU+xliKVOtRna3PRY57ZDfztpDL0n11vfymMUnXv8QwYCO7L1wg==}
     dependencies:
       undici-types: 5.26.5
     dev: true
@@ -1913,7 +1913,7 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /vite@4.4.9(@types/node@20.10.4):
+  /vite@4.4.9(@types/node@20.12.7):
     resolution: {integrity: sha512-2mbUn2LlUmNASWwSCNSJ/EG2HuSRTnVNaydp6vMCm5VIqJsjMfbIWtbH2kDuwUVW5mMUKKZvGPX/rqeqVvv1XA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -1941,7 +1941,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 20.10.4
+      '@types/node': 20.12.7
       esbuild: 0.18.11
       postcss: 8.4.27
       rollup: 3.28.0
@@ -1949,7 +1949,7 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitepress@1.0.0-rc.14(@algolia/client-search@4.20.0)(@types/node@20.10.4)(markdown-it-mathjax3@4.3.2)(react-dom@15.7.0)(react@15.7.0)(search-insights@2.6.0):
+  /vitepress@1.0.0-rc.14(@algolia/client-search@4.20.0)(@types/node@20.12.7)(markdown-it-mathjax3@4.3.2)(react-dom@15.7.0)(react@15.7.0)(search-insights@2.6.0):
     resolution: {integrity: sha512-yChIeXOAcNvVnSVjhziH1vte0uhKb00PuZf7KdIMfx3ixTMAz73Nn+6gREvCv0SdH+anteGUKz5eljv0ygcgGQ==}
     hasBin: true
     peerDependencies:
@@ -1968,7 +1968,7 @@ packages:
       markdown-it-mathjax3: 4.3.2
       minisearch: 6.1.0
       shiki: 0.14.4
-      vite: 4.4.9(@types/node@20.10.4)
+      vite: 4.4.9(@types/node@20.12.7)
       vue: 3.4.23
     transitivePeerDependencies:
       - '@algolia/client-search'

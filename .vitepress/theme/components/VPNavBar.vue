@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import VPNavBarTitle from 'vitepress/dist/client/theme-default/components/VPNavBarTitle.vue'
 import VPNavBarSearch from 'vitepress/dist/client/theme-default/components/VPNavBarSearch.vue'
 import VPNavBarAppearance from 'vitepress/dist/client/theme-default/components/VPNavBarAppearance.vue'
 import VPNavBarSocialLinks from 'vitepress/dist/client/theme-default/components/VPNavBarSocialLinks.vue'
 import VPNavBarHamburger from 'vitepress/dist/client/theme-default/components/VPNavBarHamburger.vue'
+import { useData } from "vitepress";
 
 defineProps<{
   isScreenOpen: boolean
@@ -12,16 +12,18 @@ defineProps<{
 defineEmits<{
   (e: 'toggle-screen'): void
 }>()
+const { site } = useData();
+
 </script>
 
 <template>
-  <div class="VPNavBar" >
+  <div class="VPNavBar">
     <div class="container">
       <div class="content">
         <div class="curtain" />
         <div class="content-body">
-          <div class="title">
-            <VPNavBarTitle></VPNavBarTitle>
+          <div class="content-body-left">
+            <a href="/">{{ site.title }}</a>
           </div>
           <div class="content-body-mid">
             <VPNavBarSearch class="search" />
@@ -141,13 +143,19 @@ defineEmits<{
   transition: background-color 0.5s;
 }
 
+.content-body-left {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  height: var(--vp-nav-height);
+  border-right: 1px solid var(--border-color);
+}
+
 .content-body-mid {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   height: var(--vp-nav-height);
-  border-right: 1px solid var(--border-color);
-  border-left: 1px solid var(--border-color);
 }
 
 .content-body-right {
@@ -155,6 +163,7 @@ defineEmits<{
   justify-content: center;
   align-items: center;
   height: var(--vp-nav-height);
+  border-left: 1px solid var(--border-color);
 }
 
 @media (min-width: 960px) {
@@ -191,6 +200,7 @@ defineEmits<{
 .appearance {
   margin-left: 16px;
 }
+
 .social-links {
   margin-right: -8px;
 }

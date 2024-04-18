@@ -78,3 +78,10 @@
 .VPNav {
   display: none;
 }
+
+
+@media screen and (max-width: 990px) {
+  body {
+    font-size: 14px;
+  }
+}

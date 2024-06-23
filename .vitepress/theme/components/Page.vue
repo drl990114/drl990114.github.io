@@ -6,7 +6,7 @@
     </a>
   </div>
   <div class="pagination">
-    <div class="left pageLocation" v-if="pagesNum > 1">{{ `Page: ${pageCurrent}/${pagesNum}` }}</div>
+    <div class="left pageLocation">{{ `Page: ${pageCurrent}/${pagesNum}` }}</div>
     <button class="left-btn" v-if="pageCurrent > 1" @click="go(pageCurrent - 1)">
       <PaginationPrev />
     </button>
@@ -200,6 +200,7 @@ const getBlogStyle = (index: number) => {
   align-items: center;
   justify-content: center;
   width: 100%;
+  height: 60px;
   margin: 0 auto;
   padding: 12px 0;
   border-bottom: 1px solid var(--border-color);

@@ -1,9 +1,11 @@
 <script lang="ts" setup>
 import VPNavBarSearch from 'vitepress/dist/client/theme-default/components/VPNavBarSearch.vue'
-import VPNavBarAppearance from 'vitepress/dist/client/theme-default/components/VPNavBarAppearance.vue'
 import VPNavBarSocialLinks from 'vitepress/dist/client/theme-default/components/VPNavBarSocialLinks.vue'
 import VPNavBarHamburger from 'vitepress/dist/client/theme-default/components/VPNavBarHamburger.vue'
 import { useData } from "vitepress";
+import Dark from "./Icons/Dark.vue";
+import Light from "./Icons/Light.vue";
+import { inject } from 'vue'
 
 defineProps<{
   isScreenOpen: boolean
@@ -12,6 +14,12 @@ defineProps<{
 defineEmits<{
   (e: 'toggle-screen'): void
 }>()
+
+const { isDark } = useData()
+
+const toggleAppearance = inject('toggle-appearance', () => {
+  isDark.value = !isDark.value
+})
 const { site } = useData();
 
 </script>
@@ -30,7 +38,8 @@ const { site } = useData();
           </div>
           <div class="content-body-right">
             <VPNavBarSocialLinks class="social-links" />
-            <VPNavBarAppearance class="appearance" />
+            <Dark class="appearance-btn" v-if="isDark" @click="toggleAppearance" />
+            <Light class="appearance-btn" v-else @click="toggleAppearance" />
             <VPNavBarHamburger class="hamburger" :active="isScreenOpen" @click="$emit('toggle-screen')" />
           </div>
         </div>
@@ -52,6 +61,23 @@ const { site } = useData();
 
 .VPNavBar.has-sidebar {
   border-bottom-color: var(--vp-c-gutter);
+}
+
+.appearance-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 22px;
+  height: 22px;
+  padding: 6px;
+  border-radius: 22px;
+  margin-left: 6px;
+  transition: color 0.5s;
+  box-sizing: content-box;
+}
+
+.appearance-btn:hover {
+  background-color: var(--btn-hover-bg);
 }
 
 @media (min-width: 768px) {

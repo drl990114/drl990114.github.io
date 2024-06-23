@@ -24,7 +24,7 @@
   --footer-color: #f4f4f4;
   --border-color: rgba(0, 0, 0, 0.2);
   --btn-bg: #faf6f1;
-  --btn-hover-bg: #212121;
+  --btn-hover-bg: rgba(0, 0, 0, 0.2);
 }
 .dark {
   --vp-c-bg: #0e1117;

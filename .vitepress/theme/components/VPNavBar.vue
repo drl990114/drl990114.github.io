@@ -193,6 +193,10 @@ const { site } = useData();
 }
 
 @media (min-width: 960px) {
+  .VPNavBarSocialLinks {
+    display: flex;
+    align-items: center;
+  }
 
   .VPNavBar.has-sidebar .content-body,
   .VPNavBar.fill .content-body {

@@ -16,7 +16,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { ref } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import { useData, withBase } from "vitepress";
 import PaginationNext from "./Icons/PaginationNext.vue";
 import PaginationPrev from "./Icons/PaginationPrev.vue";
@@ -125,25 +125,45 @@ const transDate = (date: string) => {
   return `${month} ${day}, ${year}`;
 };
 
+const isTwoColumns = ref(window.matchMedia('(max-width: 990px)').matches);
+
+const updateLayout = () => {
+  isTwoColumns.value = window.matchMedia('(max-width: 990px)').matches;
+};
+
+onMounted(() => {
+  window.addEventListener('resize', updateLayout);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('resize', updateLayout);
+});
+
 const getBlogStyle = (index: number) => {
-  const isRight = index % 3 === 2
-  const isLeft = index % 3 === 0
+  const borderStyle = '1px solid var(--border-color)';
+  const style = {};
 
-  const borderStyle = '1px solid var(--border-color)'
+  if (isTwoColumns.value) {
+    // 两列布局时，奇数索引的文章左侧显示边框
+    if (index % 2 === 1) {
+      style['border-left'] = borderStyle;
+    }
+  } else {
+    // 三列布局时保持原有逻辑
+    const isRight = index % 3 === 2;
+    const isLeft = index % 3 === 0;
 
-  const style = {
+    if (isLeft) {
+      style['border-right'] = borderStyle;
+    }
+
+    if (isRight) {
+      style['border-left'] = borderStyle;
+    }
   }
 
-  if (isLeft) {
-    style['border-right'] = borderStyle
-  }
-
-  if (isRight) {
-    style['border-left'] = borderStyle
-  }
-
-  return style
-}
+  return style;
+};
 </script>
 
 <style scoped>
@@ -151,8 +171,14 @@ const getBlogStyle = (index: number) => {
   height: calc(100% - var(--vp-nav-height));
   display: grid;
   background-color: var(--vp-c-bg);
-  grid-template-columns: repeat(3, 33.33333%);
-  grid-template-rows: repeat(3, 25%);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+
+@media screen and (max-width: 990px) {
+  .blogList {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .blog {
@@ -164,6 +190,7 @@ const getBlogStyle = (index: number) => {
   background: var(--vp-c-bg);
   border-bottom: 1px solid var(--border-color);
   cursor: pointer;
+  padding: 20px;
 }
 
 .title {

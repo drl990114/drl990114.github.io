@@ -1,6 +1,6 @@
 ---
 layout: page
-navbar: false
+navbar: true
 ---
 
 <Archives/>

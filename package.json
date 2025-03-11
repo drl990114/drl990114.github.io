@@ -21,8 +21,10 @@
     "deploy": "./deploy.sh"
   },
   "dependencies": {
+    "@chenfengyuan/vue-qrcode": "2",
     "dayjs": "^1.11.10",
     "gitalk": "^1.8.0",
+    "qrcode": "1",
     "vue": "^3.5.13"
   }
 }

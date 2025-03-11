@@ -1,6 +1,6 @@
 <template>
-  <Nav></Nav>
-  <Layout>
+  <Nav v-if="frontmatter?.navbar !== false"></Nav>
+  <Layout :class="{ 'no-navbar': frontmatter?.navbar === false }">
     <template #doc-before>
       <Title />
       <Category />
@@ -27,12 +27,22 @@ import CopyWright from "./CopyWright.vue";
 import Page from "./Page.vue";
 import Category from "./Category.vue";
 import Title from "./Title.vue";
+import { useData } from 'vitepress';
+
 const { Layout } = DefaultTheme;
+const { frontmatter } = useData();
 const back = () => {
   history.back();
 };
 </script>
-<style scoped>
+<style>
+.Layout.no-navbar #VPContent {
+  padding-top: 0;
+}
+.Layout {
+  min-height: 100% !important;
+}
+
 .done {
   margin-bottom: 20px;
 }

@@ -3,7 +3,6 @@ import Archives from "./components/Archives.vue";
 import Tags from "./components/Tags.vue";
 import MyLayout from "./components/MyLayout.vue";
 import SponsorPage from "./components/SponsorPage.vue";
-import VueQrcode from '@chenfengyuan/vue-qrcode';
 import "./custom.css";
 
 export default {
@@ -16,6 +15,5 @@ export default {
     app.component("Archives", Archives);
     app.component("Tags", Tags);
     app.component("SponsorPage", SponsorPage);
-    app.component("VueQrcode", VueQrcode);
   },
 };

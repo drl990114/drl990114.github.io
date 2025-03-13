@@ -27,13 +27,13 @@
         <div class="qr-code-item">
           <h3>微信支付</h3>
           <div class="qr-code-placeholder">
-            <vue-qrcode value="wxp://f2f0TCT2F4rPW5Kx3HKW2mgmwS6h2rPUS9Z9rJadrGch51I" :options="{ width: 180 }"></vue-qrcode>
+            <img src="/images/wxpay.png"/>
           </div>
         </div>
         <div class="qr-code-item">
           <h3>支付宝</h3>
           <div class="qr-code-placeholder">
-            <vue-qrcode value="https://qr.alipay.com/fkx15841fnpqgnubumwxod7" :options="{ width: 180 }"></vue-qrcode>
+            <img src="/images/alipay.png"/>
           </div>
         </div>
       </div>

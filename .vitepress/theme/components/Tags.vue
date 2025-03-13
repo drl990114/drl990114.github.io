@@ -48,21 +48,35 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { computed, ref } from "vue";
-import { useData, withBase } from "vitepress";
+import { computed, ref, onMounted } from "vue";
+import { useData, withBase, useRoute } from "vitepress";
 import { initTags } from "../utils";
 
+const route = useRoute();
 const { theme } = useData();
 const data = computed(() => initTags(theme.value.posts));
-let selectTag = ref("");
+const keys = Object.keys(data.value);
+let selectTag = ref(keys[0]);
+
 const toggleTag = (tag: string) => {
   selectTag.value = tag;
+  const newPath = `/tags.html?tag=${encodeURIComponent(tag)}`;
+  history.pushState(null, '', newPath);
 };
+
 // set font-size
 const getFontSize = (length: number) => {
   let size = length * 0.04 + 0.85;
   return { fontSize: `${size}em` };
 };
+
+onMounted(() => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const tagFromUrl = urlParams.get('tag');
+  if (tagFromUrl && keys.includes(tagFromUrl)) {
+    selectTag.value = tagFromUrl;
+  }
+});
 </script>
 
 <style scoped>

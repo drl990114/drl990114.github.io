@@ -3,6 +3,7 @@
   <Layout :class="{ 'no-navbar': frontmatter?.navbar === false }">
     <template #doc-before>
       <Title />
+      <PostTags v-if="frontmatter?.tags" :tags="frontmatter.tags" />
       <Category />
     </template>
     <template #doc-after>
@@ -27,6 +28,7 @@ import CopyWright from "./CopyWright.vue";
 import Page from "./Page.vue";
 import Category from "./Category.vue";
 import Title from "./Title.vue";
+import PostTags from "./PostTags.vue";
 import { useData } from 'vitepress';
 
 const { Layout } = DefaultTheme;

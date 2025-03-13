@@ -13,6 +13,9 @@
     <button class="right-btn" v-if="pageCurrent < pagesNum" @click="go(pageCurrent + 1)">
       <PaginationNext />
     </button>
+    <div class="right archive-link">
+      <a href="/archives.html" class="archive-button">All...</a>
+    </div>
   </div>
 </template>
 <script lang="ts" setup>
@@ -31,14 +34,15 @@ const { theme } = useData();
 let postsAll = theme.value.posts || [];
 // get postLength
 let postLength = theme.value.postLength;
+const isTwoColumns = ref(window.matchMedia('(max-width: 990px)').matches);
 // get pageSize
-let pageSize = theme.value.pageSize;
+let pageSize = ref(isTwoColumns.value ? 10 : 12);
 
 //  pagesNum
 let pagesNum =
-  postLength % pageSize === 0
-    ? postLength / pageSize
-    : postLength / pageSize + 1;
+  postLength % pageSize.value === 0
+    ? postLength / pageSize.value
+    : (postLength / pageSize.value) + 1;
 pagesNum = parseInt(pagesNum.toString());
 //pageCurrent
 let pageCurrent = ref(1);
@@ -53,7 +57,7 @@ for (let i = 0; i < pagesNum; i++) {
 }
 let index = 0;
 for (let i = 0; i < postsAll.length; i++) {
-  if (allMap[index].length > pageSize - 1) {
+  if (allMap[index].length > pageSize.value - 1) {
     index += 1;
   }
   allMap[index].push(postsAll[i]);
@@ -125,9 +129,9 @@ const transDate = (date: string) => {
   return `${month} ${day}, ${year}`;
 };
 
-const isTwoColumns = ref(window.matchMedia('(max-width: 990px)').matches);
 
 const updateLayout = () => {
+  pageSize.value = isTwoColumns.value ? 10 : 12;
   isTwoColumns.value = window.matchMedia('(max-width: 990px)').matches;
 };
 
@@ -282,5 +286,40 @@ button:hover {
 .right {
   position: absolute;
   right: 0;
+}
+
+.archive-link {
+  display: flex;
+  justify-content: center;
+  padding-right: 1rem;
+}
+
+.archive-button {
+  display: inline-block;
+  position: relative;
+  color: var(--vp-c-color-d);
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 8px 16px;
+}
+
+.archive-button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--vp-c-color-d);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.archive-button:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 </style>
